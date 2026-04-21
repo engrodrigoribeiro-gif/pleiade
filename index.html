@@ -71,7 +71,7 @@
             margin: 0;
         }
         </style>
-        <title>Aura Minerals | Almas | Diagnóstico Ambiental e Fundiário</title>
+        <title>Cadastro Multifinalitário Ambiental e Fundiário</title>
     </head>
     <body>
 <!-- map -->
@@ -84,7 +84,7 @@
 			<!--form logo -->
 			<div id="form_logo" style="position:absolute; z-index:1">
 			<label><a href="./index.html"><img src="./resources/stemma.png" align="left" height="60" title='Reset map'></img></a></label>
-			<h1 align="center">Aura Minerals | Almas | Diagnóstico Ambiental e Fundiário</h1>
+			<h1 align="center">Cadastro Multifinalitário Ambiental e Fundiário</h1>
 			</div>
 			<!-- form query wms wfs -->	  
 			<form id="form_querywmswfs" style="display: none;">
@@ -186,8 +186,8 @@
         <script src="./resources/ol.js"></script>
         <script src="./resources/ol-layerswitcher.js"></script>
 		-->
-		<script src="layers/Plano_Diretor_2025_Empreendimento.js"></script>
-        <script src="styles/Plano_Diretor_2025_Empreendimento_style.js"></script>
+		<script src="layers/servidao_2026_virasaia.js"></script><script src="layers/servidao_2026_jacobina.js"></script><script src="layers/servidao_2026_novaprata.js"></script><script src="layers/servidao_paiol_original.js"></script><script src="layers/servidao_virasaia_original.js"></script><script src="layers/V1_Fazenda_Grota_Ouro.js"></script>
+        <script src="styles/servidao_2026_virasaia_style.js"></script><script src="styles/servidao_2026_jacobina_style.js"></script><script src="styles/servidao_2026_novaprata_style.js"></script><script src="styles/servidao_paiol_original_style.js"></script><script src="styles/servidao_virasaia_original_style.js"></script><script src="styles/V1_Fazenda_Grota_Ouro_style.js"></script>
 		<!--
         <script src="./layers/layers.js" type="text/javascript"></script> -->
 		<!--
@@ -217,7 +217,108 @@
 
 <!-- search feature -->
 
-        <!-- No searchable fields defined in project file -->
+      <script>
+        function searchFeatures() {          
+            // Insert combo box for source choice
+            var selectElt = document.createElement('select');
+            var buttonElt = search.element.querySelector('button');
+            search.element.insertBefore(selectElt, buttonElt);
+            /*
+            //// Example: Collection to merge multiple sources
+            //class sourceCollection extends ol.source.Vector {
+            //	constructor(opt) {
+            //		opt = opt || {};
+            //		super(opt);
+            //		this._sources = opt.sources;
+            //	}
+            //	getFeatures() {
+            //		var a = [];
+            //		this._sources.forEach(s => a = a.concat(s.getFeatures()));
+            //		return a;
+            //	}
+            //}
+            //// Define all source layers
+            //const combinedSource = new sourceCollection({
+            //	sources: [lyr_Option1.getSource(), lyr_Option2.getSource(), lyr_Option3.getSource()]
+            //});
+            */
+            // Set options to search in different source, one at a time
+            ['https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK', 'https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK', 'NOME'].forEach(function (l) {
+              ol.ext.element.create('OPTION', {
+                text: l,
+                parent: selectElt
+              });
+            });
+            // For each option set data to perform the search
+            function handleComboBoxChange() {
+              search.clearHistory();
+              search.setInput('');
+              isManualSearch = true;
+
+              if (selectElt.value === 'https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK') {
+                search.setSource(lyr_V1_Fazenda_Grota_Ouro.getSource());
+                search.set('property', 'COD_IMOVEL');
+                search.set('placeholder', 'Find https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK ...');
+                if (isManualSearch) {
+                    search.on('select', function(e) { lyr_V1_Fazenda_Grota_Ouro.setVisible(true); }); //show layer when search
+                }	
+              } 
+              if (selectElt.value === 'https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK') {
+                search.setSource(lyr_V1_Fazenda_Grota_Ouro.getSource());
+                search.set('property', 'ID');
+                search.set('placeholder', 'Find https://pleiadeagro-my.sharepoint.com/:b:/g/personal/rodrigo_pleiadeagro_com_br1/IQCfkn8TYjtARLqZobuPWreCAZOrIzWW1GjkFfh4HqkGgjs?e=gNb9NK ...');
+                if (isManualSearch) {
+                    search.on('select', function(e) { lyr_V1_Fazenda_Grota_Ouro.setVisible(true); }); //show layer when search
+                }	
+              } 
+              if (selectElt.value === 'NOME') {
+                search.setSource(lyr_V1_Fazenda_Grota_Ouro.getSource());
+                search.set('property', 'NOME');
+                search.set('placeholder', 'Find NOME ...');
+                if (isManualSearch) {
+                    search.on('select', function(e) { lyr_V1_Fazenda_Grota_Ouro.setVisible(true); }); //show layer when search
+                }	
+              }
+              // Reset del placeholder nella barra di ricerca
+              var inputField = search.element.querySelector('.ol-search input');
+              inputField.placeholder = search.get('placeholder');
+              // Reset lista risultati dopo cambio combo
+              search.drawList_();
+            }
+            handleComboBoxChange();
+            // Lista i risultati all'avvio
+            search.drawList_ = function(auto) {
+                if (!auto) {
+                    source = search.getSource()
+                    // Get all features
+                    auto = source instanceof ol.source.Cluster ? source.getSource().getFeatures() : source.getFeatures();
+                }			
+                // Sort result 
+                auto = auto.slice().sort(function(f1, f2) {
+                    if (search.getSearchString(f1) < search.getSearchString(f2)) return -1;
+                    if (search.getSearchString(f1) > search.getSearchString(f2)) return 1;
+                    return 0;
+                  });
+                // Call the default behavior
+                ol.control.SearchFeature.prototype.drawList_.call(search, auto)
+                // Clear list from 'undefined' values and empty elements from Source
+                $('.ol-search > ul > li[data-search]').filter(function() {
+                    const text = $(this).text().trim();
+                    return text === 'undefined' || text === '';
+                }).remove();
+            }
+
+            // Change event
+            selectElt.addEventListener('change', function() {
+              handleComboBoxChange(); 
+            });	
+        }
+        if (window.layersLoadedFlag) {
+            searchFeatures();
+        } else {
+            document.addEventListener('layersLoaded', searchFeatures);
+        }
+</script>
 
 <!-- search feature 
 <script>
