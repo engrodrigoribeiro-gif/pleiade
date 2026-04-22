@@ -32,13 +32,149 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
     lyr_ImagemdeSatlitePleiades2015.setVisible(false);
     
 
+    var projection_GlobalMonthly202603Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202603Mosaic = projection_GlobalMonthly202603Mosaic.getExtent();
+    var size_GlobalMonthly202603Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202603Mosaic) / 256;
+    var resolutions_GlobalMonthly202603Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202603Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202603Mosaic[z] = size_GlobalMonthly202603Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202603Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202603Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2026_03_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202603Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202603Mosaic),
+                resolutions: resolutions_GlobalMonthly202603Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202603Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2026 03 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202507Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202507Mosaic = projection_GlobalMonthly202507Mosaic.getExtent();
+    var size_GlobalMonthly202507Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202507Mosaic) / 256;
+    var resolutions_GlobalMonthly202507Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202507Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202507Mosaic[z] = size_GlobalMonthly202507Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202507Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202507Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2025_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202507Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202507Mosaic),
+                resolutions: resolutions_GlobalMonthly202507Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202507Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2025 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202407Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202407Mosaic = projection_GlobalMonthly202407Mosaic.getExtent();
+    var size_GlobalMonthly202407Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202407Mosaic) / 256;
+    var resolutions_GlobalMonthly202407Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202407Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202407Mosaic[z] = size_GlobalMonthly202407Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202407Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202407Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2024_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202407Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202407Mosaic),
+                resolutions: resolutions_GlobalMonthly202407Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202407Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2024 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202307Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202307Mosaic = projection_GlobalMonthly202307Mosaic.getExtent();
+    var size_GlobalMonthly202307Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202307Mosaic) / 256;
+    var resolutions_GlobalMonthly202307Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202307Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202307Mosaic[z] = size_GlobalMonthly202307Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202307Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202307Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2023_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202307Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202307Mosaic),
+                resolutions: resolutions_GlobalMonthly202307Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202307Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2023 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
 var lyr_v1_fazenda_grota_ouro = new ol.layer.VectorImage({
     title: '<div class="roller-switcher"></div> v1_fazenda_grota_ouro',
     source: new ol.source.Vector(), 
     sourceType: 'json',
     permalink: "v1_fazenda_grota_ouro",
     popuplayertitle: 'v1_fazenda_grota_ouro',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_v1_fazenda_grota_ouro_data() {
@@ -204,7 +340,7 @@ var lyr_servidao_2026_virasaia = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_virasaia",
     popuplayertitle: 'servidao_2026_virasaia',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_servidao_2026_virasaia_data() {
@@ -235,7 +371,7 @@ var lyr_servidao_2026_jacobina = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_jacobina",
     popuplayertitle: 'servidao_2026_jacobina',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_servidao_2026_jacobina_data() {
@@ -266,7 +402,7 @@ var lyr_servidao_2026_novaprata = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_novaprata",
     popuplayertitle: 'servidao_2026_novaprata',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_servidao_2026_novaprata_data() {
@@ -297,7 +433,7 @@ var lyr_servidao_paiol_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_paiol_original",
     popuplayertitle: 'servidao_paiol_original',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_servidao_paiol_original_data() {
@@ -328,7 +464,7 @@ var lyr_servidao_virasaia_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_virasaia_original",
     popuplayertitle: 'servidao_virasaia_original',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
 });
 function load_servidao_virasaia_original_data() {
@@ -359,7 +495,7 @@ var lyr_plano_diretor_2025_empreendimento = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "plano_diretor_2025_empreendimento",
     popuplayertitle: 'plano_diretor_2025_empreendimento',
-    creationdate: '2026-04-21 18:18:15',
+    creationdate: '2026-04-22 09:48:30',
     interactive: true,
     style: style_plano_diretor_2025_empreendimento,
 });
@@ -519,7 +655,7 @@ function load_plano_diretor_2025_empreendimento_data() {
 
 var group_a_plano_diretor = new ol.layer.Group({
                                 layers: [lyr_plano_diretor_2025_empreendimento,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'a_plano_diretor'});
 var group_b_areas_licencas = new ol.layer.Group({
                                 layers: [],
@@ -535,11 +671,11 @@ var group_011_Base_Oficial_Aura = new ol.layer.Group({
                                 title: '01-1_Base_Oficial_Aura'});
 var group_Sigef = new ol.layer.Group({
                                 layers: [lyr_ImoveisCertificadosSigefPublicoTO,lyr_ImoveisCertificadosSigefParticularTO,lyr_ImoveisCertificadosSNCILei10267_2001PublicoTO,lyr_ImoveisCertificadosSNCILei10267_2001PrivadoTO,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Sigef'});
 var group_012_Bases_Complementares = new ol.layer.Group({
                                 layers: [lyr_SigcarTO_propriedade_area_imovel_completo,lyr_Processosminerriosativos,group_Sigef,],
-                                openInLayerSwitcher: true,
+                                openInLayerSwitcher: false,
                                 title: '01-2_Bases_Complementares'});
 var group_01_BASES_DADOS_GERAIS = new ol.layer.Group({
                                 layers: [group_012_Bases_Complementares,group_011_Base_Oficial_Aura,],
@@ -623,7 +759,7 @@ var group_c_produto_validado = new ol.layer.Group({
                                 title: 'c_produto_validado'});
 var group_OS02_Melquiades_Nova_Prata = new ol.layer.Group({
                                 layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'OS-02_Melquiades_Nova_Prata'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [],
@@ -635,7 +771,7 @@ var group_a2_obtidos_pleiade = new ol.layer.Group({
                                 title: 'a.2_obtidos_pleiade'});
 var group_a_dados_especficos = new ol.layer.Group({
                                 layers: [group_a2_obtidos_pleiade,group_a1_recebidos_aura,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'a_dados_específicos'});
 var group_b1_limite_imovel = new ol.layer.Group({
                                 layers: [],
@@ -655,7 +791,7 @@ var group_b4_analise_car_vs_intervencoes = new ol.layer.Group({
                                 title: 'b.4_analise_car_vs_intervencoes'});
 var group_b_trabalho_em_curso = new ol.layer.Group({
                                 layers: [group_b4_analise_car_vs_intervencoes,group_b3_analise_car,group_b2_car_imovel_vs_intervencoes,group_b1_limite_imovel,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'b_trabalho_em_curso'});
 var group_c_produto_validado = new ol.layer.Group({
                                 layers: [],
@@ -663,32 +799,8 @@ var group_c_produto_validado = new ol.layer.Group({
                                 title: 'c_produto_validado'});
 var group_OS03_Nova_Prata_Operacional = new ol.layer.Group({
                                 layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'OS-03_Nova_Prata_Operacional'});
-var group_c_produto_validado = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'c_produto_validado'});
-var group_b1_limite_imovel = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'b.1_limite_imovel'});
-var group_b2_car_imovel_vs_intervencoes = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'b.2_car_imovel_vs_intervencoes'});
-var group_b3_analise_car = new ol.layer.Group({
-                                layers: [lyr_v1_fazenda_grota_ouro,],
-                                openInLayerSwitcher: true,
-                                title: 'b.3_analise_car'});
-var group_b4_analise_car_vs_intervencoes = new ol.layer.Group({
-                                layers: [],
-                                openInLayerSwitcher: true,
-                                title: 'b.4_analise_car_vs_intervencoes'});
-var group_b_trabalho_em_curso = new ol.layer.Group({
-                                layers: [group_b4_analise_car_vs_intervencoes,group_b3_analise_car,group_b2_car_imovel_vs_intervencoes,group_b1_limite_imovel,],
-                                openInLayerSwitcher: false,
-                                title: 'b_trabalho_em_curso'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [],
                                 openInLayerSwitcher: true,
@@ -701,8 +813,32 @@ var group_a_dados_especficos = new ol.layer.Group({
                                 layers: [group_a2_obtidos_pleiade,group_a1_recebidos_aura,],
                                 openInLayerSwitcher: false,
                                 title: 'a_dados_específicos'});
+var group_b1_limite_imovel = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: true,
+                                title: 'b.1_limite_imovel'});
+var group_b2_car_imovel_vs_intervencoes = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: true,
+                                title: 'b.2_car_imovel_vs_intervencoes'});
+var group_b3_analise_car = new ol.layer.Group({
+                                layers: [lyr_v1_fazenda_grota_ouro,],
+                                openInLayerSwitcher: false,
+                                title: 'b.3_analise_car'});
+var group_b4_analise_car_vs_intervencoes = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: true,
+                                title: 'b.4_analise_car_vs_intervencoes'});
+var group_b_trabalho_em_curso = new ol.layer.Group({
+                                layers: [group_b4_analise_car_vs_intervencoes,group_b3_analise_car,group_b2_car_imovel_vs_intervencoes,group_b1_limite_imovel,],
+                                openInLayerSwitcher: true,
+                                title: 'b_trabalho_em_curso'});
+var group_c_produto_validado = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: true,
+                                title: 'c_produto_validado'});
 var group_NivardoFazendaGrotadoOuro = new ol.layer.Group({
-                                layers: [group_a_dados_especficos,group_b_trabalho_em_curso,group_c_produto_validado,],
+                                layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
                                 openInLayerSwitcher: true,
                                 title: 'Nivardo - Fazenda Grota do Ouro'});
 var group_OS04_Virasaia_Cava_Sul = new ol.layer.Group({
@@ -747,7 +883,7 @@ var group_c_produto_validado = new ol.layer.Group({
                                 title: 'c_produto_validado'});
 var group_OS05_Barragens_Alteamento = new ol.layer.Group({
                                 layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'OS-05_Barragens_Alteamento'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [],
@@ -787,7 +923,7 @@ var group_c_produto_validado = new ol.layer.Group({
                                 title: 'c_produto_validado'});
 var group_OS06_Virasaia_Cava_Norte = new ol.layer.Group({
                                 layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'OS-06_Virasaia_Cava_Norte'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [],
@@ -827,11 +963,11 @@ var group_c_produto_validado = new ol.layer.Group({
                                 title: 'c_produto_validado'});
 var group_OS07_Areas_Quilombolas = new ol.layer.Group({
                                 layers: [group_c_produto_validado,group_b_trabalho_em_curso,group_a_dados_especficos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'OS-07_Areas_Quilombolas'});
 var group_02_ORDENS_SERVIOS = new ol.layer.Group({
                                 layers: [group_OS07_Areas_Quilombolas,group_OS06_Virasaia_Cava_Norte,group_OS05_Barragens_Alteamento,group_OS04_Virasaia_Cava_Sul,group_OS03_Nova_Prata_Operacional,group_OS02_Melquiades_Nova_Prata,group_OS01_Alarico_Virasaia,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: '02_ORDENS_SERVIÇOS'});
 var group_991_Versoes_Superadas = new ol.layer.Group({
                                 layers: [],
@@ -847,14 +983,14 @@ var group_993_Descartados = new ol.layer.Group({
                                 title: '99-3_Descartados'});
 var group_98_HISTORICO = new ol.layer.Group({
                                 layers: [group_993_Descartados,group_992_Testes,group_991_Versoes_Superadas,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: '98_HISTORICO'});
 var group_99_IMAGENS_SENSOR_REMOTO = new ol.layer.Group({
-                                layers: [lyr_Imagem_Google,lyr_ImagemdeSatlitePleiades2015,],
+                                layers: [lyr_Imagem_Google,lyr_ImagemdeSatlitePleiades2015,lyr_GlobalMonthly202603Mosaic,lyr_GlobalMonthly202507Mosaic,lyr_GlobalMonthly202407Mosaic,lyr_GlobalMonthly202307Mosaic,],
                                 openInLayerSwitcher: true,
                                 title: '99_IMAGENS_SENSOR_REMOTO'});
 
-lyr_Imagem_Google.setVisible(true);lyr_ImagemdeSatlitePleiades2015.setVisible(false);lyr_v1_fazenda_grota_ouro.setVisible(true);lyr_SigcarTO_propriedade_area_imovel_completo.setVisible(false);lyr_Processosminerriosativos.setVisible(false);lyr_ImoveisCertificadosSigefPublicoTO.setVisible(false);lyr_ImoveisCertificadosSigefParticularTO.setVisible(false);lyr_ImoveisCertificadosSNCILei10267_2001PublicoTO.setVisible(false);lyr_ImoveisCertificadosSNCILei10267_2001PrivadoTO.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025_empreendimento.setVisible(true);
+lyr_Imagem_Google.setVisible(true);lyr_ImagemdeSatlitePleiades2015.setVisible(false);lyr_GlobalMonthly202603Mosaic.setVisible(false);lyr_GlobalMonthly202507Mosaic.setVisible(false);lyr_GlobalMonthly202407Mosaic.setVisible(false);lyr_GlobalMonthly202307Mosaic.setVisible(false);lyr_v1_fazenda_grota_ouro.setVisible(true);lyr_SigcarTO_propriedade_area_imovel_completo.setVisible(false);lyr_Processosminerriosativos.setVisible(false);lyr_ImoveisCertificadosSigefPublicoTO.setVisible(false);lyr_ImoveisCertificadosSigefParticularTO.setVisible(false);lyr_ImoveisCertificadosSNCILei10267_2001PublicoTO.setVisible(false);lyr_ImoveisCertificadosSNCILei10267_2001PrivadoTO.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025_empreendimento.setVisible(true);
 var layersList = [group_99_IMAGENS_SENSOR_REMOTO,group_98_HISTORICO,group_02_ORDENS_SERVIOS,group_01_BASES_DADOS_GERAIS];
 lyr_v1_fazenda_grota_ouro.set('fieldAliases', {'fid': 'fid', 'COD_IMOVEL': 'COD_IMOVEL', 'ID': 'ID', 'NOME': 'NOME', 'Link': 'Link', });
 lyr_servidao_2026_virasaia.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
