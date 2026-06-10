@@ -7,6 +7,10 @@
 	var initialMapZoom = map.getView().getZoom();
 	//console.log("Initial Map Zoom Level: ", initialMapZoom);
 
+// Get current projection and extent
+	var currentProjection = map.getView().getProjection().getCode();
+	var viewExtent = map.getView().getProperties().extent;
+
 // Draw Style Pre and Post
 	var drawStylePre = [
 		new ol.style.Style({
@@ -294,55 +298,25 @@
 	  $('#form_logo').addClass('touch');
 	}		
 		
-// change cursor
-	function styleCursorHelp() {
-		map.getViewport().style.cursor = "help";
-		map.on('pointerdrag', function(evt) {
-			map.getViewport().style.cursor = "grab";
-		});
-		map.on('pointerup', function(evt) {
-			map.getViewport().style.cursor = "help";
-		});
-	}
-	styleCursorHelp();
-	
+// change cursor	
 	function styleCursorDefault() {
 		map.getViewport().style.cursor = "default";
-		map.on('pointerdrag', function(evt) {
-		map.getViewport().style.cursor = "grab";
-		});
 		map.on('pointerup', function(evt) {
-		map.getViewport().style.cursor = "default";
+			map.getViewport().style.cursor = "default";
 		});
 	}
 	
 	function styleCursorPointer() {
 		map.getViewport().style.cursor = "pointer";
-		map.on('pointerdrag', function(evt) {
-		map.getViewport().style.cursor = "grab";
-		});
 		map.on('pointerup', function(evt) {
-		map.getViewport().style.cursor = "pointer";
+			map.getViewport().style.cursor = "pointer";
 		});
 	}
 	
 	function styleCursorNone() {
 		map.getViewport().style.cursor = "none";
-		map.on('pointerdrag', function(evt) {
-		map.getViewport().style.cursor = "grab";
-		});
 		map.on('pointerup', function(evt) {
-		map.getViewport().style.cursor = "none";
-		});
-	}
-	
-	function styleCursorMove() {
-		map.getViewport().style.cursor = "move";
-		map.on('pointerdrag', function(evt) {
-		map.getViewport().style.cursor = "move";
-		});
-		map.on('pointerup', function(evt) {
-		map.getViewport().style.cursor = "pointer";
+			map.getViewport().style.cursor = "none";
 		});
 	}
 		
@@ -350,7 +324,7 @@
 // Funzione per disattivare gli elementi .ol-active, escludendo l'elemento corrente che contiene il pulsante cliccato
 	function disableOtherElements(currentButton) {
 		//seleziono tutti gli ol-active button tranne quelli interni ad editbar dedicati al disegno
-		$('.ol-active button').not('.ol-editbar .ol-active button').each(function() { 
+		$('.ol-active button').not('.ol-editbar .ol-active button').not('.globo button').each(function() {
 			// Verifica se l'elemento corrente non è il pulsante attualmente cliccato
 			if (this !== currentButton[0]) {
 				$(this).trigger('click');
@@ -365,8 +339,6 @@
 		element: 'sidebar',
 		position: 'left'
 	});
-	map.addControl(sidebar); 
-
 	//positioning right for smartphone
 	//if hasTouchScreen defined above
 	if (hasTouchScreen) {
@@ -394,9 +366,6 @@
 	  keepOpen: false,
 	  //autoComplete: true,
 	  });
-	  
-	map.addControl(geocoder);
-	document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-map-marker';
 	
 	//Remove previous searches
 	geocoder.on('addresschosen', function (evt) {
@@ -427,7 +396,6 @@
 	  title: 'GPS Locate me',
 	  delay: 2000 // 2s
 	});
-	map.addControl(geoloc);
 	
 	// Show position
 	var here = new ol.Overlay.Popup({ positioning: 'bottom-center' });
@@ -451,15 +419,15 @@
 	
 	
 // Popup WMS-WFS Query
-	var querywmswfs = new ol.control.Toggle({
+	var querywms = new ol.control.Toggle({
 		html: '<i class="fas fa-info"></i>' + ' ' + '<h1>WMS</h1>',
 		title: 'Query Layer WMS-WFS',
-		className: 'querywmswfs',
+		className: 'querywms',
 		onToggle: function(active) {
 		  	if (active) {
 				if (!Array.isArray(wms_layers) || wms_layers.length === 0) {
 					alert("No queryable WMS layers are present.");
-					querywmswfs.setActive(false);
+					querywms.setActive(false);
 					return;
 				}
 				var visibleWmsLayers = wms_layers.filter(function(item) {
@@ -467,11 +435,11 @@
 				});
 				if (visibleWmsLayers.length === 0) {
 					alert("Queryable WMS layers detected, but none are currently visible.");
-					querywmswfs.setActive(false);
+					querywms.setActive(false);
 					return;
 				}
 
-				var currentButton = $('.querywmswfs button')
+				var currentButton = $('.querywms button')
 				disableOtherElements(currentButton)
 
 				map.removeInteraction(selectInteraction); // remove ol-ext popup select
@@ -483,7 +451,9 @@
 				map.addOverlay(overlayPopup); // add qgis2web popup
 				map.on('singleclick', onSingleClickWMS); //add qgis2web click
 
-				form_querywmswfs.style.display = '';	
+				form_querywms.style.display = '';	
+
+				map.un('pointermove', pointerOnFeature);
 					  
 		  	} else {
 				map.removeOverlay(overlayPopup); // remove qgis2web popup
@@ -493,11 +463,23 @@
 				map.addOverlay(popup); // add ol-ext popupfeature
 				popup.show(); //show ol-ext popupfeature
 							
-				form_querywmswfs.style.display = 'none';						
+				form_querywms.style.display = 'none';	
+				
+				map.on('pointermove', pointerOnFeature);
 		  }
 		}
 	})
-	map.addControl(querywmswfs)
+
+	var form_querywms = document.createElement('form');
+	form_querywms.className = 'form_querywms ol-control';
+	form_querywms.style.display = 'none';
+	form_querywms.style.height = '74px';
+	form_querywms.innerHTML = `
+		<label><b>Query WMS layers only</b><br />
+		<a>Turn on the WMS layers, click on the map and wait for the result. The response varies based on the speed of the remote server.</a></label>
+	`;
+	querywms.element.appendChild(form_querywms);
+	
 
 
 	
@@ -507,73 +489,59 @@
 			title: "Zoom Location",
 			editable: false,
 		  });
+		  
 
 
 	
 // measurement
 
 	let measuring = false;
-	
-	var measureButton = document.createElement('button');
-	measureButton.className = 'measure-button fas fa-ruler';
-	measureButton.title = 'Measure';
+	var measureToggle = new ol.control.Toggle({
+		html: '<i class="fas fa-ruler"></i>',
+		title: 'Measure',
+		className: 'measure-toggle',
+		onToggle: function(active) {
+			if (active) {
+				var currentButton = $('.measure-toggle button')
+				disableOtherElements(currentButton)
+				
+				selectInteraction.setActive(false)
+				//map.removeInteraction(selectInteraction);
 
-	var measureControl = document.createElement('div');
-	measureControl.className = 'measure-control ol-unselectable ol-control';
-	measureControl.appendChild(measureButton);
-	map.getTargetElement().querySelector('.ol-overlaycontainer-stopevent').appendChild(measureControl);
+				//measureSelectForm.style.display = "";
+				measureLabel.style.display = "";
+				map.addInteraction(draw);
+				createMeasureHelpTooltip();
+				createMeasureTooltip();
+				measuring = true;
 
-	// Event handler
-	function handleMeasure() {
-	  if (!measuring) {
-		var currentButton = $('.measure-control button')
-	    disableOtherElements(currentButton)
-		
-		selectInteraction.setActive(false)
-		//map.removeInteraction(selectInteraction);
+				//cursor
+				styleCursorNone()
+				map.un('pointermove', pointerOnFeature);
+			} else {
+				selectInteraction.setActive(true)
+				//map.addInteraction(selectInteraction);
+				
+				//measureSelectForm.style.display = "none";
+				measureLabel.style.display = "none";
+				map.removeInteraction(draw);
+				measuring = false;
+				map.removeOverlay(measureHelpTooltip);
+				map.removeOverlay(measureTooltip);
 
-		//modify measure:display form
-		//typeSelectForm.style.display = "";
-		selectLabel.style.display = "";
-		map.addInteraction(draw);
-		createHelpTooltip();
-		createMeasureTooltip();
-		measuring = true;
+				//remove static-tooltip and clear measurelayer
+				var staticTooltip = document.getElementsByClassName("tooltip-static");
+				while (staticTooltip.length > 0) {
+					staticTooltip[0].parentNode.remove();
+				}
+				measureLayer.getSource().clear();
+				sketch = null;
 
-		//cursor
-		styleCursorNone()
-	  } else {
-		selectInteraction.setActive(true)
-		//map.addInteraction(selectInteraction);
-		
-		//modify measure:remove form
-		//typeSelectForm.style.display = "none";
-		selectLabel.style.display = "none";
-		map.removeInteraction(draw);
-		measuring = false;
-		map.removeOverlay(helpTooltip);
-		map.removeOverlay(measureTooltip);
-
-		//modify measure:remove static-tooltip and clear measurelayer
-		var staticTooltip = document.getElementsByClassName("tooltip-static");
-		while (staticTooltip.length > 0) {
-		  staticTooltip[0].parentNode.removeChild(staticTooltip[0]);
+				//cursor
+				styleCursorMove();
+				map.on('pointermove', pointerOnFeature);
+			}
 		}
-		measureLayer.getSource().clear();
-		sketch = null;
-
-		//cursor
-		styleCursorHelp();
-	  }
-	}
-
-	let lastTouch = 0;
-	measureButton.addEventListener("touchstart", function(e) { lastTouch = Date.now(); handleMeasure(e); }, false);
-	measureButton.addEventListener("click", function(e) { if (Date.now() - lastTouch < 500) return; handleMeasure(e); }, false);
-
-	measureButton.addEventListener("click", () => {
-	  measureButton.classList.toggle("clicked");
-	  measureButton.parentNode.classList.toggle("ol-active");
 	});
 	
 	map.on('pointermove', function (evt) {
@@ -582,7 +550,6 @@
 	  }
 	  if (measuring) {
 		/** @type {string} */
-		//modify measure:text
 		var helpMsg = "Start, active measurement";
 		if (sketch) {
 		  var geom = sketch.getGeometry();
@@ -594,38 +561,38 @@
 			helpMsg = continueCircleMsg;
 		  }
 		}
-		helpTooltipElement.innerHTML = helpMsg;
-		helpTooltip.setPosition(evt.coordinate);
+		measureHelpTooltipElement.innerHTML = helpMsg;
+		measureHelpTooltip.setPosition(evt.coordinate);
 	  }
 	});
 
-	// Creare la select
-	var selectLabel = document.createElement("label");
-	selectLabel.innerHTML = "&nbsp;Measure:&nbsp;";
-
-	var typeSelect = document.createElement("select");
-	typeSelect.id = "type";
-
-	// Aggiungere le opzioni alla select
+	// Creazione della select e del label
+	var measureLabel = document.createElement("label");
+	measureLabel.innerHTML = "&nbsp;Measure:&nbsp;";
+	var measureSelect = document.createElement("select");
+	measureSelect.id = "type";
 	var measurementOption = [
-	  { value: "LineString", description: "Length" },
-	  { value: "Polygon", description: "Area" },
-	  { value: "Circle", description: "Radius" }
+	{ value: "LineString", description: "Length" },
+	{ value: "Polygon", description: "Area" },
+	{ value: "Circle", description: "Radius" }
 	];
-	// Aggiungere le opzioni alla select
 	measurementOption.forEach(function (option) {
-	  var optionElement = document.createElement("option");
-	  optionElement.value = option.value;
-	  optionElement.text = option.description;
-	  typeSelect.appendChild(optionElement);
+	var optionElement = document.createElement("option");
+	optionElement.value = option.value;
+	optionElement.text = option.description;
+	measureSelect.appendChild(optionElement);
 	});
+	measureLabel.appendChild(measureSelect);
 
-	// Aggiungere la select al div di misurazione
-	selectLabel.appendChild(typeSelect);
-	measureControl.appendChild(selectLabel);
+	// Div di controllo misura
+	var measureControl = document.createElement('div');
+	measureControl.className = 'measure-control ol-unselectable ol-control';
+	measureControl.appendChild(measureLabel);
+	measureToggle.element.appendChild(measureControl);
+	//map.getTargetElement().querySelector('.ol-overlaycontainer-stopevent').appendChild(measureControl);
 
-	// Nascondere la select inizialmente
-	selectLabel.style.display = "none";
+	// Nascondi la select inizialmente
+	measureLabel.style.display = "none";
 
 	/**
 	 * Currently drawn feature.
@@ -636,13 +603,13 @@
 	 * The help tooltip element.
 	 * @type {Element}
 	 */
-	var helpTooltipElement;
+	var measureHelpTooltipElement;
 
 	/**
 	 * Overlay to show the help messages.
 	 * @type {ol.Overlay}
 	 */
-	var helpTooltip;
+	var measureHelpTooltip;
 
 	/**
 	 * The measure tooltip element.
@@ -656,39 +623,30 @@
 	 */
 	var measureTooltip;
 
-	//modify measure:text
 	/**
 	 * Message to show when the user is drawing a line.
 	 * @type {string}
 	 */
 	var continueLineMsg = "1click continue, 2click close";
 
-	//modify measure:polygon message
 	/**
 	 * Message to show when the user is drawing a polygon.
 	 * @type {string}
 	 */
 	var continuePolygonMsg = "1click continue, 2click close";
 
-	//modify measure:circle message
 	/**
 	 * Message to show when the user is drawing a circle.
 	 * @type {string}
 	 */
 	var continueCircleMsg = "1click close";
 
-	//modify measure:type select and form
-	//var typeSelect = document.getElementById("type");
-	//var typeSelectForm = document.getElementById("form_measure");
-
-	//modify measure:user change the geometry type
 	/**
 	 * Let user change the geometry type.
 	 * @param {Event} e Change event.
 	 */
 	 
-	typeSelect.onchange = function (e) {
-		
+	measureSelect.onchange = function (e) {
 	  //remove previous measurement in different type (line,polygon,radius)
 	  /**
 	  map.removeInteraction(draw);
@@ -705,13 +663,9 @@
 	  
 	  //keep previous measurement in different type (line,polygon,radius)
 	  map.removeInteraction(draw);
-	  addInteraction();
+	  addMeasureInteraction()
 	  map.addInteraction(draw);
-	  
-	  
 	};
-
-	//modify measure:style
 	
 	var measureLineStyle = new ol.style.Style({
 	  stroke: new ol.style.Stroke({
@@ -751,7 +705,7 @@
 		  })
 	});
 
-	var labelStyle = new ol.style.Style({
+	var measureLabelStyle = new ol.style.Style({
 	  text: new ol.style.Text({
 		font: "14px Calibri,sans-serif",
 		fill: new ol.style.Fill({
@@ -764,10 +718,9 @@
 	  })
 	});
 
-	var labelStyleCache = [];
+	var measureLabelStyleCache = [];
 
-	//modify measure:style function
-	var styleFunction = function (feature, type) {
+	var measureStyleFunction = function (feature, type) {
 	  var styles = [measureLineStyle, measureLineStyle2];
 	  var geometry = feature.getGeometry();
 	  var type = geometry.getType();
@@ -784,42 +737,37 @@
 		lineString.forEachSegment(function (a, b) {
 		  var segment = new ol.geom.LineString([a, b]);
 		  var label = formatLength(segment);
-		  if (labelStyleCache.length - 1 < count) {
-			labelStyleCache.push(labelStyle.clone());
+		  if (measureLabelStyleCache.length - 1 < count) {
+			measureLabelStyleCache.push(measureLabelStyle.clone());
 		  }
-		  labelStyleCache[count].setGeometry(segment);
-		  labelStyleCache[count].getText().setText(label);
-		  styles.push(labelStyleCache[count]);
+		  measureLabelStyleCache[count].setGeometry(segment);
+		  measureLabelStyleCache[count].getText().setText(label);
+		  styles.push(measureLabelStyleCache[count]);
 		  count++;
 		});
 	  }
 	  return styles;
 	};
 
-	var source = new ol.source.Vector();
-
 	var measureLayer = new ol.layer.Vector({
-	  source: source,
+	  source: new ol.source.Vector(),
 	  displayInLayerSwitcher: false,
-	  //modify measure:style
 	  style: function (feature) {
-		labelStyleCache = [];
-		return styleFunction(feature);
-	  }
+		measureLabelStyleCache = [];
+		return measureStyleFunction(feature);
+	  },
+	  isMeasureLayer: true
 	});
-
 	map.addLayer(measureLayer);
 
 	var draw; // global so we can remove it later
-	function addInteraction() {
-	  //modify measure:type linestring and area
-	  var type = typeSelect.value;
+	function addMeasureInteraction() {
+	  var type = measureSelect.value;
 	  draw = new ol.interaction.Draw({
-		source: source,
+		source: measureLayer.getSource(),
 		type: /** @type {ol.geom.GeometryType} */ (type),
-		//modify measure:style
 		style: function (feature) {
-		  return styleFunction(feature, type);
+		  return measureStyleFunction(feature, type);
 		}
 	  });
 
@@ -836,7 +784,6 @@
 		  listener = sketch.getGeometry().on("change", function (evt) {
 			var geom = evt.target;
 			var output;
-			//modify measure:outpur area or lenght
 			if (geom instanceof ol.geom.Polygon) {
 			  output = formatArea(/** @type {ol.geom.Polygon} */ (geom));
 			  tooltipCoord = geom.getInteriorPoint().getCoordinates();
@@ -873,18 +820,18 @@
 	/**
 	 * Creates a new help tooltip
 	 */
-	function createHelpTooltip() {
-	  if (helpTooltipElement) {
-		helpTooltipElement.parentNode.removeChild(helpTooltipElement);
+	function createMeasureHelpTooltip() {
+	  if (measureHelpTooltipElement) {
+		measureHelpTooltipElement.parentNode.removeChild(measureHelpTooltipElement);
 	  }
-	  helpTooltipElement = document.createElement("div");
-	  helpTooltipElement.className = "tooltip hidden";
-	  helpTooltip = new ol.Overlay({
-		element: helpTooltipElement,
+	  measureHelpTooltipElement = document.createElement("div");
+	  measureHelpTooltipElement.className = "tooltip hidden";
+	  measureHelpTooltip = new ol.Overlay({
+		element: measureHelpTooltipElement,
 		offset: [15, 0],
 		positioning: "center-left"
 	  });
-	  map.addOverlay(helpTooltip);
+	  map.addOverlay(measureHelpTooltip);
 	}
 
 	/**
@@ -904,28 +851,47 @@
 	  map.addOverlay(measureTooltip);
 	}
 
+	// isImperialUnits e isNauticalUnits definiti in thanks.js
+
 	/**
 	 * format circle output
 	 * @param {ol.geom.Circle} line
 	 * @return {string}
 	 */
 	var formatCircle = function (circle) {
-	  var radius;
-	  var firstclick = circle.getFirstCoordinate();
-	  var secondclick = circle.getLastCoordinate();
-	  radius = 0;
-	  var sourceProj = map.getView().getProjection();
-	  var adjustfirstclick = ol.proj.transform(firstclick, sourceProj, "EPSG:4326");
-	  var adjustsecondclick = ol.proj.transform(secondclick, sourceProj, "EPSG:4326");
-	  radius += ol.sphere.getDistance(adjustfirstclick, adjustsecondclick);
-	  var output;
-	  if (radius > 1000) {
-		output =
-		  "(r)" + " " + Math.round((radius / 1000) * 1000) / 1000 + " " + "km";
-	  } else {
-		output = "(r)" + " " + Math.round(radius * 100) / 100 + " " + "m";
-	  }
-	  return output;
+		var radius;
+		var firstclick = circle.getFirstCoordinate();
+		var secondclick = circle.getLastCoordinate();
+		radius = 0;
+		var sourceProj = map.getView().getProjection();
+		var adjustfirstclick = ol.proj.transform(firstclick, sourceProj, "EPSG:4326");
+		var adjustsecondclick = ol.proj.transform(secondclick, sourceProj, "EPSG:4326");
+		radius += ol.sphere.getDistance(adjustfirstclick, adjustsecondclick);
+		var output;
+		if (isNauticalUnits) {
+			// Sistema nautico: metri → miglia nautiche
+			if (radius > 1852) { // 1 miglio nautico = 1852 metri
+			  output = "(r) " + (radius / 1852).toFixed(3).replace('.', ',') + " nm";
+			} else {
+			  output = "(r) " + radius.toFixed(2).replace('.', ',') + " m";
+			}
+		} else if (isImperialUnits) {
+			// Sistema imperiale: metri → piedi → miglia
+			var feet = radius * 3.28084;
+			if (feet > 5280) { // 1 miglio = 5280 piedi
+			  output = "(r) " + (feet / 5280).toFixed(3).replace('.', ',') + " mi";
+			} else {
+			  output = "(r) " + feet.toFixed(2).replace('.', ',') + " ft";
+			}
+		} else {
+			// Sistema metrico (default)
+			if (radius > 1000) {
+			  output = "(r) " + (radius / 1000).toFixed(3).replace('.', ',') + " km";
+			} else {
+			  output = "(r) " + radius.toFixed(2).replace('.', ',') + " m";
+			}
+		}
+		return output;
 	};
 
 	/**
@@ -934,45 +900,82 @@
 	 * @return {string}
 	 */
 	var formatLength = function (line) {
-	  var length;
-	  var coordinates = line.getCoordinates();
-	  length = 0;
-	  var sourceProj = map.getView().getProjection();
-	  for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
+		var length;
+		var coordinates = line.getCoordinates();
+		length = 0;
+		var sourceProj = map.getView().getProjection();
+		for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
 		var c1 = ol.proj.transform(coordinates[i], sourceProj, "EPSG:4326");
 		var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, "EPSG:4326");
 		length += ol.sphere.getDistance(c1, c2);
-	  }
-	  var output;
-	  if (length > 1000) {
-		output = Math.round((length / 1000) * 1000) / 1000 + " " + "km";
-	  } else {
-		output = Math.round(length * 100) / 100 + " " + "m";
-	  }
-	  return output;
+		}
+		var output;
+
+		if (isNauticalUnits) {
+			// Sistema nautico: metri → miglia nautiche
+			if (length > 1852) { // 1 miglio nautico = 1852 metri
+			  output = (length / 1852).toFixed(3).replace('.', ',') + " nm";
+			} else {
+			  output = length.toFixed(2).replace('.', ',') + " m";
+			}
+		} else if (isImperialUnits) {
+			// Sistema imperiale: metri → piedi → miglia
+			var feet = length * 3.28084;
+			if (feet > 5280) { // 1 miglio = 5280 piedi
+			  output = (feet / 5280).toFixed(3).replace('.', ',') + " mi";
+			} else {
+			  output = feet.toFixed(2).replace('.', ',') + " ft";
+			}
+		} else {
+			// Sistema metrico (default)
+			if (length > 1000) {
+			  output = (length / 1000).toFixed(3).replace('.', ',') + " km";
+			} else {
+			  output = length.toFixed(2).replace('.', ',') + " m";
+			}
+		}
+		return output;
 	};
 
-	//modify measure:format area
 	/**
 	 * Format area output.
 	 * @param {ol.geom.Polygon} polygon The polygon.
 	 * @return {string} Formatted area.
 	 */
-
 	var formatArea = function (polygon) {
 		var sourceProj = map.getView().getProjection();
 		var geom = polygon.clone().transform(sourceProj, 'EPSG:3857');
-		var area = Math.abs(ol.sphere.getArea(geom));
+		var area = Math.abs(ol.sphere.getArea(geom, { projection: 'EPSG:3857' }));
 		var output;
-		if (area > 1000000) {
-			output = Math.round((area / 1000000) * 1000) / 1000 + ' ' + 'km<sup>2</sup>';
+		if (isNauticalUnits) {
+			// Sistema nautico: m² → miglia nautiche quadrate
+			var sqNauticalMiles = area / 3429904; // 1 nm² = 3.429.904 m²
+			if (sqNauticalMiles > 1) {
+			  output = sqNauticalMiles.toFixed(3).replace('.', ',') + ' nm<sup>2</sup>';
+			} else {
+			  output = area.toFixed(2).replace('.', ',') + ' m<sup>2</sup>';
+			}
+		} else if (isImperialUnits) {
+			// Sistema imperiale: m² → ft² → acri → mi²
+			var sqFeet = area * 10.7639;
+			if (sqFeet > 27878400) { // 1 mi² = 27.878.400 ft²
+			  output = (sqFeet / 27878400).toFixed(3).replace('.', ',') + ' mi<sup>2</sup>';
+			} else if (sqFeet > 43560) { // 1 acro = 43.560 ft²
+			  output = (sqFeet / 43560).toFixed(2).replace('.', ',') + ' ac';
+			} else {
+			  output = sqFeet.toFixed(2).replace('.', ',') + ' ft<sup>2</sup>';
+			}
 		} else {
-			output = Math.round(area * 100) / 100 + ' ' + 'm<sup>2</sup>';
+			// Sistema metrico (default)
+			if (area > 1000000) {
+			  output = (area / 1000000).toFixed(3).replace('.', ',') + ' km<sup>2</sup>';
+			} else {
+			  output = area.toFixed(2).replace('.', ',') + ' m<sup>2</sup>';
+			}
 		}
-		return output.replace('.', ',');
+		return output;
 	};
-
-	addInteraction(draw);
+	addMeasureInteraction();
 
 
 
@@ -1002,7 +1005,7 @@
 				// add qgis2web pointermove (doHover e doHighlight impostati in thanks.js come 
 				// mouseover e mouseout su ol-control)
 				map.on('pointermove', onPointerMove); 
-				
+
 				form_popupall.style.display = '';
 
 			} else {
@@ -1021,11 +1024,17 @@
 				form_popupall.style.display = 'none';
 
 				//cursor
-				styleCursorHelp();
+				styleCursorMove();
 			}
 		}
 	});
-	map.addControl(popupall);
+
+	// inserisci una form con id form_popupall con scritto "Query with the unified popup" con display none
+	var form_popupall = document.createElement('form');
+	form_popupall.className = 'form_popupall ol-control';
+	form_popupall.innerHTML = 'Query with the unified popup';
+	form_popupall.style.display = 'none';
+	popupall.element.appendChild(form_popupall);
 				
 			
 // ol-ext editbar
@@ -1033,7 +1042,6 @@
 	var bar = new ol.control.Bar({
 	  className: 'collapsed',
 	})
-	map.addControl(bar)
 
 	// Add activate / deactivate button
 	var activateBt = new ol.control.Toggle({
@@ -1043,7 +1051,7 @@
 	  onToggle: function(active) {
 		// editBar.getInteraction('Select').setActive(false)
 		if (active) {				
-			var currentButton = $('.menu button')
+			var currentButton = $('.menu > button').first();
 			disableOtherElements(currentButton)				
 			// remove interaction popup
 			selectInteraction.setActive(false);			
@@ -1052,18 +1060,20 @@
 			//activate default interaction
 			editBar.getInteraction('DrawPolygon').setActive(true)		  
 			//cursor
-			styleCursorDefault()			
+			styleCursorDefault()
+			map.un('pointermove', pointerOnFeature);			
 		} else {
 			// add interaction popup
-			selectInteraction.setActive(true);			
-			//hide bar	
-			bar.element.classList.add('collapsed')			 
+			selectInteraction.setActive(true);
+			//hide bar
+			bar.element.classList.add('collapsed') 
 			//remove new feature
 			editBarLayer.getSource().clear();
-			//deactivate usage			
-			editBar.deactivateControls();				
+			//deactivate usage
+			editBar.deactivateControls();
 			//cursor
-			styleCursorHelp();					
+			styleCursorMove();
+			map.on('pointermove', pointerOnFeature);
 		}
 	  }
 	})
@@ -1139,8 +1149,7 @@
 
 // ol-ext search feature 
 
-	var search = new ol.control.SearchFeature(
-	{	
+	var search = new ol.control.SearchFeature({	
 	//indicate source
 		//source: jsonSource_ParticelleCensuario,
 		maxItems: 1000,
@@ -1156,10 +1165,24 @@
 			if (search.getSearchString(f1) < search.getSearchString(f2)) return -1;
 			if (search.getSearchString(f1) > search.getSearchString(f2)) return 1;
 			return 0;
-		  }				
+		  }			
 	});
-	map.addControl(search);
-				
+
+	document.addEventListener('DOMContentLoaded', () => {
+		// Toggle su .ol-search
+		$('.ol-search button').off('click');
+		$('.ol-search button').on('click', function (evt) {
+			// fai toggle della classe ol-active sul genitore
+			$(this).parent().toggleClass('ol-active');
+			
+			// se ha la classe ol-active disattiva gli altri bottoni
+			if ($(this).parent().hasClass('ol-active')) {
+				var currentButton = $(this);
+				disableOtherElements(currentButton);
+			}
+		});
+	});
+
 	//variabile globale che si attiva durante la ricerca manuale con search feature
 	//e si disattiva durante la ricerca automatizzata proveniente dal permalink query feature
 	var isManualSearch = false;
@@ -1177,8 +1200,7 @@
 	}
 	getPaddingForSearch();
 
-	search.on('select', function(e)
-	{						
+	search.on('select', function(e) {						
 		//selectInteraction.getFeatures().clear();
 		//selectInteraction.getFeatures().push(e.search);
 		
@@ -1246,39 +1268,34 @@
 	});
 
 
+
+// minimap
+	var miniMap = new ol.control.Overview({
+		layers: [ 
+			new ol.layer.Tile({
+				source: new ol.source.XYZ({
+					url: 'https://tile.opentopomap.org/{z}/{x}/{y}.png'
+				})
+			}),
+		],
+		projection: currentProjection,
+		rotation: true,
+		align: 'bottom-left', 
+	});
+
+
+
 // scale line
-	var scaleLine = new ol.control.ScaleLine({});
-	map.addControl(scaleLine);
-	//add ol-control
-	var scaleLineControl = document.getElementsByClassName('ol-scale-line')[0];
-	if (scaleLineControl) {
-		scaleLineControl.className += ' ol-control';
-		bottomLeftContainerDiv.appendChild(scaleLineControl);
-	}
+	// isImperialUnits e isNauticalUnits definiti in thanks.js
+	var scaleUnits = isNauticalUnits ? 'nautical' : (isImperialUnits ? 'imperial' : 'metric');
+	var scaleLine = new ol.control.ScaleLine({
+ 		units: scaleUnits
+	});
 
 
 
 // ol-ext scale control
-	var scaleCtrl = new ol.control.Scale({	});
-	map.addControl(scaleCtrl);
-	
-	function setDiagonal(val) {
-	  var res = Math.sqrt(window.screen.width*window.screen.width+window.screen.height*window.screen.height)/val; 
-	  res = Math.round(res);
-	  $('#ppi').val(res);
-	  scaleCtrl.set('ppi', res); 
-	  scaleCtrl.setScale()
-	}
-	
-	// New element to add
-	var scalaelement = document.createElement('DIV')
-	// Get control search list element
-	var scaladescription = geoloc.element.querySelector('scaladescription')
-	// Add element before the search list
-	scaleCtrl.element.insertBefore(scalaelement, scaladescription)
-	// Set info
-	scalaelement.innerHTML = "Scale"
-	scalaelement.classList.add("scaladescription-visible");
+	var scaleCtrl = new ol.control.Scale({});
 
 
 
@@ -1311,7 +1328,7 @@
 	// and disable other ol-control when active
 	var popupCoordinates = new ol.control.Toggle({
 		html: '<i class="fas fa-map-pin"></i>',
-		title: 'Show coordinates',
+		title: 'Popupcoordinates',
 		className: 'popup-coordinates',
 		onToggle: function(active) {
 		  if (active) {
@@ -1326,6 +1343,7 @@
 			  featuresPopupActive = false //clear qgis2web popup
 			  map.addOverlay(overlayPopup); // add qgis2web popup
 			  map.on('singleclick', onSingleClickCoordinates); //add qgis2web click
+			  map.un('pointermove', pointerOnFeature);
 					  
 		  } else {
 
@@ -1335,15 +1353,15 @@
 			  map.addInteraction(selectInteraction);  // add ol-ext popup select
 			  map.addOverlay(popup); // add ol-ext popupfeature
 			  popup.show(); //show ol-ext popupfeature
+			  map.on('pointermove', pointerOnFeature);
 		  }
 		}
 	})
-	map.addControl(popupCoordinates)
+
 			
 
 // mouse position coordinates
 	ol.proj.proj4.register(proj4); //registro le proiezioni di Proj4js in OpenLayers
-	var currentProjection = map.getView().getProjection().getCode();
 
 	// Add MousePosition control
 	var mousePositionDefault = new ol.control.MousePosition({
@@ -1353,30 +1371,34 @@
 	  projection: currentProjection, 
 	  className: 'mousePositionDefault ol-control',
 	});
-	map.addControl(mousePositionDefault);
 
-	var mousePositionButton = $('.mousePositionDefault');
-	mousePositionButton.on('click', function() {
-	  var newEpsg = prompt('View the coordinates in the desired SR by entering its EPSG code (e.g. 4326):');
-	  if (isValidEpsg(newEpsg)) {
-		// Aggiorna la variabile currentProjection con il nuovo EPSG code
-		currentProjection = 'EPSG:' + newEpsg;
-		// Aggiorna coordinateFormat con il nuovo EPSG code
-		mousePositionDefault.setProjection(ol.proj.get(currentProjection));
-	  } else {
-		alert('Invalid EPSG code. Please enter a valid EPSG code.');
-	  }
+	document.addEventListener('DOMContentLoaded', function() {
+		var mousePositionButton = $('.mousePositionDefault');
+		mousePositionButton.on('click', function() {
+		var newEpsg = prompt('View the coordinates in the desired SR by entering its EPSG code (e.g. 4326):');
+		if (isValidEpsg(newEpsg)) {
+			// Aggiorna la variabile currentProjection con il nuovo EPSG code
+			currentProjection = 'EPSG:' + newEpsg;
+			// Aggiorna coordinateFormat con il nuovo EPSG code
+			mousePositionDefault.setProjection(ol.proj.get(currentProjection));
+		} else {
+			alert('Invalid EPSG code. Please enter a valid EPSG code.');
+		}
+		});
+
+		// Funzione per verificare se un valore è un EPSG code valido in Proj4.js
+		function isValidEpsg(value) {
+		// Verifica se il valore è un numero e se corrisponde a un EPSG code noto in Proj4.js
+		if (/^\d+$/.test(value) || /^EPSG:\d+$/.test(value)) {
+			var epsgCode = /^EPSG:(\d+)$/.test(value) ? RegExp.$1 : value;
+			return proj4.defs('EPSG:' + epsgCode) != null;
+		}
+		return false;
+		}
 	});
 
-	// Funzione per verificare se un valore è un EPSG code valido in Proj4.js
-	function isValidEpsg(value) {
-	  // Verifica se il valore è un numero e se corrisponde a un EPSG code noto in Proj4.js
-	  if (/^\d+$/.test(value) || /^EPSG:\d+$/.test(value)) {
-		var epsgCode = /^EPSG:(\d+)$/.test(value) ? RegExp.$1 : value;
-		return proj4.defs('EPSG:' + epsgCode) != null;
-	  }
-	  return false;
-	}
+
+
 		
 
 //  ol-ext popup feature
@@ -1435,23 +1457,19 @@
 					selectInteraction.getFeatures().clear();
 
 					// Nascondi il popup se nel click non ci sono features
-						var pixel = event.pixel;
-						var foundFeature = false;
-						map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-							if (
-								layer !== selectLayer &&
+					var pixel = event.pixel;
+					var exists = map.hasFeatureAtPixel(pixel, {
+						layerFilter: function(layer) {
+							return layer !== selectLayer &&
 								(layer instanceof ol.layer.Vector || layer instanceof ol.layer.VectorImage) &&
-								layer.get("interactive")
-							) {
-								foundFeature = true;
-								return true; // interrompe la ricerca
-							}
-						}, { hitTolerance: 5 });
-
-						if (!foundFeature) {
-							popup.hide(); // Nascondi il popup se non c'è selezione
-							selectLayer.getSource().clear();
+								layer.get("interactive");
 						}
+					});
+
+					if (!exists) {
+						popup.hide(); // Nascondi il popup se non c'è selezione
+						selectLayer.getSource().clear();
+					}
 
 					return true;
 				}
@@ -1584,9 +1602,10 @@
 						} else if (fieldImages[key] && fieldImages[key].toLowerCase() === 'externalresource') {
 							// Se è un'immagine esterna, assegnare una funzione di formato per generare un tag img o video controls
 							attributes[key].format = function (val, feature) {
-							  const filename = val.replace(/[\\\/:]/g, '_').trim()
+							  const filename = val.replace(/[\\\/:]/g, '_').trim();
 							  if (/\.(gif|jpg|jpeg|tif|tiff|png|avif|webp|svg)$/i.test(val)) {
 								const imgId = 'img-' + imgCount++; // Incrementa il contatore per creare un ID unico
+																							 
 								// HTML con immagine e bottone
 								const html = `
 								<div id="imgContainer-${imgId}" class='popupimage' style="position: relative">
@@ -1633,16 +1652,6 @@
 		  popup.setPositioning('bottom-center')
 		}
 	
-	// Seleziono le features portandole dalla selectInteraction al selectLayer
-	popup.on('select', function(feature, layer) {
-	  selectLayer.getSource().clear();
-	  const selectedFeatures = selectInteraction.getFeatures();
-	  if (selectedFeatures.getLength() > 0) {
-		const currentFeature = selectedFeatures.item(0);
-		selectLayer.getSource().addFeature(currentFeature);
-	  }		  
-	});
-	
 	// Listener for closing the popup with closebox
 	$(".closeBox").on("click", function() {
 		selectInteraction.getFeatures().clear();
@@ -1650,24 +1659,42 @@
 	});
 					
 	popup.on('show', () => {
+		// Seleziono le features portandole dalla selectInteraction al selectLayer
+		selectLayer.getSource().clear();
+		const selectedFeatures = selectInteraction.getFeatures();
+		if (selectedFeatures.getLength() > 0) {
+			const currentFeature = selectedFeatures.item(0);
+			selectLayer.getSource().addFeature(currentFeature);
+		}
+
 		// sposta l'elemento count dopo h1 così da poterlo selezionare con css
 		var count = popup.element.querySelector('.ol-count');
 		if (count) {
 			popup.element.querySelector('h1').prepend(count);
 		}
 		
-		// Elimina larghezza massima popup in caso di foto
-		  var tdParentOfImg = document.querySelectorAll('.ol-popup .ol-popupfeature table td img');
+		// Elimina larghezza massima popup in caso di foto e rimuovi l'expand button se img piccola
+		  var tdImg = document.querySelectorAll('.ol-popup .ol-popupfeature table td img');
 
-		  tdParentOfImg.forEach(function(img) {
-			var tdParent = img.parentNode.parentNode; // Ottieni l'elemento td padre dell'img
+		  tdImg.forEach(function(img) {
+			// elimina larghezza massima
+			var tdParent = img.parentNode.parentNode;
 			tdParent.style.maxWidth = 'unset';
+			// elimina expand button se img piccola
+			img.onload = function() {
+				if (this.naturalWidth < 150 && this.naturalHeight < 150) {
+					const expandBtn = tdParent.querySelector('.expand-btn');
+					if (expandBtn) {
+						expandBtn.style.display = 'none';
+					}
+				}
+			};
 		  });
 		  
 		// Elimina larghezza massima popup in caso di video
-		  var tdParentOfVideo = document.querySelectorAll('.ol-popup .ol-popupfeature table td video');
+		  var tdVideo = document.querySelectorAll('.ol-popup .ol-popupfeature table td video');
 
-		  tdParentOfVideo.forEach(function(video) {
+		  tdVideo.forEach(function(video) {
 			var tdParent = video.parentNode; // Ottieni l'elemento td padre del video
 			tdParent.style.maxWidth = 'unset';
 		  });
@@ -1683,6 +1710,16 @@
 			// Applica display: block a tutti i td nel tr genitore di "a" con classe "header-label"
 			$(this).closest("tr").find("td").css('display', 'block');
 		});
+
+		// Se il popup ha classe ol-fixed elimina tutte le classi che iniziano per "ol-popup-"
+		// e aggiungi ol-popup-top, ol-popup-left
+		if (popup.element.classList.contains('ol-fixed')) {
+			popup.element.className = popup.element.className
+			.split(' ')
+			.filter(c => !c.startsWith('ol-popup-'))
+			.join(' ');
+			popup.element.classList.add('ol-popup-top', 'ol-popup-left');
+		}
 	})
 
 	popup.on('hide', () => {
@@ -1692,6 +1729,7 @@
 			media.pause();
 			media.currentTime = 0;
 		});
+		selectLayer.getSource().clear();
 	});
 
 			
@@ -1776,24 +1814,7 @@
 
 		
 // ol-ext print dialog control
-	// Add a title control
-	map.addControl(new ol.control.CanvasTitle({ 
-	  title: 'Titolo', 
-	  visible: false,
-	  style: new ol.style.Style({ text: new ol.style.Text({ font: '20px "Lucida Grande",Verdana,Geneva,Lucida,Arial,Helvetica,sans-serif'}) })
-	}));
-	
-	// Add a ScaleLine control 
-	var scalebar = new ol.control.ScaleLine({
-		bar: true, 
-		})
-		map.addControl(scalebar);
 
-	// Print control
-	var printControl = new ol.control.PrintDialog();
-	printControl.setSize('A4');
-	printControl.setOrientation('landscape');
-	
 	// change sheet dimensions to avoid having to change print margins in the browser window (subtract 25 from each value)
 	ol.control.PrintDialog.prototype.paperSize = {
 	  '': null,
@@ -1807,14 +1828,220 @@
 	  'B4': [232,339],
 	  'B5': [157,232]
 	};
-	map.addControl(printControl); 
-	
-	// Select button
-	var printbuttontitle = $('div.ol-print button');
-	// Set button title
-	printbuttontitle.attr('title', 'Print');
+
+	// Modifica le labels del PrintDialog prima di creare l'istanza
+	ol.control.PrintDialog.prototype._labels.en.mapTitle = 'Description';
+
+	// Print control
+	var printControl = new ol.control.PrintDialog({
+		lang: 'en',
+		//copy: true,
+		//save: true,
+		//pdf: true,
+	});
+	printControl.setSize('A4');
+	printControl.setOrientation('landscape');
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var printButton = $('.ol-print-param > .ol-ext-buttons')[0];
 		
-				
+		// Pulsante per scaricare l'immagine
+		var btDownload = document.createElement('BUTTON');
+		btDownload.classList.add('print-download-button');
+		btDownload.innerHTML = '<i class="fa-solid fa-download"></i>';
+		printButton.insertBefore(btDownload, printButton.firstChild);
+		// Quando clicco download scarico l'immagine
+		btDownload.addEventListener('click', function() {
+			var container = document.querySelector('.ol-print-map > .ol-page');
+			if (!container) {
+				alert('Print preview not available. Please open the print dialog first.');
+				return;
+			}
+			var containerWidth = container.clientWidth;
+			console.log('Container width:', containerWidth);
+			var minWidth = 1920;
+			var baseScale = 2;
+			var dynamicScale = baseScale;
+			
+			if (containerWidth < minWidth) {
+				var ratio = minWidth / containerWidth;
+				var extraScale = ratio - 1;
+				dynamicScale = baseScale + extraScale;
+			}
+			console.log('Dynamic scale for screenshot:', dynamicScale);
+
+			html2canvas(container, {
+				useCORS: true,
+				allowTaint: false,
+				backgroundColor: '#ffffff',
+				scale: dynamicScale
+			}).then(function(canvas) {
+				canvas.toBlob(function(blob) {
+					if (!blob) {
+						alert('There are active realtime WMS/XYZ layers. Cannot download image. Please use PDF print instead.');
+						return;
+					}
+					var timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+					var filename = 'map-' + timestamp + '.png';
+					saveAs(blob, filename);
+					alert('Image downloaded!\n\nIf the background is white, remove remote WMS/XYZ layers.');
+				}, 'image/png');
+			}).catch(function(err) {
+				console.error('Error capturing screenshot:', err);
+				alert('Error capturing screenshot.\n\nIf the project is local, load it in a web server.');
+			});	
+		});
+
+		// Pulsante per copiare negli appunti
+		var btCopy = document.createElement('BUTTON');
+		btCopy.classList.add('print-copy-button');
+		btCopy.innerHTML = '<i class="fa-solid fa-copy"></i>';
+		printButton.insertBefore(btCopy, printButton.firstChild);
+		// Quando clicco share copio l'immagine negli appunti
+		btCopy.addEventListener('click', function() {
+			var container = document.querySelector('.ol-print-map > .ol-page');
+			if (!container) {
+				alert('Print preview not available. Please open the print dialog first.');
+				return;
+			}
+			var containerWidth = container.clientWidth;
+			console.log('Container width:', containerWidth);
+			var minWidth = 1920;
+			var baseScale = 2;
+			var dynamicScale = baseScale;
+			
+			if (containerWidth < minWidth) {
+				var ratio = minWidth / containerWidth;
+				var extraScale = ratio - 1;
+				dynamicScale = baseScale + extraScale;
+			}
+			console.log('Dynamic scale for screenshot:', dynamicScale);
+
+			html2canvas(container, {
+				useCORS: true,
+				allowTaint: false,
+				backgroundColor: '#ffffff',
+				scale: dynamicScale
+			}).then(function(canvas) {
+				canvas.toBlob(function(blob) {
+					navigator.clipboard.write([
+						new ClipboardItem({ 'image/png': blob })
+					]).then(function() {
+						alert('Image copied to clipboard!\n\nIf the background is white, remove remote WMS/XYZ layers.');
+					}).catch(function(err) {
+						console.error('Error copying to clipboard:', err);
+						alert('Error copying to clipboard.\n\nIf the project is local, load it in a web server.');
+					});
+				}, 'image/png');
+			}).catch(function(err) {
+				console.error('Error capturing screenshot:', err);
+				alert('Error capturing screenshot.\n\nIf the project is local, load it in a web server.');
+			});	
+		});
+
+		// Modifico aspetto pulsante print
+		var printButton = document.querySelector('.ol-ext-print-dialog .ol-print-param button[type="submit"]');
+		console.log(printButton);
+		if (printButton) {
+			printButton.innerHTML = '<i class="fa-solid fa-print"></i>';
+			printButton.classList.add('print-submit-button');
+		}
+
+	});
+
+	// /* On print > save image file */
+	// printControl.on(['print', 'error'], function(e) {
+	// // Print success
+	// if (e.image) {
+	// 	if (e.pdf) {
+	// 	// Export pdf using the print info
+	// 	var pdf = new jsPDF({
+	// 		orientation: e.print.orientation,
+	// 		unit: e.print.unit,
+	// 		format: e.print.size
+	// 	});
+	// 	pdf.addImage(e.image, 'JPEG', e.print.position[0], e.print.position[0], e.print.imageWidth, e.print.imageHeight);
+	// 	pdf.save(e.print.legend ? 'legend.pdf' : 'map.pdf');
+	// 	} else  {
+	// 	// Save image as file
+	// 	e.canvas.toBlob(function(blob) {
+	// 		var name = (e.print.legend ? 'legend.' : 'map.')+e.imageType.replace('image/','');
+	// 		saveAs(blob, name);
+	// 	}, e.imageType, e.quality);
+	// 	}
+	// } else {
+	// 	console.warn('No canvas to export');
+	// }
+	// });
+	
+	// Add a title control
+	var canvasTitle = new ol.control.CanvasTitle({ 
+		title: 'Description', 
+		visible: false,
+		style: new ol.style.Style({ text: new ol.style.Text({ font: '20px "Lucida Grande",Verdana,Geneva,Lucida,Arial,Helvetica,sans-serif'}) })
+		});
+	map.addControl(canvasTitle);
+	// Sovrascrivo il metodo setVisible per aggiungere/rimuovere la classe 'visible'
+	var originalSetVisible = canvasTitle.setVisible.bind(canvasTitle);
+	canvasTitle.setVisible = function(visible) {
+		originalSetVisible(visible);
+		if (visible) {
+			this.element.classList.add('visible');
+		} else {
+			this.element.classList.remove('visible');
+		}
+	};
+	map.getOverlayContainerStopEvent().prepend(canvasTitle.element);
+
+	// add switch for logo and title
+	document.addEventListener('DOMContentLoaded', function() {
+		if (typeof logoForm !== 'undefined') { // se var logoForm è definito nell'index.html
+			var printSwitchLogoTitle = ol.ext.element.createSwitch({
+				html: 'Logo & Title',
+				className: 'switch-logo-title',
+				checked: false,
+				on: {
+					change: function (e) {
+						// aggiungi classe print a logoForm se non c'è altrimenti la toglie
+						if (e.target.checked) {
+							logoForm.classList.add('print');
+						} else {
+							logoForm.classList.remove('print');
+						}
+					}
+				},
+				parent: printControl.getUserElement()
+			})
+		}
+	});
+
+	// add switch for legend
+	var printSwitchLegend = ol.ext.element.createSwitch({
+		html: 'Legend',
+		className: 'switch-legend',
+		checked: false,
+		on: {
+			change: function (e) {
+				var legendAttribution = document.getElementsByClassName('legend-attribution')[0];
+				if (e.target.checked) {
+					legendAttribution.classList.add('print');
+				} else {
+					legendAttribution.classList.remove('print');
+				}
+			}
+		},
+		parent: printControl.getUserElement()
+	})
+
+    // Add a ScaleLine control 
+	var scalebar = new ol.control.ScaleLine({
+		bar: true,
+		units: scaleUnits
+	})
+	map.addControl(scalebar);
+
+
+	
 // Permalink Control
 	var permalink = new ol.control.Permalink({
 	title: 'Permalink',				
@@ -1830,13 +2057,6 @@
 
 	} 
 	});
-	map.addControl(permalink);
-	
-	// Select button
-	var permalinkbuttontitle = $('div.ol-permalink button');
-	// Set button title
-	permalinkbuttontitle.attr('title', 'Permalink');
-	
 				
 	// A dialog inside a map
 	var dialogMap = new ol.control.Dialog({ 
@@ -1967,6 +2187,9 @@
 		}
 	}
 	document.addEventListener('DOMContentLoaded', () => {
+		var permalinkbuttontitle = $('div.ol-permalink button');
+		permalinkbuttontitle.attr('title', 'Permalink');
+
 		if (window.layersLoadedFlag) {
 			setTimeout(loadPermalink, 500); // Ritardo di 500ms
 		} else {
@@ -1982,8 +2205,6 @@
 	var fullScreenControl = new ol.control.FullScreen({
 		tipLabel: 'Full Screen'
 	});
-	map.addControl(fullScreenControl);
-
 	//change position in smartphone
 	if (hasTouchScreen) {
 		$('.ol-full-screen').addClass('touch');
@@ -2002,7 +2223,7 @@
 		//mouseover: false,
 		//target: $(".layerSwitcher").get(0)
 		});		
-	map.addControl(layerSwitcher);	
+		
 
 	// Select button
 	var layerswitcherbuttontitle = $('div.ol-layerswitcher button');
@@ -2317,12 +2538,12 @@
 		collapsible: true,
 		collapsed: true,
 		label: 'Legend',
-		tipLabel: 'Legend',
+		tipLabel: 'Key',
 		collapseLabel: 'Close Legend',
 	});
-	map.addControl(legendAttribution);
+	
 
-	// Registro l'evento toggle per il LayerSwitcher
+/* 	// Registro l'evento toggle per il LayerSwitcher
 	layerSwitcher.on('toggle', function(e) {
 	    if (($('.ol-layerswitcher').hasClass('ol-forceopen')) && !(hasTouchScreen || isSmallScreen)) {
 			$('.legend-attribution').attr('style', 'display: block');
@@ -2337,7 +2558,7 @@
 		$('.legend-attribution button').attr('style', 'display: block');
 	} else {
 		$('.legend-attribution button').attr('style', 'display: none');
-	}	
+	} */	
 
 
 

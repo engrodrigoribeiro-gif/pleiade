@@ -147,7 +147,7 @@ function symbologySwitcher(layer, value) {
 // Funzione per applicare lo stile in caso di Complex Style quindi esportazione di
 // file di stile in formato SLD
 function applySLDstyle(layer, sldContent, layerName) {       
-    const sldObject = SLDReader.Reader(sldContent);
+    const sldObject = SLDReader.Reader(sldContent, { compatibilityMode: 'QGIS' });
     const sldLayer = SLDReader.getLayer(sldObject);
     const style = SLDReader.getStyle(sldLayer, layerName);
     const featureTypeStyle = style.featuretypestyles[0];
