@@ -11,6 +11,162 @@ var lyr_Imagem_Google = new ol.layer.Tile({
             })
         });
         
+var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
+            source: new ol.source.TileWMS(({
+                url: "https://geoportal.to.gov.br/geoserver/imagens/ows?SERVICE=WMS&",
+                attributions: '<a class="legend-realtime"><b>Imagem de Satélite Pleiades - 2015</b><br />',
+                params: {
+                "LAYERS": "imagem_satelite_pleiades_2015",
+                //"TILED": "true",
+                "VERSION": "1.3.0"},
+            })),
+            title: '<div id="layertitle">Imagem de Satélite Pleiades - 2015<br />',
+            popuplayertitle: 'Imagem de Satélite Pleiades - 2015',
+            permalink: 'ImagemdeSatlitePleiades2015',
+            opacity: 1.000000,
+            
+            
+            
+            });
+    wms_layers.push([lyr_ImagemdeSatlitePleiades2015, 0]);
+    lyr_ImagemdeSatlitePleiades2015.setVisible(false);
+    
+
+    var projection_GlobalMonthly202603Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202603Mosaic = projection_GlobalMonthly202603Mosaic.getExtent();
+    var size_GlobalMonthly202603Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202603Mosaic) / 256;
+    var resolutions_GlobalMonthly202603Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202603Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202603Mosaic[z] = size_GlobalMonthly202603Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202603Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202603Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2026_03_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202603Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202603Mosaic),
+                resolutions: resolutions_GlobalMonthly202603Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202603Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2026 03 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202507Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202507Mosaic = projection_GlobalMonthly202507Mosaic.getExtent();
+    var size_GlobalMonthly202507Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202507Mosaic) / 256;
+    var resolutions_GlobalMonthly202507Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202507Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202507Mosaic[z] = size_GlobalMonthly202507Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202507Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202507Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2025_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202507Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202507Mosaic),
+                resolutions: resolutions_GlobalMonthly202507Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202507Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2025 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202407Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202407Mosaic = projection_GlobalMonthly202407Mosaic.getExtent();
+    var size_GlobalMonthly202407Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202407Mosaic) / 256;
+    var resolutions_GlobalMonthly202407Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202407Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202407Mosaic[z] = size_GlobalMonthly202407Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202407Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202407Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2024_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202407Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202407Mosaic),
+                resolutions: resolutions_GlobalMonthly202407Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202407Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2024 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
+
+    var projection_GlobalMonthly202307Mosaic = ol.proj.get('EPSG:3857');
+    var projectionExtent_GlobalMonthly202307Mosaic = projection_GlobalMonthly202307Mosaic.getExtent();
+    var size_GlobalMonthly202307Mosaic = ol.extent.getWidth(projectionExtent_GlobalMonthly202307Mosaic) / 256;
+    var resolutions_GlobalMonthly202307Mosaic = new Array(14);
+    var matrixIds_GlobalMonthly202307Mosaic = new Array(14);
+    for (var z = 0; z < 14; ++z) {
+        // generate resolutions and matrixIds arrays for this WMTS
+        resolutions_GlobalMonthly202307Mosaic[z] = size_GlobalMonthly202307Mosaic / Math.pow(2, z);
+        matrixIds_GlobalMonthly202307Mosaic[z] = z;
+    }
+    var lyr_GlobalMonthly202307Mosaic = new ol.layer.Tile({
+        source: new ol.source.WMTS(({
+            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            attributions: ' ',
+            "layer": "global_monthly_2023_07_mosaic",
+            "TILED": "true",
+            matrixSet: 'EPSG:3857',
+            format: 'image/png',
+            projection: projection_GlobalMonthly202307Mosaic,
+            tileGrid: new ol.tilegrid.WMTS({
+                origin: ol.extent.getTopLeft(projectionExtent_GlobalMonthly202307Mosaic),
+                resolutions: resolutions_GlobalMonthly202307Mosaic,
+                matrixIds: matrixIds_GlobalMonthly202307Mosaic
+            }),
+            style: 'Default',
+            wrapX: true,
+            "VERSION": "1.0.0",
+        })),
+        title: 'Global Monthly 2023 07 Mosaic',
+        opacity: 1.0,
+        
+        
+        });
 
 var lyr_V1_Fz_Nova_Barra = new ol.layer.VectorImage({
     title: '<div class="roller-switcher"></div> V1_Fz_Nova_Barra',
@@ -18,7 +174,7 @@ var lyr_V1_Fz_Nova_Barra = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Nova_Barra",
     popuplayertitle: 'V1_Fz_Nova_Barra',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Nova_Barra_data() {
@@ -72,7 +228,7 @@ var lyr_V1_Fz_Amaralina_07062026 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Amaralina_07062026",
     popuplayertitle: 'V1_Fz_Amaralina_07-06-2026',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Amaralina_07062026_data() {
@@ -126,7 +282,7 @@ var lyr_V1_Fz_Lote15_190526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Lote15_190526",
     popuplayertitle: 'V1_Fz_Lote15_19-05-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Lote15_190526_data() {
@@ -180,7 +336,7 @@ var lyr_V1_Fz_Sao_Jose_190526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Sao_Jose_190526",
     popuplayertitle: 'V1_Fz_Sao_Jose_19-05-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Sao_Jose_190526_data() {
@@ -234,7 +390,7 @@ var lyr_V1_Fz_Nova_Prata_240426 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Nova_Prata_240426",
     popuplayertitle: 'V1_Fz_Nova_Prata_24-04-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Nova_Prata_240426_data() {
@@ -288,7 +444,7 @@ var lyr_Locais_visitados_Pliade_25052026 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Locais_visitados_Pliade_25052026",
     popuplayertitle: 'Locais_visitados_Plêiade_25-05-2026',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Locais_visitados_Pliade_25052026,
 });
@@ -318,7 +474,7 @@ var lyr_Imveis_Estrada_Opo3_Nova_Prata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Imveis_Estrada_Opo3_Nova_Prata",
     popuplayertitle: 'Imóveis_Estrada_Opção3_Nova_Prata',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Imveis_Estrada_Opo3_Nova_Prata,
 });
@@ -367,7 +523,7 @@ var lyr_RevisoADANovaPrata_27042026 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "RevisoADANovaPrata_27042026",
     popuplayertitle: 'Revisão ADA Nova Prata_27.04.2026',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_RevisoADANovaPrata_27042026,
 });
@@ -397,7 +553,7 @@ var lyr_EstradasNovaPrata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "EstradasNovaPrata",
     popuplayertitle: 'Estradas Nova Prata',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_EstradasNovaPrata,
 });
@@ -427,7 +583,7 @@ var lyr_Estradademinrio = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Estradademinrio",
     popuplayertitle: 'Estrada de minério',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Estradademinrio,
 });
@@ -457,7 +613,7 @@ var lyr_Desvio2 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Desvio2",
     popuplayertitle: 'Desvio 2',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Desvio2,
 });
@@ -487,7 +643,7 @@ var lyr_Desvio1 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Desvio1",
     popuplayertitle: 'Desvio 1',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Desvio1,
 });
@@ -517,7 +673,7 @@ var lyr_ComunidadeQuilombolaLajeadokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "ComunidadeQuilombolaLajeadokmz",
     popuplayertitle: 'Comunidade Quilombola Lajeado.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_ComunidadeQuilombolaLajeadokmz,
 });
@@ -547,7 +703,7 @@ var lyr_ADAapsReunio27042026kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "ADAapsReunio27042026kmz",
     popuplayertitle: 'ADA após Reunião 27.04.2026.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_ADAapsReunio27042026kmz,
 });
@@ -577,7 +733,7 @@ var lyr_09Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "09Ps2reuniokmz",
     popuplayertitle: '09 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_09Ps2reuniokmz,
 });
@@ -607,7 +763,7 @@ var lyr_08Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "08Ps2reuniokmz",
     popuplayertitle: '08 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_08Ps2reuniokmz,
 });
@@ -637,7 +793,7 @@ var lyr_07Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "07Ps2reuniokmz",
     popuplayertitle: '07 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_07Ps2reuniokmz,
 });
@@ -667,7 +823,7 @@ var lyr_06Reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "06Reuniokmz",
     popuplayertitle: '06 - Reunião.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_06Reuniokmz,
 });
@@ -697,7 +853,7 @@ var lyr_05Reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "05Reuniokmz",
     popuplayertitle: '05 - Reunião.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_05Reuniokmz,
 });
@@ -727,7 +883,7 @@ var lyr_04kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "04kmz",
     popuplayertitle: '04.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_04kmz,
 });
@@ -757,7 +913,7 @@ var lyr_03kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "03kmz",
     popuplayertitle: '03.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_03kmz,
 });
@@ -787,7 +943,7 @@ var lyr_02kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "02kmz",
     popuplayertitle: '02.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_02kmz,
 });
@@ -817,7 +973,7 @@ var lyr_01kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "01kmz",
     popuplayertitle: '01.kmz',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_01kmz,
 });
@@ -847,7 +1003,7 @@ var lyr_Polgono = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Polgono",
     popuplayertitle: 'Polígono',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_Polgono,
 });
@@ -877,7 +1033,7 @@ var lyr_AreiaSequeiro = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "AreiaSequeiro",
     popuplayertitle: 'Areia Sequeiro',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_AreiaSequeiro,
 });
@@ -907,7 +1063,7 @@ var lyr_V1_Fz_Matheus_Lopes_Oeste_070526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Matheus_Lopes_Oeste_070526",
     popuplayertitle: 'V1_Fz_Matheus_Lopes_Oeste_07-05-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Matheus_Lopes_Oeste_070526_data() {
@@ -961,7 +1117,7 @@ var lyr_V1_Fz_Floresta_070526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Floresta_070526",
     popuplayertitle: 'V1_Fz_Floresta_07-05-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Floresta_070526_data() {
@@ -1015,7 +1171,7 @@ var lyr_V1_Fz_Matheus_Lopes_240426 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Matheus_Lopes_240426",
     popuplayertitle: 'V1_Fz_Matheus_Lopes_24-04-26',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_V1_Fz_Matheus_Lopes_240426_data() {
@@ -1069,7 +1225,7 @@ var lyr_FazendaAmaralina = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaAmaralina",
     popuplayertitle: 'Fazenda Amaralina',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaAmaralina,
 });
@@ -1099,7 +1255,7 @@ var lyr_FazendaBrejoAlegreI = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreI",
     popuplayertitle: 'Fazenda Brejo Alegre I',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaBrejoAlegreI,
 });
@@ -1129,7 +1285,7 @@ var lyr_FazendaBrejoAlegreII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreII",
     popuplayertitle: 'Fazenda Brejo Alegre II',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaBrejoAlegreII,
 });
@@ -1159,7 +1315,7 @@ var lyr_FazendaBrejoAlegreIII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreIII",
     popuplayertitle: 'Fazenda Brejo Alegre III',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaBrejoAlegreIII,
 });
@@ -1189,7 +1345,7 @@ var lyr_FazendaFloresta = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaFloresta",
     popuplayertitle: 'Fazenda Floresta',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaFloresta,
 });
@@ -1219,7 +1375,7 @@ var lyr_FazendaLavandeiraII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLavandeiraII",
     popuplayertitle: 'Fazenda Lavandeira II',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaLavandeiraII,
 });
@@ -1249,7 +1405,7 @@ var lyr_FazendaLavandeira = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLavandeira",
     popuplayertitle: 'Fazenda Lavandeira',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaLavandeira,
 });
@@ -1279,7 +1435,7 @@ var lyr_FazendaLote15 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLote15",
     popuplayertitle: 'Fazenda Lote 15 ',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaLote15,
 });
@@ -1309,7 +1465,7 @@ var lyr_FazendaMatheusLopesGeral = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaMatheusLopesGeral",
     popuplayertitle: 'Fazenda Matheus Lopes Geral ',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaMatheusLopesGeral,
 });
@@ -1339,7 +1495,7 @@ var lyr_FazendaMatheusLopesOeste = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaMatheusLopesOeste",
     popuplayertitle: 'Fazenda Matheus Lopes Oeste ',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaMatheusLopesOeste,
 });
@@ -1369,7 +1525,7 @@ var lyr_FazendaNovaPrata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaNovaPrata",
     popuplayertitle: 'Fazenda Nova Prata',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaNovaPrata,
 });
@@ -1399,7 +1555,7 @@ var lyr_FazendaSantaHelena = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSantaHelena",
     popuplayertitle: 'Fazenda Santa Helena',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaSantaHelena,
 });
@@ -1429,7 +1585,7 @@ var lyr_FazendaSantaLuziaRioGrande = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSantaLuziaRioGrande",
     popuplayertitle: 'Fazenda Santa Luzia-Rio Grande',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaSantaLuziaRioGrande,
 });
@@ -1459,7 +1615,7 @@ var lyr_FazendaSoJos = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSoJos",
     popuplayertitle: 'Fazenda São José',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
     style: style_FazendaSoJos,
 });
@@ -1482,6 +1638,106 @@ function load_FazendaSoJos_data() {
     });        
     jsonSource_FazendaSoJos.addFeatures(features_FazendaSoJos);
 }
+var lyr_Processos_minerrios_ativos_ANM = new ol.layer.Tile({
+            source: new ol.source.TileWMS(({
+                url: "https://geo.anm.gov.br/arcgis/services/SIGMINE/dados_anm/MapServer/WMSServer?",
+                attributions: '<a class="legend-realtime"><b>Processos_minerários_ativos_ANM</b><br />\<img src="https://geo.anm.gov.br/arcgis/services/SIGMINE/dados_anm/MapServer/WMSServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=4&"></a>',
+                params: {
+                "LAYERS": "4",
+                //"TILED": "true",
+                "VERSION": "1.3.0"},
+            })),
+            title: '<div id="layertitle">Processos_minerários_ativos_ANM<br />\<i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend-realtime">\<img src="https://geo.anm.gov.br/arcgis/services/SIGMINE/dados_anm/MapServer/WMSServer?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=4&"></a>',
+            popuplayertitle: 'Processos_minerários_ativos_ANM',
+            permalink: 'Processos_minerrios_ativos_ANM',
+            opacity: 0.566000,
+            
+            
+            
+            });
+    wms_layers.push([lyr_Processos_minerrios_ativos_ANM, 0]);
+    lyr_Processos_minerrios_ativos_ANM.setVisible(false);
+    
+
+var lyr_Limite_estimado_Comunidade_So_Joaquim = new ol.layer.Vector({
+    title: '<div class="roller-switcher"></div> Limite_estimado_Comunidade_So_Joaquim',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "Limite_estimado_Comunidade_So_Joaquim",
+    popuplayertitle: 'Limite_estimado_Comunidade_São_Joaquim',
+    creationdate: '2026-06-10 08:44:33',
+    interactive: true,
+    style: style_Limite_estimado_Comunidade_So_Joaquim,
+});
+function load_Limite_estimado_Comunidade_So_Joaquim_data() {
+    var format_Limite_estimado_Comunidade_So_Joaquim = new ol.format.GeoJSON();
+    var features_Limite_estimado_Comunidade_So_Joaquim = format_Limite_estimado_Comunidade_So_Joaquim.readFeatures(json_Limite_estimado_Comunidade_So_Joaquim, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_Limite_estimado_Comunidade_So_Joaquim = new ol.source.Vector({
+    attributions: '<a class="legend"><img src="styles/legend/Limite_estimado_Comunidade_So_Joaquim.png"/><b>Limite_estimado_Comunidade_São_Joaquim</b>'
+    });
+    lyr_Limite_estimado_Comunidade_So_Joaquim.setSource(jsonSource_Limite_estimado_Comunidade_So_Joaquim);
+    lyr_Limite_estimado_Comunidade_So_Joaquim.set(
+    "title", '<img src="styles/legend/Limite_estimado_Comunidade_So_Joaquim.png"/>Limite_estimado_Comunidade_São_Joaquim'
+    );
+    var featureCounter_Limite_estimado_Comunidade_So_Joaquim = 1;
+    jsonSource_Limite_estimado_Comunidade_So_Joaquim.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_Limite_estimado_Comunidade_So_Joaquim++);
+        feature.set("layerObject", lyr_Limite_estimado_Comunidade_So_Joaquim);
+    });        
+    jsonSource_Limite_estimado_Comunidade_So_Joaquim.addFeatures(features_Limite_estimado_Comunidade_So_Joaquim);
+}
+
+var lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = new ol.layer.Vector({
+    title: '<div class="roller-switcher"></div> Limite_estimado_Comunidade_BaiaoCapao_da_Onca',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "Limite_estimado_Comunidade_BaiaoCapao_da_Onca",
+    popuplayertitle: 'Limite_estimado_Comunidade_Baião-Capão_da_Onça',
+    creationdate: '2026-06-10 08:44:33',
+    interactive: true,
+    style: style_Limite_estimado_Comunidade_BaiaoCapao_da_Onca,
+});
+function load_Limite_estimado_Comunidade_BaiaoCapao_da_Onca_data() {
+    var format_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = new ol.format.GeoJSON();
+    var features_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = format_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.readFeatures(json_Limite_estimado_Comunidade_BaiaoCapao_da_Onca, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = new ol.source.Vector({
+    attributions: '<a class="legend"><img src="styles/legend/Limite_estimado_Comunidade_BaiaoCapao_da_Onca.png"/><b>Limite_estimado_Comunidade_Baião-Capão_da_Onça</b>'
+    });
+    lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.setSource(jsonSource_Limite_estimado_Comunidade_BaiaoCapao_da_Onca);
+    lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set(
+    "title", '<img src="styles/legend/Limite_estimado_Comunidade_BaiaoCapao_da_Onca.png"/>Limite_estimado_Comunidade_Baião-Capão_da_Onça'
+    );
+    var featureCounter_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = 1;
+    jsonSource_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_Limite_estimado_Comunidade_BaiaoCapao_da_Onca++);
+        feature.set("layerObject", lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca);
+    });        
+    jsonSource_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.addFeatures(features_Limite_estimado_Comunidade_BaiaoCapao_da_Onca);
+}
+var lyr_SigcarTO_propriedade_area_imovel = new ol.layer.Tile({
+            source: new ol.source.TileWMS(({
+                url: "http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?",
+                attributions: '<a class="legend-realtime"><b>SigcarTO_propriedade_area_imovel</b><br />\<img src="http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?VERSION=1.1.1&REQUEST=GetLegendGraphic&SERVICE=WMS&LAYER=propriedade_area_imovel_completo&STYLE=default&FORMAT=image/png&CONFIG=legendurl&"></a>',
+                params: {
+                "LAYERS": "propriedade_area_imovel_completo",
+                //"TILED": "true",
+                "VERSION": "1.1.1"},
+            })),
+            title: '<div id="layertitle">SigcarTO_propriedade_area_imovel<br />\<i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend-realtime">\<img src="http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?VERSION=1.1.1&REQUEST=GetLegendGraphic&SERVICE=WMS&LAYER=propriedade_area_imovel_completo&STYLE=default&FORMAT=image/png&CONFIG=legendurl&"></a>',
+            popuplayertitle: 'SigcarTO_propriedade_area_imovel',
+            permalink: 'SigcarTO_propriedade_area_imovel',
+            opacity: 1.000000,
+            
+            
+            
+            });
+    wms_layers.push([lyr_SigcarTO_propriedade_area_imovel, 0]);
+    lyr_SigcarTO_propriedade_area_imovel.setVisible(false);
+    
 
 var lyr_servidao_2026_virasaia = new ol.layer.VectorImage({
     title: '<div class="roller-switcher"></div> servidao_2026_virasaia',
@@ -1489,7 +1745,7 @@ var lyr_servidao_2026_virasaia = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_virasaia",
     popuplayertitle: 'servidao_2026_virasaia',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_servidao_2026_virasaia_data() {
@@ -1520,7 +1776,7 @@ var lyr_servidao_2026_jacobina = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_jacobina",
     popuplayertitle: 'servidao_2026_jacobina',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_servidao_2026_jacobina_data() {
@@ -1551,7 +1807,7 @@ var lyr_servidao_2026_novaprata = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_novaprata",
     popuplayertitle: 'servidao_2026_novaprata',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_servidao_2026_novaprata_data() {
@@ -1582,7 +1838,7 @@ var lyr_servidao_paiol_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_paiol_original",
     popuplayertitle: 'servidao_paiol_original',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_servidao_paiol_original_data() {
@@ -1613,7 +1869,7 @@ var lyr_servidao_virasaia_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_virasaia_original",
     popuplayertitle: 'servidao_virasaia_original',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_servidao_virasaia_original_data() {
@@ -1644,7 +1900,7 @@ var lyr_plano_diretor_2025 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "plano_diretor_2025",
     popuplayertitle: 'plano_diretor_2025',
-    creationdate: '2026-06-10 08:24:23',
+    creationdate: '2026-06-10 08:44:33',
     interactive: true,
 });
 function load_plano_diretor_2025_data() {
@@ -1738,7 +1994,7 @@ applySLDstyle(lyr_plano_diretor_2025, style_plano_diretor_2025, 'plano_diretor_2
         {layer: lyr_servidao_2026_virasaia, source: 'servidao_2026_virasaia'},{layer: lyr_servidao_2026_jacobina, source: 'servidao_2026_jacobina'},{layer: lyr_servidao_2026_novaprata, source: 'servidao_2026_novaprata'},{layer: lyr_servidao_paiol_original, source: 'servidao_paiol_original'},{layer: lyr_servidao_virasaia_original, source: 'servidao_virasaia_original'}
     ];
     var layersHiddenOnStart = [
-        {layer: lyr_V1_Fz_Nova_Barra, source: 'V1_Fz_Nova_Barra'},{layer: lyr_V1_Fz_Amaralina_07062026, source: 'V1_Fz_Amaralina_07062026'},{layer: lyr_V1_Fz_Lote15_190526, source: 'V1_Fz_Lote15_190526'},{layer: lyr_V1_Fz_Sao_Jose_190526, source: 'V1_Fz_Sao_Jose_190526'},{layer: lyr_V1_Fz_Nova_Prata_240426, source: 'V1_Fz_Nova_Prata_240426'},{layer: lyr_Locais_visitados_Pliade_25052026, source: 'Locais_visitados_Pliade_25052026'},{layer: lyr_Imveis_Estrada_Opo3_Nova_Prata, source: 'Imveis_Estrada_Opo3_Nova_Prata'},{layer: lyr_RevisoADANovaPrata_27042026, source: 'RevisoADANovaPrata_27042026'},{layer: lyr_EstradasNovaPrata, source: 'EstradasNovaPrata'},{layer: lyr_Estradademinrio, source: 'Estradademinrio'},{layer: lyr_Desvio2, source: 'Desvio2'},{layer: lyr_Desvio1, source: 'Desvio1'},{layer: lyr_ComunidadeQuilombolaLajeadokmz, source: 'ComunidadeQuilombolaLajeadokmz'},{layer: lyr_ADAapsReunio27042026kmz, source: 'ADAapsReunio27042026kmz'},{layer: lyr_09Ps2reuniokmz, source: '09Ps2reuniokmz'},{layer: lyr_08Ps2reuniokmz, source: '08Ps2reuniokmz'},{layer: lyr_07Ps2reuniokmz, source: '07Ps2reuniokmz'},{layer: lyr_06Reuniokmz, source: '06Reuniokmz'},{layer: lyr_05Reuniokmz, source: '05Reuniokmz'},{layer: lyr_04kmz, source: '04kmz'},{layer: lyr_03kmz, source: '03kmz'},{layer: lyr_02kmz, source: '02kmz'},{layer: lyr_01kmz, source: '01kmz'},{layer: lyr_Polgono, source: 'Polgono'},{layer: lyr_AreiaSequeiro, source: 'AreiaSequeiro'},{layer: lyr_V1_Fz_Matheus_Lopes_Oeste_070526, source: 'V1_Fz_Matheus_Lopes_Oeste_070526'},{layer: lyr_V1_Fz_Floresta_070526, source: 'V1_Fz_Floresta_070526'},{layer: lyr_V1_Fz_Matheus_Lopes_240426, source: 'V1_Fz_Matheus_Lopes_240426'},{layer: lyr_FazendaAmaralina, source: 'FazendaAmaralina'},{layer: lyr_FazendaBrejoAlegreI, source: 'FazendaBrejoAlegreI'},{layer: lyr_FazendaBrejoAlegreII, source: 'FazendaBrejoAlegreII'},{layer: lyr_FazendaBrejoAlegreIII, source: 'FazendaBrejoAlegreIII'},{layer: lyr_FazendaFloresta, source: 'FazendaFloresta'},{layer: lyr_FazendaLavandeiraII, source: 'FazendaLavandeiraII'},{layer: lyr_FazendaLavandeira, source: 'FazendaLavandeira'},{layer: lyr_FazendaLote15, source: 'FazendaLote15'},{layer: lyr_FazendaMatheusLopesGeral, source: 'FazendaMatheusLopesGeral'},{layer: lyr_FazendaMatheusLopesOeste, source: 'FazendaMatheusLopesOeste'},{layer: lyr_FazendaNovaPrata, source: 'FazendaNovaPrata'},{layer: lyr_FazendaSantaHelena, source: 'FazendaSantaHelena'},{layer: lyr_FazendaSantaLuziaRioGrande, source: 'FazendaSantaLuziaRioGrande'},{layer: lyr_FazendaSoJos, source: 'FazendaSoJos'},{layer: lyr_plano_diretor_2025, source: 'plano_diretor_2025'}
+        {layer: lyr_V1_Fz_Nova_Barra, source: 'V1_Fz_Nova_Barra'},{layer: lyr_V1_Fz_Amaralina_07062026, source: 'V1_Fz_Amaralina_07062026'},{layer: lyr_V1_Fz_Lote15_190526, source: 'V1_Fz_Lote15_190526'},{layer: lyr_V1_Fz_Sao_Jose_190526, source: 'V1_Fz_Sao_Jose_190526'},{layer: lyr_V1_Fz_Nova_Prata_240426, source: 'V1_Fz_Nova_Prata_240426'},{layer: lyr_Locais_visitados_Pliade_25052026, source: 'Locais_visitados_Pliade_25052026'},{layer: lyr_Imveis_Estrada_Opo3_Nova_Prata, source: 'Imveis_Estrada_Opo3_Nova_Prata'},{layer: lyr_RevisoADANovaPrata_27042026, source: 'RevisoADANovaPrata_27042026'},{layer: lyr_EstradasNovaPrata, source: 'EstradasNovaPrata'},{layer: lyr_Estradademinrio, source: 'Estradademinrio'},{layer: lyr_Desvio2, source: 'Desvio2'},{layer: lyr_Desvio1, source: 'Desvio1'},{layer: lyr_ComunidadeQuilombolaLajeadokmz, source: 'ComunidadeQuilombolaLajeadokmz'},{layer: lyr_ADAapsReunio27042026kmz, source: 'ADAapsReunio27042026kmz'},{layer: lyr_09Ps2reuniokmz, source: '09Ps2reuniokmz'},{layer: lyr_08Ps2reuniokmz, source: '08Ps2reuniokmz'},{layer: lyr_07Ps2reuniokmz, source: '07Ps2reuniokmz'},{layer: lyr_06Reuniokmz, source: '06Reuniokmz'},{layer: lyr_05Reuniokmz, source: '05Reuniokmz'},{layer: lyr_04kmz, source: '04kmz'},{layer: lyr_03kmz, source: '03kmz'},{layer: lyr_02kmz, source: '02kmz'},{layer: lyr_01kmz, source: '01kmz'},{layer: lyr_Polgono, source: 'Polgono'},{layer: lyr_AreiaSequeiro, source: 'AreiaSequeiro'},{layer: lyr_V1_Fz_Matheus_Lopes_Oeste_070526, source: 'V1_Fz_Matheus_Lopes_Oeste_070526'},{layer: lyr_V1_Fz_Floresta_070526, source: 'V1_Fz_Floresta_070526'},{layer: lyr_V1_Fz_Matheus_Lopes_240426, source: 'V1_Fz_Matheus_Lopes_240426'},{layer: lyr_FazendaAmaralina, source: 'FazendaAmaralina'},{layer: lyr_FazendaBrejoAlegreI, source: 'FazendaBrejoAlegreI'},{layer: lyr_FazendaBrejoAlegreII, source: 'FazendaBrejoAlegreII'},{layer: lyr_FazendaBrejoAlegreIII, source: 'FazendaBrejoAlegreIII'},{layer: lyr_FazendaFloresta, source: 'FazendaFloresta'},{layer: lyr_FazendaLavandeiraII, source: 'FazendaLavandeiraII'},{layer: lyr_FazendaLavandeira, source: 'FazendaLavandeira'},{layer: lyr_FazendaLote15, source: 'FazendaLote15'},{layer: lyr_FazendaMatheusLopesGeral, source: 'FazendaMatheusLopesGeral'},{layer: lyr_FazendaMatheusLopesOeste, source: 'FazendaMatheusLopesOeste'},{layer: lyr_FazendaNovaPrata, source: 'FazendaNovaPrata'},{layer: lyr_FazendaSantaHelena, source: 'FazendaSantaHelena'},{layer: lyr_FazendaSantaLuziaRioGrande, source: 'FazendaSantaLuziaRioGrande'},{layer: lyr_FazendaSoJos, source: 'FazendaSoJos'},{layer: lyr_Limite_estimado_Comunidade_So_Joaquim, source: 'Limite_estimado_Comunidade_So_Joaquim'},{layer: lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca, source: 'Limite_estimado_Comunidade_BaiaoCapao_da_Onca'},{layer: lyr_plano_diretor_2025, source: 'plano_diretor_2025'}
     ];
     // Funzione per caricare il JSON source
 	function loadJSON(fileName) {
@@ -1819,8 +2075,24 @@ var group_011_Base_Oficial_Aura = new ol.layer.Group({
                                 layers: [group_c_servidao_mineral,group_b_areas_licencas,group_a_plano_diretor,],
                                 openInLayerSwitcher: true,
                                 title: '01-1_Base_Oficial_Aura'});
-var group_012_Bases_Complementares = new ol.layer.Group({
+var group_Certificaes_Sigef_Incra = new ol.layer.Group({
                                 layers: [],
+                                openInLayerSwitcher: false,
+                                title: 'Certificações_Sigef_Incra'});
+var group_Fund_Palmares_Almas = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: false,
+                                title: 'Fund_Palmares_Almas'});
+var group_Fund_Palmares_DIanopolis = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: false,
+                                title: 'Fund_Palmares_DIanopolis'});
+var group_Fund_Palmares_Porto_Alegre_do_Tocantins = new ol.layer.Group({
+                                layers: [],
+                                openInLayerSwitcher: false,
+                                title: 'Fund_Palmares_Porto_Alegre_do_Tocantins'});
+var group_012_Bases_Complementares = new ol.layer.Group({
+                                layers: [lyr_Processos_minerrios_ativos_ANM,group_Fund_Palmares_Porto_Alegre_do_Tocantins,group_Fund_Palmares_DIanopolis,group_Fund_Palmares_Almas,lyr_Limite_estimado_Comunidade_So_Joaquim,lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca,group_Certificaes_Sigef_Incra,lyr_SigcarTO_propriedade_area_imovel,],
                                 openInLayerSwitcher: true,
                                 title: '01-2_Bases_Complementares'});
 var group_01_BASES_DADOS_GERAIS = new ol.layer.Group({
@@ -1908,11 +2180,11 @@ var group_98_HISTORICO = new ol.layer.Group({
                                 openInLayerSwitcher: false,
                                 title: '98_HISTORICO'});
 var group_99_IMAGENS_SENSOR_REMOTO = new ol.layer.Group({
-                                layers: [lyr_Imagem_Google,],
+                                layers: [lyr_Imagem_Google,lyr_ImagemdeSatlitePleiades2015,lyr_GlobalMonthly202603Mosaic,lyr_GlobalMonthly202507Mosaic,lyr_GlobalMonthly202407Mosaic,lyr_GlobalMonthly202307Mosaic,],
                                 openInLayerSwitcher: false,
                                 title: '99_IMAGENS_SENSOR_REMOTO'});
 
-lyr_Imagem_Google.setVisible(true);lyr_V1_Fz_Nova_Barra.setVisible(false);lyr_V1_Fz_Amaralina_07062026.setVisible(false);lyr_V1_Fz_Lote15_190526.setVisible(false);lyr_V1_Fz_Sao_Jose_190526.setVisible(false);lyr_V1_Fz_Nova_Prata_240426.setVisible(false);lyr_Locais_visitados_Pliade_25052026.setVisible(false);lyr_Imveis_Estrada_Opo3_Nova_Prata.setVisible(false);lyr_RevisoADANovaPrata_27042026.setVisible(false);lyr_EstradasNovaPrata.setVisible(false);lyr_Estradademinrio.setVisible(false);lyr_Desvio2.setVisible(false);lyr_Desvio1.setVisible(false);lyr_ComunidadeQuilombolaLajeadokmz.setVisible(false);lyr_ADAapsReunio27042026kmz.setVisible(false);lyr_09Ps2reuniokmz.setVisible(false);lyr_08Ps2reuniokmz.setVisible(false);lyr_07Ps2reuniokmz.setVisible(false);lyr_06Reuniokmz.setVisible(false);lyr_05Reuniokmz.setVisible(false);lyr_04kmz.setVisible(false);lyr_03kmz.setVisible(false);lyr_02kmz.setVisible(false);lyr_01kmz.setVisible(false);lyr_Polgono.setVisible(false);lyr_AreiaSequeiro.setVisible(false);lyr_V1_Fz_Matheus_Lopes_Oeste_070526.setVisible(false);lyr_V1_Fz_Floresta_070526.setVisible(false);lyr_V1_Fz_Matheus_Lopes_240426.setVisible(false);lyr_FazendaAmaralina.setVisible(false);lyr_FazendaBrejoAlegreI.setVisible(false);lyr_FazendaBrejoAlegreII.setVisible(false);lyr_FazendaBrejoAlegreIII.setVisible(false);lyr_FazendaFloresta.setVisible(false);lyr_FazendaLavandeiraII.setVisible(false);lyr_FazendaLavandeira.setVisible(false);lyr_FazendaLote15.setVisible(false);lyr_FazendaMatheusLopesGeral.setVisible(false);lyr_FazendaMatheusLopesOeste.setVisible(false);lyr_FazendaNovaPrata.setVisible(false);lyr_FazendaSantaHelena.setVisible(false);lyr_FazendaSantaLuziaRioGrande.setVisible(false);lyr_FazendaSoJos.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025.setVisible(false);
+lyr_Imagem_Google.setVisible(true);lyr_ImagemdeSatlitePleiades2015.setVisible(false);lyr_GlobalMonthly202603Mosaic.setVisible(false);lyr_GlobalMonthly202507Mosaic.setVisible(false);lyr_GlobalMonthly202407Mosaic.setVisible(false);lyr_GlobalMonthly202307Mosaic.setVisible(false);lyr_V1_Fz_Nova_Barra.setVisible(false);lyr_V1_Fz_Amaralina_07062026.setVisible(false);lyr_V1_Fz_Lote15_190526.setVisible(false);lyr_V1_Fz_Sao_Jose_190526.setVisible(false);lyr_V1_Fz_Nova_Prata_240426.setVisible(false);lyr_Locais_visitados_Pliade_25052026.setVisible(false);lyr_Imveis_Estrada_Opo3_Nova_Prata.setVisible(false);lyr_RevisoADANovaPrata_27042026.setVisible(false);lyr_EstradasNovaPrata.setVisible(false);lyr_Estradademinrio.setVisible(false);lyr_Desvio2.setVisible(false);lyr_Desvio1.setVisible(false);lyr_ComunidadeQuilombolaLajeadokmz.setVisible(false);lyr_ADAapsReunio27042026kmz.setVisible(false);lyr_09Ps2reuniokmz.setVisible(false);lyr_08Ps2reuniokmz.setVisible(false);lyr_07Ps2reuniokmz.setVisible(false);lyr_06Reuniokmz.setVisible(false);lyr_05Reuniokmz.setVisible(false);lyr_04kmz.setVisible(false);lyr_03kmz.setVisible(false);lyr_02kmz.setVisible(false);lyr_01kmz.setVisible(false);lyr_Polgono.setVisible(false);lyr_AreiaSequeiro.setVisible(false);lyr_V1_Fz_Matheus_Lopes_Oeste_070526.setVisible(false);lyr_V1_Fz_Floresta_070526.setVisible(false);lyr_V1_Fz_Matheus_Lopes_240426.setVisible(false);lyr_FazendaAmaralina.setVisible(false);lyr_FazendaBrejoAlegreI.setVisible(false);lyr_FazendaBrejoAlegreII.setVisible(false);lyr_FazendaBrejoAlegreIII.setVisible(false);lyr_FazendaFloresta.setVisible(false);lyr_FazendaLavandeiraII.setVisible(false);lyr_FazendaLavandeira.setVisible(false);lyr_FazendaLote15.setVisible(false);lyr_FazendaMatheusLopesGeral.setVisible(false);lyr_FazendaMatheusLopesOeste.setVisible(false);lyr_FazendaNovaPrata.setVisible(false);lyr_FazendaSantaHelena.setVisible(false);lyr_FazendaSantaLuziaRioGrande.setVisible(false);lyr_FazendaSoJos.setVisible(false);lyr_Processos_minerrios_ativos_ANM.setVisible(false);lyr_Limite_estimado_Comunidade_So_Joaquim.setVisible(false);lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.setVisible(false);lyr_SigcarTO_propriedade_area_imovel.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025.setVisible(false);
 var layersList = [group_99_IMAGENS_SENSOR_REMOTO,group_98_HISTORICO,group_02_ORDENS_SERVIOS,group_01_BASES_DADOS_GERAIS];
 lyr_V1_Fz_Nova_Barra.set('fieldAliases', {'Id': 'Id', 'NOME': 'NOME', });
 lyr_V1_Fz_Amaralina_07062026.set('fieldAliases', {'ld': 'ld', 'NOME': 'NOME', });
@@ -1956,6 +2228,8 @@ lyr_FazendaNovaPrata.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propri
 lyr_FazendaSantaHelena.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
 lyr_FazendaSantaLuziaRioGrande.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
 lyr_FazendaSoJos.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
+lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'NOME': 'NOME', });
+lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'descriptio': 'descriptio', 'altitudeMo': 'altitudeMo', 'snippet': 'snippet', });
 lyr_servidao_2026_virasaia.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
 lyr_servidao_2026_jacobina.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
 lyr_servidao_2026_novaprata.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
@@ -2004,6 +2278,8 @@ lyr_FazendaNovaPrata.set('fieldImages', {'Nome da Propriedade': '', 'Proprietár
 lyr_FazendaSantaHelena.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_FazendaSantaLuziaRioGrande.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_FazendaSoJos.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'descriptio': 'TextEdit', 'altitudeMo': 'TextEdit', 'snippet': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_servidao_2026_virasaia.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_servidao_2026_jacobina.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_servidao_2026_novaprata.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
@@ -2052,6 +2328,8 @@ lyr_FazendaNovaPrata.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Pro
 lyr_FazendaSantaHelena.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
 lyr_FazendaSantaLuziaRioGrande.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
 lyr_FazendaSoJos.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
+lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', 'NOME': 'no label', });
+lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', 'descriptio': 'no label', 'altitudeMo': 'no label', 'snippet': 'no label', });
 lyr_servidao_2026_virasaia.set('fieldLabels', {'fid': 'no label', 'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });
 lyr_servidao_2026_jacobina.set('fieldLabels', {'fid': 'no label', 'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });
 lyr_servidao_2026_novaprata.set('fieldLabels', {'fid': 'no label', 'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });
