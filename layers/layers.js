@@ -167,113 +167,502 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
         
         
         });
+var lyr_WorldImagery = new ol.layer.Tile({
+            'title': 'World Imagery',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
+            attributions: ' ',
+                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+            })
+        });
+        
 
-var lyr_V1_Fz_Nova_Barra = new ol.layer.VectorImage({
-    title: '<div class="roller-switcher"></div> V1_Fz_Nova_Barra',
+var lyr_V1_Fz_Lavandeira_II_16062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Lavandeira_II_16062026',
     source: new ol.source.Vector(), 
     sourceType: 'json',
-    permalink: "V1_Fz_Nova_Barra",
-    popuplayertitle: 'V1_Fz_Nova_Barra',
-    creationdate: '2026-06-10 08:44:33',
+    permalink: "V1_Fz_Lavandeira_II_16062026",
+    popuplayertitle: 'V1_Fz_Lavandeira_II_16-06-2026',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
-function load_V1_Fz_Nova_Barra_data() {
-    var format_V1_Fz_Nova_Barra = new ol.format.GeoJSON();
-    var features_V1_Fz_Nova_Barra = format_V1_Fz_Nova_Barra.readFeatures(json_V1_Fz_Nova_Barra, 
+function load_V1_Fz_Lavandeira_II_16062026_data() {
+    var format_V1_Fz_Lavandeira_II_16062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Lavandeira_II_16062026 = format_V1_Fz_Lavandeira_II_16062026.readFeatures(json_V1_Fz_Lavandeira_II_16062026, 
     {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-    var jsonSource_V1_Fz_Nova_Barra = new ol.source.Vector({
-    attributions: '<a class="legend"><b>V1_Fz_Nova_Barra</b><br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_1.png"/>Área Consolidada<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_2.png"/>Área da Propriedade Rural<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_6.png"/>Área de Uso Alternativo<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_7.png"/>Área de Vegetação Nativa<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_8.png"/>Hidrografia do Imóvel<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_9.png"/>Intervenções<br />\
-        <img src="styles/legend/V1_Fz_Nova_Barra_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+    var jsonSource_V1_Fz_Lavandeira_II_16062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Lavandeira_II_16-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_II_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         });
-    lyr_V1_Fz_Nova_Barra.setSource(jsonSource_V1_Fz_Nova_Barra);
-    lyr_V1_Fz_Nova_Barra.set(
-    "title", '<div id="layertitle">V1_Fz_Nova_Barra<br />\
+    lyr_V1_Fz_Lavandeira_II_16062026.setSource(jsonSource_V1_Fz_Lavandeira_II_16062026);
+    lyr_V1_Fz_Lavandeira_II_16062026.set(
+    "title", '<div id="layertitle">V1_Fz_Lavandeira_II_16-06-2026<br />\
         <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Nova_Barra_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Nova_Barra_1.png"/>Área Consolidada<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Nova_Barra_2.png"/>Área da Propriedade Rural<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Nova_Barra_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Nova_Barra_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Nova_Barra_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Nova_Barra_6.png"/>Área de Uso Alternativo<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Nova_Barra_7.png"/>Área de Vegetação Nativa<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Nova_Barra_8.png"/>Hidrografia do Imóvel<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Nova_Barra_9.png"/>Intervenções<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Nova_Barra_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Lavandeira_II_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         );
-    var featureCounter_V1_Fz_Nova_Barra = 1;
-    jsonSource_V1_Fz_Nova_Barra.on('addfeature', function (event) {
+    var featureCounter_V1_Fz_Lavandeira_II_16062026 = 1;
+    jsonSource_V1_Fz_Lavandeira_II_16062026.on('addfeature', function (event) {
         var feature = event.feature;
-        feature.set("idO", featureCounter_V1_Fz_Nova_Barra++);
-        feature.set("layerObject", lyr_V1_Fz_Nova_Barra);
+        feature.set("idO", featureCounter_V1_Fz_Lavandeira_II_16062026++);
+        feature.set("layerObject", lyr_V1_Fz_Lavandeira_II_16062026);
     });        
-    jsonSource_V1_Fz_Nova_Barra.addFeatures(features_V1_Fz_Nova_Barra);
+    jsonSource_V1_Fz_Lavandeira_II_16062026.addFeatures(features_V1_Fz_Lavandeira_II_16062026);
 }
-applySLDstyle(lyr_V1_Fz_Nova_Barra, style_V1_Fz_Nova_Barra, 'V1_Fz_Nova_Barra');
+applySLDstyle(lyr_V1_Fz_Lavandeira_II_16062026, style_V1_Fz_Lavandeira_II_16062026, 'V1_Fz_Lavandeira_II_16-06-2026');
 
 
-var lyr_V1_Fz_Amaralina_07062026 = new ol.layer.VectorImage({
-    title: '<div class="roller-switcher"></div> V1_Fz_Amaralina_07062026',
+var lyr_V1_Fz_Brejo_Alegre_III_16062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Brejo_Alegre_III_16062026',
     source: new ol.source.Vector(), 
     sourceType: 'json',
-    permalink: "V1_Fz_Amaralina_07062026",
-    popuplayertitle: 'V1_Fz_Amaralina_07-06-2026',
-    creationdate: '2026-06-10 08:44:33',
+    permalink: "V1_Fz_Brejo_Alegre_III_16062026",
+    popuplayertitle: 'V1_Fz_Brejo_Alegre_III_16-06-2026',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
-function load_V1_Fz_Amaralina_07062026_data() {
-    var format_V1_Fz_Amaralina_07062026 = new ol.format.GeoJSON();
-    var features_V1_Fz_Amaralina_07062026 = format_V1_Fz_Amaralina_07062026.readFeatures(json_V1_Fz_Amaralina_07062026, 
+function load_V1_Fz_Brejo_Alegre_III_16062026_data() {
+    var format_V1_Fz_Brejo_Alegre_III_16062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Brejo_Alegre_III_16062026 = format_V1_Fz_Brejo_Alegre_III_16062026.readFeatures(json_V1_Fz_Brejo_Alegre_III_16062026, 
     {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-    var jsonSource_V1_Fz_Amaralina_07062026 = new ol.source.Vector({
-    attributions: '<a class="legend"><b>V1_Fz_Amaralina_07-06-2026</b><br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_1.png"/>Área Consolidada<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_2.png"/>Área da Propriedade Rural<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_6.png"/>Área de Uso Alternativo<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_7.png"/>Área de Vegetação Nativa<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_8.png"/>Hidrografia do Imóvel<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_9.png"/>Intervenções<br />\
-        <img src="styles/legend/V1_Fz_Amaralina_07062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+    var jsonSource_V1_Fz_Brejo_Alegre_III_16062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Brejo_Alegre_III_16-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         });
-    lyr_V1_Fz_Amaralina_07062026.setSource(jsonSource_V1_Fz_Amaralina_07062026);
-    lyr_V1_Fz_Amaralina_07062026.set(
-    "title", '<div id="layertitle">V1_Fz_Amaralina_07-06-2026<br />\
+    lyr_V1_Fz_Brejo_Alegre_III_16062026.setSource(jsonSource_V1_Fz_Brejo_Alegre_III_16062026);
+    lyr_V1_Fz_Brejo_Alegre_III_16062026.set(
+    "title", '<div id="layertitle">V1_Fz_Brejo_Alegre_III_16-06-2026<br />\
         <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_1.png"/>Área Consolidada<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_2.png"/>Área da Propriedade Rural<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_6.png"/>Área de Uso Alternativo<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_7.png"/>Área de Vegetação Nativa<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_8.png"/>Hidrografia do Imóvel<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_9.png"/>Intervenções<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Amaralina_07062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Brejo_Alegre_III_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         );
-    var featureCounter_V1_Fz_Amaralina_07062026 = 1;
-    jsonSource_V1_Fz_Amaralina_07062026.on('addfeature', function (event) {
+    var featureCounter_V1_Fz_Brejo_Alegre_III_16062026 = 1;
+    jsonSource_V1_Fz_Brejo_Alegre_III_16062026.on('addfeature', function (event) {
         var feature = event.feature;
-        feature.set("idO", featureCounter_V1_Fz_Amaralina_07062026++);
-        feature.set("layerObject", lyr_V1_Fz_Amaralina_07062026);
+        feature.set("idO", featureCounter_V1_Fz_Brejo_Alegre_III_16062026++);
+        feature.set("layerObject", lyr_V1_Fz_Brejo_Alegre_III_16062026);
     });        
-    jsonSource_V1_Fz_Amaralina_07062026.addFeatures(features_V1_Fz_Amaralina_07062026);
+    jsonSource_V1_Fz_Brejo_Alegre_III_16062026.addFeatures(features_V1_Fz_Brejo_Alegre_III_16062026);
 }
-applySLDstyle(lyr_V1_Fz_Amaralina_07062026, style_V1_Fz_Amaralina_07062026, 'V1_Fz_Amaralina_07-06-2026');
+applySLDstyle(lyr_V1_Fz_Brejo_Alegre_III_16062026, style_V1_Fz_Brejo_Alegre_III_16062026, 'V1_Fz_Brejo_Alegre_III_16-06-2026');
+
+
+var lyr_V1_Fz_BrejoAlegreII_16062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_BrejoAlegreII_16062026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_BrejoAlegreII_16062026",
+    popuplayertitle: 'V1_Fz_Brejo Alegre II_16-06-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_BrejoAlegreII_16062026_data() {
+    var format_V1_Fz_BrejoAlegreII_16062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_BrejoAlegreII_16062026 = format_V1_Fz_BrejoAlegreII_16062026.readFeatures(json_V1_Fz_BrejoAlegreII_16062026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_BrejoAlegreII_16062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Brejo Alegre II_16-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_BrejoAlegreII_16062026.setSource(jsonSource_V1_Fz_BrejoAlegreII_16062026);
+    lyr_V1_Fz_BrejoAlegreII_16062026.set(
+    "title", '<div id="layertitle">V1_Fz_Brejo Alegre II_16-06-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_BrejoAlegreII_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_BrejoAlegreII_16062026 = 1;
+    jsonSource_V1_Fz_BrejoAlegreII_16062026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_BrejoAlegreII_16062026++);
+        feature.set("layerObject", lyr_V1_Fz_BrejoAlegreII_16062026);
+    });        
+    jsonSource_V1_Fz_BrejoAlegreII_16062026.addFeatures(features_V1_Fz_BrejoAlegreII_16062026);
+}
+applySLDstyle(lyr_V1_Fz_BrejoAlegreII_16062026, style_V1_Fz_BrejoAlegreII_16062026, 'V1_Fz_Brejo Alegre II_16-06-2026');
+
+
+var lyr_V1_Fz_BrejoAlegreI_16062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_BrejoAlegreI_16062026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_BrejoAlegreI_16062026",
+    popuplayertitle: 'V1_Fz_Brejo Alegre I_16-06-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_BrejoAlegreI_16062026_data() {
+    var format_V1_Fz_BrejoAlegreI_16062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_BrejoAlegreI_16062026 = format_V1_Fz_BrejoAlegreI_16062026.readFeatures(json_V1_Fz_BrejoAlegreI_16062026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_BrejoAlegreI_16062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Brejo Alegre I_16-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_BrejoAlegreI_16062026.setSource(jsonSource_V1_Fz_BrejoAlegreI_16062026);
+    lyr_V1_Fz_BrejoAlegreI_16062026.set(
+    "title", '<div id="layertitle">V1_Fz_Brejo Alegre I_16-06-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_BrejoAlegreI_16062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_BrejoAlegreI_16062026 = 1;
+    jsonSource_V1_Fz_BrejoAlegreI_16062026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_BrejoAlegreI_16062026++);
+        feature.set("layerObject", lyr_V1_Fz_BrejoAlegreI_16062026);
+    });        
+    jsonSource_V1_Fz_BrejoAlegreI_16062026.addFeatures(features_V1_Fz_BrejoAlegreI_16062026);
+}
+applySLDstyle(lyr_V1_Fz_BrejoAlegreI_16062026, style_V1_Fz_BrejoAlegreI_16062026, 'V1_Fz_Brejo Alegre I_16-06-2026');
+
+
+var lyr_V1_Fz_Nova_Barra_10062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Nova_Barra_10062026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_Nova_Barra_10062026",
+    popuplayertitle: 'V1_Fz_Nova_Barra_10-06-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_Nova_Barra_10062026_data() {
+    var format_V1_Fz_Nova_Barra_10062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Nova_Barra_10062026 = format_V1_Fz_Nova_Barra_10062026.readFeatures(json_V1_Fz_Nova_Barra_10062026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_Nova_Barra_10062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Nova_Barra_10-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Nova_Barra_10062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_Nova_Barra_10062026.setSource(jsonSource_V1_Fz_Nova_Barra_10062026);
+    lyr_V1_Fz_Nova_Barra_10062026.set(
+    "title", '<div id="layertitle">V1_Fz_Nova_Barra_10-06-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Nova_Barra_10062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_Nova_Barra_10062026 = 1;
+    jsonSource_V1_Fz_Nova_Barra_10062026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_Nova_Barra_10062026++);
+        feature.set("layerObject", lyr_V1_Fz_Nova_Barra_10062026);
+    });        
+    jsonSource_V1_Fz_Nova_Barra_10062026.addFeatures(features_V1_Fz_Nova_Barra_10062026);
+}
+applySLDstyle(lyr_V1_Fz_Nova_Barra_10062026, style_V1_Fz_Nova_Barra_10062026, 'V1_Fz_Nova_Barra_10-06-2026');
+
+
+var lyr_V1_Fz_Limeira_10062026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Limeira_10062026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_Limeira_10062026",
+    popuplayertitle: 'V1_Fz_Limeira_10-06-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_Limeira_10062026_data() {
+    var format_V1_Fz_Limeira_10062026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Limeira_10062026 = format_V1_Fz_Limeira_10062026.readFeatures(json_V1_Fz_Limeira_10062026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_Limeira_10062026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Limeira_10-06-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Limeira_10062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_Limeira_10062026.setSource(jsonSource_V1_Fz_Limeira_10062026);
+    lyr_V1_Fz_Limeira_10062026.set(
+    "title", '<div id="layertitle">V1_Fz_Limeira_10-06-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Limeira_10062026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Limeira_10062026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Limeira_10062026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Limeira_10062026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Limeira_10062026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Limeira_10062026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Limeira_10062026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Limeira_10062026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Limeira_10062026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Limeira_10062026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Limeira_10062026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_Limeira_10062026 = 1;
+    jsonSource_V1_Fz_Limeira_10062026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_Limeira_10062026++);
+        feature.set("layerObject", lyr_V1_Fz_Limeira_10062026);
+    });        
+    jsonSource_V1_Fz_Limeira_10062026.addFeatures(features_V1_Fz_Limeira_10062026);
+}
+applySLDstyle(lyr_V1_Fz_Limeira_10062026, style_V1_Fz_Limeira_10062026, 'V1_Fz_Limeira_10-06-2026');
+
+
+var lyr_V1_Fz_SantaHelena_29052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_SantaHelena_29052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_SantaHelena_29052026",
+    popuplayertitle: 'V1_Fz_Santa Helena_29-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_SantaHelena_29052026_data() {
+    var format_V1_Fz_SantaHelena_29052026 = new ol.format.GeoJSON();
+    var features_V1_Fz_SantaHelena_29052026 = format_V1_Fz_SantaHelena_29052026.readFeatures(json_V1_Fz_SantaHelena_29052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_SantaHelena_29052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Santa Helena_29-05-2026</b><br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_SantaHelena_29052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_SantaHelena_29052026.setSource(jsonSource_V1_Fz_SantaHelena_29052026);
+    lyr_V1_Fz_SantaHelena_29052026.set(
+    "title", '<div id="layertitle">V1_Fz_Santa Helena_29-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_SantaHelena_29052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_SantaHelena_29052026 = 1;
+    jsonSource_V1_Fz_SantaHelena_29052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_SantaHelena_29052026++);
+        feature.set("layerObject", lyr_V1_Fz_SantaHelena_29052026);
+    });        
+    jsonSource_V1_Fz_SantaHelena_29052026.addFeatures(features_V1_Fz_SantaHelena_29052026);
+}
+applySLDstyle(lyr_V1_Fz_SantaHelena_29052026, style_V1_Fz_SantaHelena_29052026, 'V1_Fz_Santa Helena_29-05-2026');
+
+
+var lyr_V1_Fz_Lavandeira_29052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Lavandeira_29052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_Lavandeira_29052026",
+    popuplayertitle: 'V1_Fz_Lavandeira_29-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_Lavandeira_29052026_data() {
+    var format_V1_Fz_Lavandeira_29052026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Lavandeira_29052026 = format_V1_Fz_Lavandeira_29052026.readFeatures(json_V1_Fz_Lavandeira_29052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_Lavandeira_29052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Lavandeira_29-05-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Lavandeira_29052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_Lavandeira_29052026.setSource(jsonSource_V1_Fz_Lavandeira_29052026);
+    lyr_V1_Fz_Lavandeira_29052026.set(
+    "title", '<div id="layertitle">V1_Fz_Lavandeira_29-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Lavandeira_29052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_Lavandeira_29052026 = 1;
+    jsonSource_V1_Fz_Lavandeira_29052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_Lavandeira_29052026++);
+        feature.set("layerObject", lyr_V1_Fz_Lavandeira_29052026);
+    });        
+    jsonSource_V1_Fz_Lavandeira_29052026.addFeatures(features_V1_Fz_Lavandeira_29052026);
+}
+applySLDstyle(lyr_V1_Fz_Lavandeira_29052026, style_V1_Fz_Lavandeira_29052026, 'V1_Fz_Lavandeira_29-05-2026');
+
+
+var lyr_V1_Fz_Amaralina_19052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_Amaralina_19052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_Amaralina_19052026",
+    popuplayertitle: 'V1_Fz_Amaralina_19-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_Amaralina_19052026_data() {
+    var format_V1_Fz_Amaralina_19052026 = new ol.format.GeoJSON();
+    var features_V1_Fz_Amaralina_19052026 = format_V1_Fz_Amaralina_19052026.readFeatures(json_V1_Fz_Amaralina_19052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_Amaralina_19052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Amaralina_19-05-2026</b><br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_Amaralina_19052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_Amaralina_19052026.setSource(jsonSource_V1_Fz_Amaralina_19052026);
+    lyr_V1_Fz_Amaralina_19052026.set(
+    "title", '<div id="layertitle">V1_Fz_Amaralina_19-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Amaralina_19052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_Amaralina_19052026 = 1;
+    jsonSource_V1_Fz_Amaralina_19052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_Amaralina_19052026++);
+        feature.set("layerObject", lyr_V1_Fz_Amaralina_19052026);
+    });        
+    jsonSource_V1_Fz_Amaralina_19052026.addFeatures(features_V1_Fz_Amaralina_19052026);
+}
+applySLDstyle(lyr_V1_Fz_Amaralina_19052026, style_V1_Fz_Amaralina_19052026, 'V1_Fz_Amaralina_19-05-2026');
 
 
 var lyr_V1_Fz_Lote15_190526 = new ol.layer.VectorImage({
@@ -282,7 +671,7 @@ var lyr_V1_Fz_Lote15_190526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Lote15_190526",
     popuplayertitle: 'V1_Fz_Lote15_19-05-26',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_V1_Fz_Lote15_190526_data() {
@@ -336,7 +725,7 @@ var lyr_V1_Fz_Sao_Jose_190526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Sao_Jose_190526",
     popuplayertitle: 'V1_Fz_Sao_Jose_19-05-26',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_V1_Fz_Sao_Jose_190526_data() {
@@ -384,58 +773,274 @@ function load_V1_Fz_Sao_Jose_190526_data() {
 applySLDstyle(lyr_V1_Fz_Sao_Jose_190526, style_V1_Fz_Sao_Jose_190526, 'V1_Fz_Sao_Jose_19-05-26');
 
 
-var lyr_V1_Fz_Nova_Prata_240426 = new ol.layer.VectorImage({
-    title: '<div class="roller-switcher"></div> V1_Fz_Nova_Prata_240426',
+var lyr_V2_Fz_SantaLuzia_19052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V2_Fz_SantaLuzia_19052026',
     source: new ol.source.Vector(), 
     sourceType: 'json',
-    permalink: "V1_Fz_Nova_Prata_240426",
-    popuplayertitle: 'V1_Fz_Nova_Prata_24-04-26',
-    creationdate: '2026-06-10 08:44:33',
+    permalink: "V2_Fz_SantaLuzia_19052026",
+    popuplayertitle: 'V2_Fz_Santa Luzia_19-05-2026',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
-function load_V1_Fz_Nova_Prata_240426_data() {
-    var format_V1_Fz_Nova_Prata_240426 = new ol.format.GeoJSON();
-    var features_V1_Fz_Nova_Prata_240426 = format_V1_Fz_Nova_Prata_240426.readFeatures(json_V1_Fz_Nova_Prata_240426, 
+function load_V2_Fz_SantaLuzia_19052026_data() {
+    var format_V2_Fz_SantaLuzia_19052026 = new ol.format.GeoJSON();
+    var features_V2_Fz_SantaLuzia_19052026 = format_V2_Fz_SantaLuzia_19052026.readFeatures(json_V2_Fz_SantaLuzia_19052026, 
     {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-    var jsonSource_V1_Fz_Nova_Prata_240426 = new ol.source.Vector({
-    attributions: '<a class="legend"><b>V1_Fz_Nova_Prata_24-04-26</b><br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_1.png"/>Área Consolidada<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_2.png"/>Área da Propriedade Rural<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_6.png"/>Área de Uso Alternativo<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_7.png"/>Área de Vegetação Nativa<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_8.png"/>Hidrografia do Imóvel<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_9.png"/>Intervenções<br />\
-        <img src="styles/legend/V1_Fz_Nova_Prata_240426_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+    var jsonSource_V2_Fz_SantaLuzia_19052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V2_Fz_Santa Luzia_19-05-2026</b><br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V2_Fz_SantaLuzia_19052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         });
-    lyr_V1_Fz_Nova_Prata_240426.setSource(jsonSource_V1_Fz_Nova_Prata_240426);
-    lyr_V1_Fz_Nova_Prata_240426.set(
-    "title", '<div id="layertitle">V1_Fz_Nova_Prata_24-04-26<br />\
+    lyr_V2_Fz_SantaLuzia_19052026.setSource(jsonSource_V2_Fz_SantaLuzia_19052026);
+    lyr_V2_Fz_SantaLuzia_19052026.set(
+    "title", '<div id="layertitle">V2_Fz_Santa Luzia_19-05-2026<br />\
         <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_0.png"/>Área Antropizada após 22/07/2008<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_1.png"/>Área Consolidada<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_2.png"/>Área da Propriedade Rural<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_4.png"/>Área de Preservação Permanente a preservar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_5.png"/>Área de Preservação Permanente a recuperar<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_6.png"/>Área de Uso Alternativo<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_7.png"/>Área de Vegetação Nativa<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_8.png"/>Hidrografia do Imóvel<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_9.png"/>Intervenções<br />\
-        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_Nova_Prata_240426_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V2_Fz_SantaLuzia_19052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
         );
-    var featureCounter_V1_Fz_Nova_Prata_240426 = 1;
-    jsonSource_V1_Fz_Nova_Prata_240426.on('addfeature', function (event) {
+    var featureCounter_V2_Fz_SantaLuzia_19052026 = 1;
+    jsonSource_V2_Fz_SantaLuzia_19052026.on('addfeature', function (event) {
         var feature = event.feature;
-        feature.set("idO", featureCounter_V1_Fz_Nova_Prata_240426++);
-        feature.set("layerObject", lyr_V1_Fz_Nova_Prata_240426);
+        feature.set("idO", featureCounter_V2_Fz_SantaLuzia_19052026++);
+        feature.set("layerObject", lyr_V2_Fz_SantaLuzia_19052026);
     });        
-    jsonSource_V1_Fz_Nova_Prata_240426.addFeatures(features_V1_Fz_Nova_Prata_240426);
+    jsonSource_V2_Fz_SantaLuzia_19052026.addFeatures(features_V2_Fz_SantaLuzia_19052026);
 }
-applySLDstyle(lyr_V1_Fz_Nova_Prata_240426, style_V1_Fz_Nova_Prata_240426, 'V1_Fz_Nova_Prata_24-04-26');
+applySLDstyle(lyr_V2_Fz_SantaLuzia_19052026, style_V2_Fz_SantaLuzia_19052026, 'V2_Fz_Santa Luzia_19-05-2026');
+
+
+var lyr_V1_Fz_SantaLuzia_07052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_SantaLuzia_07052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_SantaLuzia_07052026",
+    popuplayertitle: 'V1_Fz_Santa Luzia_07-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_SantaLuzia_07052026_data() {
+    var format_V1_Fz_SantaLuzia_07052026 = new ol.format.GeoJSON();
+    var features_V1_Fz_SantaLuzia_07052026 = format_V1_Fz_SantaLuzia_07052026.readFeatures(json_V1_Fz_SantaLuzia_07052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_SantaLuzia_07052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Santa Luzia_07-05-2026</b><br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_SantaLuzia_07052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_SantaLuzia_07052026.setSource(jsonSource_V1_Fz_SantaLuzia_07052026);
+    lyr_V1_Fz_SantaLuzia_07052026.set(
+    "title", '<div id="layertitle">V1_Fz_Santa Luzia_07-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_SantaLuzia_07052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_SantaLuzia_07052026 = 1;
+    jsonSource_V1_Fz_SantaLuzia_07052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_SantaLuzia_07052026++);
+        feature.set("layerObject", lyr_V1_Fz_SantaLuzia_07052026);
+    });        
+    jsonSource_V1_Fz_SantaLuzia_07052026.addFeatures(features_V1_Fz_SantaLuzia_07052026);
+}
+applySLDstyle(lyr_V1_Fz_SantaLuzia_07052026, style_V1_Fz_SantaLuzia_07052026, 'V1_Fz_Santa Luzia_07-05-2026');
+
+
+var lyr_V3_Fz_NovaPrata_10052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V3_Fz_NovaPrata_10052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V3_Fz_NovaPrata_10052026",
+    popuplayertitle: 'V3_Fz_Nova Prata_10-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V3_Fz_NovaPrata_10052026_data() {
+    var format_V3_Fz_NovaPrata_10052026 = new ol.format.GeoJSON();
+    var features_V3_Fz_NovaPrata_10052026 = format_V3_Fz_NovaPrata_10052026.readFeatures(json_V3_Fz_NovaPrata_10052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V3_Fz_NovaPrata_10052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V3_Fz_Nova Prata_10-05-2026</b><br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V3_Fz_NovaPrata_10052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V3_Fz_NovaPrata_10052026.setSource(jsonSource_V3_Fz_NovaPrata_10052026);
+    lyr_V3_Fz_NovaPrata_10052026.set(
+    "title", '<div id="layertitle">V3_Fz_Nova Prata_10-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V3_Fz_NovaPrata_10052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V3_Fz_NovaPrata_10052026 = 1;
+    jsonSource_V3_Fz_NovaPrata_10052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V3_Fz_NovaPrata_10052026++);
+        feature.set("layerObject", lyr_V3_Fz_NovaPrata_10052026);
+    });        
+    jsonSource_V3_Fz_NovaPrata_10052026.addFeatures(features_V3_Fz_NovaPrata_10052026);
+}
+applySLDstyle(lyr_V3_Fz_NovaPrata_10052026, style_V3_Fz_NovaPrata_10052026, 'V3_Fz_Nova Prata_10-05-2026');
+
+
+var lyr_V2_Fz_NovaPrata_07052026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V2_Fz_NovaPrata_07052026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V2_Fz_NovaPrata_07052026",
+    popuplayertitle: 'V2_Fz_Nova Prata_07-05-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V2_Fz_NovaPrata_07052026_data() {
+    var format_V2_Fz_NovaPrata_07052026 = new ol.format.GeoJSON();
+    var features_V2_Fz_NovaPrata_07052026 = format_V2_Fz_NovaPrata_07052026.readFeatures(json_V2_Fz_NovaPrata_07052026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V2_Fz_NovaPrata_07052026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V2_Fz_Nova Prata_07-05-2026</b><br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V2_Fz_NovaPrata_07052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V2_Fz_NovaPrata_07052026.setSource(jsonSource_V2_Fz_NovaPrata_07052026);
+    lyr_V2_Fz_NovaPrata_07052026.set(
+    "title", '<div id="layertitle">V2_Fz_Nova Prata_07-05-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V2_Fz_NovaPrata_07052026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V2_Fz_NovaPrata_07052026 = 1;
+    jsonSource_V2_Fz_NovaPrata_07052026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V2_Fz_NovaPrata_07052026++);
+        feature.set("layerObject", lyr_V2_Fz_NovaPrata_07052026);
+    });        
+    jsonSource_V2_Fz_NovaPrata_07052026.addFeatures(features_V2_Fz_NovaPrata_07052026);
+}
+applySLDstyle(lyr_V2_Fz_NovaPrata_07052026, style_V2_Fz_NovaPrata_07052026, 'V2_Fz_Nova Prata_07-05-2026');
+
+
+var lyr_V1_Fz_NovaPrata_24042026 = new ol.layer.VectorImage({
+    title: '<div class="roller-switcher"></div> V1_Fz_NovaPrata_24042026',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "V1_Fz_NovaPrata_24042026",
+    popuplayertitle: 'V1_Fz_Nova Prata_24-04-2026',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+});
+function load_V1_Fz_NovaPrata_24042026_data() {
+    var format_V1_Fz_NovaPrata_24042026 = new ol.format.GeoJSON();
+    var features_V1_Fz_NovaPrata_24042026 = format_V1_Fz_NovaPrata_24042026.readFeatures(json_V1_Fz_NovaPrata_24042026, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_V1_Fz_NovaPrata_24042026 = new ol.source.Vector({
+    attributions: '<a class="legend"><b>V1_Fz_Nova Prata_24-04-2026</b><br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_1.png"/>Área Consolidada<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_2.png"/>Área da Propriedade Rural<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_6.png"/>Área de Uso Alternativo<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_7.png"/>Área de Vegetação Nativa<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_8.png"/>Hidrografia do Imóvel<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_9.png"/>Intervenções<br />\
+        <img src="styles/legend/V1_Fz_NovaPrata_24042026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        });
+    lyr_V1_Fz_NovaPrata_24042026.setSource(jsonSource_V1_Fz_NovaPrata_24042026);
+    lyr_V1_Fz_NovaPrata_24042026.set(
+    "title", '<div id="layertitle">V1_Fz_Nova Prata_24-04-2026<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Antropizada após 22/07/2008" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_0.png"/>Área Antropizada após 22/07/2008<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área Consolidada" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_1.png"/>Área Consolidada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área da Propriedade Rural" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_2.png"/>Área da Propriedade Rural<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Intervenção x CAR atual (Área Consolid" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_3.png"/>Área de Intervenção x CAR atual (Área Consolid<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a preservar" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_4.png"/>Área de Preservação Permanente a preservar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Preservação Permanente a recuperar" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_5.png"/>Área de Preservação Permanente a recuperar<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Uso Alternativo" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_6.png"/>Área de Uso Alternativo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Área de Vegetação Nativa" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_7.png"/>Área de Vegetação Nativa<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Hidrografia do Imóvel" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_8.png"/>Hidrografia do Imóvel<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Intervenções" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_9.png"/>Intervenções<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Reserva Legal declarada no SICAR" checked><img src="styles/legend/V1_Fz_NovaPrata_24042026_10.png"/>Reserva Legal declarada no SICAR<br /></a>'
+        );
+    var featureCounter_V1_Fz_NovaPrata_24042026 = 1;
+    jsonSource_V1_Fz_NovaPrata_24042026.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_V1_Fz_NovaPrata_24042026++);
+        feature.set("layerObject", lyr_V1_Fz_NovaPrata_24042026);
+    });        
+    jsonSource_V1_Fz_NovaPrata_24042026.addFeatures(features_V1_Fz_NovaPrata_24042026);
+}
+applySLDstyle(lyr_V1_Fz_NovaPrata_24042026, style_V1_Fz_NovaPrata_24042026, 'V1_Fz_Nova Prata_24-04-2026');
 
 
 var lyr_Locais_visitados_Pliade_25052026 = new ol.layer.Vector({
@@ -444,7 +1049,7 @@ var lyr_Locais_visitados_Pliade_25052026 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Locais_visitados_Pliade_25052026",
     popuplayertitle: 'Locais_visitados_Plêiade_25-05-2026',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Locais_visitados_Pliade_25052026,
 });
@@ -474,7 +1079,7 @@ var lyr_Imveis_Estrada_Opo3_Nova_Prata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Imveis_Estrada_Opo3_Nova_Prata",
     popuplayertitle: 'Imóveis_Estrada_Opção3_Nova_Prata',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Imveis_Estrada_Opo3_Nova_Prata,
 });
@@ -523,7 +1128,7 @@ var lyr_RevisoADANovaPrata_27042026 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "RevisoADANovaPrata_27042026",
     popuplayertitle: 'Revisão ADA Nova Prata_27.04.2026',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_RevisoADANovaPrata_27042026,
 });
@@ -553,7 +1158,7 @@ var lyr_EstradasNovaPrata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "EstradasNovaPrata",
     popuplayertitle: 'Estradas Nova Prata',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_EstradasNovaPrata,
 });
@@ -583,7 +1188,7 @@ var lyr_Estradademinrio = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Estradademinrio",
     popuplayertitle: 'Estrada de minério',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Estradademinrio,
 });
@@ -613,7 +1218,7 @@ var lyr_Desvio2 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Desvio2",
     popuplayertitle: 'Desvio 2',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Desvio2,
 });
@@ -643,7 +1248,7 @@ var lyr_Desvio1 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Desvio1",
     popuplayertitle: 'Desvio 1',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Desvio1,
 });
@@ -673,7 +1278,7 @@ var lyr_ComunidadeQuilombolaLajeadokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "ComunidadeQuilombolaLajeadokmz",
     popuplayertitle: 'Comunidade Quilombola Lajeado.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_ComunidadeQuilombolaLajeadokmz,
 });
@@ -703,7 +1308,7 @@ var lyr_ADAapsReunio27042026kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "ADAapsReunio27042026kmz",
     popuplayertitle: 'ADA após Reunião 27.04.2026.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_ADAapsReunio27042026kmz,
 });
@@ -733,7 +1338,7 @@ var lyr_09Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "09Ps2reuniokmz",
     popuplayertitle: '09 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_09Ps2reuniokmz,
 });
@@ -763,7 +1368,7 @@ var lyr_08Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "08Ps2reuniokmz",
     popuplayertitle: '08 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_08Ps2reuniokmz,
 });
@@ -793,7 +1398,7 @@ var lyr_07Ps2reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "07Ps2reuniokmz",
     popuplayertitle: '07 - Pós 2° reunião.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_07Ps2reuniokmz,
 });
@@ -823,7 +1428,7 @@ var lyr_06Reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "06Reuniokmz",
     popuplayertitle: '06 - Reunião.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_06Reuniokmz,
 });
@@ -853,7 +1458,7 @@ var lyr_05Reuniokmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "05Reuniokmz",
     popuplayertitle: '05 - Reunião.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_05Reuniokmz,
 });
@@ -883,7 +1488,7 @@ var lyr_04kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "04kmz",
     popuplayertitle: '04.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_04kmz,
 });
@@ -913,7 +1518,7 @@ var lyr_03kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "03kmz",
     popuplayertitle: '03.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_03kmz,
 });
@@ -943,7 +1548,7 @@ var lyr_02kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "02kmz",
     popuplayertitle: '02.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_02kmz,
 });
@@ -973,7 +1578,7 @@ var lyr_01kmz = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "01kmz",
     popuplayertitle: '01.kmz',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_01kmz,
 });
@@ -1003,7 +1608,7 @@ var lyr_Polgono = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Polgono",
     popuplayertitle: 'Polígono',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Polgono,
 });
@@ -1033,7 +1638,7 @@ var lyr_AreiaSequeiro = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "AreiaSequeiro",
     popuplayertitle: 'Areia Sequeiro',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_AreiaSequeiro,
 });
@@ -1063,7 +1668,7 @@ var lyr_V1_Fz_Matheus_Lopes_Oeste_070526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Matheus_Lopes_Oeste_070526",
     popuplayertitle: 'V1_Fz_Matheus_Lopes_Oeste_07-05-26',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_V1_Fz_Matheus_Lopes_Oeste_070526_data() {
@@ -1117,7 +1722,7 @@ var lyr_V1_Fz_Floresta_070526 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Floresta_070526",
     popuplayertitle: 'V1_Fz_Floresta_07-05-26',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_V1_Fz_Floresta_070526_data() {
@@ -1171,7 +1776,7 @@ var lyr_V1_Fz_Matheus_Lopes_240426 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "V1_Fz_Matheus_Lopes_240426",
     popuplayertitle: 'V1_Fz_Matheus_Lopes_24-04-26',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_V1_Fz_Matheus_Lopes_240426_data() {
@@ -1225,7 +1830,7 @@ var lyr_FazendaAmaralina = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaAmaralina",
     popuplayertitle: 'Fazenda Amaralina',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaAmaralina,
 });
@@ -1255,7 +1860,7 @@ var lyr_FazendaBrejoAlegreI = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreI",
     popuplayertitle: 'Fazenda Brejo Alegre I',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaBrejoAlegreI,
 });
@@ -1285,7 +1890,7 @@ var lyr_FazendaBrejoAlegreII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreII",
     popuplayertitle: 'Fazenda Brejo Alegre II',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaBrejoAlegreII,
 });
@@ -1315,7 +1920,7 @@ var lyr_FazendaBrejoAlegreIII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaBrejoAlegreIII",
     popuplayertitle: 'Fazenda Brejo Alegre III',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaBrejoAlegreIII,
 });
@@ -1345,7 +1950,7 @@ var lyr_FazendaFloresta = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaFloresta",
     popuplayertitle: 'Fazenda Floresta',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaFloresta,
 });
@@ -1375,7 +1980,7 @@ var lyr_FazendaLavandeiraII = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLavandeiraII",
     popuplayertitle: 'Fazenda Lavandeira II',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaLavandeiraII,
 });
@@ -1405,7 +2010,7 @@ var lyr_FazendaLavandeira = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLavandeira",
     popuplayertitle: 'Fazenda Lavandeira',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaLavandeira,
 });
@@ -1435,7 +2040,7 @@ var lyr_FazendaLote15 = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaLote15",
     popuplayertitle: 'Fazenda Lote 15 ',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaLote15,
 });
@@ -1465,7 +2070,7 @@ var lyr_FazendaMatheusLopesGeral = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaMatheusLopesGeral",
     popuplayertitle: 'Fazenda Matheus Lopes Geral ',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaMatheusLopesGeral,
 });
@@ -1495,7 +2100,7 @@ var lyr_FazendaMatheusLopesOeste = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaMatheusLopesOeste",
     popuplayertitle: 'Fazenda Matheus Lopes Oeste ',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaMatheusLopesOeste,
 });
@@ -1525,7 +2130,7 @@ var lyr_FazendaNovaPrata = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaNovaPrata",
     popuplayertitle: 'Fazenda Nova Prata',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaNovaPrata,
 });
@@ -1555,7 +2160,7 @@ var lyr_FazendaSantaHelena = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSantaHelena",
     popuplayertitle: 'Fazenda Santa Helena',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaSantaHelena,
 });
@@ -1585,7 +2190,7 @@ var lyr_FazendaSantaLuziaRioGrande = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSantaLuziaRioGrande",
     popuplayertitle: 'Fazenda Santa Luzia-Rio Grande',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaSantaLuziaRioGrande,
 });
@@ -1615,7 +2220,7 @@ var lyr_FazendaSoJos = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "FazendaSoJos",
     popuplayertitle: 'Fazenda São José',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_FazendaSoJos,
 });
@@ -1637,6 +2242,317 @@ function load_FazendaSoJos_data() {
         feature.set("layerObject", lyr_FazendaSoJos);
     });        
     jsonSource_FazendaSoJos.addFeatures(features_FazendaSoJos);
+}
+
+var lyr_Limites_Municipais = new ol.layer.Vector({
+    title: '<div class="roller-switcher"></div> Limites_Municipais',
+    source: new ol.source.Vector(), 
+    sourceType: 'json',
+    permalink: "Limites_Municipais",
+    popuplayertitle: 'Limites_Municipais',
+    creationdate: '2026-06-17 09:33:28',
+    interactive: true,
+    style: style_Limites_Municipais,
+});
+function load_Limites_Municipais_data() {
+    var format_Limites_Municipais = new ol.format.GeoJSON();
+    var features_Limites_Municipais = format_Limites_Municipais.readFeatures(json_Limites_Municipais, 
+    {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+    var jsonSource_Limites_Municipais = new ol.source.Vector({
+    attributions: '<a class="legend"><b>Limites_Municipais</b><br />\
+        <img src="styles/legend/Limites_Municipais_0.png"/>Abreulândia<br />\
+        <img src="styles/legend/Limites_Municipais_1.png"/>Aguiarnópolis<br />\
+        <img src="styles/legend/Limites_Municipais_2.png"/>Aliança do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_3.png"/>Almas<br />\
+        <img src="styles/legend/Limites_Municipais_4.png"/>Alvorada<br />\
+        <img src="styles/legend/Limites_Municipais_5.png"/>Ananás<br />\
+        <img src="styles/legend/Limites_Municipais_6.png"/>Angico<br />\
+        <img src="styles/legend/Limites_Municipais_7.png"/>Aparecida do Rio Negro<br />\
+        <img src="styles/legend/Limites_Municipais_8.png"/>Aragominas<br />\
+        <img src="styles/legend/Limites_Municipais_9.png"/>Araguacema<br />\
+        <img src="styles/legend/Limites_Municipais_10.png"/>Araguaçu<br />\
+        <img src="styles/legend/Limites_Municipais_11.png"/>Araguaína<br />\
+        <img src="styles/legend/Limites_Municipais_12.png"/>Araguanã<br />\
+        <img src="styles/legend/Limites_Municipais_13.png"/>Araguatins<br />\
+        <img src="styles/legend/Limites_Municipais_14.png"/>Arapoema<br />\
+        <img src="styles/legend/Limites_Municipais_15.png"/>Arraias<br />\
+        <img src="styles/legend/Limites_Municipais_16.png"/>Augustinópolis<br />\
+        <img src="styles/legend/Limites_Municipais_17.png"/>Aurora do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_18.png"/>Axixá do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_19.png"/>Babaçulândia<br />\
+        <img src="styles/legend/Limites_Municipais_20.png"/>Bandeirantes do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_21.png"/>Barra do Ouro<br />\
+        <img src="styles/legend/Limites_Municipais_22.png"/>Barrolândia<br />\
+        <img src="styles/legend/Limites_Municipais_23.png"/>Bernardo Sayão<br />\
+        <img src="styles/legend/Limites_Municipais_24.png"/>Bom Jesus do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_25.png"/>Brasilândia do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_26.png"/>Brejinho de Nazaré<br />\
+        <img src="styles/legend/Limites_Municipais_27.png"/>Buriti do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_28.png"/>Cachoeirinha<br />\
+        <img src="styles/legend/Limites_Municipais_29.png"/>Campos Lindos<br />\
+        <img src="styles/legend/Limites_Municipais_30.png"/>Cariri do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_31.png"/>Carmolândia<br />\
+        <img src="styles/legend/Limites_Municipais_32.png"/>Carrasco Bonito<br />\
+        <img src="styles/legend/Limites_Municipais_33.png"/>Caseara<br />\
+        <img src="styles/legend/Limites_Municipais_34.png"/>Centenário<br />\
+        <img src="styles/legend/Limites_Municipais_35.png"/>Chapada da Natividade<br />\
+        <img src="styles/legend/Limites_Municipais_36.png"/>Chapada de Areia<br />\
+        <img src="styles/legend/Limites_Municipais_37.png"/>Colinas do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_38.png"/>Colméia<br />\
+        <img src="styles/legend/Limites_Municipais_39.png"/>Combinado<br />\
+        <img src="styles/legend/Limites_Municipais_40.png"/>Conceição do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_41.png"/>Couto de Magalhães<br />\
+        <img src="styles/legend/Limites_Municipais_42.png"/>Cristalândia<br />\
+        <img src="styles/legend/Limites_Municipais_43.png"/>Crixás do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_44.png"/>Darcinópolis<br />\
+        <img src="styles/legend/Limites_Municipais_45.png"/>Dianópolis<br />\
+        <img src="styles/legend/Limites_Municipais_46.png"/>Divinópolis do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_47.png"/>Dois Irmãos do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_48.png"/>Dueré<br />\
+        <img src="styles/legend/Limites_Municipais_49.png"/>Esperantina<br />\
+        <img src="styles/legend/Limites_Municipais_50.png"/>Fátima<br />\
+        <img src="styles/legend/Limites_Municipais_51.png"/>Figueirópolis<br />\
+        <img src="styles/legend/Limites_Municipais_52.png"/>Filadélfia<br />\
+        <img src="styles/legend/Limites_Municipais_53.png"/>Formoso do Araguaia<br />\
+        <img src="styles/legend/Limites_Municipais_54.png"/>Fortaleza do Tabocão<br />\
+        <img src="styles/legend/Limites_Municipais_55.png"/>Goianorte<br />\
+        <img src="styles/legend/Limites_Municipais_56.png"/>Goiatins<br />\
+        <img src="styles/legend/Limites_Municipais_57.png"/>Guaraí<br />\
+        <img src="styles/legend/Limites_Municipais_58.png"/>Gurupi<br />\
+        <img src="styles/legend/Limites_Municipais_59.png"/>Ipueiras<br />\
+        <img src="styles/legend/Limites_Municipais_60.png"/>Itacajá<br />\
+        <img src="styles/legend/Limites_Municipais_61.png"/>Itaguatins<br />\
+        <img src="styles/legend/Limites_Municipais_62.png"/>Itapiratins<br />\
+        <img src="styles/legend/Limites_Municipais_63.png"/>Itaporã do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_64.png"/>Jaú do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_65.png"/>Juarina<br />\
+        <img src="styles/legend/Limites_Municipais_66.png"/>Lagoa da Confusão<br />\
+        <img src="styles/legend/Limites_Municipais_67.png"/>Lagoa do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_68.png"/>Lajeado<br />\
+        <img src="styles/legend/Limites_Municipais_69.png"/>Lavandeira<br />\
+        <img src="styles/legend/Limites_Municipais_70.png"/>Lizarda<br />\
+        <img src="styles/legend/Limites_Municipais_71.png"/>Luzinópolis<br />\
+        <img src="styles/legend/Limites_Municipais_72.png"/>Marianópolis do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_73.png"/>Mateiros<br />\
+        <img src="styles/legend/Limites_Municipais_74.png"/>Maurilândia do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_75.png"/>Miracema do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_76.png"/>Miranorte<br />\
+        <img src="styles/legend/Limites_Municipais_77.png"/>Monte do Carmo<br />\
+        <img src="styles/legend/Limites_Municipais_78.png"/>Monte Santo do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_79.png"/>Muricilândia<br />\
+        <img src="styles/legend/Limites_Municipais_80.png"/>Natividade<br />\
+        <img src="styles/legend/Limites_Municipais_81.png"/>Nazaré<br />\
+        <img src="styles/legend/Limites_Municipais_82.png"/>Nova Olinda<br />\
+        <img src="styles/legend/Limites_Municipais_83.png"/>Nova Rosalândia<br />\
+        <img src="styles/legend/Limites_Municipais_84.png"/>Novo Acordo<br />\
+        <img src="styles/legend/Limites_Municipais_85.png"/>Novo Alegre<br />\
+        <img src="styles/legend/Limites_Municipais_86.png"/>Novo Jardim<br />\
+        <img src="styles/legend/Limites_Municipais_87.png"/>Oliveira de Fátima<br />\
+        <img src="styles/legend/Limites_Municipais_88.png"/>Palmas<br />\
+        <img src="styles/legend/Limites_Municipais_89.png"/>Palmeirante<br />\
+        <img src="styles/legend/Limites_Municipais_90.png"/>Palmeiras do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_91.png"/>Palmeirópolis<br />\
+        <img src="styles/legend/Limites_Municipais_92.png"/>Paraíso do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_93.png"/>Paranã<br />\
+        <img src="styles/legend/Limites_Municipais_94.png"/>Pau d\'Arco<br />\
+        <img src="styles/legend/Limites_Municipais_95.png"/>Pedro Afonso<br />\
+        <img src="styles/legend/Limites_Municipais_96.png"/>Peixe<br />\
+        <img src="styles/legend/Limites_Municipais_97.png"/>Pequizeiro<br />\
+        <img src="styles/legend/Limites_Municipais_98.png"/>Pindorama do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_99.png"/>Piraquê<br />\
+        <img src="styles/legend/Limites_Municipais_100.png"/>Pium<br />\
+        <img src="styles/legend/Limites_Municipais_101.png"/>Ponte Alta do Bom Jesus<br />\
+        <img src="styles/legend/Limites_Municipais_102.png"/>Ponte Alta do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_103.png"/>Porto Alegre do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_104.png"/>Porto Nacional<br />\
+        <img src="styles/legend/Limites_Municipais_105.png"/>Praia Norte<br />\
+        <img src="styles/legend/Limites_Municipais_106.png"/>Presidente Kennedy<br />\
+        <img src="styles/legend/Limites_Municipais_107.png"/>Pugmil<br />\
+        <img src="styles/legend/Limites_Municipais_108.png"/>Recursolândia<br />\
+        <img src="styles/legend/Limites_Municipais_109.png"/>Riachinho<br />\
+        <img src="styles/legend/Limites_Municipais_110.png"/>Rio da Conceição<br />\
+        <img src="styles/legend/Limites_Municipais_111.png"/>Rio dos Bois<br />\
+        <img src="styles/legend/Limites_Municipais_112.png"/>Rio Sono<br />\
+        <img src="styles/legend/Limites_Municipais_113.png"/>Sampaio<br />\
+        <img src="styles/legend/Limites_Municipais_114.png"/>Sandolândia<br />\
+        <img src="styles/legend/Limites_Municipais_115.png"/>Santa Fé do Araguaia<br />\
+        <img src="styles/legend/Limites_Municipais_116.png"/>Santa Maria do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_117.png"/>Santa Rita do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_118.png"/>Santa Rosa do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_119.png"/>Santa Tereza do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_120.png"/>Santa Terezinha do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_121.png"/>São Bento do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_122.png"/>São Félix do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_123.png"/>São Miguel do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_124.png"/>São Salvador do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_125.png"/>São Sebastião do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_126.png"/>São Valério da Natividade<br />\
+        <img src="styles/legend/Limites_Municipais_127.png"/>Silvanópolis<br />\
+        <img src="styles/legend/Limites_Municipais_128.png"/>Sítio Novo do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_129.png"/>Sucupira<br />\
+        <img src="styles/legend/Limites_Municipais_130.png"/>Taguatinga<br />\
+        <img src="styles/legend/Limites_Municipais_131.png"/>Taipas do Tocantins<br />\
+        <img src="styles/legend/Limites_Municipais_132.png"/>Talismã<br />\
+        <img src="styles/legend/Limites_Municipais_133.png"/>Tocantínia<br />\
+        <img src="styles/legend/Limites_Municipais_134.png"/>Tocantinópolis<br />\
+        <img src="styles/legend/Limites_Municipais_135.png"/>Tupirama<br />\
+        <img src="styles/legend/Limites_Municipais_136.png"/>Tupiratins<br />\
+        <img src="styles/legend/Limites_Municipais_137.png"/>Wanderlândia<br />\
+        <img src="styles/legend/Limites_Municipais_138.png"/>Xambioá<br />\
+        <img src="styles/legend/Limites_Municipais_139.png"/><br /></a>'
+        });
+    lyr_Limites_Municipais.setSource(jsonSource_Limites_Municipais);
+    lyr_Limites_Municipais.set(
+    "title", '<div id="layertitle">Limites_Municipais<br />\
+        <i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend">\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Abreulândia" checked><img src="styles/legend/Limites_Municipais_0.png"/>Abreulândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Aguiarnópolis" checked><img src="styles/legend/Limites_Municipais_1.png"/>Aguiarnópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Aliança do Tocantins" checked><img src="styles/legend/Limites_Municipais_2.png"/>Aliança do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Almas" checked><img src="styles/legend/Limites_Municipais_3.png"/>Almas<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Alvorada" checked><img src="styles/legend/Limites_Municipais_4.png"/>Alvorada<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Ananás" checked><img src="styles/legend/Limites_Municipais_5.png"/>Ananás<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Angico" checked><img src="styles/legend/Limites_Municipais_6.png"/>Angico<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Aparecida do Rio Negro" checked><img src="styles/legend/Limites_Municipais_7.png"/>Aparecida do Rio Negro<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Aragominas" checked><img src="styles/legend/Limites_Municipais_8.png"/>Aragominas<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Araguacema" checked><img src="styles/legend/Limites_Municipais_9.png"/>Araguacema<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Araguaçu" checked><img src="styles/legend/Limites_Municipais_10.png"/>Araguaçu<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Araguaína" checked><img src="styles/legend/Limites_Municipais_11.png"/>Araguaína<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Araguanã" checked><img src="styles/legend/Limites_Municipais_12.png"/>Araguanã<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Araguatins" checked><img src="styles/legend/Limites_Municipais_13.png"/>Araguatins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Arapoema" checked><img src="styles/legend/Limites_Municipais_14.png"/>Arapoema<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Arraias" checked><img src="styles/legend/Limites_Municipais_15.png"/>Arraias<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Augustinópolis" checked><img src="styles/legend/Limites_Municipais_16.png"/>Augustinópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Aurora do Tocantins" checked><img src="styles/legend/Limites_Municipais_17.png"/>Aurora do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Axixá do Tocantins" checked><img src="styles/legend/Limites_Municipais_18.png"/>Axixá do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Babaçulândia" checked><img src="styles/legend/Limites_Municipais_19.png"/>Babaçulândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Bandeirantes do Tocantins" checked><img src="styles/legend/Limites_Municipais_20.png"/>Bandeirantes do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Barra do Ouro" checked><img src="styles/legend/Limites_Municipais_21.png"/>Barra do Ouro<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Barrolândia" checked><img src="styles/legend/Limites_Municipais_22.png"/>Barrolândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Bernardo Sayão" checked><img src="styles/legend/Limites_Municipais_23.png"/>Bernardo Sayão<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Bom Jesus do Tocantins" checked><img src="styles/legend/Limites_Municipais_24.png"/>Bom Jesus do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Brasilândia do Tocantins" checked><img src="styles/legend/Limites_Municipais_25.png"/>Brasilândia do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Brejinho de Nazaré" checked><img src="styles/legend/Limites_Municipais_26.png"/>Brejinho de Nazaré<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Buriti do Tocantins" checked><img src="styles/legend/Limites_Municipais_27.png"/>Buriti do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Cachoeirinha" checked><img src="styles/legend/Limites_Municipais_28.png"/>Cachoeirinha<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Campos Lindos" checked><img src="styles/legend/Limites_Municipais_29.png"/>Campos Lindos<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Cariri do Tocantins" checked><img src="styles/legend/Limites_Municipais_30.png"/>Cariri do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Carmolândia" checked><img src="styles/legend/Limites_Municipais_31.png"/>Carmolândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Carrasco Bonito" checked><img src="styles/legend/Limites_Municipais_32.png"/>Carrasco Bonito<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Caseara" checked><img src="styles/legend/Limites_Municipais_33.png"/>Caseara<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Centenário" checked><img src="styles/legend/Limites_Municipais_34.png"/>Centenário<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Chapada da Natividade" checked><img src="styles/legend/Limites_Municipais_35.png"/>Chapada da Natividade<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Chapada de Areia" checked><img src="styles/legend/Limites_Municipais_36.png"/>Chapada de Areia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Colinas do Tocantins" checked><img src="styles/legend/Limites_Municipais_37.png"/>Colinas do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Colméia" checked><img src="styles/legend/Limites_Municipais_38.png"/>Colméia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Combinado" checked><img src="styles/legend/Limites_Municipais_39.png"/>Combinado<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Conceição do Tocantins" checked><img src="styles/legend/Limites_Municipais_40.png"/>Conceição do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Couto de Magalhães" checked><img src="styles/legend/Limites_Municipais_41.png"/>Couto de Magalhães<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Cristalândia" checked><img src="styles/legend/Limites_Municipais_42.png"/>Cristalândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Crixás do Tocantins" checked><img src="styles/legend/Limites_Municipais_43.png"/>Crixás do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Darcinópolis" checked><img src="styles/legend/Limites_Municipais_44.png"/>Darcinópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Dianópolis" checked><img src="styles/legend/Limites_Municipais_45.png"/>Dianópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Divinópolis do Tocantins" checked><img src="styles/legend/Limites_Municipais_46.png"/>Divinópolis do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Dois Irmãos do Tocantins" checked><img src="styles/legend/Limites_Municipais_47.png"/>Dois Irmãos do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Dueré" checked><img src="styles/legend/Limites_Municipais_48.png"/>Dueré<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Esperantina" checked><img src="styles/legend/Limites_Municipais_49.png"/>Esperantina<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Fátima" checked><img src="styles/legend/Limites_Municipais_50.png"/>Fátima<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Figueirópolis" checked><img src="styles/legend/Limites_Municipais_51.png"/>Figueirópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Filadélfia" checked><img src="styles/legend/Limites_Municipais_52.png"/>Filadélfia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Formoso do Araguaia" checked><img src="styles/legend/Limites_Municipais_53.png"/>Formoso do Araguaia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Fortaleza do Tabocão" checked><img src="styles/legend/Limites_Municipais_54.png"/>Fortaleza do Tabocão<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Goianorte" checked><img src="styles/legend/Limites_Municipais_55.png"/>Goianorte<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Goiatins" checked><img src="styles/legend/Limites_Municipais_56.png"/>Goiatins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Guaraí" checked><img src="styles/legend/Limites_Municipais_57.png"/>Guaraí<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Gurupi" checked><img src="styles/legend/Limites_Municipais_58.png"/>Gurupi<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Ipueiras" checked><img src="styles/legend/Limites_Municipais_59.png"/>Ipueiras<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Itacajá" checked><img src="styles/legend/Limites_Municipais_60.png"/>Itacajá<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Itaguatins" checked><img src="styles/legend/Limites_Municipais_61.png"/>Itaguatins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Itapiratins" checked><img src="styles/legend/Limites_Municipais_62.png"/>Itapiratins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Itaporã do Tocantins" checked><img src="styles/legend/Limites_Municipais_63.png"/>Itaporã do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Jaú do Tocantins" checked><img src="styles/legend/Limites_Municipais_64.png"/>Jaú do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Juarina" checked><img src="styles/legend/Limites_Municipais_65.png"/>Juarina<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Lagoa da Confusão" checked><img src="styles/legend/Limites_Municipais_66.png"/>Lagoa da Confusão<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Lagoa do Tocantins" checked><img src="styles/legend/Limites_Municipais_67.png"/>Lagoa do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Lajeado" checked><img src="styles/legend/Limites_Municipais_68.png"/>Lajeado<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Lavandeira" checked><img src="styles/legend/Limites_Municipais_69.png"/>Lavandeira<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Lizarda" checked><img src="styles/legend/Limites_Municipais_70.png"/>Lizarda<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Luzinópolis" checked><img src="styles/legend/Limites_Municipais_71.png"/>Luzinópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Marianópolis do Tocantins" checked><img src="styles/legend/Limites_Municipais_72.png"/>Marianópolis do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Mateiros" checked><img src="styles/legend/Limites_Municipais_73.png"/>Mateiros<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Maurilândia do Tocantins" checked><img src="styles/legend/Limites_Municipais_74.png"/>Maurilândia do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Miracema do Tocantins" checked><img src="styles/legend/Limites_Municipais_75.png"/>Miracema do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Miranorte" checked><img src="styles/legend/Limites_Municipais_76.png"/>Miranorte<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Monte do Carmo" checked><img src="styles/legend/Limites_Municipais_77.png"/>Monte do Carmo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Monte Santo do Tocantins" checked><img src="styles/legend/Limites_Municipais_78.png"/>Monte Santo do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Muricilândia" checked><img src="styles/legend/Limites_Municipais_79.png"/>Muricilândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Natividade" checked><img src="styles/legend/Limites_Municipais_80.png"/>Natividade<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Nazaré" checked><img src="styles/legend/Limites_Municipais_81.png"/>Nazaré<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Nova Olinda" checked><img src="styles/legend/Limites_Municipais_82.png"/>Nova Olinda<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Nova Rosalândia" checked><img src="styles/legend/Limites_Municipais_83.png"/>Nova Rosalândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Novo Acordo" checked><img src="styles/legend/Limites_Municipais_84.png"/>Novo Acordo<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Novo Alegre" checked><img src="styles/legend/Limites_Municipais_85.png"/>Novo Alegre<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Novo Jardim" checked><img src="styles/legend/Limites_Municipais_86.png"/>Novo Jardim<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Oliveira de Fátima" checked><img src="styles/legend/Limites_Municipais_87.png"/>Oliveira de Fátima<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Palmas" checked><img src="styles/legend/Limites_Municipais_88.png"/>Palmas<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Palmeirante" checked><img src="styles/legend/Limites_Municipais_89.png"/>Palmeirante<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Palmeiras do Tocantins" checked><img src="styles/legend/Limites_Municipais_90.png"/>Palmeiras do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Palmeirópolis" checked><img src="styles/legend/Limites_Municipais_91.png"/>Palmeirópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Paraíso do Tocantins" checked><img src="styles/legend/Limites_Municipais_92.png"/>Paraíso do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Paranã" checked><img src="styles/legend/Limites_Municipais_93.png"/>Paranã<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pau d\'Arco" checked><img src="styles/legend/Limites_Municipais_94.png"/>Pau d\'Arco<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pedro Afonso" checked><img src="styles/legend/Limites_Municipais_95.png"/>Pedro Afonso<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Peixe" checked><img src="styles/legend/Limites_Municipais_96.png"/>Peixe<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pequizeiro" checked><img src="styles/legend/Limites_Municipais_97.png"/>Pequizeiro<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pindorama do Tocantins" checked><img src="styles/legend/Limites_Municipais_98.png"/>Pindorama do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Piraquê" checked><img src="styles/legend/Limites_Municipais_99.png"/>Piraquê<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pium" checked><img src="styles/legend/Limites_Municipais_100.png"/>Pium<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Ponte Alta do Bom Jesus" checked><img src="styles/legend/Limites_Municipais_101.png"/>Ponte Alta do Bom Jesus<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Ponte Alta do Tocantins" checked><img src="styles/legend/Limites_Municipais_102.png"/>Ponte Alta do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Porto Alegre do Tocantins" checked><img src="styles/legend/Limites_Municipais_103.png"/>Porto Alegre do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Porto Nacional" checked><img src="styles/legend/Limites_Municipais_104.png"/>Porto Nacional<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Praia Norte" checked><img src="styles/legend/Limites_Municipais_105.png"/>Praia Norte<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Presidente Kennedy" checked><img src="styles/legend/Limites_Municipais_106.png"/>Presidente Kennedy<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Pugmil" checked><img src="styles/legend/Limites_Municipais_107.png"/>Pugmil<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Recursolândia" checked><img src="styles/legend/Limites_Municipais_108.png"/>Recursolândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Riachinho" checked><img src="styles/legend/Limites_Municipais_109.png"/>Riachinho<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Rio da Conceição" checked><img src="styles/legend/Limites_Municipais_110.png"/>Rio da Conceição<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Rio dos Bois" checked><img src="styles/legend/Limites_Municipais_111.png"/>Rio dos Bois<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Rio Sono" checked><img src="styles/legend/Limites_Municipais_112.png"/>Rio Sono<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Sampaio" checked><img src="styles/legend/Limites_Municipais_113.png"/>Sampaio<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Sandolândia" checked><img src="styles/legend/Limites_Municipais_114.png"/>Sandolândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Fé do Araguaia" checked><img src="styles/legend/Limites_Municipais_115.png"/>Santa Fé do Araguaia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Maria do Tocantins" checked><img src="styles/legend/Limites_Municipais_116.png"/>Santa Maria do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Rita do Tocantins" checked><img src="styles/legend/Limites_Municipais_117.png"/>Santa Rita do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Rosa do Tocantins" checked><img src="styles/legend/Limites_Municipais_118.png"/>Santa Rosa do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Tereza do Tocantins" checked><img src="styles/legend/Limites_Municipais_119.png"/>Santa Tereza do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Santa Terezinha do Tocantins" checked><img src="styles/legend/Limites_Municipais_120.png"/>Santa Terezinha do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Bento do Tocantins" checked><img src="styles/legend/Limites_Municipais_121.png"/>São Bento do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Félix do Tocantins" checked><img src="styles/legend/Limites_Municipais_122.png"/>São Félix do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Miguel do Tocantins" checked><img src="styles/legend/Limites_Municipais_123.png"/>São Miguel do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Salvador do Tocantins" checked><img src="styles/legend/Limites_Municipais_124.png"/>São Salvador do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Sebastião do Tocantins" checked><img src="styles/legend/Limites_Municipais_125.png"/>São Sebastião do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="São Valério da Natividade" checked><img src="styles/legend/Limites_Municipais_126.png"/>São Valério da Natividade<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Silvanópolis" checked><img src="styles/legend/Limites_Municipais_127.png"/>Silvanópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Sítio Novo do Tocantins" checked><img src="styles/legend/Limites_Municipais_128.png"/>Sítio Novo do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Sucupira" checked><img src="styles/legend/Limites_Municipais_129.png"/>Sucupira<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Taguatinga" checked><img src="styles/legend/Limites_Municipais_130.png"/>Taguatinga<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Taipas do Tocantins" checked><img src="styles/legend/Limites_Municipais_131.png"/>Taipas do Tocantins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Talismã" checked><img src="styles/legend/Limites_Municipais_132.png"/>Talismã<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Tocantínia" checked><img src="styles/legend/Limites_Municipais_133.png"/>Tocantínia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Tocantinópolis" checked><img src="styles/legend/Limites_Municipais_134.png"/>Tocantinópolis<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Tupirama" checked><img src="styles/legend/Limites_Municipais_135.png"/>Tupirama<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Tupiratins" checked><img src="styles/legend/Limites_Municipais_136.png"/>Tupiratins<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Wanderlândia" checked><img src="styles/legend/Limites_Municipais_137.png"/>Wanderlândia<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="Xambioá" checked><img src="styles/legend/Limites_Municipais_138.png"/>Xambioá<br />\
+        <input type="checkbox" class="symbology" symbology-type="categorized" value="ogis-other" checked><img src="styles/legend/Limites_Municipais_139.png"/>(all other)<br /></a>'
+        );
+    var featureCounter_Limites_Municipais = 1;
+    jsonSource_Limites_Municipais.on('addfeature', function (event) {
+        var feature = event.feature;
+        feature.set("idO", featureCounter_Limites_Municipais++);
+        feature.set("layerObject", lyr_Limites_Municipais);
+    });        
+    jsonSource_Limites_Municipais.addFeatures(features_Limites_Municipais);
 }
 var lyr_Processos_minerrios_ativos_ANM = new ol.layer.Tile({
             source: new ol.source.TileWMS(({
@@ -1665,7 +2581,7 @@ var lyr_Limite_estimado_Comunidade_So_Joaquim = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Limite_estimado_Comunidade_So_Joaquim",
     popuplayertitle: 'Limite_estimado_Comunidade_São_Joaquim',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Limite_estimado_Comunidade_So_Joaquim,
 });
@@ -1695,7 +2611,7 @@ var lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca = new ol.layer.Vector({
     sourceType: 'json',
     permalink: "Limite_estimado_Comunidade_BaiaoCapao_da_Onca",
     popuplayertitle: 'Limite_estimado_Comunidade_Baião-Capão_da_Onça',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
     style: style_Limite_estimado_Comunidade_BaiaoCapao_da_Onca,
 });
@@ -1745,7 +2661,7 @@ var lyr_servidao_2026_virasaia = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_virasaia",
     popuplayertitle: 'servidao_2026_virasaia',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_servidao_2026_virasaia_data() {
@@ -1776,7 +2692,7 @@ var lyr_servidao_2026_jacobina = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_jacobina",
     popuplayertitle: 'servidao_2026_jacobina',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_servidao_2026_jacobina_data() {
@@ -1807,7 +2723,7 @@ var lyr_servidao_2026_novaprata = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_2026_novaprata",
     popuplayertitle: 'servidao_2026_novaprata',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_servidao_2026_novaprata_data() {
@@ -1838,7 +2754,7 @@ var lyr_servidao_paiol_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_paiol_original",
     popuplayertitle: 'servidao_paiol_original',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_servidao_paiol_original_data() {
@@ -1869,7 +2785,7 @@ var lyr_servidao_virasaia_original = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "servidao_virasaia_original",
     popuplayertitle: 'servidao_virasaia_original',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_servidao_virasaia_original_data() {
@@ -1900,7 +2816,7 @@ var lyr_plano_diretor_2025 = new ol.layer.VectorImage({
     sourceType: 'json',
     permalink: "plano_diretor_2025",
     popuplayertitle: 'plano_diretor_2025',
-    creationdate: '2026-06-10 08:44:33',
+    creationdate: '2026-06-17 09:33:28',
     interactive: true,
 });
 function load_plano_diretor_2025_data() {
@@ -1994,7 +2910,7 @@ applySLDstyle(lyr_plano_diretor_2025, style_plano_diretor_2025, 'plano_diretor_2
         {layer: lyr_servidao_2026_virasaia, source: 'servidao_2026_virasaia'},{layer: lyr_servidao_2026_jacobina, source: 'servidao_2026_jacobina'},{layer: lyr_servidao_2026_novaprata, source: 'servidao_2026_novaprata'},{layer: lyr_servidao_paiol_original, source: 'servidao_paiol_original'},{layer: lyr_servidao_virasaia_original, source: 'servidao_virasaia_original'}
     ];
     var layersHiddenOnStart = [
-        {layer: lyr_V1_Fz_Nova_Barra, source: 'V1_Fz_Nova_Barra'},{layer: lyr_V1_Fz_Amaralina_07062026, source: 'V1_Fz_Amaralina_07062026'},{layer: lyr_V1_Fz_Lote15_190526, source: 'V1_Fz_Lote15_190526'},{layer: lyr_V1_Fz_Sao_Jose_190526, source: 'V1_Fz_Sao_Jose_190526'},{layer: lyr_V1_Fz_Nova_Prata_240426, source: 'V1_Fz_Nova_Prata_240426'},{layer: lyr_Locais_visitados_Pliade_25052026, source: 'Locais_visitados_Pliade_25052026'},{layer: lyr_Imveis_Estrada_Opo3_Nova_Prata, source: 'Imveis_Estrada_Opo3_Nova_Prata'},{layer: lyr_RevisoADANovaPrata_27042026, source: 'RevisoADANovaPrata_27042026'},{layer: lyr_EstradasNovaPrata, source: 'EstradasNovaPrata'},{layer: lyr_Estradademinrio, source: 'Estradademinrio'},{layer: lyr_Desvio2, source: 'Desvio2'},{layer: lyr_Desvio1, source: 'Desvio1'},{layer: lyr_ComunidadeQuilombolaLajeadokmz, source: 'ComunidadeQuilombolaLajeadokmz'},{layer: lyr_ADAapsReunio27042026kmz, source: 'ADAapsReunio27042026kmz'},{layer: lyr_09Ps2reuniokmz, source: '09Ps2reuniokmz'},{layer: lyr_08Ps2reuniokmz, source: '08Ps2reuniokmz'},{layer: lyr_07Ps2reuniokmz, source: '07Ps2reuniokmz'},{layer: lyr_06Reuniokmz, source: '06Reuniokmz'},{layer: lyr_05Reuniokmz, source: '05Reuniokmz'},{layer: lyr_04kmz, source: '04kmz'},{layer: lyr_03kmz, source: '03kmz'},{layer: lyr_02kmz, source: '02kmz'},{layer: lyr_01kmz, source: '01kmz'},{layer: lyr_Polgono, source: 'Polgono'},{layer: lyr_AreiaSequeiro, source: 'AreiaSequeiro'},{layer: lyr_V1_Fz_Matheus_Lopes_Oeste_070526, source: 'V1_Fz_Matheus_Lopes_Oeste_070526'},{layer: lyr_V1_Fz_Floresta_070526, source: 'V1_Fz_Floresta_070526'},{layer: lyr_V1_Fz_Matheus_Lopes_240426, source: 'V1_Fz_Matheus_Lopes_240426'},{layer: lyr_FazendaAmaralina, source: 'FazendaAmaralina'},{layer: lyr_FazendaBrejoAlegreI, source: 'FazendaBrejoAlegreI'},{layer: lyr_FazendaBrejoAlegreII, source: 'FazendaBrejoAlegreII'},{layer: lyr_FazendaBrejoAlegreIII, source: 'FazendaBrejoAlegreIII'},{layer: lyr_FazendaFloresta, source: 'FazendaFloresta'},{layer: lyr_FazendaLavandeiraII, source: 'FazendaLavandeiraII'},{layer: lyr_FazendaLavandeira, source: 'FazendaLavandeira'},{layer: lyr_FazendaLote15, source: 'FazendaLote15'},{layer: lyr_FazendaMatheusLopesGeral, source: 'FazendaMatheusLopesGeral'},{layer: lyr_FazendaMatheusLopesOeste, source: 'FazendaMatheusLopesOeste'},{layer: lyr_FazendaNovaPrata, source: 'FazendaNovaPrata'},{layer: lyr_FazendaSantaHelena, source: 'FazendaSantaHelena'},{layer: lyr_FazendaSantaLuziaRioGrande, source: 'FazendaSantaLuziaRioGrande'},{layer: lyr_FazendaSoJos, source: 'FazendaSoJos'},{layer: lyr_Limite_estimado_Comunidade_So_Joaquim, source: 'Limite_estimado_Comunidade_So_Joaquim'},{layer: lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca, source: 'Limite_estimado_Comunidade_BaiaoCapao_da_Onca'},{layer: lyr_plano_diretor_2025, source: 'plano_diretor_2025'}
+        {layer: lyr_V1_Fz_Lavandeira_II_16062026, source: 'V1_Fz_Lavandeira_II_16062026'},{layer: lyr_V1_Fz_Brejo_Alegre_III_16062026, source: 'V1_Fz_Brejo_Alegre_III_16062026'},{layer: lyr_V1_Fz_BrejoAlegreII_16062026, source: 'V1_Fz_BrejoAlegreII_16062026'},{layer: lyr_V1_Fz_BrejoAlegreI_16062026, source: 'V1_Fz_BrejoAlegreI_16062026'},{layer: lyr_V1_Fz_Nova_Barra_10062026, source: 'V1_Fz_Nova_Barra_10062026'},{layer: lyr_V1_Fz_Limeira_10062026, source: 'V1_Fz_Limeira_10062026'},{layer: lyr_V1_Fz_SantaHelena_29052026, source: 'V1_Fz_SantaHelena_29052026'},{layer: lyr_V1_Fz_Lavandeira_29052026, source: 'V1_Fz_Lavandeira_29052026'},{layer: lyr_V1_Fz_Amaralina_19052026, source: 'V1_Fz_Amaralina_19052026'},{layer: lyr_V1_Fz_Lote15_190526, source: 'V1_Fz_Lote15_190526'},{layer: lyr_V1_Fz_Sao_Jose_190526, source: 'V1_Fz_Sao_Jose_190526'},{layer: lyr_V2_Fz_SantaLuzia_19052026, source: 'V2_Fz_SantaLuzia_19052026'},{layer: lyr_V1_Fz_SantaLuzia_07052026, source: 'V1_Fz_SantaLuzia_07052026'},{layer: lyr_V3_Fz_NovaPrata_10052026, source: 'V3_Fz_NovaPrata_10052026'},{layer: lyr_V2_Fz_NovaPrata_07052026, source: 'V2_Fz_NovaPrata_07052026'},{layer: lyr_V1_Fz_NovaPrata_24042026, source: 'V1_Fz_NovaPrata_24042026'},{layer: lyr_Locais_visitados_Pliade_25052026, source: 'Locais_visitados_Pliade_25052026'},{layer: lyr_Imveis_Estrada_Opo3_Nova_Prata, source: 'Imveis_Estrada_Opo3_Nova_Prata'},{layer: lyr_RevisoADANovaPrata_27042026, source: 'RevisoADANovaPrata_27042026'},{layer: lyr_EstradasNovaPrata, source: 'EstradasNovaPrata'},{layer: lyr_Estradademinrio, source: 'Estradademinrio'},{layer: lyr_Desvio2, source: 'Desvio2'},{layer: lyr_Desvio1, source: 'Desvio1'},{layer: lyr_ComunidadeQuilombolaLajeadokmz, source: 'ComunidadeQuilombolaLajeadokmz'},{layer: lyr_ADAapsReunio27042026kmz, source: 'ADAapsReunio27042026kmz'},{layer: lyr_09Ps2reuniokmz, source: '09Ps2reuniokmz'},{layer: lyr_08Ps2reuniokmz, source: '08Ps2reuniokmz'},{layer: lyr_07Ps2reuniokmz, source: '07Ps2reuniokmz'},{layer: lyr_06Reuniokmz, source: '06Reuniokmz'},{layer: lyr_05Reuniokmz, source: '05Reuniokmz'},{layer: lyr_04kmz, source: '04kmz'},{layer: lyr_03kmz, source: '03kmz'},{layer: lyr_02kmz, source: '02kmz'},{layer: lyr_01kmz, source: '01kmz'},{layer: lyr_Polgono, source: 'Polgono'},{layer: lyr_AreiaSequeiro, source: 'AreiaSequeiro'},{layer: lyr_V1_Fz_Matheus_Lopes_Oeste_070526, source: 'V1_Fz_Matheus_Lopes_Oeste_070526'},{layer: lyr_V1_Fz_Floresta_070526, source: 'V1_Fz_Floresta_070526'},{layer: lyr_V1_Fz_Matheus_Lopes_240426, source: 'V1_Fz_Matheus_Lopes_240426'},{layer: lyr_FazendaAmaralina, source: 'FazendaAmaralina'},{layer: lyr_FazendaBrejoAlegreI, source: 'FazendaBrejoAlegreI'},{layer: lyr_FazendaBrejoAlegreII, source: 'FazendaBrejoAlegreII'},{layer: lyr_FazendaBrejoAlegreIII, source: 'FazendaBrejoAlegreIII'},{layer: lyr_FazendaFloresta, source: 'FazendaFloresta'},{layer: lyr_FazendaLavandeiraII, source: 'FazendaLavandeiraII'},{layer: lyr_FazendaLavandeira, source: 'FazendaLavandeira'},{layer: lyr_FazendaLote15, source: 'FazendaLote15'},{layer: lyr_FazendaMatheusLopesGeral, source: 'FazendaMatheusLopesGeral'},{layer: lyr_FazendaMatheusLopesOeste, source: 'FazendaMatheusLopesOeste'},{layer: lyr_FazendaNovaPrata, source: 'FazendaNovaPrata'},{layer: lyr_FazendaSantaHelena, source: 'FazendaSantaHelena'},{layer: lyr_FazendaSantaLuziaRioGrande, source: 'FazendaSantaLuziaRioGrande'},{layer: lyr_FazendaSoJos, source: 'FazendaSoJos'},{layer: lyr_Limites_Municipais, source: 'Limites_Municipais'},{layer: lyr_Limite_estimado_Comunidade_So_Joaquim, source: 'Limite_estimado_Comunidade_So_Joaquim'},{layer: lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca, source: 'Limite_estimado_Comunidade_BaiaoCapao_da_Onca'},{layer: lyr_plano_diretor_2025, source: 'plano_diretor_2025'}
     ];
     // Funzione per caricare il JSON source
 	function loadJSON(fileName) {
@@ -2069,7 +2985,7 @@ var group_b_areas_licencas = new ol.layer.Group({
                                 title: 'b_areas_licencas'});
 var group_c_servidao_mineral = new ol.layer.Group({
                                 layers: [lyr_servidao_2026_virasaia,lyr_servidao_2026_jacobina,lyr_servidao_2026_novaprata,lyr_servidao_paiol_original,lyr_servidao_virasaia_original,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'c_servidao_mineral'});
 var group_011_Base_Oficial_Aura = new ol.layer.Group({
                                 layers: [group_c_servidao_mineral,group_b_areas_licencas,group_a_plano_diretor,],
@@ -2077,22 +2993,22 @@ var group_011_Base_Oficial_Aura = new ol.layer.Group({
                                 title: '01-1_Base_Oficial_Aura'});
 var group_Certificaes_Sigef_Incra = new ol.layer.Group({
                                 layers: [],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Certificações_Sigef_Incra'});
 var group_Fund_Palmares_Almas = new ol.layer.Group({
                                 layers: [],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Fund_Palmares_Almas'});
 var group_Fund_Palmares_DIanopolis = new ol.layer.Group({
                                 layers: [],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Fund_Palmares_DIanopolis'});
 var group_Fund_Palmares_Porto_Alegre_do_Tocantins = new ol.layer.Group({
                                 layers: [],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Fund_Palmares_Porto_Alegre_do_Tocantins'});
 var group_012_Bases_Complementares = new ol.layer.Group({
-                                layers: [lyr_Processos_minerrios_ativos_ANM,group_Fund_Palmares_Porto_Alegre_do_Tocantins,group_Fund_Palmares_DIanopolis,group_Fund_Palmares_Almas,lyr_Limite_estimado_Comunidade_So_Joaquim,lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca,group_Certificaes_Sigef_Incra,lyr_SigcarTO_propriedade_area_imovel,],
+                                layers: [lyr_Limites_Municipais,lyr_Processos_minerrios_ativos_ANM,group_Fund_Palmares_Porto_Alegre_do_Tocantins,group_Fund_Palmares_DIanopolis,group_Fund_Palmares_Almas,lyr_Limite_estimado_Comunidade_So_Joaquim,lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca,group_Certificaes_Sigef_Incra,lyr_SigcarTO_propriedade_area_imovel,],
                                 openInLayerSwitcher: true,
                                 title: '01-2_Bases_Complementares'});
 var group_01_BASES_DADOS_GERAIS = new ol.layer.Group({
@@ -2101,7 +3017,7 @@ var group_01_BASES_DADOS_GERAIS = new ol.layer.Group({
                                 title: '01_BASES_DADOS_GERAIS'});
 var group_Limite_Imveis = new ol.layer.Group({
                                 layers: [lyr_FazendaAmaralina,lyr_FazendaBrejoAlegreI,lyr_FazendaBrejoAlegreII,lyr_FazendaBrejoAlegreIII,lyr_FazendaFloresta,lyr_FazendaLavandeiraII,lyr_FazendaLavandeira,lyr_FazendaLote15,lyr_FazendaMatheusLopesGeral,lyr_FazendaMatheusLopesOeste,lyr_FazendaNovaPrata,lyr_FazendaSantaHelena,lyr_FazendaSantaLuziaRioGrande,lyr_FazendaSoJos,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Limite_Imóveis'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [],
@@ -2113,7 +3029,7 @@ var group_a2_obtidos_pleiade = new ol.layer.Group({
                                 title: 'a.2_obtidos_pleiade'});
 var group_a_dados_especficos = new ol.layer.Group({
                                 layers: [group_a2_obtidos_pleiade,group_a1_recebidos_aura,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'a_dados_específicos'});
 var group_b_trabalho_em_curso = new ol.layer.Group({
                                 layers: [lyr_V1_Fz_Matheus_Lopes_Oeste_070526,lyr_V1_Fz_Floresta_070526,lyr_V1_Fz_Matheus_Lopes_240426,],
@@ -2129,11 +3045,11 @@ var group_OS01_Alarico_Virasaia = new ol.layer.Group({
                                 title: 'OS-01_Alarico_Virasaia'});
 var group_Estudo_Jazidas_Areia_0526 = new ol.layer.Group({
                                 layers: [lyr_Polgono,lyr_AreiaSequeiro,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Estudo_Jazidas_Areia_05-26'});
 var group_Revisao_ADA_NovaPrata_27042026 = new ol.layer.Group({
                                 layers: [lyr_RevisoADANovaPrata_27042026,lyr_EstradasNovaPrata,lyr_Estradademinrio,lyr_Desvio2,lyr_Desvio1,lyr_ComunidadeQuilombolaLajeadokmz,lyr_ADAapsReunio27042026kmz,lyr_09Ps2reuniokmz,lyr_08Ps2reuniokmz,lyr_07Ps2reuniokmz,lyr_06Reuniokmz,lyr_05Reuniokmz,lyr_04kmz,lyr_03kmz,lyr_02kmz,lyr_01kmz,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'Revisão_ADA_Nova Prata_27-04-2026'});
 var group_a1_recebidos_aura = new ol.layer.Group({
                                 layers: [group_Revisao_ADA_NovaPrata_27042026,group_Estudo_Jazidas_Areia_0526,],
@@ -2141,14 +3057,14 @@ var group_a1_recebidos_aura = new ol.layer.Group({
                                 title: 'a.1_recebidos_aura'});
 var group_a2_obtidos_pleiade = new ol.layer.Group({
                                 layers: [lyr_Locais_visitados_Pliade_25052026,lyr_Imveis_Estrada_Opo3_Nova_Prata,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: 'a.2_obtidos_pleiade'});
 var group_a_dados_especficos = new ol.layer.Group({
                                 layers: [group_a2_obtidos_pleiade,group_a1_recebidos_aura,],
                                 openInLayerSwitcher: true,
                                 title: 'a_dados_específicos'});
 var group_b_trabalho_em_curso = new ol.layer.Group({
-                                layers: [lyr_V1_Fz_Nova_Barra,lyr_V1_Fz_Amaralina_07062026,lyr_V1_Fz_Lote15_190526,lyr_V1_Fz_Sao_Jose_190526,lyr_V1_Fz_Nova_Prata_240426,],
+                                layers: [lyr_V1_Fz_Lavandeira_II_16062026,lyr_V1_Fz_Brejo_Alegre_III_16062026,lyr_V1_Fz_BrejoAlegreII_16062026,lyr_V1_Fz_BrejoAlegreI_16062026,lyr_V1_Fz_Nova_Barra_10062026,lyr_V1_Fz_Limeira_10062026,lyr_V1_Fz_SantaHelena_29052026,lyr_V1_Fz_Lavandeira_29052026,lyr_V1_Fz_Amaralina_19052026,lyr_V1_Fz_Lote15_190526,lyr_V1_Fz_Sao_Jose_190526,lyr_V2_Fz_SantaLuzia_19052026,lyr_V1_Fz_SantaLuzia_07052026,lyr_V3_Fz_NovaPrata_10052026,lyr_V2_Fz_NovaPrata_07052026,lyr_V1_Fz_NovaPrata_24042026,],
                                 openInLayerSwitcher: true,
                                 title: 'b_trabalho_em_curso'});
 var group_c_produto_validado = new ol.layer.Group({
@@ -2161,7 +3077,7 @@ var group_OS02_Nova_Prata = new ol.layer.Group({
                                 title: 'OS-02_Nova_Prata'});
 var group_02_ORDENS_SERVIOS = new ol.layer.Group({
                                 layers: [group_OS02_Nova_Prata,group_OS01_Alarico_Virasaia,group_Limite_Imveis,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: '02_ORDENS_SERVIÇOS'});
 var group_991_Versoes_Superadas = new ol.layer.Group({
                                 layers: [],
@@ -2177,20 +3093,31 @@ var group_993_Descartados = new ol.layer.Group({
                                 title: '99-3_Descartados'});
 var group_98_HISTORICO = new ol.layer.Group({
                                 layers: [group_993_Descartados,group_992_Testes,group_991_Versoes_Superadas,],
-                                openInLayerSwitcher: false,
+                                openInLayerSwitcher: true,
                                 title: '98_HISTORICO'});
 var group_99_IMAGENS_SENSOR_REMOTO = new ol.layer.Group({
-                                layers: [lyr_Imagem_Google,lyr_ImagemdeSatlitePleiades2015,lyr_GlobalMonthly202603Mosaic,lyr_GlobalMonthly202507Mosaic,lyr_GlobalMonthly202407Mosaic,lyr_GlobalMonthly202307Mosaic,],
-                                openInLayerSwitcher: false,
+                                layers: [lyr_Imagem_Google,lyr_ImagemdeSatlitePleiades2015,lyr_GlobalMonthly202603Mosaic,lyr_GlobalMonthly202507Mosaic,lyr_GlobalMonthly202407Mosaic,lyr_GlobalMonthly202307Mosaic,lyr_WorldImagery,],
+                                openInLayerSwitcher: true,
                                 title: '99_IMAGENS_SENSOR_REMOTO'});
 
-lyr_Imagem_Google.setVisible(true);lyr_ImagemdeSatlitePleiades2015.setVisible(false);lyr_GlobalMonthly202603Mosaic.setVisible(false);lyr_GlobalMonthly202507Mosaic.setVisible(false);lyr_GlobalMonthly202407Mosaic.setVisible(false);lyr_GlobalMonthly202307Mosaic.setVisible(false);lyr_V1_Fz_Nova_Barra.setVisible(false);lyr_V1_Fz_Amaralina_07062026.setVisible(false);lyr_V1_Fz_Lote15_190526.setVisible(false);lyr_V1_Fz_Sao_Jose_190526.setVisible(false);lyr_V1_Fz_Nova_Prata_240426.setVisible(false);lyr_Locais_visitados_Pliade_25052026.setVisible(false);lyr_Imveis_Estrada_Opo3_Nova_Prata.setVisible(false);lyr_RevisoADANovaPrata_27042026.setVisible(false);lyr_EstradasNovaPrata.setVisible(false);lyr_Estradademinrio.setVisible(false);lyr_Desvio2.setVisible(false);lyr_Desvio1.setVisible(false);lyr_ComunidadeQuilombolaLajeadokmz.setVisible(false);lyr_ADAapsReunio27042026kmz.setVisible(false);lyr_09Ps2reuniokmz.setVisible(false);lyr_08Ps2reuniokmz.setVisible(false);lyr_07Ps2reuniokmz.setVisible(false);lyr_06Reuniokmz.setVisible(false);lyr_05Reuniokmz.setVisible(false);lyr_04kmz.setVisible(false);lyr_03kmz.setVisible(false);lyr_02kmz.setVisible(false);lyr_01kmz.setVisible(false);lyr_Polgono.setVisible(false);lyr_AreiaSequeiro.setVisible(false);lyr_V1_Fz_Matheus_Lopes_Oeste_070526.setVisible(false);lyr_V1_Fz_Floresta_070526.setVisible(false);lyr_V1_Fz_Matheus_Lopes_240426.setVisible(false);lyr_FazendaAmaralina.setVisible(false);lyr_FazendaBrejoAlegreI.setVisible(false);lyr_FazendaBrejoAlegreII.setVisible(false);lyr_FazendaBrejoAlegreIII.setVisible(false);lyr_FazendaFloresta.setVisible(false);lyr_FazendaLavandeiraII.setVisible(false);lyr_FazendaLavandeira.setVisible(false);lyr_FazendaLote15.setVisible(false);lyr_FazendaMatheusLopesGeral.setVisible(false);lyr_FazendaMatheusLopesOeste.setVisible(false);lyr_FazendaNovaPrata.setVisible(false);lyr_FazendaSantaHelena.setVisible(false);lyr_FazendaSantaLuziaRioGrande.setVisible(false);lyr_FazendaSoJos.setVisible(false);lyr_Processos_minerrios_ativos_ANM.setVisible(false);lyr_Limite_estimado_Comunidade_So_Joaquim.setVisible(false);lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.setVisible(false);lyr_SigcarTO_propriedade_area_imovel.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025.setVisible(false);
+lyr_Imagem_Google.setVisible(true);lyr_ImagemdeSatlitePleiades2015.setVisible(false);lyr_GlobalMonthly202603Mosaic.setVisible(false);lyr_GlobalMonthly202507Mosaic.setVisible(false);lyr_GlobalMonthly202407Mosaic.setVisible(false);lyr_GlobalMonthly202307Mosaic.setVisible(false);lyr_WorldImagery.setVisible(true);lyr_V1_Fz_Lavandeira_II_16062026.setVisible(false);lyr_V1_Fz_Brejo_Alegre_III_16062026.setVisible(false);lyr_V1_Fz_BrejoAlegreII_16062026.setVisible(false);lyr_V1_Fz_BrejoAlegreI_16062026.setVisible(false);lyr_V1_Fz_Nova_Barra_10062026.setVisible(false);lyr_V1_Fz_Limeira_10062026.setVisible(false);lyr_V1_Fz_SantaHelena_29052026.setVisible(false);lyr_V1_Fz_Lavandeira_29052026.setVisible(false);lyr_V1_Fz_Amaralina_19052026.setVisible(false);lyr_V1_Fz_Lote15_190526.setVisible(false);lyr_V1_Fz_Sao_Jose_190526.setVisible(false);lyr_V2_Fz_SantaLuzia_19052026.setVisible(false);lyr_V1_Fz_SantaLuzia_07052026.setVisible(false);lyr_V3_Fz_NovaPrata_10052026.setVisible(false);lyr_V2_Fz_NovaPrata_07052026.setVisible(false);lyr_V1_Fz_NovaPrata_24042026.setVisible(false);lyr_Locais_visitados_Pliade_25052026.setVisible(false);lyr_Imveis_Estrada_Opo3_Nova_Prata.setVisible(false);lyr_RevisoADANovaPrata_27042026.setVisible(false);lyr_EstradasNovaPrata.setVisible(false);lyr_Estradademinrio.setVisible(false);lyr_Desvio2.setVisible(false);lyr_Desvio1.setVisible(false);lyr_ComunidadeQuilombolaLajeadokmz.setVisible(false);lyr_ADAapsReunio27042026kmz.setVisible(false);lyr_09Ps2reuniokmz.setVisible(false);lyr_08Ps2reuniokmz.setVisible(false);lyr_07Ps2reuniokmz.setVisible(false);lyr_06Reuniokmz.setVisible(false);lyr_05Reuniokmz.setVisible(false);lyr_04kmz.setVisible(false);lyr_03kmz.setVisible(false);lyr_02kmz.setVisible(false);lyr_01kmz.setVisible(false);lyr_Polgono.setVisible(false);lyr_AreiaSequeiro.setVisible(false);lyr_V1_Fz_Matheus_Lopes_Oeste_070526.setVisible(false);lyr_V1_Fz_Floresta_070526.setVisible(false);lyr_V1_Fz_Matheus_Lopes_240426.setVisible(false);lyr_FazendaAmaralina.setVisible(false);lyr_FazendaBrejoAlegreI.setVisible(false);lyr_FazendaBrejoAlegreII.setVisible(false);lyr_FazendaBrejoAlegreIII.setVisible(false);lyr_FazendaFloresta.setVisible(false);lyr_FazendaLavandeiraII.setVisible(false);lyr_FazendaLavandeira.setVisible(false);lyr_FazendaLote15.setVisible(false);lyr_FazendaMatheusLopesGeral.setVisible(false);lyr_FazendaMatheusLopesOeste.setVisible(false);lyr_FazendaNovaPrata.setVisible(false);lyr_FazendaSantaHelena.setVisible(false);lyr_FazendaSantaLuziaRioGrande.setVisible(false);lyr_FazendaSoJos.setVisible(false);lyr_Limites_Municipais.setVisible(false);lyr_Processos_minerrios_ativos_ANM.setVisible(false);lyr_Limite_estimado_Comunidade_So_Joaquim.setVisible(false);lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.setVisible(false);lyr_SigcarTO_propriedade_area_imovel.setVisible(false);lyr_servidao_2026_virasaia.setVisible(true);lyr_servidao_2026_jacobina.setVisible(true);lyr_servidao_2026_novaprata.setVisible(true);lyr_servidao_paiol_original.setVisible(true);lyr_servidao_virasaia_original.setVisible(true);lyr_plano_diretor_2025.setVisible(false);
 var layersList = [group_99_IMAGENS_SENSOR_REMOTO,group_98_HISTORICO,group_02_ORDENS_SERVIOS,group_01_BASES_DADOS_GERAIS];
-lyr_V1_Fz_Nova_Barra.set('fieldAliases', {'Id': 'Id', 'NOME': 'NOME', });
-lyr_V1_Fz_Amaralina_07062026.set('fieldAliases', {'ld': 'ld', 'NOME': 'NOME', });
+lyr_V1_Fz_Lavandeira_II_16062026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_Brejo_Alegre_III_16062026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_BrejoAlegreII_16062026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_BrejoAlegreI_16062026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_Nova_Barra_10062026.set('fieldAliases', {'Id': 'Id', 'NOME': 'NOME', });
+lyr_V1_Fz_Limeira_10062026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_SantaHelena_29052026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_Lavandeira_29052026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_Amaralina_19052026.set('fieldAliases', {'ld': 'ld', 'NOME': 'NOME', });
 lyr_V1_Fz_Lote15_190526.set('fieldAliases', {'Id': 'Id', 'NOME': 'NOME', });
 lyr_V1_Fz_Sao_Jose_190526.set('fieldAliases', {'Id': 'Id', 'NOME': 'NOME', });
-lyr_V1_Fz_Nova_Prata_240426.set('fieldAliases', {'fid': 'fid', 'COD_IMOVEL': 'COD_IMOVEL', 'ID': 'ID', 'numero_car': 'numero_car', 'nom_imovel': 'nom_imovel', 'tipo_imove': 'tipo_imove', 'status': 'status', 'carfederal': 'carfederal', 'municipio': 'municipio', 'cod_ibge': 'cod_ibge', 'ha_imovel': 'ha_imovel', 'mf_imovel': 'mf_imovel', 'cadastro': 'cadastro', 'tipo_area': 'tipo_area', 'Shape_Leng': 'Shape_Leng', 'NOME': 'NOME', 'GEOMETRIAA': 'GEOMETRIAA', 'COINCIDECO': 'COINCIDECO', 'DENTRODEPO': 'DENTRODEPO', 'COMPARTILH': 'COMPARTILH', 'EIXOPRINCI': 'EIXOPRINCI', 'NAVEGABILI': 'NAVEGABILI', 'CALADOMAX': 'CALADOMAX', 'REGIME': 'REGIME', 'LARGURAMED': 'LARGURAMED', 'VELOCIDADE': 'VELOCIDADE', 'PROFUNDIDA': 'PROFUNDIDA', 'NOMEABREV': 'NOMEABREV', 'GCOD': 'GCOD', 'CLEI': 'CLEI', 'Área': 'Área', 'recibo': 'recibo', 'area': 'area', 'tema': 'tema', 'layer': 'layer', 'path': 'path', });
+lyr_V2_Fz_SantaLuzia_19052026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V1_Fz_SantaLuzia_07052026.set('fieldAliases', {'NOME': 'NOME', });
+lyr_V3_Fz_NovaPrata_10052026.set('fieldAliases', {'ID': 'ID', 'NOME': 'NOME', });
+lyr_V2_Fz_NovaPrata_07052026.set('fieldAliases', {'ID': 'ID', 'NOME': 'NOME', });
+lyr_V1_Fz_NovaPrata_24042026.set('fieldAliases', {'ID': 'ID', 'NOME': 'NOME', });
 lyr_Locais_visitados_Pliade_25052026.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
 lyr_Imveis_Estrada_Opo3_Nova_Prata.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'nom_imovel': 'nom_imovel', 'numero_car': 'numero_car', 'carfederal': 'carfederal', 'municipio': 'municipio', });
 lyr_RevisoADANovaPrata_27042026.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
@@ -2228,6 +3155,7 @@ lyr_FazendaNovaPrata.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propri
 lyr_FazendaSantaHelena.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
 lyr_FazendaSantaLuziaRioGrande.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
 lyr_FazendaSoJos.set('fieldAliases', {'Nome da Propriedade': 'Nome da Propriedade', 'Proprietário(s)': 'Proprietário(s)', 'Telefone': 'Telefone', 'N° Certidão': 'N° Certidão', 'Observações': 'Observações', });
+lyr_Limites_Municipais.set('fieldAliases', {'COD_IBGE': 'COD_IBGE', 'NOME': 'NOME', });
 lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'NOME': 'NOME', });
 lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldAliases', {'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'descriptio': 'descriptio', 'altitudeMo': 'altitudeMo', 'snippet': 'snippet', });
 lyr_servidao_2026_virasaia.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
@@ -2236,11 +3164,22 @@ lyr_servidao_2026_novaprata.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name
 lyr_servidao_paiol_original.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', });
 lyr_servidao_virasaia_original.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'description', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'snippet': 'snippet', });
 lyr_plano_diretor_2025.set('fieldAliases', {'fid': 'fid', 'id': 'id', 'Name': 'Name', 'description': 'Descrição', 'timestamp': 'timestamp', 'begin': 'begin', 'end': 'end', 'altitudeMode': 'altitudeMode', 'tessellate': 'tessellate', 'extrude': 'extrude', 'visibility': 'visibility', 'drawOrder': 'drawOrder', 'icon': 'icon', 'snippet': 'snippet', });
-lyr_V1_Fz_Nova_Barra.set('fieldImages', {'Id': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
-lyr_V1_Fz_Amaralina_07062026.set('fieldImages', {'ld': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Lavandeira_II_16062026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Brejo_Alegre_III_16062026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_BrejoAlegreII_16062026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_BrejoAlegreI_16062026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Nova_Barra_10062026.set('fieldImages', {'Id': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Limeira_10062026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_SantaHelena_29052026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Lavandeira_29052026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_Amaralina_19052026.set('fieldImages', {'ld': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_V1_Fz_Lote15_190526.set('fieldImages', {'Id': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_V1_Fz_Sao_Jose_190526.set('fieldImages', {'Id': '', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
-lyr_V1_Fz_Nova_Prata_240426.set('fieldImages', {'fid': 'TextEdit', 'COD_IMOVEL': 'TextEdit', 'ID': 'TextEdit', 'numero_car': 'TextEdit', 'nom_imovel': 'TextEdit', 'tipo_imove': 'TextEdit', 'status': 'TextEdit', 'carfederal': 'TextEdit', 'municipio': 'TextEdit', 'cod_ibge': 'Range', 'ha_imovel': 'TextEdit', 'mf_imovel': 'TextEdit', 'cadastro': 'DateTime', 'tipo_area': 'TextEdit', 'Shape_Leng': 'TextEdit', 'NOME': 'TextEdit', 'GEOMETRIAA': 'TextEdit', 'COINCIDECO': 'TextEdit', 'DENTRODEPO': 'TextEdit', 'COMPARTILH': 'TextEdit', 'EIXOPRINCI': 'TextEdit', 'NAVEGABILI': 'TextEdit', 'CALADOMAX': 'TextEdit', 'REGIME': 'TextEdit', 'LARGURAMED': 'TextEdit', 'VELOCIDADE': 'TextEdit', 'PROFUNDIDA': 'TextEdit', 'NOMEABREV': 'TextEdit', 'GCOD': 'TextEdit', 'CLEI': 'TextEdit', 'Área': 'TextEdit', 'recibo': 'TextEdit', 'area': 'TextEdit', 'tema': 'TextEdit', 'layer': 'TextEdit', 'path': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V2_Fz_SantaLuzia_19052026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_SantaLuzia_07052026.set('fieldImages', {'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V3_Fz_NovaPrata_10052026.set('fieldImages', {'ID': 'TextEdit', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V2_Fz_NovaPrata_07052026.set('fieldImages', {'ID': 'TextEdit', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_V1_Fz_NovaPrata_24042026.set('fieldImages', {'ID': 'TextEdit', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_Locais_visitados_Pliade_25052026.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_Imveis_Estrada_Opo3_Nova_Prata.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'nom_imovel': 'TextEdit', 'numero_car': 'TextEdit', 'carfederal': 'TextEdit', 'municipio': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_RevisoADANovaPrata_27042026.set('fieldImages', {'id': '', 'Name': '', 'description': '', 'timestamp': '', 'begin': '', 'end': '', 'altitudeMode': '', 'tessellate': '', 'extrude': '', 'visibility': '', 'drawOrder': '', 'icon': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
@@ -2278,6 +3217,7 @@ lyr_FazendaNovaPrata.set('fieldImages', {'Nome da Propriedade': '', 'Proprietár
 lyr_FazendaSantaHelena.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_FazendaSantaLuziaRioGrande.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_FazendaSoJos.set('fieldImages', {'Nome da Propriedade': '', 'Proprietário(s)': '', 'Telefone': '', 'N° Certidão': '', 'Observações': '', 'layerObject': 'Hidden', 'idO': 'Hidden'});
+lyr_Limites_Municipais.set('fieldImages', {'COD_IBGE': 'Range', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'NOME': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldImages', {'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'descriptio': 'TextEdit', 'altitudeMo': 'TextEdit', 'snippet': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_servidao_2026_virasaia.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
@@ -2286,11 +3226,22 @@ lyr_servidao_2026_novaprata.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEd
 lyr_servidao_paiol_original.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_servidao_virasaia_original.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'snippet': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
 lyr_plano_diretor_2025.set('fieldImages', {'fid': 'TextEdit', 'id': 'TextEdit', 'Name': 'TextEdit', 'description': 'TextEdit', 'timestamp': 'DateTime', 'begin': 'DateTime', 'end': 'DateTime', 'altitudeMode': 'TextEdit', 'tessellate': 'Range', 'extrude': 'Range', 'visibility': 'Range', 'drawOrder': 'Range', 'icon': 'TextEdit', 'snippet': 'TextEdit', 'layerObject': 'Hidden', 'idO': 'Hidden'});
-lyr_V1_Fz_Nova_Barra.set('fieldLabels', {'Id': 'no label', 'NOME': 'no label', });
-lyr_V1_Fz_Amaralina_07062026.set('fieldLabels', {'ld': 'no label', 'NOME': 'no label', });
+lyr_V1_Fz_Lavandeira_II_16062026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_Brejo_Alegre_III_16062026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_BrejoAlegreII_16062026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_BrejoAlegreI_16062026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_Nova_Barra_10062026.set('fieldLabels', {'Id': 'no label', 'NOME': 'no label', });
+lyr_V1_Fz_Limeira_10062026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_SantaHelena_29052026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_Lavandeira_29052026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_Amaralina_19052026.set('fieldLabels', {'ld': 'no label', 'NOME': 'no label', });
 lyr_V1_Fz_Lote15_190526.set('fieldLabels', {'Id': 'no label', 'NOME': 'no label', });
 lyr_V1_Fz_Sao_Jose_190526.set('fieldLabels', {'Id': 'no label', 'NOME': 'no label', });
-lyr_V1_Fz_Nova_Prata_240426.set('fieldLabels', {'fid': 'no label', 'COD_IMOVEL': 'no label', 'ID': 'no label', 'numero_car': 'no label', 'nom_imovel': 'no label', 'tipo_imove': 'no label', 'status': 'no label', 'carfederal': 'no label', 'municipio': 'no label', 'cod_ibge': 'no label', 'ha_imovel': 'no label', 'mf_imovel': 'no label', 'cadastro': 'no label', 'tipo_area': 'no label', 'Shape_Leng': 'no label', 'NOME': 'no label', 'GEOMETRIAA': 'no label', 'COINCIDECO': 'no label', 'DENTRODEPO': 'no label', 'COMPARTILH': 'no label', 'EIXOPRINCI': 'no label', 'NAVEGABILI': 'no label', 'CALADOMAX': 'no label', 'REGIME': 'no label', 'LARGURAMED': 'no label', 'VELOCIDADE': 'no label', 'PROFUNDIDA': 'no label', 'NOMEABREV': 'no label', 'GCOD': 'no label', 'CLEI': 'no label', 'Área': 'no label', 'recibo': 'no label', 'area': 'no label', 'tema': 'no label', 'layer': 'no label', 'path': 'no label', });
+lyr_V2_Fz_SantaLuzia_19052026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V1_Fz_SantaLuzia_07052026.set('fieldLabels', {'NOME': 'no label', });
+lyr_V3_Fz_NovaPrata_10052026.set('fieldLabels', {'ID': 'no label', 'NOME': 'no label', });
+lyr_V2_Fz_NovaPrata_07052026.set('fieldLabels', {'ID': 'no label', 'NOME': 'no label', });
+lyr_V1_Fz_NovaPrata_24042026.set('fieldLabels', {'ID': 'no label', 'NOME': 'no label', });
 lyr_Locais_visitados_Pliade_25052026.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });
 lyr_Imveis_Estrada_Opo3_Nova_Prata.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', 'nom_imovel': 'no label', 'numero_car': 'no label', 'carfederal': 'no label', 'municipio': 'no label', });
 lyr_RevisoADANovaPrata_27042026.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });
@@ -2328,6 +3279,7 @@ lyr_FazendaNovaPrata.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Pro
 lyr_FazendaSantaHelena.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
 lyr_FazendaSantaLuziaRioGrande.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
 lyr_FazendaSoJos.set('fieldLabels', {'Nome da Propriedade': 'no label', 'Proprietário(s)': 'no label', 'Telefone': 'no label', 'N° Certidão': 'no label', 'Observações': 'no label', });
+lyr_Limites_Municipais.set('fieldLabels', {'COD_IBGE': 'no label', 'NOME': 'no label', });
 lyr_Limite_estimado_Comunidade_So_Joaquim.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', 'NOME': 'no label', });
 lyr_Limite_estimado_Comunidade_BaiaoCapao_da_Onca.set('fieldLabels', {'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', 'descriptio': 'no label', 'altitudeMo': 'no label', 'snippet': 'no label', });
 lyr_servidao_2026_virasaia.set('fieldLabels', {'fid': 'no label', 'id': 'no label', 'Name': 'no label', 'description': 'no label', 'timestamp': 'no label', 'begin': 'no label', 'end': 'no label', 'altitudeMode': 'no label', 'tessellate': 'no label', 'extrude': 'no label', 'visibility': 'no label', 'drawOrder': 'no label', 'icon': 'no label', });

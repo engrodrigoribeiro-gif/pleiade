@@ -2362,6 +2362,57 @@
 			});
 		}
 			
+		// Botão de download KML por camada (vetorial)
+		if ((layer instanceof ol.layer.Vector || layer instanceof ol.layer.VectorImage) && !li.querySelector('.kml-download-btn')) {
+			var liContent = li.querySelector('.li-content') || li;
+			var kmlBtn = document.createElement('a');
+			kmlBtn.className = 'kml-download-btn';
+			kmlBtn.href = '#';
+			kmlBtn.title = 'Baixar KML desta camada';
+			kmlBtn.innerHTML = '<i class="fa fa-download"></i>';
+			kmlBtn.style.marginLeft = '6px';
+			kmlBtn.style.cursor = 'pointer';
+			kmlBtn.style.display = 'inline-block';
+			kmlBtn.style.textDecoration = 'none';
+			kmlBtn.addEventListener('click', function (ev) {
+				ev.preventDefault();
+				ev.stopPropagation();
+				try {
+					var src = layer.getSource();
+					var feats = (src.getFeatures && src.getFeatures().length)
+						? src.getFeatures()
+						: (src.getSource && src.getSource().getFeatures ? src.getSource().getFeatures() : []);
+					if (!feats || feats.length === 0) {
+						alert('Esta camada não tem features carregadas (ative-a primeiro).');
+						return;
+					}
+					var kmlFormat = new ol.format.KML();
+					var kmlString = kmlFormat.writeFeatures(feats, {
+						featureProjection: 'EPSG:3857',
+						dataProjection: 'EPSG:4326'
+					});
+					var blob = new Blob([kmlString], { type: 'application/vnd.google-earth.kml+xml' });
+					var fileName = (layer.get('title') || 'camada').replace(/<[^>]*>/g, '').replace(/[^a-zA-Z0-9_\-]/g, '_') + '.kml';
+					if (typeof saveAs === 'function') {
+						saveAs(blob, fileName);
+					} else {
+						var url = URL.createObjectURL(blob);
+						var a = document.createElement('a');
+						a.href = url;
+						a.download = fileName;
+						document.body.appendChild(a);
+						a.click();
+						document.body.removeChild(a);
+						setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+					}
+				} catch (err) {
+					console.error('Erro ao exportar KML:', err);
+					alert('Erro ao gerar KML desta camada. Veja o console.');
+				}
+			});
+			liContent.appendChild(kmlBtn);
+		}
+
 		// symbology switcher	
 		if (layer instanceof ol.layer.Vector || layer instanceof ol.layer.VectorImage) {
 			var checks = li.querySelectorAll('.symbology');
