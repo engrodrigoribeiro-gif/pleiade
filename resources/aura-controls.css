@@ -1,0 +1,462 @@
+/* Camada final e isolada: neutraliza estilos herdados dos plugins de mapa. */
+#sidebar .aura-sidebar-tabs > .gcd-gl-container {
+  position: static !important;
+  display: block !important;
+  width: calc(100% - 8px) !important;
+  height: 42px !important;
+  margin: 10px 4px 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: none !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .ol-geocoder .gcd-gl-control {
+  position: relative !important;
+  inset: auto !important;
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 42px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 1px solid #d6dfdb !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  box-shadow: 0 3px 12px rgba(23, 61, 52, .07) !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .ol-geocoder .gcd-gl-btn {
+  position: static !important;
+  inset: auto !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 42px !important;
+  min-width: 42px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #48504f !important;
+  border: 0 !important;
+  border-right: 1px solid #e0e6e3 !important;
+  border-radius: 11px 0 0 11px !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .ol-geocoder .gcd-gl-btn::before,
+#sidebar .ol-geocoder .gcd-gl-btn::after {
+  content: none !important;
+  display: none !important;
+}
+
+#sidebar .ol-geocoder #gcd-input-query {
+  position: static !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  color: #34413e !important;
+  border: 0 !important;
+  border-radius: 0 11px 11px 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .ol-geocoder .gcd-gl-control:focus-within {
+  border-color: #28715f !important;
+  box-shadow: 0 0 0 3px rgba(40, 113, 95, .13) !important;
+}
+
+#sidebar .ol-geocoder ul.gcd-gl-result {
+  top: 46px !important;
+  left: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .aura-sidebar-tabs > .aura-sidebar-row {
+  position: static !important;
+  inset: auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+  gap: 6px !important;
+  width: calc(100% - 8px) !important;
+  margin: 8px 4px 0 !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .aura-sidebar-row > .ol-control,
+#sidebar .aura-sidebar-row > .measure-toggle,
+#sidebar .aura-sidebar-row > .ol-bar,
+#sidebar .aura-sidebar-row > #ol-street-view--pegman-button-div {
+  position: static !important;
+  inset: auto !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .aura-sidebar-row > .ol-zoom {
+  display: grid !important;
+  grid-column: span 2 !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  aspect-ratio: 2 / 1 !important;
+}
+
+#sidebar .aura-sidebar-row .aura-unified-control-button,
+#sidebar #ol-street-view--pegman-button {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #454b4d !important;
+  border: 1px solid #d6dfdb !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  background-image: none !important;
+  box-shadow: 0 2px 6px rgba(23, 61, 52, .10) !important;
+  transform: none !important;
+  transform-origin: center !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .aura-control-icon {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  margin: auto !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  pointer-events: none !important;
+}
+
+#sidebar .aura-sidebar-row .aura-unified-control-button:hover,
+#sidebar #ol-street-view--pegman-button:hover {
+  color: #174f3d !important;
+  border-color: #7fa99b !important;
+  background: #e8f1ed !important;
+}
+
+#sidebar .aura-sidebar-row .aura-unified-control-button:focus-visible,
+#sidebar #ol-street-view--pegman-button:focus-visible {
+  outline: 2px solid #28715f !important;
+  outline-offset: 2px !important;
+}
+
+#aura-tools-row #ol-street-view--pegman-draggable {
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  transform-origin: center !important;
+}
+
+.aura-rotation-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+}
+
+.aura-rotation-row .ol-rotate,
+.aura-rotate-step,
+.aura-rotation-row .ol-rotate button {
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.aura-rotate-step {
+  display: grid !important;
+  place-items: center !important;
+  border: 0 !important;
+}
+
+.aura-status-rotate-icon {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.aura-north-mark,
+.aura-north-mark img {
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: auto !important;
+}
+
+@media (max-width: 700px) {
+  #sidebar .aura-sidebar-tabs > .aura-sidebar-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #sidebar .aura-sidebar-row > .ol-zoom {
+    grid-column: span 2 !important;
+  }
+}
+
+/* Identificação cromática das três famílias de Ordens de Serviço. */
+.aura-imoveis-group-title.aura-group-os-01 {
+  color: #174b34 !important;
+  background: #dcefe3 !important;
+  border-left-color: #3f8a62 !important;
+}
+
+.aura-imovel-row.aura-group-os-01 { border-left-color: #69a984 !important; }
+.aura-imovel-row.aura-group-os-01 .aura-os-code { color: #174b34 !important; background: #e1f1e7 !important; }
+
+.aura-imoveis-group-title.aura-group-os-02 {
+  color: #155266 !important;
+  background: #dceff3 !important;
+  border-left-color: #34879a !important;
+}
+
+.aura-imovel-row.aura-group-os-02 { border-left-color: #61a9b8 !important; }
+.aura-imovel-row.aura-group-os-02 .aura-os-code { color: #155266 !important; background: #e0f1f4 !important; }
+
+.aura-imoveis-group-title.aura-group-os-03 {
+  color: #674d18 !important;
+  background: #f2e8ce !important;
+  border-left-color: #a17a2d !important;
+}
+
+.aura-imovel-row.aura-group-os-03 { border-left-color: #c0a15f !important; }
+.aura-imovel-row.aura-group-os-03 .aura-os-code { color: #674d18 !important; background: #f5ecd8 !important; }
+
+/* Conteúdo de ajuda orientado a tarefas. */
+.aura-help {
+  display: grid;
+  gap: 14px;
+  max-width: 860px;
+  padding: 22px 28px 34px !important;
+}
+
+.aura-help-lead {
+  max-width: 66ch;
+  margin: 0;
+  color: #31413d;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.aura-help-section {
+  max-width: 68ch;
+  padding: 18px 0 2px;
+  border-top: 1px solid #d9e2de;
+}
+
+.aura-help-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: #28715f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.aura-help h2 {
+  margin: 0 0 8px;
+  color: #173f38;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.aura-help p,
+.aura-help li {
+  color: #4b5754;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.aura-help ol {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.aura-help-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.aura-help-card {
+  padding: 14px 15px;
+  border: 1px solid #d9e2de;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.aura-help-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.aura-help-card p,
+.aura-help-notice p,
+.aura-help-support p {
+  margin: 0;
+}
+
+.aura-help-notice {
+  padding: 15px 16px;
+  color: #5b481e;
+  border-left: 4px solid #a17a2d;
+  border-radius: 8px;
+  background: #f7f0df;
+}
+
+.aura-help-notice strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #674d18;
+}
+
+.aura-help-contact {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid #cddbd6;
+  border-radius: 14px;
+  background: #f7faf8;
+}
+
+.aura-help-contact img {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.aura-help-contact h2 { margin-bottom: 2px; }
+.aura-contact-role { margin: 0 0 8px !important; color: #61706c !important; }
+.aura-contact-links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.aura-contact-links a { color: #176b5b; font-size: 13px; font-weight: 650; text-decoration: none; }
+.aura-contact-links a:hover { text-decoration: underline; }
+.aura-contact-note { margin-top: 10px !important; font-size: 12px !important; }
+
+/* Download do pacote vetorial vigente, exibido dentro de cada OS. */
+.ol-layerswitcher .shp-download-btn {
+  position: absolute;
+  top: 3px;
+  right: 96px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 48px;
+  min-height: 25px;
+  margin: 0;
+  padding: 2px 4px;
+  color: #176b5b;
+  border: 1px solid #9fc7bd;
+  border-radius: 5px;
+  background: #eef7f3;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.ol-layerswitcher .panel li.aura-has-shp-download {
+  position: relative;
+}
+
+.ol-layerswitcher .panel li.aura-has-shp-download > .li-content > label {
+  width: calc(100% - 166px) !important;
+  padding-right: 4px;
+  box-sizing: border-box;
+}
+
+.ol-layerswitcher .shp-download-btn:hover,
+.ol-layerswitcher .shp-download-btn:focus-visible {
+  color: #fff;
+  border-color: #176b5b;
+  background: #176b5b;
+}
+
+@media (max-width: 760px) {
+  .ol-layerswitcher .shp-download-btn {
+    right: 88px;
+    width: 30px;
+  }
+
+  .ol-layerswitcher .shp-download-btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .ol-layerswitcher .panel li.aura-has-shp-download > .li-content > label {
+    width: calc(100% - 142px) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .aura-help {
+    padding: 20px 18px 32px !important;
+  }
+
+  .aura-help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aura-help-card:last-child {
+    grid-column: auto;
+  }
+
+  .aura-help-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .aura-help-contact img {
+    max-width: 220px;
+  }
+}

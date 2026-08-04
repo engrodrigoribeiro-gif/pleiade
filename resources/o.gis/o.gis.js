@@ -1515,13 +1515,17 @@
 		closeBox: true,
 		canFix: true,
 		showImage: true,
-		maxChar: 1000,
+		maxChar: 20000,
 		autoPan: true, // attiva il pan automatico
 		template: function (feature) {
 		  // Ottengo il layer della feature solo se sto interrogando una feature
 		  var layer = feature.get && feature.get('layerObject');
 
 		  if (layer) {
+			if (window.AURA_LIMIT_POPUP && typeof window.AURA_LIMIT_POPUP.templateForFeature === 'function') {
+				var auraTemplate = window.AURA_LIMIT_POPUP.templateForFeature(feature, layer);
+				if (auraTemplate) return auraTemplate;
+			}
 			var popuplayertitle = layer.get("popuplayertitle");
 			var attributes = {};
 
@@ -1844,6 +1848,7 @@
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var printButton = $('.ol-print-param > .ol-ext-buttons')[0];
+		if (!printButton) return;
 		
 		// Pulsante per scaricare l'immagine
 		var btDownload = document.createElement('BUTTON');
@@ -2325,6 +2330,14 @@
 		// remove list label element title
 		const labelEl = li.querySelector('label');
 		if (labelEl) labelEl.title = '';
+		const forcedDisplayTitle = layer.get('auraDisplayTitle');
+		if (forcedDisplayTitle && layer.get('title') !== forcedDisplayTitle) {
+			layer.set('title', forcedDisplayTitle, true);
+		}
+		if (labelEl && forcedDisplayTitle) {
+			const titleSpan = labelEl.querySelector('.ol-layer-name') || labelEl.querySelector('span');
+			if (titleSpan) titleSpan.innerHTML = forcedDisplayTitle;
+		}
 		
 		// Remove click on the label to turn on/off layer
 		const spanEl = li.querySelector('span');
@@ -2332,9 +2345,19 @@
 
 		// Expand/collapse layer legend
 		if (!(layer instanceof ol.layer.Group)) {
+			var layerLegend = li.querySelector('.layerlegend, .layerlegend-realtime');
+			var legacyTitle = li.querySelector('.li-content #layertitle');
+			if (legacyTitle) legacyTitle.classList.add('layertitle', 'aura-expandable-legend-title');
+			var normalizedTitle = li.querySelector('.li-content .layertitle');
+			if (layerLegend && normalizedTitle && !normalizedTitle.querySelector('.aura-legend-chevron')) {
+				var chevron = document.createElement('span');
+				chevron.className = 'aura-legend-chevron';
+				chevron.setAttribute('aria-hidden', 'true');
+				normalizedTitle.appendChild(chevron);
+			}
 			var active = layer.get('legendActive');
-			if (active) $(".li-content #layertitle", li).addClass('active');
-			var layerTitle = $(".li-content #layertitle", li)[0];
+			if (active) $(".li-content .layertitle", li).addClass('active');
+			var layerTitle = $(".li-content .layertitle", li)[0];
 			$(layerTitle).off('click');
 			$(layerTitle).click(function(event) {
 			  event.stopPropagation(); // Prevent interference with the layer switcher
@@ -2363,20 +2386,23 @@
 		}
 			
 		// Botão de download KML por camada (vetorial)
-		if ((layer instanceof ol.layer.Vector || layer instanceof ol.layer.VectorImage) && !li.querySelector('.kml-download-btn')) {
+		if ((layer instanceof ol.layer.Vector || layer instanceof ol.layer.VectorImage) && !layer.get('auraSuppressKmlDownload') && !li.querySelector('.kml-download-btn')) {
 			var liContent = li.querySelector('.li-content') || li;
 			var kmlBtn = document.createElement('a');
+			var publishedKmlUrl = layer.get('auraKmlDownloadUrl');
 			kmlBtn.className = 'kml-download-btn';
-			kmlBtn.href = '#';
-			kmlBtn.title = 'Baixar KML desta camada';
+			kmlBtn.href = publishedKmlUrl || '#';
+			kmlBtn.title = publishedKmlUrl ? 'Baixar KML vigente desta OS' : 'Baixar KML desta camada';
+			if (publishedKmlUrl) kmlBtn.setAttribute('download', layer.get('auraKmlFileName') || 'limite-vigente.kml');
 			kmlBtn.innerHTML = '<i class="fa fa-download"></i>';
 			kmlBtn.style.marginLeft = '6px';
 			kmlBtn.style.cursor = 'pointer';
 			kmlBtn.style.display = 'inline-block';
 			kmlBtn.style.textDecoration = 'none';
 			kmlBtn.addEventListener('click', function (ev) {
-				ev.preventDefault();
 				ev.stopPropagation();
+				if (publishedKmlUrl) return;
+				ev.preventDefault();
 				try {
 					var src = layer.getSource();
 					var feats = (src.getFeatures && src.getFeatures().length)
@@ -2411,6 +2437,26 @@
 				}
 			});
 			liContent.appendChild(kmlBtn);
+		}
+
+		// Pacote SHP vigente: um download em cada item de OS.
+		var publishedShpUrl = layer.get('auraShpDownloadUrl');
+		if (publishedShpUrl && !li.querySelector('.shp-download-btn')) {
+			var shpContent = li.querySelector('.li-content') || li;
+			li.classList.add('aura-has-shp-download');
+			var shpBtn = document.createElement('a');
+			shpBtn.className = 'shp-download-btn';
+			shpBtn.href = publishedShpUrl;
+			shpBtn.target = '_blank';
+			shpBtn.rel = 'noopener noreferrer';
+			shpBtn.title = 'Baixar pacote SHP vigente desta OS';
+			shpBtn.setAttribute('aria-label', 'Baixar pacote SHP vigente desta OS');
+			shpBtn.setAttribute('download', layer.get('auraShpFileName') || 'dados-vetoriais-vigentes.zip');
+			shpBtn.innerHTML = '<i class="fa fa-download" aria-hidden="true"></i><span>SHP</span>';
+			shpBtn.addEventListener('click', function (ev) {
+				ev.stopPropagation();
+			});
+			shpContent.appendChild(shpBtn);
 		}
 
 		// symbology switcher	
@@ -2611,29 +2657,6 @@
 		$('.legend-attribution button').attr('style', 'display: none');
 	} */	
 
-
-
-// StreetView
-	var streetViewOptions = {
-		//apiKey: '', // Must be provided to remove "For development purposes only" message
-		language: 'en',
-		size: 'md',
-		resizable: true,
-		sizeToggler: true,
-		defaultMapSize: 'expanded',
-		target: 'map', // Important for OL 5
-		// Custom translations. Default is according to selected language
-		i18n: {dragToInit: 'StreetView - Drag and drop me'}
-	}
-	// Sposta in mappa icona streetview (sotto al popup)
-	document.addEventListener('DOMContentLoaded', function () {
-		streetView.once('loadLib', function () {
-			var streetviewButton = document.getElementById('ol-street-view--pegman-button-div');
-			if (streetviewButton && map && map.getOverlayContainerStopEvent) {
-				map.getOverlayContainerStopEvent().appendChild(streetviewButton);
-			}
-		});
-	});
 
 
 // Sposta in mappa icona O.GIS (sotto al popup)

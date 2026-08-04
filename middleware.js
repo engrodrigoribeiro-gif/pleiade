@@ -17,12 +17,20 @@ export default function middleware(request) {
   }
 
   if (authHeader) {
-    const base64Credentials = authHeader.split(' ')[1] || '';
-    const credentials = atob(base64Credentials);
-    const [user, pass] = credentials.split(':');
+    try {
+      const [scheme, encoded] = authHeader.split(' ');
+      if (scheme?.toLowerCase() === 'basic' && encoded) {
+        const credentials = atob(encoded);
+        const separator = credentials.indexOf(':');
+        const user = separator >= 0 ? credentials.slice(0, separator) : '';
+        const pass = separator >= 0 ? credentials.slice(separator + 1) : '';
 
-    if (user === expectedUser && pass === expectedPass) {
-      return; // libera o acesso, segue para o conteúdo normalmente
+        if (user === expectedUser && pass === expectedPass) {
+          return; // libera o acesso, segue para o conteúdo normalmente
+        }
+      }
+    } catch {
+      // Cabeçalho malformado continua como acesso não autorizado.
     }
   }
 

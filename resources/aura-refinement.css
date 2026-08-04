@@ -1,0 +1,1005 @@
+/* ===================================================================
+   GOOGLE MAPS MATERIAL 3 DESIGN SYSTEM - AURA WEBMAP
+   Proposta Integrada respeitando 100% o Diário de Decisões e Regras Aprovadas
+   =================================================================== */
+
+:root {
+  --aura-ink: #173d34;
+  --aura-muted: #5f6368;
+  --aura-panel: rgba(255, 255, 255, 0.96);
+  --aura-panel-solid: #ffffff;
+  --aura-line: rgba(60, 64, 67, 0.14);
+  --aura-green: #28715f;
+  --aura-green-dark: #173f38;
+  --aura-green-light: #e8f5e9;
+  --aura-focus: #d9912b;
+  --aura-shadow: 0 8px 32px rgba(60, 64, 67, 0.18);
+  --aura-radius: 16px;
+  --aura-font: "Google Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html,
+body,
+#map {
+  min-height: 100dvh;
+  font-family: var(--aura-font);
+  background: #eaf0ec;
+  color: #202124;
+}
+
+#map::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.05);
+}
+
+/* ===================================================================
+   1. COLUNA ÚNICA DE 190px (TRILHO MATERIAL 3)
+   =================================================================== */
+.sidebar {
+  border-radius: 0 20px 20px 0 !important;
+  box-shadow: var(--aura-shadow) !important;
+  border: 1px solid var(--aura-line) !important;
+  border-left: 0 !important;
+  overflow: hidden !important;
+}
+
+.sidebar.collapsed {
+  width: 190px !important;
+}
+
+.aura-sidebar-tabs,
+.aura-sidebar-tabs > ul {
+  width: 190px !important;
+}
+
+.sidebar-tabs {
+  background: #ffffff !important;
+  border-right: 1px solid var(--aura-line) !important;
+}
+
+.aura-sidebar-tabs {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  padding: 10px 8px 16px !important;
+  box-sizing: border-box;
+}
+
+.aura-sidebar-tabs > ul {
+  position: static !important;
+  height: auto !important;
+  flex: none;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* LOGO CARD */
+.aura-sidebar-tabs #form_logo {
+  position: static !important;
+  flex: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 12px 8px !important;
+  box-sizing: border-box;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 14px !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1) !important;
+  text-align: center !important;
+}
+
+.aura-sidebar-tabs #form_logo .brand-link {
+  flex: none;
+  padding-right: 0;
+  border-right: 0;
+  display: block;
+}
+
+.aura-sidebar-tabs #form_logo img {
+  width: 84px;
+  margin: 0 auto;
+  display: block;
+}
+
+.aura-sidebar-tabs #form_logo .brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aura-sidebar-tabs #form_logo .brand-eyebrow {
+  color: var(--aura-green);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.aura-sidebar-tabs #form_logo h1 {
+  color: var(--aura-ink);
+  font-size: 12px;
+  font-weight: 680;
+  line-height: 1.18;
+  text-align: center;
+  margin: 0;
+}
+
+/* ABAS DE NAVEGAÇÃO */
+.aura-sidebar-tabs > ul > li {
+  height: 44px !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.aura-sidebar-tabs > ul > li > a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-sizing: border-box;
+  width: 100% !important;
+  padding: 0 12px !important;
+  height: 40px !important;
+  border-radius: 100px !important;
+  color: #3c4043 !important;
+  font-family: var(--aura-font);
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+  transition: all 0.18s ease;
+}
+
+.sidebar-tabs > ul > li > a:hover {
+  background: #f1f3f4 !important;
+  color: #202124 !important;
+}
+
+.sidebar-tabs > ul > li.active > a,
+.aura-sidebar-tabs > ul > li.active > a {
+  color: var(--aura-green-dark) !important;
+  background: var(--aura-green-light) !important;
+  font-weight: 700 !important;
+}
+
+.aura-sidebar-tabs > ul > li > a i {
+  flex: none;
+  width: 18px;
+  text-align: center;
+}
+
+.aura-tab-label {
+  overflow: hidden;
+  min-width: 0;
+  flex: 1 1 auto;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Destaque visual permanente na aba "Documentos dos imóveis" (Dashboard) */
+.sidebar-tabs > ul + ul > li:first-child > a {
+  position: relative !important;
+  background: rgba(40, 113, 95, 0.08) !important;
+  border-left: 3px solid var(--aura-green) !important;
+}
+
+/* BUSCA DE ENDEREÇO */
+#sidebar .aura-sidebar-tabs > .gcd-gl-container,
+#sidebar .aura-sidebar-tabs > .aura-sidebar-row {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  flex: none;
+  width: auto !important;
+  margin: 6px 4px 0 !important;
+}
+
+#sidebar .aura-sidebar-tabs > .gcd-gl-container {
+  width: calc(100% - 8px) !important;
+  height: 38px !important;
+}
+
+.ol-geocoder.gcd-gl-container,
+.ol-geocoder .gcd-gl-control {
+  width: 100% !important;
+  height: 38px !important;
+  border-radius: 100px !important;
+  background: #f1f3f4 !important;
+  border: 1px solid var(--aura-line) !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+
+.gcd-gl-control input {
+  width: calc(100% - 32px) !important;
+  height: 36px !important;
+  padding: 0 10px 0 34px !important;
+  color: #202124;
+  font-family: var(--aura-font);
+  font-size: 12px;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.ol-geocoder .gcd-gl-btn {
+  top: 9px !important;
+  left: 10px !important;
+  color: #5f6368 !important;
+  font-size: 14px !important;
+}
+
+/* ÍCONES DE CONTROLE (GPS+Zoom+Casa / Medir+Desenhar) */
+#sidebar .aura-sidebar-row {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(32px, 40px));
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: calc(100% - 8px) !important;
+  box-sizing: border-box;
+}
+
+#sidebar .aura-sidebar-row > .ol-geobt,
+#sidebar .aura-sidebar-row > .ol-zoom,
+#sidebar .aura-sidebar-row > .aura-home-control,
+#sidebar .aura-sidebar-row > .measure-toggle,
+#sidebar .aura-sidebar-row > .ol-bar,
+#sidebar .aura-sidebar-row > .ol-full-screen,
+#sidebar .aura-sidebar-row > #ol-street-view--pegman-button-div {
+  position: static !important;
+  margin: 0 !important;
+  flex: none;
+}
+
+#sidebar .aura-sidebar-row > .ol-zoom {
+  display: grid !important;
+  grid-column: span 2;
+  grid-template-columns: repeat(2, minmax(32px, 40px));
+  gap: 6px;
+}
+
+#sidebar .aura-sidebar-row > .ol-control,
+#sidebar .aura-sidebar-row > .measure-toggle,
+#sidebar .aura-sidebar-row > .ol-bar,
+#sidebar .aura-sidebar-row > #ol-street-view--pegman-button-div {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+#sidebar .aura-sidebar-row .ol-control button,
+#sidebar .aura-sidebar-row .measure-toggle button,
+#sidebar .aura-sidebar-row .ol-bar button {
+  width: 100% !important;
+  height: 40px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+.ol-control {
+  border: 0 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+.ol-control button {
+  color: #3c4043 !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15) !important;
+  transition: all 0.18s ease;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.ol-control button:hover,
+.ol-control button:focus-visible {
+  color: var(--aura-green-dark) !important;
+  background-color: var(--aura-green-light) !important;
+  border-color: var(--aura-green) !important;
+  transform: scale(1.05);
+}
+
+.aura-home-control {
+  display: inline-flex !important;
+}
+
+#aura-tools-row {
+  min-height: 40px;
+}
+
+#aura-tools-row .ol-full-screen {
+  display: inline-flex !important;
+}
+
+#aura-tools-row #ol-street-view--pegman-button-div {
+  position: static !important;
+  width: 100% !important;
+  height: 40px !important;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15) !important;
+  overflow: hidden;
+}
+
+#aura-tools-row #ol-street-view--pegman-button,
+#aura-tools-row #ol-street-view--pegman-draggable {
+  width: 100% !important;
+  height: 40px !important;
+  transform: none !important;
+  transform-origin: center !important;
+  box-shadow: none !important;
+}
+
+#aura-tools-row #ol-street-view--pegman-button {
+  display: grid !important;
+  place-items: center !important;
+  color: #3c4043 !important;
+  background-image: none !important;
+  background-position: center !important;
+  border-radius: 9px !important;
+}
+
+#aura-tools-row #ol-street-view--pegman-button:hover {
+  color: var(--aura-green-dark) !important;
+  background-color: var(--aura-green-light) !important;
+}
+
+.aura-control-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+#sidebar .aura-unified-control-button {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.legend-attribution {
+  display: none !important;
+}
+
+/* ===================================================================
+   2. PAINEL GAVETA FLUTUANTE ESTILO GOOGLE SHEETS
+   =================================================================== */
+.sidebar-left .sidebar-content {
+  left: 190px !important;
+  background: #ffffff !important;
+  border-left: 1px solid var(--aura-line) !important;
+}
+
+.sidebar-header {
+  height: 56px !important;
+  padding: 0 18px !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid var(--aura-line) !important;
+  color: #202124 !important;
+  font-family: var(--aura-font) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.sidebar-close {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #f1f3f4 !important;
+  color: #5f6368 !important;
+  cursor: pointer !important;
+}
+
+.aura-sidebar-body {
+  padding: 18px !important;
+  font-family: var(--aura-font) !important;
+  color: #3c4043 !important;
+}
+
+/* DASHBOARD DOCUMENTAL POR IMÓVEL */
+.aura-imoveis-search {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 38px !important;
+  padding: 0 14px 0 36px !important;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 100px !important;
+  background: #f1f3f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.4-3.4'/%3E%3C/svg%3E") no-repeat 12px center !important;
+  color: #202124 !important;
+  font-family: var(--aura-font) !important;
+  font-size: 12.5px !important;
+  outline: none !important;
+}
+
+.aura-imoveis-list {
+  display: grid !important;
+  gap: 6px !important;
+  max-height: calc(100dvh - 220px) !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--aura-green) #e8f5e9 !important;
+}
+
+.aura-imoveis-group-title {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2 !important;
+  padding: 6px 10px !important;
+  background: var(--aura-green-light) !important;
+  color: var(--aura-green-dark) !important;
+  border-radius: 6px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.aura-imoveis-group-title.aura-group-os-01 {
+  background: #e7f3ea !important;
+  color: #174f3d !important;
+  border-left: 4px solid #4f8f72 !important;
+}
+
+.aura-imoveis-group-title.aura-group-os-02 {
+  background: #e4f2f1 !important;
+  color: #15524f !important;
+  border-left: 4px solid #3f8d88 !important;
+}
+
+.aura-imoveis-group-title.aura-group-os-03 {
+  background: #edf2e5 !important;
+  color: #425b31 !important;
+  border-left: 4px solid #78945e !important;
+}
+
+.aura-imovel-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+  padding: 10px 12px !important;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  font-family: var(--aura-font) !important;
+  transition: all 0.18s ease !important;
+}
+
+.aura-imovel-row:hover {
+  border-color: var(--aura-green) !important;
+  background: #f8fafd !important;
+  transform: translateY(-1px) !important;
+}
+
+.aura-imovel-row.aura-group-os-01 { border-left: 3px solid #8db9a3 !important; }
+.aura-imovel-row.aura-group-os-02 { border-left: 3px solid #83b9b5 !important; }
+.aura-imovel-row.aura-group-os-03 { border-left: 3px solid #a9bd92 !important; }
+.aura-imovel-row.aura-group-os-01 .aura-os-code { background: #e7f3ea !important; color: #174f3d !important; }
+.aura-imovel-row.aura-group-os-02 .aura-os-code { background: #e4f2f1 !important; color: #15524f !important; }
+.aura-imovel-row.aura-group-os-03 .aura-os-code { background: #edf2e5 !important; color: #425b31 !important; }
+
+.aura-north-mark svg,
+.aura-link-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.aura-north-mark svg {
+  fill: currentColor;
+}
+
+.aura-link-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.aura-os-code {
+  display: inline-flex !important;
+  padding: 3px 8px !important;
+  border-radius: 100px !important;
+  background: var(--aura-green-light) !important;
+  color: var(--aura-green-dark) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+.aura-imovel-nome {
+  font-size: 12.5px !important;
+  color: #202124 !important;
+  font-weight: 500 !important;
+}
+
+/* ===================================================================
+   3. PAINEL DE CAMADAS FLUTUANTE (.ol-layerswitcher)
+   =================================================================== */
+.ol-layerswitcher:not(.ol-forceopen) .aura-layer-tools {
+  display: none !important;
+}
+
+.ol-layerswitcher.ol-forceopen {
+  top: 14px !important;
+  right: 14px !important;
+  bottom: 14px !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 0 !important;
+  overflow: hidden;
+  background: #ffffff !important;
+  border: 1px solid var(--aura-line) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--aura-shadow) !important;
+}
+
+.ol-layerswitcher.ol-forceopen .panel-container {
+  width: min(370px, calc(100vw - 92px)) !important;
+  height: calc(100% - 126px) !important;
+  margin-top: 120px !important;
+  padding: 0 12px 14px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: transparent !important;
+  scrollbar-color: var(--aura-green) transparent;
+  scrollbar-width: thin;
+}
+
+.aura-layer-tools {
+  position: absolute;
+  top: 12px;
+  right: 56px;
+  left: 14px;
+  z-index: 4;
+}
+
+.aura-layer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  margin-bottom: 6px;
+}
+
+.aura-layer-title {
+  color: #202124;
+  font-family: var(--aura-font);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.aura-layer-count {
+  color: var(--aura-green-dark);
+  background: var(--aura-green-light);
+  font-family: var(--aura-font);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.aura-layer-search {
+  display: block;
+  width: 100%;
+  height: 34px;
+  box-sizing: border-box;
+  padding: 0 12px 0 32px;
+  color: #202124;
+  font-family: var(--aura-font);
+  font-size: 12px;
+  background: #f1f3f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235f6368' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.4-3.4'/%3E%3C/svg%3E") no-repeat 10px center;
+  border: 1px solid var(--aura-line);
+  border-radius: 100px;
+  outline: 0;
+}
+
+.aura-layer-search:focus {
+  border-color: var(--aura-green);
+  background-color: #ffffff;
+}
+
+.aura-layer-empty {
+  display: none !important;
+}
+
+.aura-layer-empty.is-visible {
+  display: block !important;
+  padding: 16px 8px;
+  color: #5f6368;
+  font-size: 12px;
+  text-align: center;
+}
+
+.aura-limit-swatch {
+  display: inline-block !important;
+  width: 0.85rem !important;
+  height: 0.85rem !important;
+  margin: 0 0.55rem 0 0.1rem;
+  vertical-align: -0.1rem;
+  background: transparent !important;
+  border: 2px solid #1a1a1a;
+  box-sizing: border-box;
+}
+
+.aura-theme-swatch {
+  display: inline-block !important;
+  width: 0.9rem !important;
+  height: 0.9rem !important;
+  margin: 0 0.35rem 0 0.2rem !important;
+  vertical-align: -0.12rem !important;
+  border: 2px solid var(--aura-swatch-stroke, currentColor) !important;
+  box-sizing: border-box !important;
+}
+
+.aura-expandable-legend-title {
+  position: relative !important;
+  display: block !important;
+  min-height: 28px !important;
+  padding-right: 32px !important;
+  cursor: pointer !important;
+}
+
+.aura-legend-chevron {
+  position: absolute !important;
+  top: 50% !important;
+  right: 7px !important;
+  width: 11px !important;
+  height: 11px !important;
+  border-right: 3px solid #68716e !important;
+  border-bottom: 3px solid #68716e !important;
+  transform: translateY(-68%) rotate(45deg) !important;
+  transform-origin: center !important;
+  transition: transform 160ms ease, border-color 160ms ease !important;
+  box-sizing: border-box !important;
+}
+
+.aura-expandable-legend-title:hover .aura-legend-chevron {
+  border-color: var(--aura-green) !important;
+}
+
+.aura-expandable-legend-title.active .aura-legend-chevron {
+  transform: translateY(-28%) rotate(225deg) !important;
+}
+
+.aura-expandable-legend-title #firstImage,
+.aura-expandable-legend-title #secondImage {
+  display: none !important;
+}
+
+/* ===================================================================
+   4. MODAL FLUTUANTE FICHA DA OS / IMÓVEL (.aura-os-panel)
+   =================================================================== */
+.aura-os-panel {
+  position: fixed !important;
+  z-index: 1500 !important;
+  top: 14px !important;
+  right: min(420px, 34vw) !important;
+  width: min(390px, calc(100vw - 32px)) !important;
+  max-height: calc(100dvh - 28px) !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--aura-line) !important;
+  box-shadow: 0 24px 60px rgba(15, 55, 45, 0.22) !important;
+  color: #173d34 !important;
+  font-family: var(--aura-font) !important;
+  padding: 22px !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.aura-os-panel-header h2 {
+  font-size: 19px !important;
+  font-weight: 600 !important;
+  color: #202124 !important;
+}
+
+.aura-layer-action.is-primary {
+  background: var(--aura-green) !important;
+  color: #ffffff !important;
+  border-radius: 100px !important;
+  padding: 8px 16px !important;
+  font-family: var(--aura-font) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  border: 0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+.ol-layerswitcher.aura-hidden-by-dashboard {
+  display: none !important;
+}
+
+.aura-vector-card {
+  border-color: rgba(40, 113, 95, 0.28) !important;
+  background: #f6fbf8 !important;
+}
+
+.aura-vector-links a {
+  white-space: normal !important;
+  text-align: center !important;
+}
+
+.aura-map-product-popup {
+  width: min(27rem, calc(100vw - 3rem));
+  max-height: min(34rem, calc(100dvh - 7rem));
+  overflow-y: auto;
+  color: var(--aura-ink);
+  font-family: var(--aura-font);
+  scrollbar-width: thin;
+  scrollbar-color: var(--aura-green) transparent;
+}
+
+.ol-popupfeature:has(.aura-map-product-popup) table,
+.ol-popupfeature:has(.aura-map-product-popup) tbody,
+.ol-popupfeature:has(.aura-map-product-popup) tr,
+.ol-popupfeature:has(.aura-map-product-popup) td.ol-value {
+  display: block;
+  width: 100%;
+}
+
+.ol-popupfeature:has(.aura-map-product-popup) td.ol-label {
+  display: none;
+}
+
+.aura-map-product-header {
+  padding: 0.15rem 2.2rem 0.75rem 0;
+  border-bottom: 1px solid var(--aura-line);
+}
+
+.aura-map-product-code {
+  color: var(--aura-green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+
+.aura-map-product-header h2 {
+  margin: 0.28rem 0 0;
+  color: var(--aura-ink);
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.aura-map-product-intro {
+  margin: 0.85rem 0 0.55rem;
+  color: var(--aura-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.aura-map-product-list {
+  display: grid;
+  gap: 0;
+}
+
+.aura-map-product-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--aura-line);
+}
+
+.aura-map-product-identity {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.aura-map-product-identity strong {
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.aura-map-product-identity span {
+  color: var(--aura-muted);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.aura-map-product-links {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.aura-map-product-links a {
+  padding: 0.38rem 0.55rem;
+  border-radius: 0.45rem;
+  color: var(--aura-green-dark);
+  background: var(--aura-green-light);
+  font-size: 0.72rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.aura-map-product-links a:hover {
+  background: #d8ecdf;
+  transform: translateY(-1px);
+}
+
+.aura-map-product-links a:focus-visible {
+  outline: 2px solid var(--aura-focus);
+  outline-offset: 2px;
+}
+
+.aura-map-product-footer {
+  padding-top: 0.9rem;
+}
+
+.aura-map-product-footer .aura-layer-action {
+  width: 100%;
+}
+
+@media (max-width: 620px) {
+  .aura-map-product-popup {
+    width: min(22rem, calc(100vw - 2rem));
+    max-height: calc(100dvh - 5rem);
+  }
+
+  .aura-map-product-item {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .aura-map-product-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aura-map-product-links a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1100px), (max-height: 760px) {
+  .sidebar.collapsed,
+  .aura-sidebar-tabs,
+  .aura-sidebar-tabs > ul {
+    width: 164px !important;
+  }
+
+  .aura-sidebar-tabs {
+    padding: 7px 6px 10px !important;
+  }
+
+  .aura-sidebar-tabs #form_logo {
+    padding: 8px 6px !important;
+  }
+
+  .aura-sidebar-tabs #form_logo img {
+    width: 66px !important;
+  }
+
+  .aura-sidebar-tabs #form_logo .brand-eyebrow {
+    font-size: 7px !important;
+  }
+
+  .aura-sidebar-tabs #form_logo h1 {
+    font-size: 10px !important;
+  }
+
+  .aura-sidebar-tabs > ul > li {
+    height: 38px !important;
+  }
+
+  .aura-sidebar-tabs > ul > li > a {
+    height: 35px !important;
+    padding: 0 9px !important;
+    font-size: 11px !important;
+  }
+
+  #sidebar .aura-sidebar-tabs > .gcd-gl-container {
+    height: 34px !important;
+  }
+
+  .ol-layerswitcher.ol-forceopen .panel-container {
+    width: min(330px, calc(100vw - 188px)) !important;
+  }
+
+  .aura-os-panel {
+    top: 8px !important;
+    right: 8px !important;
+    width: min(390px, calc(100vw - 180px)) !important;
+    max-height: calc(100dvh - 16px) !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar.collapsed,
+  .aura-sidebar-tabs,
+  .aura-sidebar-tabs > ul {
+    width: 76px !important;
+  }
+
+  .aura-sidebar-tabs #form_logo .brand-copy,
+  .aura-tab-label {
+    display: none !important;
+  }
+
+  .aura-sidebar-tabs #form_logo img {
+    width: 52px !important;
+  }
+
+  .aura-sidebar-tabs > ul > li > a {
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  #sidebar .aura-sidebar-tabs > .gcd-gl-container {
+    display: none !important;
+  }
+
+  .ol-layerswitcher.ol-forceopen {
+    left: 84px !important;
+    right: 6px !important;
+    top: 6px !important;
+    bottom: 6px !important;
+  }
+
+  .ol-layerswitcher.ol-forceopen .panel-container {
+    width: 100% !important;
+  }
+
+  .aura-os-panel {
+    left: 84px !important;
+    right: 6px !important;
+    width: auto !important;
+    max-height: calc(100dvh - 12px) !important;
+    padding: 14px !important;
+  }
+
+  .aura-os-actions,
+  .aura-product-links {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+}

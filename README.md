@@ -3,13 +3,11 @@
 WebGIS estático (qgis2web), acesso restrito por senha via Basic Auth
 (Vercel Routing Middleware). A senha não fica no código.
 
-## Credenciais sugeridas
+## Credenciais
 
-- Usuário: `fundiario-aura`
-- Senha: `@2026-qj-pleiade`
-
-Essas credenciais devem ser configuradas como variáveis de ambiente na
-Vercel, não estão fixas em nenhum arquivo deste repositório.
+O usuário e a senha devem ser fornecidos por canal seguro e configurados
+somente como variáveis de ambiente na Vercel. Nenhuma senha deve ser
+registrada no repositório, no README ou em arquivos `.env` versionados.
 
 ## Passo a passo completo
 
@@ -34,8 +32,9 @@ Vercel, não estão fixas em nenhum arquivo deste repositório.
 1. Ainda na tela de configuração do projeto (ou depois, em
    Settings → Environment Variables, se já tiver feito o deploy):
 2. Adicione:
-   - `BASIC_AUTH_USER` → `fundiario-aura`
-   - `BASIC_AUTH_PASSWORD` → `@2026-qj-pleiade`
+   - `BASIC_AUTH_USER` → usuário acordado para o projeto
+   - `BASIC_AUTH_PASSWORD` → senha fornecida por canal seguro
+   - `PLANET_API_KEY` → chave da conta Planet, marcada como sensível
 3. Marque para aplicar em Production (e Preview, se quiser testar antes).
 4. Salve.
 
@@ -53,7 +52,7 @@ Vercel, não estão fixas em nenhum arquivo deste repositório.
    `seu-projeto.vercel.app`).
 2. O navegador deve mostrar uma caixinha pedindo usuário e senha
    (não é uma tela HTML customizada, é o prompt nativo do navegador).
-3. Digite `fundiario-aura` e `@2026-qj-pleiade`.
+3. Digite as credenciais configuradas nas variáveis de ambiente.
 4. O mapa deve carregar normalmente depois disso.
 
 ## Como funciona

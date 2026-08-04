@@ -44,7 +44,7 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
     }
     var lyr_GlobalMonthly202603Mosaic = new ol.layer.Tile({
         source: new ol.source.WMTS(({
-            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            url: "/api/planet-disabled",
             attributions: ' ',
             "layer": "global_monthly_2026_03_mosaic",
             "TILED": "true",
@@ -78,7 +78,7 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
     }
     var lyr_GlobalMonthly202507Mosaic = new ol.layer.Tile({
         source: new ol.source.WMTS(({
-            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            url: "/api/planet-disabled",
             attributions: ' ',
             "layer": "global_monthly_2025_07_mosaic",
             "TILED": "true",
@@ -112,7 +112,7 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
     }
     var lyr_GlobalMonthly202407Mosaic = new ol.layer.Tile({
         source: new ol.source.WMTS(({
-            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            url: "/api/planet-disabled",
             attributions: ' ',
             "layer": "global_monthly_2024_07_mosaic",
             "TILED": "true",
@@ -146,7 +146,7 @@ var lyr_ImagemdeSatlitePleiades2015 = new ol.layer.Tile({
     }
     var lyr_GlobalMonthly202307Mosaic = new ol.layer.Tile({
         source: new ol.source.WMTS(({
-            url: "https://api.planet.com/basemaps/v1/mosaics/wmts?api_key=PLAK0b8ab29d7c5343aeb92b8eb3f0603912",
+            url: "/api/planet-disabled",
             attributions: ' ',
             "layer": "global_monthly_2023_07_mosaic",
             "TILED": "true",

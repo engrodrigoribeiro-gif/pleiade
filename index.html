@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
 	<script type="text/javascript" src="./resources/master/ol-ext-master/dist/jquery-2.0.0.min.js"></script>
         <meta charset="utf-8">
@@ -7,16 +7,25 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes"> 
+        <meta name="theme-color" content="#173f38">
+        <meta name="description" content="Cadastro Multifinalitário Ambiental e Fundiário da Aura">
+        <meta property="og:title" content="Cadastro Multifinalitário Ambiental e Fundiário">
+        <meta property="og:description" content="Webmap de acompanhamento das Ordens de Serviço, documentos e produtos fundiários da Aura.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="./resources/aura_logo.png">
+        <link rel="icon" type="image/png" href="./resources/aura_logo.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400..700&family=Roboto+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- .css random versioning -->		
   <script>
     $(document).ready(function() {
       $('link[rel="stylesheet"]').each(function() {
         var cssFile = $(this).attr('href');
-        var version = Math.random().toString(36).substring(7); // Genera una stringa casuale come versione
-        var updatedCssFile = cssFile + '?v=' + version;
-
-        // Sostituisce l'URL originale con l'URL contenente il parametro di versioning casuale
+        if (!cssFile || /^https?:\/\//i.test(cssFile)) return;
+        var version = Math.random().toString(36).substring(7);
+        var updatedCssFile = cssFile + (cssFile.indexOf('?') === -1 ? '?' : '&') + 'v=' + version;
         $(this).attr('href', updatedCssFile);
       });
     });
@@ -31,16 +40,12 @@
 		<link rel="stylesheet" href="./resources/master/ol-sidebar-master/css/ol-sidebar.css">
 		<script src="./resources/master/ol-sidebar-master/js/ol-sidebar.js"></script>
 
-		<script src="./resources/master/ol-street-view-master/dist/interact.min.js" data-no-source-map></script>
-		<script src="./resources/master/ol-street-view-master/dist/ol-street-view.js" data-no-source-map></script>	
-		<link rel="stylesheet" href="./resources/master/ol-street-view-master/dist/css/ol-street-view.css" />
-		<!--<link rel="stylesheet" href="./resources/fontawesome-all.min.css">-->
-        <!--<link rel="stylesheet" href="./resources/ol-layerswitcher.css">-->
         <link rel="stylesheet" href="./resources/thanks_for_the_coffee.css">
+        <link rel="stylesheet" href="./resources/aura-refinement.css?v=20260804-11">
+        <link rel="stylesheet" href="./resources/aura-final.css?v=20260803-5">
 		<script src="./resources/thanks_for_the_coffee_expressions.js"></script>
 		<script src="./resources/master/proj4js-master/dist/proj4.js"></script>
         <script src="./resources/functions.js"></script>
-        <!--<script src="./resources/ol-layerswitcher.js"></script>-->
 		<link href="./resources/master/ol-geocoder-master/dist/ol-geocoder.css" rel="stylesheet">
         <script src="./resources/master/ol-geocoder-master/dist/ol-geocoder.js"></script>
 		<script src="./resources/master/idb-master/dist/index-min.js"></script>			
@@ -49,7 +54,6 @@
 		<script src="./resources/master/filesaver.js-master/dist/FileSaver.min.js"></script>		
 
 		<link rel="stylesheet" href="./resources/o.gis/o.gis_style.css">
-  <!-- layerswitcher and legend attribution -->
 	<style>
 		.ol-layerswitcher.ol-forceopen .panel-container {
 			width: 350px;
@@ -58,10 +62,6 @@
 			width: 240px!important;
 		}
 	</style>
-		<!--
-        <link rel="stylesheet" href="./resources/ol.css">
-        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
-		-->
         <style>
         html, body, #map {
             width: 100%;
@@ -70,6 +70,7 @@
             margin: 0;
         }
         </style>
+		<link rel="stylesheet" href="./resources/aura-controls.css?v=20260804-16">
         <title>Cadastro Multifinalitário Ambiental e Fundiário</title>
     </head>
     <body>
@@ -82,36 +83,27 @@
 
 			<!--form logo -->
 			<div id="form_logo">
-			<label><a href="./index.html"><img src="./resources/aura_logo.png" align="left" width="130" height="76" title='Reset map'></img></a></label>
-			<h1 align="center">Cadastro Multifinalitário Ambiental e Fundiário</h1>
+			<a class="brand-link" href="./index.html" aria-label="Reiniciar o mapa">
+				<img src="./resources/aura_logo.png" width="130" height="76" alt="Aura Almas Mineração">
+			</a>
+			<div class="brand-copy">
+				<span class="brand-eyebrow">Inteligência territorial</span>
+				<h1>Cadastro Multifinalitário<br>Ambiental e Fundiário</h1>
+			</div>
 			</div>
 
-			<!-- print button  		
-				<div id="print" class="print print-hover" style="position:absolute; z-index:1">
-				<button onClick="window.print()" class="fa fa-print"></button>
-				</div> -->
-			<!--form o.gis -->
-			<div id="form_opengis" style="z-index:1">
-			<a href="https://www.opengis.it/" target="_blank"><label><img src="./resources/o.gis.png" title="O.GIS"></img></label></a>
-			</div>
 			<!-- ol-sidebar start --> 
 				<div id="sidebar" class="sidebar collapsed">
 					<!-- Nav tabs -->
-					<div class="sidebar-tabs">
+					<div class="sidebar-tabs aura-sidebar-tabs">
 						<ul role="tablist">
-							<li><a href="#tab1" title="TAB 1" role="tab"><i class="fa fa-bars"></i></a></li>
-							<li><a href="#tab2" title="TAB 2" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB2</strong></a></li>
-							<li><a href="#tab3" title="TAB 3" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB3</strong></a></li>
-							<li><a href="#tab4" title="TAB 4" role="tab"><strong style="font-size: 13px; font-family: 'arial';">TAB4</strong></a></li>
+							<li><a href="#tab1" title="Sobre o projeto" role="tab" aria-label="Sobre o projeto"><i class="fa fa-map"></i><span class="aura-tab-label">Sobre o projeto</span></a></li>
 						</ul>
 						<ul role="tablist">
-							<li class="disabled"><a href="#gear" role="tab"><i class="fa fa-gear"></i></a></li>
-							<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-							<li class="disabled"><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-							<li class="disabled"><a href="#share" title="Share" role="tab"><i class="fa fa-share-alt"></i></a></li>
-							<li><a href="#download" title="Download" role="tab"><i class="fa fa-download"></i></a></li>
-							<li onClick="window.print()"><a title="Print" role="tab"><i class="fa fa-print"></i></a></li>
-							<li><a href="#info" title="Info" role="tab"><i class="fa fa-info"></i></a></li>
+							<li><a href="#dashboard" title="Painel do contrato" role="tab" aria-label="Painel do contrato"><i class="fa fa-chart-bar"></i><span class="aura-tab-label">Painel do contrato</span></a></li>
+							<li><a href="#imoveis" title="Documentos dos imóveis" role="tab" aria-label="Documentos dos imóveis"><i class="fa fa-address-card"></i><span class="aura-tab-label">Documentos dos imóveis</span></a></li>
+							<li><a href="#download" title="Acessar produtos" role="tab" aria-label="Acessar produtos"><i class="fa fa-folder-open"></i><span class="aura-tab-label">Acessar produtos</span></a></li>
+							<li><a href="#info" title="Ajuda" role="tab" aria-label="Ajuda"><i class="fa fa-question-circle"></i><span class="aura-tab-label">Ajuda</span></a></li>
 						</ul>
 					</div>
 
@@ -119,76 +111,112 @@
 					<div class="sidebar-content">
 						<div class="sidebar-pane" id="tab1">
 							<h1 class="sidebar-header">
-								The System
+								Sobre o projeto
 								<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
 							</h1>
-							<iframe frameborder="0" scrolling="auto" 
-							style="height:90%; width:99%; position: absolute; top: 50px; left: 0; bottom: 0; right: 0; " 
-							src="./resources/html_sidebar_content/01_SIT.htm"></iframe>
+							<div class="aura-sidebar-body">
+								<p>Cadastro multifinalitário ambiental e fundiário das Ordens de Serviço Aura.</p>
+								<p>Use a árvore de camadas para consultar limites, análises vigentes, bases oficiais e serviços públicos.</p>
+							</div>
 						</div>
-						<div class="sidebar-pane" id="tab2">
+						<div class="sidebar-pane" id="dashboard">
 							<h1 class="sidebar-header">
-								TITLE TAB 1
-								<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-							</h1>
-							<p class="lorem">Under construction</p>
+							Painel do contrato
+							<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+							<div class="aura-sidebar-body aura-dashboard" aria-live="polite"></div>
 						</div>
-						<div class="sidebar-pane" id="tab3">
+						<div class="sidebar-pane" id="imoveis">
 							<h1 class="sidebar-header">
-								TITLE TAB 2
-								<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-							</h1>
-							<p class="lorem">Under construction</p>
-						</div>
-						<div class="sidebar-pane" id="tab4">
-							<h1 class="sidebar-header">
-								TITLE TAB 3
-								<span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
-							</h1>
-							<p class="lorem">Under construction</p>
+							Documentos dos imóveis
+							<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+							<div class="aura-sidebar-body aura-imoveis-body">
+								<input type="search" class="aura-imoveis-search" placeholder="Buscar por OS, imóvel ou responsável…" aria-label="Buscar imóvel">
+								<div class="aura-imoveis-list" aria-live="polite"></div>
+							</div>
 						</div>
 						<div class="sidebar-pane" id="download">
 							<h1 class="sidebar-header">
-							Download
+							Acessar produtos
 							<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-							<iframe frameborder="0" scrolling="auto" 
-							style="height:90%; width:99%; position: absolute; top: 50px; left: 0; bottom: 0; right: 0; " 
-							src="./resources/html_sidebar_content/05_GEOPACKAGE.htm"></iframe>
-
+							<div class="aura-sidebar-body">
+								<p>Abra uma Ordem de Serviço na árvore e selecione <strong>Detalhes</strong> para visualizar ou baixar os PDFs vigentes.</p>
+								<a class="aura-sidebar-link" href="https://drive.google.com/drive/folders/117FC32a3wL_bvZOhdXI5hleFqOoXWQEZ" target="_blank" rel="noopener noreferrer">Abrir acervo completo no Google Drive</a>
+							</div>
 						</div>
 						<div class="sidebar-pane" id="info">
 							<h1 class="sidebar-header">
-							Info
+							Ajuda
 							<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-							<iframe frameborder="0" scrolling="auto" 
-							style="height:90%; width:99%; position: absolute; top: 50px; left: 0; bottom: 0; right: 0; " 
-							src="./resources/html_sidebar_content/06_INFO.htm"></iframe>
+							<div class="aura-sidebar-body aura-help">
+								<p class="aura-help-lead">Este webmap reúne os limites dos imóveis, análises cartográficas, documentos e produtos vigentes das Ordens de Serviço do contrato.</p>
 
+								<section class="aura-help-section">
+									<span class="aura-help-kicker">Consulta rápida</span>
+									<h2>Como localizar uma informação</h2>
+									<ol>
+										<li>Use a busca de camadas no painel direito para localizar uma OS, imóvel ou tema.</li>
+										<li>Marque a caixa da camada para exibi-la e use o controle de expansão para consultar sua legenda.</li>
+										<li>Clique no limite do imóvel para abrir as cartas aprovadas e acessar os PDFs vigentes.</li>
+									</ol>
+								</section>
+
+								<div class="aura-help-grid">
+									<section class="aura-help-card">
+										<h2>Documentos dos imóveis</h2>
+										<p>Consulte titularidade, matrícula, CAR e a matriz de produtos. Cada imóvel é identificado pelo número sequencial e pelo código da OS.</p>
+									</section>
+									<section class="aura-help-card">
+										<h2>Produtos e dados vetoriais</h2>
+										<p>A ficha reúne os produtos vigentes e, quando disponíveis, o pacote SHP e o KML do limite.</p>
+									</section>
+									<section class="aura-help-card">
+										<h2>Navegação e compartilhamento</h2>
+										<p>Use os controles para localizar, medir e desenhar. “Link desta visualização” preserva o enquadramento e as camadas ativas.</p>
+									</section>
+								</div>
+
+								<aside class="aura-help-notice">
+									<strong>Serviços externos</strong>
+									<p>SIGEF e SNCI dependem do WMS do INCRA. As comunidades quilombolas usam a base pública de localidades, e o território Lajeado usa o WMS oficial do Tocantins.</p>
+								</aside>
+
+								<section class="aura-help-contact" aria-labelledby="aura-contact-title">
+									<img src="./resources/pleiade-agro-licenciamento.png" alt="Plêiade Agro – Licenciamento Ambiental">
+									<div>
+										<span class="aura-help-kicker">Suporte técnico</span>
+										<h2 id="aura-contact-title">Rodrigo Ribeiro</h2>
+										<p class="aura-contact-role">Engº Ambiental · Diretor</p>
+										<div class="aura-contact-links">
+											<a href="mailto:rodrigo@pleiade.eng.br">rodrigo@pleiade.eng.br</a>
+											<a href="tel:+5563981017774">(63) 98101-7774</a>
+											<a href="tel:+556332154329">Plêiade Agro: (63) 3215-4329</a>
+										</div>
+										<p class="aura-contact-note">Ao solicitar uma correção, informe o número sequencial do imóvel e o código da OS.</p>
+									</div>
+								</section>
+							</div>
 						</div>
 				</div> <!-- sidebar content end -->
 			</div> <!-- sidebar collapsed end -->  <!-- ol-sidebar end -->			
 		</div> <!-- map end --> 
-        <!--
-        <script src="resources/thanks_for_the_coffee_expressions.js"></script>
-		-->
-        <!--
-		<script src="resources/polyfills.js"></script>
-        <script src="./resources/functions.js"></script>
-        <script src="./resources/ol.js"></script>
-        <script src="./resources/ol-layerswitcher.js"></script>
-		-->
+
         <script src="styles/V1_Fz_Lavandeira_II_16062026_style.js"></script><script src="styles/V1_Fz_Brejo_Alegre_III_16062026_style.js"></script><script src="styles/V1_Fz_BrejoAlegreII_16062026_style.js"></script><script src="styles/V1_Fz_BrejoAlegreI_16062026_style.js"></script><script src="styles/V1_Fz_Nova_Barra_10062026_style.js"></script><script src="styles/V1_Fz_Limeira_10062026_style.js"></script><script src="styles/V1_Fz_SantaHelena_29052026_style.js"></script><script src="styles/V1_Fz_Lavandeira_29052026_style.js"></script><script src="styles/V1_Fz_Amaralina_19052026_style.js"></script><script src="styles/V1_Fz_Lote15_190526_style.js"></script><script src="styles/V1_Fz_Sao_Jose_190526_style.js"></script><script src="styles/V2_Fz_SantaLuzia_19052026_style.js"></script><script src="styles/V1_Fz_SantaLuzia_07052026_style.js"></script><script src="styles/V3_Fz_NovaPrata_10052026_style.js"></script><script src="styles/V2_Fz_NovaPrata_07052026_style.js"></script><script src="styles/V1_Fz_NovaPrata_24042026_style.js"></script><script src="styles/Locais_visitados_Pliade_25052026_style.js"></script><script src="styles/Imveis_Estrada_Opo3_Nova_Prata_style.js"></script><script src="styles/RevisoADANovaPrata_27042026_style.js"></script><script src="styles/EstradasNovaPrata_style.js"></script><script src="styles/Estradademinrio_style.js"></script><script src="styles/Desvio2_style.js"></script><script src="styles/Desvio1_style.js"></script><script src="styles/ComunidadeQuilombolaLajeadokmz_style.js"></script><script src="styles/ADAapsReunio27042026kmz_style.js"></script><script src="styles/09Ps2reuniokmz_style.js"></script><script src="styles/08Ps2reuniokmz_style.js"></script><script src="styles/07Ps2reuniokmz_style.js"></script><script src="styles/06Reuniokmz_style.js"></script><script src="styles/05Reuniokmz_style.js"></script><script src="styles/04kmz_style.js"></script><script src="styles/03kmz_style.js"></script><script src="styles/02kmz_style.js"></script><script src="styles/01kmz_style.js"></script><script src="styles/Polgono_style.js"></script><script src="styles/AreiaSequeiro_style.js"></script><script src="styles/V1_Fz_Matheus_Lopes_Oeste_070526_style.js"></script><script src="styles/V1_Fz_Floresta_070526_style.js"></script><script src="styles/V1_Fz_Matheus_Lopes_240426_style.js"></script><script src="styles/FazendaAmaralina_style.js"></script><script src="styles/FazendaBrejoAlegreI_style.js"></script><script src="styles/FazendaBrejoAlegreII_style.js"></script><script src="styles/FazendaBrejoAlegreIII_style.js"></script><script src="styles/FazendaFloresta_style.js"></script><script src="styles/FazendaLavandeiraII_style.js"></script><script src="styles/FazendaLavandeira_style.js"></script><script src="styles/FazendaLote15_style.js"></script><script src="styles/FazendaMatheusLopesGeral_style.js"></script><script src="styles/FazendaMatheusLopesOeste_style.js"></script><script src="styles/FazendaNovaPrata_style.js"></script><script src="styles/FazendaSantaHelena_style.js"></script><script src="styles/FazendaSantaLuziaRioGrande_style.js"></script><script src="styles/FazendaSoJos_style.js"></script><script src="styles/Limites_Municipais_style.js"></script><script src="styles/Limite_estimado_Comunidade_So_Joaquim_style.js"></script><script src="styles/Limite_estimado_Comunidade_BaiaoCapao_da_Onca_style.js"></script><script src="styles/servidao_2026_virasaia_style.js"></script><script src="styles/servidao_2026_jacobina_style.js"></script><script src="styles/servidao_2026_novaprata_style.js"></script><script src="styles/servidao_paiol_original_style.js"></script><script src="styles/servidao_virasaia_original_style.js"></script><script src="styles/plano_diretor_2025_style.js"></script>
-		<!--
-        <script src="./layers/layers.js" type="text/javascript"></script> -->
-		<!--
-		-->
+
 <!-- layers definition -->
-		<script src="./layers/layers.js" type="text/javascript"></script>
+		<script src="./layers/aura-new-data.js?v=20260724-1" type="text/javascript"></script>
+		<script src="./layers/aura-dashboard-data.js?v=20260803-2" type="text/javascript"></script>
+		<script src="./layers/aura-titularidade-data.js?v=20260804-1" type="text/javascript"></script>
+		<script src="./layers/aura-vector-data.js?v=20260804-1" type="text/javascript"></script>
+		<script src="./layers/layers.js?v=20260804-final" type="text/javascript"></script>
+		<script src="./layers/aura-new-layers.js?v=20260804-final" type="text/javascript"></script>
+		<script src="./layers/aura-catalog.js?v=20260724-2" type="text/javascript"></script>
+		<script src="./layers/aura-catalog-layers.js?v=20260804-8" type="text/javascript"></script>
 
 <!-- thanks_for_the_coffee.js and o.gis.js-->	  	
 		<script src="./resources/Autolinker.min.js" data-no-source-map></script>
-		<script src="./resources/thanks_for_the_coffee.js"></script>
-		<script src="./resources/o.gis/o.gis.js"></script>	  
+		<script src="./resources/thanks_for_the_coffee.js?v=20260804-7"></script>
+		<script src="./resources/o.gis/o.gis.js?v=20260804-final"></script>
+		<script src="./resources/aura-refinement.js?v=20260804-13"></script>
 <!-- add control -->
 		<script>
 			//SIDEBAR
@@ -197,48 +225,91 @@
                     var olOverlayContainerStopEvent = document.getElementsByClassName('ol-overlaycontainer-stopevent')[0];
                     olOverlayContainerStopEvent.insertBefore(sidebar.element, olOverlayContainerStopEvent.firstChild);
 
-			//TOP LEFT
-				//logo and title
+			//MENU ESQUERDO (logo, abas, busca e demais ícones, nessa ordem)
+				var sidebarTabsRail = document.querySelector('.aura-sidebar-tabs');
+				var firstTabUl = sidebarTabsRail.querySelector('ul');
+
+				//logo and title (primeiro item do menu)
 				var logoForm = document.getElementById('form_logo');
                     logoForm.classList.add('visible');
-                    topLeftContainerDiv.appendChild(logoForm);
+                    sidebarTabsRail.insertBefore(logoForm, firstTabUl);
 
-				// geocoder
-				map.addControl(geocoder);
-                    topLeftContainerDiv.appendChild(geocoder.element);
-                    document.getElementsByClassName('gcd-gl-btn')[0].className += ' fa fa-map-marker';
-				// geoloc
+				// as abas (Sobre o projeto / Documentos dos imóveis / Acessar produtos / Ajuda)
+				// já estão no HTML logo depois da logo — nada a mover aqui.
+
+				// A busca de endereço foi removida. Os controles começam logo após as abas.
+				// home + geoloc + zoom juntos numa única linha do menu
+				var locateRow = document.createElement('div');
+				locateRow.className = 'aura-sidebar-row';
+				sidebarTabsRail.appendChild(locateRow);
+
+				function auraControlIcon(name) {
+					var paths = {
+						pin: '<path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/>',
+						home: '<path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.5V20h11v-9.5"/><path d="M10 20v-5h4v5"/>',
+						locate: '<circle cx="12" cy="12" r="3.25"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M5.6 5.6 7.7 7.7M16.3 16.3l2.1 2.1"/>',
+						plus: '<path d="M12 5v14M5 12h14"/>',
+						minus: '<path d="M5 12h14"/>',
+						measure: '<path d="m5 16 11-11 3 3L8 19l-3-3Z"/><path d="m9 12 2 2M12 9l2 2M15 6l2 2"/>',
+						draw: '<path d="M5 18.5 8.2 8l7.6 0L19 18.5"/><circle cx="5" cy="19" r="1.6"/><circle cx="8.2" cy="8" r="1.6"/><circle cx="15.8" cy="8" r="1.6"/><circle cx="19" cy="19" r="1.6"/><path d="M9 16h6"/>',
+						fullscreen: '<path d="M8.5 4H4v4.5M15.5 4H20v4.5M20 15.5V20h-4.5M8.5 20H4v-4.5"/>',
+						street: '<circle cx="12" cy="6.5" r="2.2"/><path d="M8 20v-5.2l-2.5 1.4-1.5-2.5 5-3h6l5 3-1.5 2.5-2.5-1.4V20"/><path d="M9 20h6"/>'
+					};
+					return '<svg class="aura-control-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + paths[name] + '</svg>';
+				}
+
+				function applyAuraIcon(control, name, label, selector) {
+					var button = control && control.element && control.element.querySelector(selector || 'button');
+					if (!button) return;
+					button.innerHTML = auraControlIcon(name);
+					button.classList.add('aura-unified-control-button');
+					button.title = label;
+					button.setAttribute('aria-label', label);
+				}
+
+				// home (primeiro controle à esquerda)
+				var homeControl = new ol.control.ZoomToExtent({
+					extent: [-5266857.608796, -1327168.520649, -5231848.293598, -1304275.401659],
+					label: '⌂',
+					tipLabel: 'Voltar à visualização inicial'
+				});
+				map.addControl(homeControl);
+					homeControl.element.classList.add('ol-control', 'aura-home-control');
+					locateRow.appendChild(homeControl.element);
+					applyAuraIcon(homeControl, 'home', 'Voltar à visualização inicial');
+
+				// geoloc permanece ao lado do início
 				map.addControl(geoloc);
-                    topLeftContainerDiv.appendChild(geoloc.element);
+                    locateRow.appendChild(geoloc.element);
+					applyAuraIcon(geoloc, 'locate', 'Localizar minha posição');
 				// zoom
-				topLeftContainerDiv.appendChild(zoomControl);
+				locateRow.appendChild(zoomControl);
+					var zoomButtons = zoomControl.querySelectorAll('button');
+					if (zoomButtons[0]) { zoomButtons[0].innerHTML = auraControlIcon('plus'); zoomButtons[0].classList.add('aura-unified-control-button'); }
+					if (zoomButtons[1]) { zoomButtons[1].innerHTML = auraControlIcon('minus'); zoomButtons[1].classList.add('aura-unified-control-button'); }
 
-				// query wms e wfs
-				map.addControl(querywms);
-                    topLeftContainerDiv.appendChild(querywms.element);
-
-				// bookmark
-				map.addControl(bm);
-                    topLeftContainerDiv.appendChild(bm.element);
+				// medir + desenhar juntos numa única linha
+				var toolsRow = document.createElement('div');
+				toolsRow.className = 'aura-sidebar-row';
+				toolsRow.id = 'aura-tools-row';
+				sidebarTabsRail.appendChild(toolsRow);
 
 				// measure
 				map.addControl(measureToggle);
-                    topLeftContainerDiv.appendChild(measureToggle.element);
+                    toolsRow.appendChild(measureToggle.element);
+					applyAuraIcon(measureToggle, 'measure', 'Medir distâncias e áreas');
 
-				//popup all
-				map.addControl(popupall);
-                    topLeftContainerDiv.appendChild(popupall.element);
 				//editbar
 				map.addControl(bar);
-                    topLeftContainerDiv.appendChild(bar.element);
+                    toolsRow.appendChild(bar.element);
+					applyAuraIcon(activateBt, 'draw', 'Desenhar no mapa');
 
-				// search feature
 			//BOTTOM LEFT
 				// minimap
 				map.addControl(miniMap);
                     bottomLeftContainerDiv.appendChild(miniMap.element);
                     var miniMapButtonTitle = $('div.ol-overview button');
-                    miniMapButtonTitle.attr('title', 'Minimap');
+                    miniMapButtonTitle.attr('title', 'Minimapa');
 				// scale line
 				map.addControl(scaleLine);
                     var scaleLineControl = document.getElementsByClassName('ol-scale-line')[0];
@@ -250,7 +321,7 @@
                     bottomLeftContainerDiv.appendChild(scaleCtrl.element);
                     var scaleText = document.createElement('DIV');
                     scaleText.className = 'scale-text';
-                    scaleText.innerHTML = "Scale";
+                    scaleText.innerHTML = "Escala";
                     scaleCtrl.element.appendChild(scaleText);
 				// popup coordinates
 				map.addControl(popupCoordinates);
@@ -260,160 +331,55 @@
 				map.addControl(mousePositionDefault);
                     bottomLeftContainerDiv.appendChild(mousePositionDefault.element);
 			//TOP RIGHT
-				// print
-				map.addControl(printControl);
-                    topRightContainerDiv.appendChild(printControl.element);
+				// Impressão removida: a interface prioriza consulta e download.
 
 				// permalink
 				map.addControl(permalink);
-                    topRightContainerDiv.appendChild(permalink.element);
+                    bottomLeftContainerDiv.appendChild(permalink.element);
 
-				// rotate
+				// norte / redefinir rotação: integra a barra cartográfica inferior
 				var rotate = document.getElementsByClassName('ol-rotate')[0];
                     rotate.style.display = 'block';
-                    topRightContainerDiv.appendChild(rotate);
+					bottomLeftContainerDiv.insertBefore(rotate, bottomLeftContainerDiv.firstChild);
+                    var rotateButton = rotate.querySelector('button');
+					if (rotateButton) {
+						rotateButton.title = 'Norte — redefinir rotação';
+						rotateButton.setAttribute('aria-label', 'Norte — redefinir rotação');
+					}
 
-				// full screen
+				// tela cheia integrada à segunda linha do menu
 				map.addControl(fullScreenControl);
-                    topRightContainerDiv.appendChild(fullScreenControl.element);
+                    toolsRow.appendChild(fullScreenControl.element);
+					applyAuraIcon(fullScreenControl, 'fullscreen', 'Visualizar em tela cheia');
+				document.addEventListener('fullscreenchange', function () {
+						setTimeout(function () {
+							applyAuraIcon(fullScreenControl, 'fullscreen', document.fullscreenElement ? 'Sair da tela cheia' : 'Visualizar em tela cheia');
+						}, 0);
+				});
+
+				var streetViewButton = document.createElement('a');
+				streetViewButton.className = 'aura-unified-control-button aura-direct-streetview';
+				streetViewButton.innerHTML = auraControlIcon('street');
+				streetViewButton.title = 'Abrir Google Street View';
+				streetViewButton.setAttribute('aria-label', streetViewButton.title);
+				streetViewButton.target = '_blank';
+				streetViewButton.rel = 'noopener noreferrer';
+				function updateStreetViewLink() {
+					var coordinate = ol.proj.toLonLat(map.getView().getCenter());
+					streetViewButton.href = 'https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=' +
+						coordinate[1].toFixed(6) + ',' + coordinate[0].toFixed(6);
+				}
+				updateStreetViewLink();
+				map.getView().on('change:center', updateStreetViewLink);
+				toolsRow.appendChild(streetViewButton);
 
 				// layerswitcher and legend attribution
 				map.addControl(layerSwitcher);
-                    map.addControl(legendAttribution);
-                    layerSwitcher.element.appendChild(legendAttribution.element);
-
-			//BOTTOM RIGHT
-				// street view
-				streetViewOptions.apiKey = ''; //define your own apikey to remove "for development purposes only"
-                    streetView = new StreetView(streetViewOptions);
-                    map.addControl(streetView);
-                    streetView.on('streetViewInit', function () {				
-                        if (typeof streetViewOptions.apiKey === 'undefined' || streetViewOptions.apiKey === '') {
-                        $('#ol-street-view--panorama').css('filter', 'invert(1)');
-                        }
-                    });
+				// O controle de atribuições foi retirado da interface.
 
 		</script>
- <!-- Geocoder search language -->
 		<script>
-			geocoder.options.lang = 'en-US';   // it-IT, pt-BR, fr-FR
+			geocoder.options.lang = 'pt-BR';
 		</script> 
-
-<!-- bookmark 	
-		<script> 
-			bm.setBookmarks({
-				Quartiere_1: {pos:ol.proj.transform([2351142,4842857], 'EPSG:3004', 'EPSG:25832'), zoom:15},
-				Quartiere_2: {pos:ol.proj.transform([2352404,4841605], 'EPSG:3004', 'EPSG:25832'), zoom:15},
-				Quartiere_3: {pos:ol.proj.transform([2355410,4838774], 'EPSG:3004', 'EPSG:25832'), zoom:15},
-				Quartiere_4: {pos:ol.proj.transform([2357220,4839534], 'EPSG:3004', 'EPSG:25832'), zoom:15},
-				});
-			map.addControl(bm);	  			  
-		</script> -->
-
-<!-- search feature -->
-        <!-- No searchable fields defined in project file -->
-
-<!-- overview map 	
-		<script>
-			// rimuovo il controllo già configurato
-			map.removeControl(miniMap);
-			// definisco nuovo controllo
-			miniMap = new ol.control.Overview({
-				layers: [ 
-					new ol.layer.Tile({
-						source: new ol.source.XYZ({
-							url: 'https://tile.opentopomap.org/{z}/{x}/{y}.png'
-						})
-					}),
-				],
-
-				/*
-				// google satellite example
-				layers: [ 
-					new ol.layer.Tile({
-					source: new ol.source.XYZ({
-						url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
-					})
-					}),
-				], 
-				*/
-				/*
-				//static image example, set also minZoom and maxZoom	
-				layers: [ 
-					new ol.layer.Image({
-						source: new ol.source.ImageStatic({
-							url: './resources/minimap.png',
-							imageExtent: MaxMapExtent,
-						})
-					})
-				],
-				*/
-
-				projection: currentProjection,
-				rotation: true,
-				//minZoom: 10.5,
-				//maxZoom: 12,
-				//panAnimation: 'elastic',
-			});
-			map.addControl(miniMap);
-			bottomLeftContainerDiv.insertBefore(miniMap.element, bottomLeftContainerDiv.firstChild);
-		</script>
-				// google satellite example
-			/* 	layers: [ 
-					new ol.layer.Tile({
-					source: new ol.source.XYZ({
-						url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
-					})
-					}),
-				], */
-
-				// opentopo example
-			/* 	layers: [ 
-					new ol.layer.Tile({
-					source: new ol.source.XYZ({
-						url: 'https://tile.opentopomap.org/{z}/{x}/{y}.png'
-					})
-					}),
-				], */
-				//static image example, set also minZoom and maxZoom
-			/* 	layers: [ 
-					new ol.layer.Image({
-						source: new ol.source.ImageStatic({
-							url: './resources/minimap.png',
-							imageExtent: MaxMapExtent,
-						})
-					})
-				], */
-
-			  projection: currentProjection,
-			  //minZoom: '10.5',
-			  //maxZoom: '12',
-			  rotation: true,
-			  align: 'bottom-left',
-			  //panAnimation: "elastic" 
-			});
-			map.addControl(ov);	
-			// Select button
-			var overviewbuttontitle = $('div.ol-overview button');
-			// Set button title
-			overviewbuttontitle.attr('title', 'Minimap');			
-		</script>-->
-<!-- scale line
-		<script>
-			scaleLine.setUnits('imperial')
-		</script> -->
-<!-- mouse position coordinates 
-			<script>
-				currentProjection = 'EPSG:3857'
-				mousePositionDefault.setProjection(ol.proj.get(currentProjection));
-			</script> -->
-<!-- attribution 
-		<script>	
-			// Define your own static attribution
-			attributionList.innerHTML = `
-				<a>Your Text Here</a>&nbsp;
-				<a href="https://www.yoursitehere.it/" target="_blank">Your Site Here</a>&nbsp;
-			`;
-		</script> -->
     </body>
 </html>
