@@ -1,6 +1,6 @@
 window.AURA_CATALOGO = {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-24",
+  "updatedAt": "2026-08-07",
   "driveRootUrl": "https://drive.google.com/drive/folders/117FC32a3wL_bvZOhdXI5hleFqOoXWQEZ",
   "ordens": [
     {
@@ -1422,6 +1422,166 @@ window.AURA_CATALOGO = {
       "observacoes": [
         "Pasta, versões e documentos vigentes conferidos no Google Drive em 24/07/2026.",
         "A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada."
+      ]
+    },
+    {
+      "id": "os-04-01",
+      "codigo": "OS 04.01",
+      "grupo": "OS 04",
+      "grupoTitulo": "Alvo Buzina",
+      "imovel": "Fazenda Nogueira",
+      "responsavel": "",
+      "driveFolderUrl": "",
+      "camada": {
+        "arquivoPublicado": "data/os04/OS-04.01_Fazenda-Nogueira_Dados-Vetoriais.geojson",
+        "revisao": "2026-08-07",
+        "estilo": "car-atual",
+        "status": "publicado",
+        "camadaLegada": "os04_limit_04_01",
+        "produtoGeograficoLegado": "V1_CAR_Atual_OS_04_01_07082026"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Nogueira.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Nogueira.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ],
+      "observacoes": [
+        "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
+      ]
+    },
+    {
+      "id": "os-04-02",
+      "codigo": "OS 04.02",
+      "grupo": "OS 04",
+      "grupoTitulo": "Alvo Buzina",
+      "imovel": "Cachoeira de Santa Maria",
+      "responsavel": "",
+      "driveFolderUrl": "",
+      "camada": {
+        "arquivoPublicado": "data/os04/OS-04.02_Cachoeira-de-Santa-Maria_Dados-Vetoriais.geojson",
+        "revisao": "2026-08-07",
+        "estilo": "car-atual",
+        "status": "publicado",
+        "camadaLegada": "os04_limit_04_02",
+        "produtoGeograficoLegado": "V1_CAR_Atual_OS_04_02_07082026"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cachoeira_de_Santa_Maria.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cachoeira_de_Santa_Maria.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ],
+      "observacoes": [
+        "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
+      ]
+    },
+    {
+      "id": "os-04-03",
+      "codigo": "OS 04.03",
+      "grupo": "OS 04",
+      "grupoTitulo": "Alvo Buzina",
+      "imovel": "Fazenda Lavrinha - Lote 18",
+      "responsavel": "",
+      "driveFolderUrl": "",
+      "camada": {
+        "arquivoPublicado": "data/os04/OS-04.03_Fazenda-Lavrinha-Lote-18_Dados-Vetoriais.geojson",
+        "revisao": "2026-08-07",
+        "estilo": "car-atual",
+        "status": "publicado",
+        "camadaLegada": "os04_limit_04_03",
+        "produtoGeograficoLegado": "V1_CAR_Atual_OS_04_03_07082026"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Lavrinha_Lote_18_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Lavrinha_Lote_18_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ],
+      "observacoes": [
+        "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
+      ]
+    },
+    {
+      "id": "os-04-04",
+      "codigo": "OS 04.04",
+      "grupo": "OS 04",
+      "grupoTitulo": "Alvo Buzina",
+      "imovel": "Fazenda Cancela",
+      "responsavel": "",
+      "driveFolderUrl": "",
+      "camada": {
+        "arquivoPublicado": "data/os04/OS-04.04_Fazenda-Cancela_Dados-Vetoriais.geojson",
+        "revisao": "2026-08-07",
+        "estilo": "car-atual",
+        "status": "publicado",
+        "camadaLegada": "os04_limit_04_04",
+        "produtoGeograficoLegado": "V1_CAR_Atual_OS_04_04_07082026"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Cancela_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Cancela_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ],
+      "observacoes": [
+        "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
+      ]
+    },
+    {
+      "id": "os-04-05",
+      "codigo": "OS 04.05",
+      "grupo": "OS 04",
+      "grupoTitulo": "Alvo Buzina",
+      "imovel": "Cabeceira da Buzina",
+      "responsavel": "",
+      "driveFolderUrl": "",
+      "camada": {
+        "arquivoPublicado": "data/os04/OS-04.05_Cabeceira-da-Buzina_Dados-Vetoriais.geojson",
+        "revisao": "2026-08-07",
+        "estilo": "car-atual",
+        "status": "publicado",
+        "camadaLegada": "os04_limit_04_05",
+        "produtoGeograficoLegado": "V1_CAR_Atual_OS_04_05_07082026"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cabeceira_da_Buzina_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cabeceira_da_Buzina_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ],
+      "observacoes": [
+        "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
       ]
     }
   ]

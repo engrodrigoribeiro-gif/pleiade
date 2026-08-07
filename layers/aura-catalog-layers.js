@@ -19,6 +19,13 @@
   layersList.forEach(function (layer) {
     if (layer && typeof layer.getLayers === "function") indexLayers(layer.getLayers());
   });
+  (window.AURA_OS04_LAYERS || []).forEach(function (layer) {
+    if (layer && typeof layer.getLayers === "function") indexLayers(layer.getLayers());
+    else if (layer) {
+      var key = typeof layer.get === "function" && layer.get("permalink");
+      if (key && !layerByPermalink[key]) layerByPermalink[key] = layer;
+    }
+  });
 
   function findLayer(key, preferLimit) {
     if (!key) return null;
@@ -65,6 +72,8 @@
     "Hidrografia do Imóvel": ["rgba(0,0,204,0.78)", "#00007f"],
     "Área de Preservação Permanente a preservar": ["rgba(0,224,41,0.62)", "#009b1c"],
     "Área de Preservação Permanente a recuperar": ["rgba(255,255,255,0.06)", "#00e029"],
+    "Área de Preservação Permanente": ["rgba(0,194,132,0.46)", "#007c58"],
+    "Reserva Legal proposta": ["rgba(178,220,65,0.46)", "#709700"]
   };
 
   function escapeHtml(value) {
@@ -161,12 +170,14 @@
     groups[os.grupo].push(subgroup);
   });
 
-  var ordered = ["OS 01", "OS 02", "OS 03"].map(function (groupCode) {
+  var ordered = ["OS 01", "OS 02", "OS 03", "OS 04"].map(function (groupCode) {
     var first = catalog.ordens.find(function (os) { return os.grupo === groupCode; });
     var title = first ? groupCode + " – " + first.grupoTitulo : groupCode;
+    var groupLayers = (groups[groupCode] || []).slice().reverse();
+    if (groupCode === "OS 04" && window.AURA_OS04_STUDIES_GROUP) groupLayers.push(window.AURA_OS04_STUDIES_GROUP);
     return new ol.layer.Group({
       title: title,
-      layers: (groups[groupCode] || []).slice().reverse(),
+      layers: groupLayers,
       openInLayerSwitcher: groupCode === "OS 03",
       visible: true,
     });
@@ -192,8 +203,8 @@
     }
   }
 
-  // Estado inicial do webmapa ao abrir o link: só "c — Servidões Minerárias"
-  // (dentro de 01.1) e "Imagem — Google" (dentro de 99) ficam marcadas.
+  // Estado inicial do webmapa ao abrir o link: "c — Servidões Minerárias",
+  // "g — Alvo Buzina" e "Imagem — Google" ficam marcadas.
   setTreeVisible(group_01_BASES_DADOS_GERAIS, false);
   setTreeVisible(group_02_ORDENS_SERVIOS, false);
   setTreeVisible(group_98_HISTORICO, false);
@@ -202,10 +213,59 @@
   group_01_BASES_DADOS_GERAIS.setVisible(true);
   group_011_Base_Oficial_Aura.setVisible(true);
   setTreeVisible(group_c_servidao_mineral, true);
+  if (window.AURA_ALVO_BUZINA_GROUP) {
+    setTreeVisible(window.AURA_ALVO_BUZINA_GROUP, true);
+  }
 
   group_99_IMAGENS_SENSOR_REMOTO.setVisible(true);
   if (typeof lyr_Imagem_Google !== "undefined" && lyr_Imagem_Google) {
     lyr_Imagem_Google.setVisible(true);
+  }
+
+  function extendWithVectorSources(layer, extent) {
+    if (!layer) return 0;
+    if (typeof layer.getLayers === "function") {
+      var childCount = 0;
+      layer.getLayers().forEach(function (child) { childCount += extendWithVectorSources(child, extent); });
+      return childCount;
+    }
+    var source = typeof layer.getSource === "function" ? layer.getSource() : null;
+    if (!source || typeof source.getExtent !== "function") return 0;
+    var sourceExtent = source.getExtent();
+    if (sourceExtent && sourceExtent.every(Number.isFinite) && !ol.extent.isEmpty(sourceExtent)) {
+      ol.extent.extend(extent, sourceExtent);
+      return 1;
+    }
+    return 0;
+  }
+
+  // Um permalink com lon/lat/z preserva o enquadramento compartilhado. Na
+  // abertura limpa, o mapa considera simultaneamente os cinco setores
+  // minerários e a poligonal do Alvo Buzina.
+  var viewParams = new URLSearchParams(window.location.search);
+  var hasSharedView = viewParams.has("lon") || viewParams.has("lat") || viewParams.has("z");
+  if (!hasSharedView) {
+    var fitOpeningContext = function (attempt) {
+      if (typeof map === "undefined" || !map || !map.getView()) return;
+      var openingExtent = ol.extent.createEmpty();
+      var loadedSources = 0;
+      loadedSources += extendWithVectorSources(group_c_servidao_mineral, openingExtent);
+      loadedSources += extendWithVectorSources(window.AURA_ALVO_BUZINA_GROUP, openingExtent);
+      // Os cinco setores são carregados por arquivos GeoJSON. Aguarde todos os
+      // seis contornos (5 setores + Alvo Buzina) antes de calcular o zoom.
+      if (loadedSources < 6 && attempt < 24) {
+        window.setTimeout(function () { fitOpeningContext(attempt + 1); }, 250);
+        return;
+      }
+      if (ol.extent.isEmpty(openingExtent)) return;
+      var compact = window.innerWidth < 900;
+      map.getView().fit(openingExtent, {
+        padding: compact ? [36, 28, 132, 28] : [58, 430, 58, 245],
+        maxZoom: 12,
+        duration: 0
+      });
+    };
+    window.setTimeout(function () { fitOpeningContext(0); }, 250);
   }
 
   // Estado de abertura/fechamento da árvore ao abrir o link (igual ao print

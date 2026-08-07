@@ -260,51 +260,11 @@
   lyr_Imagem_Google.set("title", "Imagem – Google");
   lyr_ImagemdeSatlitePleiades2015.set("title", "Imagem de Satélite – Pleiades 2015");
   lyr_WorldImagery.set("title", "Imagem – World Imagery");
-  lyr_GlobalMonthly202307Mosaic.set("title", "Planet – Julho de 2023");
-  lyr_GlobalMonthly202407Mosaic.set("title", "Planet – Julho de 2024");
-  lyr_GlobalMonthly202507Mosaic.set("title", "Planet – Julho de 2025");
-  lyr_GlobalMonthly202603Mosaic.set("title", "Planet – Março de 2026");
-
   /*
-   * O catálogo WMTS da Planet anuncia GoogleMapsCompatible15 e fornece uma
-   * ResourceURL XYZ. A exportação anterior usava EPSG:3857 como matrixSet e
-   * fazia o endpoint de catálogo responder no lugar dos tiles.
+   * Os quatro mosaicos Planet dependiam de uma credencial privada no proxy
+   * /api/planet. Como a publicação não entrega tiles sem essa credencial, eles
+   * foram retirados da árvore ativa, sem alterar os demais serviços de imagem.
    */
-  function repairPlanetMosaic(layer, mosaicId, label) {
-    layer.setSource(new ol.source.XYZ({
-      url: "/api/planet?mosaic=" + encodeURIComponent(mosaicId) +
-        "&z={z}&x={x}&y={y}",
-      minZoom: 0,
-      maxZoom: 15,
-      tileSize: 256,
-      wrapX: true,
-      attributions: "Planet",
-    }));
-    layer.set("title", label);
-    layer.set("popuplayertitle", label);
-    layer.set("auraSourceStatus", "Planet XYZ via proxy seguro");
-  }
-
-  repairPlanetMosaic(
-    lyr_GlobalMonthly202307Mosaic,
-    "global_monthly_2023_07_mosaic",
-    "Planet – Julho de 2023"
-  );
-  repairPlanetMosaic(
-    lyr_GlobalMonthly202407Mosaic,
-    "global_monthly_2024_07_mosaic",
-    "Planet – Julho de 2024"
-  );
-  repairPlanetMosaic(
-    lyr_GlobalMonthly202507Mosaic,
-    "global_monthly_2025_07_mosaic",
-    "Planet – Julho de 2025"
-  );
-  repairPlanetMosaic(
-    lyr_GlobalMonthly202603Mosaic,
-    "global_monthly_2026_03_mosaic",
-    "Planet – Março de 2026"
-  );
 
   /*
    * Fontes complementares de imagem verificadas em 04/08/2026.
@@ -325,6 +285,35 @@
   lyr_WorldImageryWayback.set("permalink", "world_imagery_wayback_2023_05_03");
   lyr_WorldImageryWayback.set("popuplayertitle", "World Imagery Wayback – 03/05/2023");
   lyr_WorldImageryWayback.set("auraSourceStatus", "Esri WMTS operacional");
+
+  // Imagem diária pública em WMS/TWMS. Dois dias de defasagem evitam solicitar
+  // uma data ainda não processada pelo serviço de imagens quase em tempo real.
+  var gibsDate = new Date();
+  gibsDate.setUTCDate(gibsDate.getUTCDate() - 2);
+  var gibsIsoDate = gibsDate.toISOString().slice(0, 10);
+  var gibsPtDate = gibsIsoDate.split("-").reverse().join("/");
+  var lyr_NasaGibsRecent = new ol.layer.Tile({
+    title: "Imagem diária – NASA GIBS / VIIRS (" + gibsPtDate + ")",
+    visible: false,
+    source: new ol.source.TileWMS({
+      url: "https://gibs.earthdata.nasa.gov/wms/epsg3857/best/wms.cgi",
+      params: {
+        LAYERS: "VIIRS_NOAA20_CorrectedReflectance_TrueColor",
+        STYLES: "",
+        VERSION: "1.1.1",
+        FORMAT: "image/jpeg",
+        TRANSPARENT: false,
+        TIME: gibsIsoDate,
+        TILED: true
+      },
+      crossOrigin: "anonymous",
+      wrapX: true,
+      attributions: "NASA EOSDIS GIBS, NOAA-20/VIIRS"
+    })
+  });
+  lyr_NasaGibsRecent.set("permalink", "nasa_gibs_viirs_recente");
+  lyr_NasaGibsRecent.set("popuplayertitle", "NASA GIBS / VIIRS – " + gibsPtDate);
+  lyr_NasaGibsRecent.set("auraSourceStatus", "NASA GIBS WMS público – imagem diária, resolução moderada");
 
   var lyr_Sentinel2Recent = new ol.layer.Image({
     title: "Sentinel-2 – período mais recente",
@@ -382,11 +371,8 @@
     lyr_Imagem_Google,
     lyr_ImagemdeSatlitePleiades2015,
     lyr_ProdesCerradoMosaic,
+    lyr_NasaGibsRecent,
     lyr_Sentinel2Recent,
-    lyr_GlobalMonthly202603Mosaic,
-    lyr_GlobalMonthly202507Mosaic,
-    lyr_GlobalMonthly202407Mosaic,
-    lyr_GlobalMonthly202307Mosaic,
     lyr_WorldImageryWayback,
     lyr_WorldImagery,
   ]));

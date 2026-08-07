@@ -235,7 +235,7 @@
       vectorCard.appendChild(vectorHeading);
       vectorCard.appendChild(element("p", "aura-os-data-note", "Revisão: " + (vetores.revisao || "não informada")));
       var vectorLinks = element("div", "aura-product-links aura-vector-links");
-      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink("Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
+      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink(vetores.formatoPacote === "GeoJSON + KML" ? "Baixar pacote vetorial (.zip)" : "Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
       if (vetores.kmlDownloadUrl) vectorLinks.appendChild(externalLink("Download KML", vetores.kmlDownloadUrl));
       vectorCard.appendChild(vectorLinks);
       panel.appendChild(vectorCard);

@@ -7,7 +7,7 @@ var lyr_Imagem_Google = new ol.layer.Tile({
             
             source: new ol.source.XYZ({
             attributions: ' ',
-                url: 'http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}'
+                url: 'https://mt0.google.com/vt/lyrs=s&hl=pt-BR&x={x}&y={y}&z={z}'
             })
         });
         
@@ -2636,21 +2636,26 @@ function load_Limite_estimado_Comunidade_BaiaoCapao_da_Onca_data() {
 }
 var lyr_SigcarTO_propriedade_area_imovel = new ol.layer.Tile({
             source: new ol.source.TileWMS(({
-                url: "http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?",
-                attributions: '<a class="legend-realtime"><b>SigcarTO_propriedade_area_imovel</b><br />\<img src="http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?VERSION=1.1.1&REQUEST=GetLegendGraphic&SERVICE=WMS&LAYER=propriedade_area_imovel_completo&STYLE=default&FORMAT=image/png&CONFIG=legendurl&"></a>',
+                url: "https://geoserver.car.gov.br/geoserver/sicar/wms",
+                attributions: 'Serviço Florestal Brasileiro / SICAR',
                 params: {
-                "LAYERS": "propriedade_area_imovel_completo",
-                //"TILED": "true",
+                "LAYERS": "sicar:sicar_imoveis_to",
+                "TILED": "true",
+                "FORMAT": "image/png",
+                "TRANSPARENT": true,
                 "VERSION": "1.1.1"},
+                serverType: "geoserver",
+                crossOrigin: "anonymous",
             })),
-            title: '<div id="layertitle">SigcarTO_propriedade_area_imovel<br />\<i class="fas fa-angle-up" id="secondImage"></i><i class="fas fa-angle-down" id="firstImage"></i></div><a class="layerlegend-realtime">\<img src="http://mapas.semarh.to.gov.br:80/erdas-apollo/vector/SIGCAR_TOCANTINS_AREA_IMOVEL_COMPLETO?VERSION=1.1.1&REQUEST=GetLegendGraphic&SERVICE=WMS&LAYER=propriedade_area_imovel_completo&STYLE=default&FORMAT=image/png&CONFIG=legendurl&"></a>',
-            popuplayertitle: 'SigcarTO_propriedade_area_imovel',
+            title: 'SICAR – limites dos imóveis rurais | TO',
+            popuplayertitle: 'SICAR – limites dos imóveis rurais | TO',
             permalink: 'SigcarTO_propriedade_area_imovel',
             opacity: 1.000000,
             
             
             
             });
+    lyr_SigcarTO_propriedade_area_imovel.set("auraSourceStatus", "SICAR federal – HTTPS");
     wms_layers.push([lyr_SigcarTO_propriedade_area_imovel, 0]);
     lyr_SigcarTO_propriedade_area_imovel.setVisible(false);
     

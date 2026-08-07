@@ -34,7 +34,6 @@ registrada no repositório, no README ou em arquivos `.env` versionados.
 2. Adicione:
    - `BASIC_AUTH_USER` → usuário acordado para o projeto
    - `BASIC_AUTH_PASSWORD` → senha fornecida por canal seguro
-   - `PLANET_API_KEY` → chave da conta Planet, marcada como sensível
 3. Marque para aplicar em Production (e Preview, se quiser testar antes).
 4. Salve.
 
@@ -68,6 +67,12 @@ registrada no repositório, no README ou em arquivos `.env` versionados.
   a Basic Auth na Vercel.
 - `resources/o.gis/o.gis.js` e `resources/o.gis/o.gis_style.css`: botão
   de download em KML por camada vetorial, na própria legenda do mapa.
+- `OS 04 — Alvo Buzina`: cinco imóveis, produtos vigentes e estudos
+  territoriais integrados.
+- `g — Alvo Buzina`: poligonal externa dissolvida dos cinco imóveis,
+  ativada na abertura junto com as cinco servidões minerárias.
+- `NASA GIBS/VIIRS`: imagem diária pública, em substituição aos antigos
+  mosaicos Planet dependentes de chave privada.
 
 ## Limitação a ter em mente
 
