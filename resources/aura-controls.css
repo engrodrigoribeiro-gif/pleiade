@@ -261,10 +261,17 @@
 /* Conteúdo de ajuda orientado a tarefas. */
 .aura-help {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   gap: 14px;
   max-width: 860px;
   padding: 22px 28px 34px !important;
 }
+
+.aura-help > * { min-width: 0; overflow-wrap: anywhere; }
+#sidebar .sidebar-pane { min-width: 0 !important; }
 
 .aura-help-lead {
   max-width: 66ch;
@@ -420,6 +427,20 @@
 }
 
 @media (max-width: 760px) {
+  .aura-os-panel {
+    left: 84px !important;
+    right: 6px !important;
+    width: calc(100vw - 90px) !important;
+    min-width: 0 !important;
+    padding: 14px !important;
+  }
+  .aura-os-panel .aura-os-titularidade { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .aura-os-panel .aura-os-titularidade dd { margin: 0 0 8px; overflow-wrap: anywhere; }
+  .aura-os-panel .aura-os-panel-header { gap: 8px; }
+  .aura-os-panel .aura-os-panel-header h2 { font-size: 18px !important; }
+  .aura-os-panel .aura-product-card { min-width: 0; overflow-wrap: anywhere; }
+  .aura-os-panel .aura-product-heading { flex-wrap: wrap; }
+  .aura-os-panel .aura-version { white-space: nowrap; }
   .ol-layerswitcher .shp-download-btn {
     right: 88px;
     width: 30px;

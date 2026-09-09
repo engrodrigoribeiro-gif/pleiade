@@ -1,5 +1,5 @@
 window.AURA_TITULARIDADE = {
-  "atualizadoEm": "2026-08-04",
+  "atualizadoEm": "2026-09-09",
   "documentosDrive": "https://drive.google.com/drive/folders/1yJS7iFOCGfAmf_Ud4CVdrrM_rsDZwZ9z",
   "ordens": {
     "OS 01.01": {
@@ -2526,6 +2526,138 @@ window.AURA_TITULARIDADE = {
         }
       ],
       "medicao": null
+    },
+    "OS 04.01": {
+      "imovel": "Fazenda Nogueira",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "3583473",
+      "carFederal": "TO-1707009-D45A11579C00455195E34A842697E705",
+      "fonteTitularidade": "",
+      "fonteCar": "CAR atual consolidado no Webmapa em 07/08/2026",
+      "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 04.01",
+      "pendencias": []
+    },
+    "OS 04.02": {
+      "imovel": "Cachoeira de Santa Maria",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "3583408",
+      "carFederal": "TO-1707009-A01273091B2D4AF59A77820DBD49D7EF",
+      "fonteTitularidade": "",
+      "fonteCar": "CAR atual consolidado no Webmapa em 07/08/2026",
+      "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 04.02",
+      "pendencias": []
+    },
+    "OS 04.03": {
+      "imovel": "Fazenda Lavrinha - Lote 18",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "3311487",
+      "carFederal": "TO-1707009-BF20515DB6844BDDBB637E0D3425393E",
+      "fonteTitularidade": "",
+      "fonteCar": "CAR atual consolidado no Webmapa em 07/08/2026",
+      "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 04.03",
+      "pendencias": []
+    },
+    "OS 04.04": {
+      "imovel": "Fazenda Cancela",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "3325305",
+      "carFederal": "TO-1707009-5501F613199C44B090444B9A63B939DB",
+      "fonteTitularidade": "",
+      "fonteCar": "CAR atual consolidado no Webmapa em 07/08/2026",
+      "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 04.04",
+      "pendencias": []
+    },
+    "OS 04.05": {
+      "imovel": "Cabeceira da Buzina",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "2933505",
+      "carFederal": "TO-1707009-92B0F54E88494AD5810A452D0D657AEC",
+      "fonteTitularidade": "",
+      "fonteCar": "CAR atual consolidado no Webmapa em 07/08/2026",
+      "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 04.05",
+      "pendencias": []
+    },
+    "OS 05.01": {
+      "imovel": "Fazenda Galiléia",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "",
+      "carFederal": "",
+      "fonteTitularidade": "",
+      "fonteCar": "",
+      "ressalvas": "Proposta CAR V3 vigente; título interno corrigido por solicitação do usuário. SHP V1 recebido: correspondência temática V3 pendente; APP a preservar inválida. PDFs, SHP e KML publicados no Drive.",
+      "atualizadoEm": "2026-09-09",
+      "codigo": "OS 05.01",
+      "pendencias": [
+        {
+          "id": "OS05-01",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Conferir geometria e diferenças das classes do SHP V1 em relação à proposta CAR V3. APP a preservar contém anéis aninhados.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OS05-02",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Obter nascentes, barramento, área passível de uso alternativo e parcelas do perímetro em vetor. Servidão Vira Saia já existe no mapa, mas sua equivalência com a carta deve ser conferida.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OS05-04",
+          "tipo": "Titularidade",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Obter certidões e conferir titulares. Matrículas citadas na carta não são documentos recebidos.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OS05-05",
+          "tipo": "CAR",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Obter recibo CAR/TO e código federal da Fazenda Galiléia.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OS05-06",
+          "tipo": "Contato",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Identificar proprietário informado, pessoa de contato e telefone, com fonte verificável.",
+          "prioridade": "Alta"
+        }
+      ]
     }
-  }
+  },
+  "fonte": "Base Consolidada Webmap Aura.xlsx"
 };

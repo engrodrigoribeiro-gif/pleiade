@@ -1,6 +1,6 @@
 window.AURA_CATALOGO = {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-07",
+  "updatedAt": "2026-09-09",
   "driveRootUrl": "https://drive.google.com/drive/folders/117FC32a3wL_bvZOhdXI5hleFqOoXWQEZ",
   "ordens": [
     {
@@ -1582,6 +1582,63 @@ window.AURA_CATALOGO = {
       ],
       "observacoes": [
         "Produto referente à situação do CAR atual; não corresponde a uma proposta de CAR."
+      ]
+    },
+    {
+      "id": "os-05-01",
+      "codigo": "OS 05.01",
+      "grupo": "OS 05",
+      "grupoTitulo": "Vira Saia",
+      "imovel": "Fazenda Galiléia",
+      "responsavel": "",
+      "driveFolderUrl": "https://drive.google.com/drive/folders/18B4MUxNYiaX3ej81zVOA2OtW8seYjSuY",
+      "camada": {
+        "arquivoPublicado": "data/os05/os-05-01.geojson",
+        "revisao": "2026-09-09",
+        "estilo": "proposta-car",
+        "status": "publicado_com_ressalvas",
+        "camadaLegada": "os05_limit_05_01",
+        "produtoGeograficoLegado": "V1_Fz_Galileia_02092026",
+        "rotuloVersao": "V1 recebida · 02/09/2026 — conferência V3 pendente"
+      },
+      "produtos": [
+        {
+          "tipo": "analise-perimetro",
+          "titulo": "Análise de perímetro",
+          "versaoVigente": 1,
+          "data": "2026-08-03",
+          "pdfViewUrl": "https://drive.google.com/file/d/1pfP1wB8eCcAPGP6E9m-n7zCLSg2UkXA_/view",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1pfP1wB8eCcAPGP6E9m-n7zCLSg2UkXA_",
+          "status": "vigente",
+          "historico": []
+        },
+        {
+          "tipo": "proposta-car",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 3,
+          "data": "2026-08-03",
+          "pdfViewUrl": "https://drive.google.com/file/d/15T_Tjw3KIitfC_jcQ7m5gvUNkjWbDLrA/view",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=15T_Tjw3KIitfC_jcQ7m5gvUNkjWbDLrA",
+          "status": "vigente",
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-08-02",
+              "pdfViewUrl": "https://drive.google.com/file/d/1NrzejwYMaWZunQZt3jHHACyB5TW1MZr9/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1NrzejwYMaWZunQZt3jHHACyB5TW1MZr9"
+            },
+            {
+              "versao": 2,
+              "data": "2026-08-02",
+              "pdfViewUrl": "https://drive.google.com/file/d/1TDVcNE4kK-bcbrqnUFcKLii9lv3oai6P/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TDVcNE4kK-bcbrqnUFcKLii9lv3oai6P"
+            }
+          ]
+        }
+      ],
+      "observacoes": [
+        "SHP recebido V1: 8 classes. O limite coincide em área com a carta V3; as classes temáticas não foram confirmadas como correspondentes à V3. APP a preservar com geometria inválida na fonte, preservada sem alteração. Faltam vetores individualizados de nascentes, barramento, área passível de uso alternativo e parcelas da análise de perímetro.",
+        "Versão documental V3 definida pelo usuário em 09/09/2026. Título interno da cópia corrigido; original preservado."
       ]
     }
   ]

@@ -316,7 +316,7 @@
   lyr_NasaGibsRecent.set("auraSourceStatus", "NASA GIBS WMS público – imagem diária, resolução moderada");
 
   var lyr_Sentinel2Recent = new ol.layer.Image({
-    title: "Sentinel-2 – período mais recente",
+    title: "Sentinel-2 – mosaico disponível",
     visible: false,
     source: new ol.source.ImageArcGISRest({
       url: "https://sentinel.arcgis.com/arcgis/rest/services/Sentinel2/ImageServer",
@@ -325,21 +325,15 @@
       params: {
         format: "jpgpng",
         renderingRule: JSON.stringify({ rasterFunction: "Natural Color with DRA" }),
-        mosaicRule: JSON.stringify({
-          mosaicMethod: "esriMosaicAttribute",
-          sortField: "acquisitiondate",
-          sortValue: Date.now(),
-          ascending: false,
-          where: "cloudcover < 0.2",
-          mosaicOperation: "MT_FIRST",
-        }),
+        // Use the service's default mosaic. The former date/cloud rule returned
+        // a fully transparent image for the project extent (09/09/2026 test).
       },
       attributions: "Esri, Sentinel-2",
     }),
   });
   lyr_Sentinel2Recent.set("permalink", "sentinel2_recente");
-  lyr_Sentinel2Recent.set("popuplayertitle", "Sentinel-2 – período mais recente");
-  lyr_Sentinel2Recent.set("auraSourceStatus", "Esri ImageServer operacional – baixa nebulosidade");
+  lyr_Sentinel2Recent.set("popuplayertitle", "Sentinel-2 – mosaico disponível");
+  lyr_Sentinel2Recent.set("auraSourceStatus", "Mosaico padrão do serviço Esri; sem garantia de aquisição mais recente ou baixa nebulosidade");
 
   var lyr_ProdesCerradoMosaic = new ol.layer.Tile({
     title: "INPE/PRODES Cerrado – mosaico 2024",
@@ -406,12 +400,13 @@
       }),
     });
     var layer = new ol.layer.Vector({
-      title: "Comunidades certificadas – " + municipality,
+      title: "Comunidades certificadas – " + municipality + " (serviço restrito)",
       source: source,
       style: style,
       visible: false,
     });
     layer.set("popuplayertitle", "Comunidades certificadas – " + municipality);
+    layer.set("auraSourceStatus", "Fonte externa passou a exigir token (09/09/2026); não confundir ausência de exibição com ausência de comunidades.");
     layer.set("fieldAliases", {
       NM_CQ: "Comunidade",
       NM_MUNIC: "Município",

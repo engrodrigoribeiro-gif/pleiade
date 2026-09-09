@@ -508,6 +508,15 @@ body,
   transform: translateY(-1px) !important;
 }
 
+.aura-os05-pdf { width: min(1100px, 94vw); height: 90vh; max-width: 94vw; max-height: 94vh; padding: 16px; border: 1px solid #b9cbc5; border-radius: 16px; color: #173f35; }
+.aura-os05-pdf[open] { display: flex; flex-direction: column; gap: 12px; }
+.aura-os05-pdf::backdrop { background: rgba(10,30,23,.60); }
+.aura-os05-pdf header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.aura-os05-pdf button { border: 1px solid #b9cbc5; border-radius: 8px; padding: 8px 12px; background: #edf4f1; cursor: pointer; }
+.aura-os05-pdf iframe { flex: 1; width: 100%; min-height: 0; border: 0; }
+.aura-imoveis-group-title.aura-group-os-05 { background: #ede8f5 !important; color: #593c76 !important; border-left: 4px solid #9676b4 !important; }
+.aura-imovel-row.aura-group-os-05 { border-left: 3px solid #9676b4 !important; }
+.aura-imovel-row.aura-group-os-05 .aura-os-code { background: #ede8f5 !important; color: #593c76 !important; }
 .aura-imovel-row.aura-group-os-01 { border-left: 3px solid #8db9a3 !important; }
 .aura-imovel-row.aura-group-os-02 { border-left: 3px solid #83b9b5 !important; }
 .aura-imovel-row.aura-group-os-03 { border-left: 3px solid #a9bd92 !important; }

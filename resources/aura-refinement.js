@@ -146,7 +146,7 @@
     link.href = url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    if (/download/i.test(label)) link.setAttribute("download", "");
+    if (/download|baixar/i.test(label)) link.setAttribute("download", "");
     return link;
   }
 
@@ -222,22 +222,23 @@
     var locate = createButton("Localizar no mapa", function () { locateOs(os); });
     locate.classList.add("is-primary");
     actions.appendChild(locate);
-    actions.appendChild(externalLink("Abrir pasta no Drive", os.driveFolderUrl, "aura-layer-action"));
+    if (os.driveFolderUrl) actions.appendChild(externalLink("Abrir pasta no Drive", os.driveFolderUrl, "aura-layer-action"));
     panel.appendChild(actions);
 
     var vetores = titularidadeData.vetores || vectorData;
-    panel.appendChild(element("h3", "aura-os-section-title", "Dados vetoriais vigentes"));
+    panel.appendChild(element("h3", "aura-os-section-title", vetores.tituloPacote ? "Dados vetoriais recebidos" : "Dados vetoriais vigentes"));
     if (vetores && (vetores.shpDownloadUrl || vetores.kmlDownloadUrl)) {
       var vectorCard = element("article", "aura-product-card aura-vector-card");
       var vectorHeading = element("div", "aura-product-heading");
-      vectorHeading.appendChild(element("strong", "", "Pacote vetorial completo"));
+      vectorHeading.appendChild(element("strong", "", vetores.tituloPacote || "Pacote vetorial completo"));
       vectorHeading.appendChild(element("span", "aura-version", vetores.versao || "Vigente"));
       vectorCard.appendChild(vectorHeading);
       vectorCard.appendChild(element("p", "aura-os-data-note", "Revisão: " + (vetores.revisao || "não informada")));
       var vectorLinks = element("div", "aura-product-links aura-vector-links");
-      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink(vetores.formatoPacote === "GeoJSON + KML" ? "Baixar pacote vetorial (.zip)" : "Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
+      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink(vetores.formatoPacote === "GeoJSON + KML" ? "Baixar pacote vetorial (.zip)" : vetores.tituloPacote ? "Baixar SHP recebido (.zip)" : "Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
       if (vetores.kmlDownloadUrl) vectorLinks.appendChild(externalLink("Download KML", vetores.kmlDownloadUrl));
       vectorCard.appendChild(vectorLinks);
+      if (vetores.ressalvas) vectorCard.appendChild(element("p", "aura-os-pending-note", vetores.ressalvas));
       panel.appendChild(vectorCard);
     } else {
       panel.appendChild(element("p", "aura-os-pending-note", "Pacote vetorial ainda não vinculado à base consolidada."));
@@ -336,6 +337,7 @@
       panel.appendChild(pendingList);
     } else panel.appendChild(element("p", "aura-os-data-note", "Sem pendência registrada na base consolidada."));
 
+    if (vectorData.shpDownloadUrl || vectorData.kmlDownloadUrl) return;
     panel.appendChild(element("h3", "aura-os-section-title", "Dados vetoriais e KML"));
     var vectorCard = element("article", "aura-product-card");
     vectorCard.appendChild(element("strong", "", vectorData.status || "Vetor canônico pendente"));
@@ -465,7 +467,7 @@
       ["CAR atual", productVersionLabel(find("diagnostico-car-atual"))],
       ["Intervenções", interventionParts.length ? interventionParts.join(" + ") : "—"],
       ["Proposta CAR", productVersionLabel(find("proposta-car"))],
-      ["Perímetro", productVersionLabel(find("proposta-perimetro"))]
+      ["Perímetro", productVersionLabel(find("analise-perimetro") || find("proposta-perimetro"))]
     ].forEach(function (cellData) {
       var cell = element("span", "aura-property-product-cell" + (cellData[1] === "—" ? " is-absent" : ""));
       cell.appendChild(element("small", "", cellData[0]));

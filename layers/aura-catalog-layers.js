@@ -19,7 +19,7 @@
   layersList.forEach(function (layer) {
     if (layer && typeof layer.getLayers === "function") indexLayers(layer.getLayers());
   });
-  (window.AURA_OS04_LAYERS || []).forEach(function (layer) {
+  (window.AURA_OS04_LAYERS || []).concat(window.AURA_EXTRA_OS_LAYERS || []).forEach(function (layer) {
     if (layer && typeof layer.getLayers === "function") indexLayers(layer.getLayers());
     else if (layer) {
       var key = typeof layer.get === "function" && layer.get("permalink");
@@ -102,7 +102,7 @@
       return '<input type="checkbox" class="symbology" symbology-type="categorized" value="' + escapeHtml(name) + '" checked>' +
         '<span class="aura-theme-swatch" style="background:' + colors[0] + ';--aura-swatch-stroke:' + colors[1] + '"></span>' + escapeHtml(name) + '<br />';
     }).join("");
-    var version = os.camada && os.camada.produtoGeograficoLegado || versionLabel(os);
+    var version = os.camada && (os.camada.rotuloVersao || os.camada.produtoGeograficoLegado) || versionLabel(os);
     return '<div class="layertitle aura-expandable-legend-title">' + escapeHtml(version) +
       '<span class="aura-legend-chevron" aria-hidden="true"></span></div>' +
       '<a class="layerlegend">' + rows + '</a>';
@@ -156,7 +156,7 @@
     }
 
     var subgroup = new ol.layer.Group({
-      title: labelFor(os),
+      title: os.grupo === "OS 05" ? numberedLimitLabel(os, osIndex) : labelFor(os),
       layers: children,
       openInLayerSwitcher: false,
       visible: true,
@@ -166,11 +166,12 @@
     if (osVector && osVector.shpDownloadUrl) {
       subgroup.set("auraShpDownloadUrl", osVector.shpDownloadUrl);
       subgroup.set("auraShpFileName", osVector.shpNome);
+      subgroup.set("auraShpLabel", osVector.tituloPacote ? "Baixar SHP recebido — conferência V3 pendente" : "Baixar pacote SHP vigente desta OS");
     }
     groups[os.grupo].push(subgroup);
   });
 
-  var ordered = ["OS 01", "OS 02", "OS 03", "OS 04"].map(function (groupCode) {
+  var ordered = Object.keys(groups).sort(function(a,b){return a.localeCompare(b, "pt-BR", {numeric:true});}).map(function (groupCode) {
     var first = catalog.ordens.find(function (os) { return os.grupo === groupCode; });
     var title = first ? groupCode + " – " + first.grupoTitulo : groupCode;
     var groupLayers = (groups[groupCode] || []).slice().reverse();

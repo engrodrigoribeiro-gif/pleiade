@@ -2449,8 +2449,8 @@
 			shpBtn.href = publishedShpUrl;
 			shpBtn.target = '_blank';
 			shpBtn.rel = 'noopener noreferrer';
-			shpBtn.title = 'Baixar pacote SHP vigente desta OS';
-			shpBtn.setAttribute('aria-label', 'Baixar pacote SHP vigente desta OS');
+			shpBtn.title = layer.get('auraShpLabel') || 'Baixar pacote SHP vigente desta OS';
+			shpBtn.setAttribute('aria-label', shpBtn.title);
 			shpBtn.setAttribute('download', layer.get('auraShpFileName') || 'dados-vetoriais-vigentes.zip');
 			shpBtn.innerHTML = '<i class="fa fa-download" aria-hidden="true"></i><span>SHP</span>';
 			shpBtn.addEventListener('click', function (ev) {

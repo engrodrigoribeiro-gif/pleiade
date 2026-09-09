@@ -1,83 +1,28 @@
-# Aura QJ Plêiade - Cadastro Multifinalitário Ambiental e Fundiário
+# Webmap Aura — pacote de publicação de 09/09/2026
 
-WebGIS estático (qgis2web), acesso restrito por senha via Basic Auth
-(Vercel Routing Middleware). A senha não fica no código.
+Versão com 29 imóveis e 90 produtos vigentes, incluindo OS 05 — Vira Saia / Fazenda Galiléia (nº 29).
 
-## Credenciais
+## Publicar pelo procedimento validado
 
-O usuário e a senha devem ser fornecidos por canal seguro e configurados
-somente como variáveis de ambiente na Vercel. Nenhuma senha deve ser
-registrada no repositório, no README ou em arquivos `.env` versionados.
+1. Use **o conteúdo desta pasta** na raiz do repositório GitHub. Não faça commit do ZIP da entrega nem da planilha de gestão.
+2. Preserve a versão anterior e envie primeiro para uma branch de Preview.
+3. Mantenha `index.html`, `package.json`, `vercel.json` e `middleware.js` na raiz. Projeto estático, sem comando de build, saída `.`.
+4. Na Vercel, mantenha `BASIC_AUTH_USER` e `BASIC_AUTH_PASSWORD` nas variáveis de ambiente de Preview e Production. Nenhuma senha real acompanha esta pasta.
+5. Valide login, PDF em nova aba e incorporado, downloads e camadas no Preview HTTPS antes de promover para Production.
+6. Após publicar, abra a URL em janela anônima, confirme a autenticação e registre commit/deployment.
 
-## Passo a passo completo
+## OS 05
 
-### 1. Subir o projeto no GitHub
+- Proposta CAR **V3** vigente, V1/V2 preservadas no histórico; análise de perímetro V1 independente.
+- Quatro PDFs, SHP recebido e KML do limite no Google Drive; links individuais conferidos e downloads comparados por SHA-256.
+- O SHP V1 recebido **não está certificado como equivalente à carta V3**. A APP a preservar apresenta geometria inválida na origem. Não houve alteração silenciosa da geometria.
+- Dados de titularidade, CAR e contato não foram inventados. As necessidades estão na planilha consolidada e na ficha do imóvel.
 
-1. Crie um repositório novo no GitHub (pode ser privado, recomendado).
-2. Suba todos os arquivos desta pasta para a raiz do repositório
-   (o `index.html` deve estar na raiz, não dentro de uma subpasta).
+## Serviços e aceite final
 
-### 2. Importar na Vercel
+- Sentinel-2: mosaico padrão disponível. O filtro antigo de data/nuvens retornava transparência integral e foi retirado. Não há promessa de imagem mais recente.
+- A fonte externa de localidades quilombolas passou a exigir token (erro 499); está sinalizada como restrita. O WMS do território Lajeado segue separado. Nenhuma credencial de terceiro foi inserida.
+- O PDF V3 e seu endpoint de preview abriram diretamente no Drive. A incorporação em iframe ficou em branco no navegador interno de testes; há alternativa explícita para abrir em nova aba. **Conferir incorporação no Preview HTTPS da Vercel** antes do aceite de produção.
+- Os testes locais não substituem a verificação de autenticação e serviços no deploy Preview.
 
-1. Acesse vercel.com e faça login (pode usar a conta do GitHub).
-2. Clique em "Add New..." → "Project".
-3. Selecione o repositório que você acabou de criar.
-4. Em "Framework Preset", selecione **Other** (não é Next.js nem nenhum
-   framework, é projeto estático puro).
-5. Não clique em Deploy ainda — primeiro configure a variável de ambiente
-   no próximo passo (ou configure depois e faça redeploy).
-
-### 3. Configurar a senha (Environment Variables)
-
-1. Ainda na tela de configuração do projeto (ou depois, em
-   Settings → Environment Variables, se já tiver feito o deploy):
-2. Adicione:
-   - `BASIC_AUTH_USER` → usuário acordado para o projeto
-   - `BASIC_AUTH_PASSWORD` → senha fornecida por canal seguro
-3. Marque para aplicar em Production (e Preview, se quiser testar antes).
-4. Salve.
-
-### 4. Deploy
-
-1. Clique em **Deploy**.
-2. Se você já tinha feito deploy antes de configurar as variáveis: vá em
-   **Deployments**, abra o deployment mais recente, clique nos três
-   pontinhos → **Redeploy**. Variáveis de ambiente só valem a partir do
-   próximo deploy.
-
-### 5. Testar
-
-1. Acesse a URL gerada pela Vercel (algo como
-   `seu-projeto.vercel.app`).
-2. O navegador deve mostrar uma caixinha pedindo usuário e senha
-   (não é uma tela HTML customizada, é o prompt nativo do navegador).
-3. Digite as credenciais configuradas nas variáveis de ambiente.
-4. O mapa deve carregar normalmente depois disso.
-
-## Como funciona
-
-`middleware.js` intercepta toda requisição antes de qualquer arquivo
-(HTML, JS, imagem) ser entregue, e exige a autenticação. Sem a variável
-`BASIC_AUTH_PASSWORD` configurada, o site fica bloqueado por padrão
-(falha segura), nunca aberto.
-
-## O que foi adicionado/alterado neste projeto
-
-- `middleware.js`, `package.json`, `vercel.json`, `.gitignore`: suporte
-  a Basic Auth na Vercel.
-- `resources/o.gis/o.gis.js` e `resources/o.gis/o.gis_style.css`: botão
-  de download em KML por camada vetorial, na própria legenda do mapa.
-- `OS 04 — Alvo Buzina`: cinco imóveis, produtos vigentes e estudos
-  territoriais integrados.
-- `g — Alvo Buzina`: poligonal externa dissolvida dos cinco imóveis,
-  ativada na abertura junto com as cinco servidões minerárias.
-- `NASA GIBS/VIIRS`: imagem diária pública, em substituição aos antigos
-  mosaicos Planet dependentes de chave privada.
-
-## Limitação a ter em mente
-
-Basic Auth controla quem entra no site. Depois de autenticado, qualquer
-usuário com conhecimento técnico (DevTools do navegador) pode ver o
-conteúdo das camadas (GeoJSON embutido nos arquivos `.js` da pasta
-`layers/`). Adequado para controlar acesso ao link, não para impedir
-que um usuário autorizado extraia os dados depois de entrar.
+O relatório detalhado e a planilha de rastreio ficam fora desta pasta de aplicação, em `outputs/os05-integracao-2026-09-09` na pasta de trabalho.
