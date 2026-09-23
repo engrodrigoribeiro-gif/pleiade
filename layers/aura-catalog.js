@@ -1,11 +1,12 @@
 window.AURA_CATALOGO = {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-23",
   "driveRootUrl": "https://drive.google.com/drive/folders/117FC32a3wL_bvZOhdXI5hleFqOoXWQEZ",
   "ordens": [
     {
       "id": "os-01-01",
       "codigo": "OS 01.01",
+      "sequencial": 1,
       "grupo": "OS 01",
       "grupoTitulo": "Alarico",
       "imovel": "Fazenda Matheus Lopes",
@@ -76,6 +77,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-01-02",
       "codigo": "OS 01.02",
+      "sequencial": 2,
       "grupo": "OS 01",
       "grupoTitulo": "Alarico",
       "imovel": "Fazenda Matheus Lopes",
@@ -136,6 +138,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-01-03",
       "codigo": "OS 01.03",
+      "sequencial": 3,
       "grupo": "OS 01",
       "grupoTitulo": "Alarico",
       "imovel": "Fazenda Floresta",
@@ -147,28 +150,49 @@ window.AURA_CATALOGO = {
         "estilo": "car-fundiario",
         "status": "a_migrar",
         "camadaLegada": "FazendaFloresta",
-        "produtoGeograficoLegado": "V1_Fz_Floresta_070526"
+        "produtoGeograficoLegado": "V1_Fz_Floresta_070526",
+        "rotuloVersao": "V1 · 07/05/2026 — vetor anterior; SHP V2 pendente"
       },
       "produtos": [
         {
           "tipo": "intervencoes-gerais",
-          "titulo": "Intervenções gerais na análise CAR",
-          "versaoVigente": 1,
-          "data": "2026-05-07",
-          "pdfViewUrl": "https://drive.google.com/file/d/1SXQA13KJeGZx07_VpYCnD06itplPPEXE/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1SXQA13KJeGZx07_VpYCnD06itplPPEXE",
+          "titulo": "Intervenções na análise CAR",
+          "versaoVigente": 2,
+          "rotuloVersao": "V2",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1h0GSZfRHGsXy4W1F2hGlZeiUA2xa0PSa/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1h0GSZfRHGsXy4W1F2hGlZeiUA2xa0PSa",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.03_intervencoes-gerais_V02_2026-09-23.pdf",
           "status": "vigente",
-          "historico": []
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-05-07",
+              "pdfViewUrl": "https://drive.google.com/file/d/1SXQA13KJeGZx07_VpYCnD06itplPPEXE/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1SXQA13KJeGZx07_VpYCnD06itplPPEXE"
+            }
+          ],
+          "observacao": "Nota do PDF registra 7110,5840 ha de vegetação nativa, enquanto a legenda indica 110,5840 ha. Confirmar com o autor; original preservado."
         },
         {
           "tipo": "proposta-car",
-          "titulo": "Proposta CAR",
-          "versaoVigente": 1,
-          "data": "2026-05-07",
-          "pdfViewUrl": "https://drive.google.com/file/d/1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 2,
+          "rotuloVersao": "V2",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1A79eMhSp3PSL_ZRQvm8iJeAEJxqZ0Y__/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1A79eMhSp3PSL_ZRQvm8iJeAEJxqZ0Y__",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.03_proposta-car_V02_2026-09-23.pdf",
           "status": "vigente",
-          "historico": []
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-05-07",
+              "pdfViewUrl": "https://drive.google.com/file/d/1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN"
+            }
+          ],
+          "observacao": ""
         },
         {
           "tipo": "proposta-perimetro",
@@ -183,12 +207,92 @@ window.AURA_CATALOGO = {
       ],
       "observacoes": [
         "Pasta, versões e documentos vigentes conferidos no Google Drive em 24/07/2026.",
-        "A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada."
+        "A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada.",
+        "PDFs Proposta CAR e Intervenções V2 recebidos em 23/09/2026. Perímetro V1 preservado. Vetores temáticos V1 não representam a revisão documental V2.",
+        "Nota do PDF registra 7110,5840 ha de vegetação nativa, enquanto a legenda indica 110,5840 ha. Confirmar com o autor; original preservado."
+      ]
+    },
+    {
+      "id": "os-01-04",
+      "codigo": "OS 01.04",
+      "sequencial": 30,
+      "grupo": "OS 01",
+      "grupoTitulo": "Alarico",
+      "imovel": "Fazenda Matheus Lopes Sul",
+      "responsavel": "",
+      "driveFolderUrl": "https://drive.google.com/drive/folders/1etpHG6-bZZiuVFKxWqmUPcGj1tyP-g4p",
+      "camada": {
+        "arquivoPublicado": "data/set23/os-01-04.geojson",
+        "status": "derivado_pdf_aproximado",
+        "revisao": "2026-09-23",
+        "camadaLegada": "set23_sul_pdf",
+        "produtoGeograficoLegado": "set23_sul_tema",
+        "rotuloVersao": "Limite derivado do PDF V1 · 22/09/2026 (aproximado)"
+      },
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Diagnóstico de intervenções no CAR atual",
+          "versaoVigente": null,
+          "rotuloVersao": "Sem versão indicada",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1RlovDuLhEbAm81n1AP2_K5xsTMeVCETo/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1RlovDuLhEbAm81n1AP2_K5xsTMeVCETo",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_diagnostico-car-atual_SV_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "intervencoes-gerais",
+          "titulo": "Intervenções e reserva legal na análise CAR",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1TtbAaWj57m0Kp0_xTlCoQ3la90MIOVAO/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TtbAaWj57m0Kp0_xTlCoQ3la90MIOVAO",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_intervencoes-gerais_V01_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "proposta-car",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-22",
+          "pdfViewUrl": "https://drive.google.com/file/d/1TEduQa_poKMFFjNfiv-4veGjnzeqz5Vf/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TEduQa_poKMFFjNfiv-4veGjnzeqz5Vf",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_proposta-car_V01_2026-09-22.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "proposta-perimetro",
+          "titulo": "Proposta de perímetro",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1GKE_iBZ_68w5IBk6pxGJE0E02-LQXRzu/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1GKE_iBZ_68w5IBk6pxGJE0E02-LQXRzu",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_proposta-perimetro_V01_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        }
+      ],
+      "observacoes": [
+        "Limite aproximado derivado do PDF Proposta CAR V1 de 22/09/2026, não do SHP original. Área geométrica UTM: 269.1500 ha; área informada na carta: 269.1182 ha. Não constitui levantamento cadastral. Pacote contém somente o limite; obter SHP temático original.",
+        "CAR/TO 2174837 referenciado na carta: APR declarada 268,8767 ha. APR analisada na proposta: 269,1182 ha. Não somar as duas áreas.",
+        "Francisco Felix da Costa (Espólio) informado na carta; titular registral e representante/contato pendentes de confirmação. Matrícula 26 é hipótese de correlação, não vínculo confirmado."
       ]
     },
     {
       "id": "os-02-01",
       "codigo": "OS 02.01",
+      "sequencial": 4,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Nova Prata",
@@ -296,6 +400,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-02",
       "codigo": "OS 02.02",
+      "sequencial": 5,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Santa Luzia / Rio Grande",
@@ -373,6 +478,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-03",
       "codigo": "OS 02.03",
+      "sequencial": 6,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda São José",
@@ -436,6 +542,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-04",
       "codigo": "OS 02.04",
+      "sequencial": 7,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Lote 15",
@@ -499,6 +606,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-05",
       "codigo": "OS 02.05",
+      "sequencial": 8,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Amaralina",
@@ -562,6 +670,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-06",
       "codigo": "OS 02.06",
+      "sequencial": 9,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Lavandeira",
@@ -625,6 +734,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-07",
       "codigo": "OS 02.07",
+      "sequencial": 10,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Santa Helena",
@@ -688,6 +798,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-08",
       "codigo": "OS 02.08",
+      "sequencial": 11,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Limeira",
@@ -751,6 +862,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-09",
       "codigo": "OS 02.09",
+      "sequencial": 12,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Nova Barra",
@@ -814,6 +926,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-10",
       "codigo": "OS 02.10",
+      "sequencial": 13,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Brejo Alegre I",
@@ -877,6 +990,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-11",
       "codigo": "OS 02.11",
+      "sequencial": 14,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Brejo Alegre II",
@@ -930,6 +1044,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-12",
       "codigo": "OS 02.12",
+      "sequencial": 15,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Brejo Alegre III",
@@ -993,6 +1108,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-02-13",
       "codigo": "OS 02.13",
+      "sequencial": 16,
       "grupo": "OS 02",
       "grupoTitulo": "Nova Prata",
       "imovel": "Fazenda Lavandeira II",
@@ -1056,6 +1172,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-01",
       "codigo": "OS 03.01",
+      "sequencial": 17,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Jacobina",
@@ -1119,6 +1236,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-02",
       "codigo": "OS 03.02",
+      "sequencial": 18,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Altamira",
@@ -1182,6 +1300,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-03",
       "codigo": "OS 03.03",
+      "sequencial": 19,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Água Doce | Gleba B",
@@ -1225,6 +1344,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-04",
       "codigo": "OS 03.04",
+      "sequencial": 20,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Água Doce | Gleba A",
@@ -1268,6 +1388,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-05",
       "codigo": "OS 03.05",
+      "sequencial": 21,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Água Doce | Remanescente",
@@ -1311,6 +1432,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-06",
       "codigo": "OS 03.06",
+      "sequencial": 22,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Água Doce | Gleba 02",
@@ -1364,6 +1486,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-03-07",
       "codigo": "OS 03.07",
+      "sequencial": 23,
       "grupo": "OS 03",
       "grupoTitulo": "Jacobina",
       "imovel": "Fazenda Água Doce | Gleba 03",
@@ -1427,6 +1550,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-04-01",
       "codigo": "OS 04.01",
+      "sequencial": 24,
       "grupo": "OS 04",
       "grupoTitulo": "Alvo Buzina",
       "imovel": "Fazenda Nogueira",
@@ -1459,6 +1583,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-04-02",
       "codigo": "OS 04.02",
+      "sequencial": 25,
       "grupo": "OS 04",
       "grupoTitulo": "Alvo Buzina",
       "imovel": "Cachoeira de Santa Maria",
@@ -1491,6 +1616,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-04-03",
       "codigo": "OS 04.03",
+      "sequencial": 26,
       "grupo": "OS 04",
       "grupoTitulo": "Alvo Buzina",
       "imovel": "Fazenda Lavrinha - Lote 18",
@@ -1523,6 +1649,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-04-04",
       "codigo": "OS 04.04",
+      "sequencial": 27,
       "grupo": "OS 04",
       "grupoTitulo": "Alvo Buzina",
       "imovel": "Fazenda Cancela",
@@ -1555,6 +1682,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-04-05",
       "codigo": "OS 04.05",
+      "sequencial": 28,
       "grupo": "OS 04",
       "grupoTitulo": "Alvo Buzina",
       "imovel": "Cabeceira da Buzina",
@@ -1587,6 +1715,7 @@ window.AURA_CATALOGO = {
     {
       "id": "os-05-01",
       "codigo": "OS 05.01",
+      "sequencial": 29,
       "grupo": "OS 05",
       "grupoTitulo": "Vira Saia",
       "imovel": "Fazenda Galiléia",

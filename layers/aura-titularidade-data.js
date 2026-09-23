@@ -1,5 +1,5 @@
 window.AURA_TITULARIDADE = {
-  "atualizadoEm": "2026-09-09",
+  "atualizadoEm": "2026-09-23",
   "documentosDrive": "https://drive.google.com/drive/folders/1yJS7iFOCGfAmf_Ud4CVdrrM_rsDZwZ9z",
   "ordens": {
     "OS 01.01": {
@@ -129,9 +129,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-04-24",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/14rTHSNDb7fiCwkCYHUi7jSfBSVgXHgmI/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=14rTHSNDb7fiCwkCYHUi7jSfBSVgXHgmI",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -139,9 +139,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-04-24",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1VA1dl4760_2xC6MmYwlz-_GZmlH7ehCc/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1VA1dl4760_2xC6MmYwlz-_GZmlH7ehCc",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -149,9 +149,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-04-24",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/15gtEdn0LlGghA0l1n_ImZeTDVOLx5dO1/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=15gtEdn0LlGghA0l1n_ImZeTDVOLx5dO1",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -159,9 +159,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 2,
           "data": "2026-07-21",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1i5K_DIyqWfMIgbi0KDZo9alBi3HB2hh3/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1i5K_DIyqWfMIgbi0KDZo9alBi3HB2hh3",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -188,7 +188,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 1
     },
     "OS 01.02": {
       "codigo": "OS 01.02",
@@ -239,9 +240,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -249,9 +250,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1TH4pkER5-jUB1N2cAJljOV0SizatCyfv/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TH4pkER5-jUB1N2cAJljOV0SizatCyfv",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -259,9 +260,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 2,
           "data": "2026-07-21",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1FFCB5fv8RYIF3SU5vmarRijq2JiyMY19/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1FFCB5fv8RYIF3SU5vmarRijq2JiyMY19",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -288,7 +289,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 3,
         "tiposProdutos": "Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 2
     },
     "OS 01.03": {
       "codigo": "OS 01.03",
@@ -303,9 +305,9 @@ window.AURA_TITULARIDADE = {
       "fonteTitularidade": "Planilha-fonte, linha 11",
       "fonteCar": "",
       "quantidadeProdutosVigentes": 3,
-      "produtosVersoesVigentes": "Intervenções gerais V1; Proposta de CAR V1; Proposta de perímetro V1",
-      "ressalvas": "",
-      "atualizadoEm": "2026-08-03",
+      "produtosVersoesVigentes": "Intervenções na análise CAR: V2; Proposta de CAR: V2; Proposta de perímetro: V1",
+      "ressalvas": "Pasta, versões e documentos vigentes conferidos no Google Drive em 24/07/2026. A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada. PDFs Proposta CAR e Intervenções V2 recebidos em 23/09/2026. Perímetro V1 preservado. Vetores temáticos V1 não representam a revisão documental V2. Nota do PDF registra 7110,5840 ha de vegetação nativa, enquanto a legenda indica 110,5840 ha. Confirmar com o autor; original preservado.",
+      "atualizadoEm": "2026-09-23",
       "statusContato": "Contato informado",
       "statusDocumental": "Documento recebido",
       "vetores": {
@@ -336,36 +338,73 @@ window.AURA_TITULARIDADE = {
       "produtos": [
         {
           "tipo": "intervencoes-gerais",
-          "titulo": "Intervenções gerais na análise CAR",
-          "versaoVigente": 1,
-          "data": "2026-05-07",
+          "titulo": "Intervenções na análise CAR",
+          "versaoVigente": 2,
+          "rotuloVersao": "V2",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1h0GSZfRHGsXy4W1F2hGlZeiUA2xa0PSa/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1h0GSZfRHGsXy4W1F2hGlZeiUA2xa0PSa",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.03_intervencoes-gerais_V02_2026-09-23.pdf",
           "status": "vigente",
-          "pdfViewUrl": "https://drive.google.com/file/d/1SXQA13KJeGZx07_VpYCnD06itplPPEXE/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1SXQA13KJeGZx07_VpYCnD06itplPPEXE",
-          "historico": []
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-05-07",
+              "pdfViewUrl": "https://drive.google.com/file/d/1SXQA13KJeGZx07_VpYCnD06itplPPEXE/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1SXQA13KJeGZx07_VpYCnD06itplPPEXE"
+            }
+          ],
+          "observacao": "Nota do PDF registra 7110,5840 ha de vegetação nativa, enquanto a legenda indica 110,5840 ha. Confirmar com o autor; original preservado."
         },
         {
           "tipo": "proposta-car",
-          "titulo": "Proposta CAR",
-          "versaoVigente": 1,
-          "data": "2026-05-07",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 2,
+          "rotuloVersao": "V2",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1A79eMhSp3PSL_ZRQvm8iJeAEJxqZ0Y__/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1A79eMhSp3PSL_ZRQvm8iJeAEJxqZ0Y__",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.03_proposta-car_V02_2026-09-23.pdf",
           "status": "vigente",
-          "pdfViewUrl": "https://drive.google.com/file/d/1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN",
-          "historico": []
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-05-07",
+              "pdfViewUrl": "https://drive.google.com/file/d/1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1WqTq2rRk8ewTz8tU5YJFUaDYg-iovnFN"
+            }
+          ],
+          "observacao": ""
         },
         {
           "tipo": "proposta-perimetro",
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1nJyB6uInSQgEa4Skg7rCojUOsA0zdxc6/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1nJyB6uInSQgEa4Skg7rCojUOsA0zdxc6",
+          "status": "vigente",
           "historico": []
         }
       ],
-      "pendencias": [],
+      "pendencias": [
+        {
+          "id": "SET23-FLO-01",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Obter SHP original correspondente aos PDFs V2. Vetores V1 preservados.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "SET23-FLO-02",
+          "tipo": "Revisão da carta",
+          "responsavel": "Autor da carta",
+          "status": "Pendente",
+          "descricao": "Nota do PDF registra 7110,5840 ha de vegetação nativa, enquanto a legenda indica 110,5840 ha. Confirmar com o autor; original preservado.",
+          "prioridade": "Alta"
+        }
+      ],
       "medicao": {
         "boletim": "BM 001/2026",
         "contrato": "CPS 00003283",
@@ -381,7 +420,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 3,
         "tiposProdutos": "Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 3
     },
     "OS 02.01": {
       "codigo": "OS 02.01",
@@ -432,9 +472,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 2,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1yeEWOA9LsmSuQ4vFjUUEHQfxOdGn2sXJ/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1yeEWOA9LsmSuQ4vFjUUEHQfxOdGn2sXJ",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -449,9 +489,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 3,
           "data": "2026-05-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1ydvRw4qnmHuw5N09NKvnxRTD1F85Y0PQ/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1ydvRw4qnmHuw5N09NKvnxRTD1F85Y0PQ",
+          "status": "vigente",
           "historico": [
             {
               "versao": 2,
@@ -472,9 +512,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções e sondagens na análise CAR",
           "versaoVigente": 3,
           "data": "2026-05-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs",
+          "status": "vigente",
           "historico": [
             {
               "versao": 2,
@@ -489,9 +529,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 3,
           "data": "2026-05-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/157Yne2c_vOumBP73177UlQFy2azVP0tr/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=157Yne2c_vOumBP73177UlQFy2azVP0tr",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -506,9 +546,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-04-24",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/12QMVlP3_RNMwuUH3dRbFab6V61f4n-OD/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=12QMVlP3_RNMwuUH3dRbFab6V61f4n-OD",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -537,7 +577,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 5,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Intervenções de sondagens; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 4
     },
     "OS 02.02": {
       "codigo": "OS 02.02",
@@ -588,9 +629,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1pLgbokm5ZSVCwKPNlP9OWHr0uuXgFuSp/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1pLgbokm5ZSVCwKPNlP9OWHr0uuXgFuSp",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -598,9 +639,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 2,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Sidat0SubbVtjmmmfqYSPlQfXBdo_eeu/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Sidat0SubbVtjmmmfqYSPlQfXBdo_eeu",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -615,9 +656,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 2,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1h4obyvskq5O9O4bppK908U1lRrS1Y6Gs/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1h4obyvskq5O9O4bppK908U1lRrS1Y6Gs",
+          "status": "vigente",
           "historico": [
             {
               "versao": 1,
@@ -632,9 +673,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-07",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1CYyUIhMfoYvZfOnbe7MvoSvOujohZXZy/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1CYyUIhMfoYvZfOnbe7MvoSvOujohZXZy",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -671,7 +712,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 5
     },
     "OS 02.03": {
       "codigo": "OS 02.03",
@@ -722,9 +764,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1KMpE9U3epXHwjfFbLi8KZifHgoOeNp3l/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1KMpE9U3epXHwjfFbLi8KZifHgoOeNp3l",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -732,9 +774,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1rS7JBKZhONppZP4xkEo3dE36h2W0JgDP/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1rS7JBKZhONppZP4xkEo3dE36h2W0JgDP",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -742,9 +784,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/16NXE10v3AabMWCDwnJXPTcEzQFqdNK2E/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=16NXE10v3AabMWCDwnJXPTcEzQFqdNK2E",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -752,9 +794,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Yxd1ajJ8YBhuLiZSci5S98RAf3xJsHJc/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Yxd1ajJ8YBhuLiZSci5S98RAf3xJsHJc",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -783,7 +825,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 6
     },
     "OS 02.04": {
       "codigo": "OS 02.04",
@@ -834,9 +877,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções na proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Imf-AmWzLzVSqS_ujsyDK5aB7fFzZxIy/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Imf-AmWzLzVSqS_ujsyDK5aB7fFzZxIy",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -844,9 +887,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1gshqbVbeaUBESQoEqE8HJBuMrJjCyTK5/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1gshqbVbeaUBESQoEqE8HJBuMrJjCyTK5",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -854,9 +897,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Wot2MpCEjH9FM8yoWrVILu533kQ_P8Tz/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Wot2MpCEjH9FM8yoWrVILu533kQ_P8Tz",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -864,9 +907,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1eATS-qFcnMQUQ8x0fFpbNiNUuMbElHLI/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1eATS-qFcnMQUQ8x0fFpbNiNUuMbElHLI",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -895,7 +938,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Intervenções da proposta de CAR; Diagnóstico do CAR atual; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 7
     },
     "OS 02.05": {
       "codigo": "OS 02.05",
@@ -946,9 +990,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1BWQtrLGdJuaCqDxl5rfxzwguT-beKOUB/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1BWQtrLGdJuaCqDxl5rfxzwguT-beKOUB",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -956,9 +1000,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1M241bKO-kGhjEYR5elFaiscUsXNyDtlU/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1M241bKO-kGhjEYR5elFaiscUsXNyDtlU",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -966,9 +1010,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1fGdoCWIKuLumeF6pYbzJGi8Yn0xnHbuU/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1fGdoCWIKuLumeF6pYbzJGi8Yn0xnHbuU",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -976,9 +1020,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-19",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/105a0JehTDZt3D37yWlZ1NtPJjbKyELnr/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=105a0JehTDZt3D37yWlZ1NtPJjbKyELnr",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1007,7 +1051,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 8
     },
     "OS 02.06": {
       "codigo": "OS 02.06",
@@ -1058,9 +1103,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1m5xOX0E3k-FCewjlZl9c3_pezlG4FPyV/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1m5xOX0E3k-FCewjlZl9c3_pezlG4FPyV",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1068,9 +1113,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1-YwQLsF67JtJTnFUoDVfcUKDOl8NoSqZ/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1-YwQLsF67JtJTnFUoDVfcUKDOl8NoSqZ",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1078,9 +1123,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1h4qd4GVb1LGQu2KhM-_3dgYQNw7frt_1/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1h4qd4GVb1LGQu2KhM-_3dgYQNw7frt_1",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1088,9 +1133,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/17SHrf-0ut8fhx5V2PXzKAkw-bEoSITjZ/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=17SHrf-0ut8fhx5V2PXzKAkw-bEoSITjZ",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1119,7 +1164,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 9
     },
     "OS 02.07": {
       "codigo": "OS 02.07",
@@ -1170,9 +1216,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1X_zNncrA1aAwP-k1zMhZSYEOT2qKTdvi/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1X_zNncrA1aAwP-k1zMhZSYEOT2qKTdvi",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1180,9 +1226,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Fp4rKB9tmVEiPkA4pipseZIBFCclC5L0/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Fp4rKB9tmVEiPkA4pipseZIBFCclC5L0",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1190,9 +1236,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1WRPv_1lAYI6xuC1lx5Mm_K3v0r-gtQum/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1WRPv_1lAYI6xuC1lx5Mm_K3v0r-gtQum",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1200,9 +1246,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-05-29",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1G23olxSYyqkP8Xxs2jPvXkejkEmHrISH/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1G23olxSYyqkP8Xxs2jPvXkejkEmHrISH",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1231,7 +1277,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 10
     },
     "OS 02.08": {
       "codigo": "OS 02.08",
@@ -1308,9 +1355,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1VxAMV8j4qc9V0Uf-5hbBuaIEeFWpPv33/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1VxAMV8j4qc9V0Uf-5hbBuaIEeFWpPv33",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1318,9 +1365,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Lmv-6bzmdp-GpVXe7nooL14kTMDj5t5X/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Lmv-6bzmdp-GpVXe7nooL14kTMDj5t5X",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1328,9 +1375,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1vYyF9zgBd-C1CHVzMFILnfUREnaekaQM/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1vYyF9zgBd-C1CHVzMFILnfUREnaekaQM",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1338,9 +1385,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1K4h3wwFQkZAOBIWdObECJDINVRouPYbl/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1K4h3wwFQkZAOBIWdObECJDINVRouPYbl",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1385,7 +1432,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 11
     },
     "OS 02.09": {
       "codigo": "OS 02.09",
@@ -1436,9 +1484,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1sMwmvIxkkAyZ3aVqyeio969xRWqgMKhp/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1sMwmvIxkkAyZ3aVqyeio969xRWqgMKhp",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1446,9 +1494,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções na proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1F39yGo773YG3aL1U6kEqMlkkj5ch79-c/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1F39yGo773YG3aL1U6kEqMlkkj5ch79-c",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1456,9 +1504,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1PuiBJ_7lgq2WsNEXaaxvbUztKZZTFhZ8/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1PuiBJ_7lgq2WsNEXaaxvbUztKZZTFhZ8",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1466,9 +1514,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-10",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1R3Qa224TVqhAmmsFxBjKciItpJ6wlU3h/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1R3Qa224TVqhAmmsFxBjKciItpJ6wlU3h",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1505,7 +1553,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções da proposta de CAR; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 12
     },
     "OS 02.10": {
       "codigo": "OS 02.10",
@@ -1556,9 +1605,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1jt8DRHMUN4eQWDjShHVK_cZKglho64c3/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1jt8DRHMUN4eQWDjShHVK_cZKglho64c3",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1566,9 +1615,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1b6jNh5qZ6Zh1prLStZcia90zmVx2-vMU/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1b6jNh5qZ6Zh1prLStZcia90zmVx2-vMU",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1576,9 +1625,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1iAWZw8OrgrJUFVIdwDCb6ag3Djt7Bkvo/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1iAWZw8OrgrJUFVIdwDCb6ag3Djt7Bkvo",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1586,9 +1635,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1bQqJ23ypAQM3BT5AEnZpG5dGJp2Qqsw2/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1bQqJ23ypAQM3BT5AEnZpG5dGJp2Qqsw2",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1608,7 +1657,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 13
     },
     "OS 02.11": {
       "codigo": "OS 02.11",
@@ -1645,9 +1695,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1pufUJgXRCs0ny_Y387iNvRSt5aCHuO33/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1pufUJgXRCs0ny_Y387iNvRSt5aCHuO33",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1655,9 +1705,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1_9NJdyAjhJF-0aswm5irA2n3WprFyIGf/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1_9NJdyAjhJF-0aswm5irA2n3WprFyIGf",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1665,9 +1715,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1JJd_KmHmOcgInf-2Em26ne-6_0LBZnrP/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1JJd_KmHmOcgInf-2Em26ne-6_0LBZnrP",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1696,7 +1746,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 3,
         "tiposProdutos": "Intervenções gerais; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 14
     },
     "OS 02.12": {
       "codigo": "OS 02.12",
@@ -1747,9 +1798,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1B8OZngrgN2-3NFI3Qn5l4bI_WnfzwiL-/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1B8OZngrgN2-3NFI3Qn5l4bI_WnfzwiL-",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1757,9 +1808,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções na proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1olGc4hO3cJBzR1EWCSYAFv8hZacQqZA1/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1olGc4hO3cJBzR1EWCSYAFv8hZacQqZA1",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1767,9 +1818,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1RiuqRmKznncKNzOlTb8UqA1CnIUh5k83/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1RiuqRmKznncKNzOlTb8UqA1CnIUh5k83",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1777,9 +1828,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1ReAm--joLA_cOpPfDUeossCeprJPCBAC/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1ReAm--joLA_cOpPfDUeossCeprJPCBAC",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1799,7 +1850,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções da proposta de CAR; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 15
     },
     "OS 02.13": {
       "codigo": "OS 02.13",
@@ -1850,9 +1902,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1GwR4afFK9iMcLk0C60tURrXVfnKk5zZd/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1GwR4afFK9iMcLk0C60tURrXVfnKk5zZd",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1860,9 +1912,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções na proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/12nYQbb64izWfC45H_GLJ7GlZgHhk80h4/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=12nYQbb64izWfC45H_GLJ7GlZgHhk80h4",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1870,9 +1922,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1VZAi154gMy3ojpxRcy82xkKXl72dEnOr/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1VZAi154gMy3ojpxRcy82xkKXl72dEnOr",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1880,9 +1932,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-06-16",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1feJKjgvUT5d_W40cz47JnTHZlxuUnp6v/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1feJKjgvUT5d_W40cz47JnTHZlxuUnp6v",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -1902,7 +1954,8 @@ window.AURA_TITULARIDADE = {
         "status": "Medido",
         "produtosVinculados": 4,
         "tiposProdutos": "Diagnóstico do CAR atual; Intervenções da proposta de CAR; Proposta de CAR; Proposta de perímetro"
-      }
+      },
+      "sequencial": 16
     },
     "OS 03.01": {
       "codigo": "OS 03.01",
@@ -1939,9 +1992,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-07-14",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1hHLa1mFvyUmgTTOIpN63qVZkYX8jJqY2/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1hHLa1mFvyUmgTTOIpN63qVZkYX8jJqY2",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1949,9 +2002,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-07-14",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1fCvXEfLSvIi7ZFG2PapL6HW6ZogAeYf_/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1fCvXEfLSvIi7ZFG2PapL6HW6ZogAeYf_",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1959,9 +2012,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-14",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1jAXrL8EtkherJE5u6jT-A_e51isc4GrM/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1jAXrL8EtkherJE5u6jT-A_e51isc4GrM",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -1969,9 +2022,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-14",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1o8DMYs8tyIXg9EFWCJVBc_SVL0Qq0GoR/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1o8DMYs8tyIXg9EFWCJVBc_SVL0Qq0GoR",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2001,7 +2054,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 17
     },
     "OS 03.02": {
       "codigo": "OS 03.02",
@@ -2038,9 +2092,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1mDe7UN2uUlHYYJbvfDi68sYSeTfyiwff/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1mDe7UN2uUlHYYJbvfDi68sYSeTfyiwff",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2048,9 +2102,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1EFPB1cLO6dimbmlFUxe-FaEwhflhmXAy/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1EFPB1cLO6dimbmlFUxe-FaEwhflhmXAy",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2058,9 +2112,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1KAW1sPKH7MpP-RIrxMByC790AuSEvCXG/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1KAW1sPKH7MpP-RIrxMByC790AuSEvCXG",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2068,9 +2122,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/19XZk9Z8LnigZvB9tyt_-x2oCutgIkOGQ/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=19XZk9Z8LnigZvB9tyt_-x2oCutgIkOGQ",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2100,7 +2154,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 18
     },
     "OS 03.03": {
       "codigo": "OS 03.03",
@@ -2137,9 +2192,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/15qxXvISTnd-uuONaITTEBhgo9I6WDxBm/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=15qxXvISTnd-uuONaITTEBhgo9I6WDxBm",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2147,9 +2202,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Wk8SVrFk2mwR58elGSwtwjefyc6rC01O/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Wk8SVrFk2mwR58elGSwtwjefyc6rC01O",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2179,7 +2234,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 19
     },
     "OS 03.04": {
       "codigo": "OS 03.04",
@@ -2216,9 +2272,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1fa84GdDThv1aBio5quuc1H1cU5u8WSvE/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1fa84GdDThv1aBio5quuc1H1cU5u8WSvE",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2226,9 +2282,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1BR25nO6qlICaCehbv9aBNwK0leIJ58qo/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1BR25nO6qlICaCehbv9aBNwK0leIJ58qo",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2258,7 +2314,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 20
     },
     "OS 03.05": {
       "codigo": "OS 03.05",
@@ -2295,9 +2352,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Esu07qZnseUMTOaHr8g7svFHTCbzWtoC/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Esu07qZnseUMTOaHr8g7svFHTCbzWtoC",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2305,9 +2362,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1G3fTvGbKJapflY8VpJa0JlumdaCE56mD/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1G3fTvGbKJapflY8VpJa0JlumdaCE56mD",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2337,7 +2394,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 21
     },
     "OS 03.06": {
       "codigo": "OS 03.06",
@@ -2374,9 +2432,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1I4xhqCVlFMtPyoNM2cTy-DboeNh-3iug/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1I4xhqCVlFMtPyoNM2cTy-DboeNh-3iug",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2384,9 +2442,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1bXliHPuwO2sIIHTdPOjkEGLtCVG5qTFb/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1bXliHPuwO2sIIHTdPOjkEGLtCVG5qTFb",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2394,9 +2452,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1g7m2y9Sc3_fJgsa5yjHwwMSIQ6D-tBai/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1g7m2y9Sc3_fJgsa5yjHwwMSIQ6D-tBai",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2426,7 +2484,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 22
     },
     "OS 03.07": {
       "codigo": "OS 03.07",
@@ -2463,9 +2522,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Diagnóstico de intervenções no CAR atual",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1kKjcZL-zJuq7X1POR3f69vBVR2WpP1Xp/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1kKjcZL-zJuq7X1POR3f69vBVR2WpP1Xp",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2473,9 +2532,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Intervenções gerais na análise CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1Y944O2PwQgLYccW3uy8497wPz4gf4kD1/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Y944O2PwQgLYccW3uy8497wPz4gf4kD1",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2483,9 +2542,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta CAR",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1lyap9Dh6kW-7EihgNVHy1qO4DLY3Aa-o/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1lyap9Dh6kW-7EihgNVHy1qO4DLY3Aa-o",
+          "status": "vigente",
           "historico": []
         },
         {
@@ -2493,9 +2552,9 @@ window.AURA_TITULARIDADE = {
           "titulo": "Proposta de perímetro",
           "versaoVigente": 1,
           "data": "2026-07-23",
-          "status": "vigente",
           "pdfViewUrl": "https://drive.google.com/file/d/1-Wp40JaYrQOLKLC2DNpHefe0d4StM3Ou/view",
           "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1-Wp40JaYrQOLKLC2DNpHefe0d4StM3Ou",
+          "status": "vigente",
           "historico": []
         }
       ],
@@ -2525,7 +2584,8 @@ window.AURA_TITULARIDADE = {
           "prioridade": "Média"
         }
       ],
-      "medicao": null
+      "medicao": null,
+      "sequencial": 23
     },
     "OS 04.01": {
       "imovel": "Fazenda Nogueira",
@@ -2540,7 +2600,23 @@ window.AURA_TITULARIDADE = {
       "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
       "atualizadoEm": "2026-09-09",
       "codigo": "OS 04.01",
-      "pendencias": []
+      "pendencias": [],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 1,
+      "produtosVersoesVigentes": "Análise do CAR atual V1",
+      "sequencial": 24,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Nogueira.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Nogueira.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ]
     },
     "OS 04.02": {
       "imovel": "Cachoeira de Santa Maria",
@@ -2555,7 +2631,23 @@ window.AURA_TITULARIDADE = {
       "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
       "atualizadoEm": "2026-09-09",
       "codigo": "OS 04.02",
-      "pendencias": []
+      "pendencias": [],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 1,
+      "produtosVersoesVigentes": "Análise do CAR atual V1",
+      "sequencial": 25,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cachoeira_de_Santa_Maria.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cachoeira_de_Santa_Maria.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ]
     },
     "OS 04.03": {
       "imovel": "Fazenda Lavrinha - Lote 18",
@@ -2570,7 +2662,23 @@ window.AURA_TITULARIDADE = {
       "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
       "atualizadoEm": "2026-09-09",
       "codigo": "OS 04.03",
-      "pendencias": []
+      "pendencias": [],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 1,
+      "produtosVersoesVigentes": "Análise do CAR atual V1",
+      "sequencial": 26,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Lavrinha_Lote_18_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Lavrinha_Lote_18_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ]
     },
     "OS 04.04": {
       "imovel": "Fazenda Cancela",
@@ -2585,7 +2693,23 @@ window.AURA_TITULARIDADE = {
       "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
       "atualizadoEm": "2026-09-09",
       "codigo": "OS 04.04",
-      "pendencias": []
+      "pendencias": [],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 1,
+      "produtosVersoesVigentes": "Análise do CAR atual V1",
+      "sequencial": 27,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Cancela_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Fazenda_Cancela_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ]
     },
     "OS 04.05": {
       "imovel": "Cabeceira da Buzina",
@@ -2600,7 +2724,23 @@ window.AURA_TITULARIDADE = {
       "ressalvas": "Cadastro já existente no Webmapa; dados transcritos do catálogo. Titularidade não consolidada.",
       "atualizadoEm": "2026-09-09",
       "codigo": "OS 04.05",
-      "pendencias": []
+      "pendencias": [],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 1,
+      "produtosVersoesVigentes": "Análise do CAR atual V1",
+      "sequencial": 28,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Análise do CAR atual",
+          "versaoVigente": 1,
+          "data": "2026-08-07",
+          "pdfViewUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cabeceira_da_Buzina_ajuste_tipografia.pdf",
+          "pdfDownloadUrl": "documents/produtos/os04/Carta_Imagem_CAR_Cabeceira_da_Buzina_ajuste_tipografia.pdf",
+          "status": "vigente",
+          "historico": []
+        }
+      ]
     },
     "OS 05.01": {
       "imovel": "Fazenda Galiléia",
@@ -2656,7 +2796,169 @@ window.AURA_TITULARIDADE = {
           "descricao": "Identificar proprietário informado, pessoa de contato e telefone, com fonte verificável.",
           "prioridade": "Alta"
         }
+      ],
+      "telefone": "",
+      "quantidadeProdutosVigentes": 2,
+      "produtosVersoesVigentes": "Análise de perímetro V1; Proposta de CAR V3",
+      "sequencial": 29,
+      "produtos": [
+        {
+          "tipo": "analise-perimetro",
+          "titulo": "Análise de perímetro",
+          "versaoVigente": 1,
+          "data": "2026-08-03",
+          "pdfViewUrl": "https://drive.google.com/file/d/1pfP1wB8eCcAPGP6E9m-n7zCLSg2UkXA_/view",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1pfP1wB8eCcAPGP6E9m-n7zCLSg2UkXA_",
+          "status": "vigente",
+          "historico": []
+        },
+        {
+          "tipo": "proposta-car",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 3,
+          "data": "2026-08-03",
+          "pdfViewUrl": "https://drive.google.com/file/d/15T_Tjw3KIitfC_jcQ7m5gvUNkjWbDLrA/view",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=15T_Tjw3KIitfC_jcQ7m5gvUNkjWbDLrA",
+          "status": "vigente",
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-08-02",
+              "pdfViewUrl": "https://drive.google.com/file/d/1NrzejwYMaWZunQZt3jHHACyB5TW1MZr9/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1NrzejwYMaWZunQZt3jHHACyB5TW1MZr9"
+            },
+            {
+              "versao": 2,
+              "data": "2026-08-02",
+              "pdfViewUrl": "https://drive.google.com/file/d/1TDVcNE4kK-bcbrqnUFcKLii9lv3oai6P/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TDVcNE4kK-bcbrqnUFcKLii9lv3oai6P"
+            }
+          ]
+        }
       ]
+    },
+    "OS 01.04": {
+      "imovel": "Fazenda Matheus Lopes Sul",
+      "proprietarioInformado": "Francisco Felix da Costa (Espólio)",
+      "titularConfirmado": "",
+      "statusTitularidade": "Titular registral pendente",
+      "matriculas": "",
+      "carTo": "2174837",
+      "carFederal": "",
+      "telefone": "",
+      "fonteTitularidade": "Carta Proposta CAR V1, 22/09/2026 (proprietário informado)",
+      "fonteCar": "Diagnóstico CAR atual, 23/09/2026 (referência documental)",
+      "quantidadeProdutosVigentes": 4,
+      "produtosVersoesVigentes": "Diagnóstico de intervenções no CAR atual: Sem versão indicada; Intervenções e reserva legal na análise CAR: V1; Proposta de CAR: V1; Proposta de perímetro: V1",
+      "ressalvas": "Limite aproximado derivado do PDF Proposta CAR V1 de 22/09/2026, não do SHP original. Área geométrica UTM: 269.1500 ha; área informada na carta: 269.1182 ha. Não constitui levantamento cadastral. Pacote contém somente o limite; obter SHP temático original. CAR/TO 2174837 referenciado na carta: APR declarada 268,8767 ha. APR analisada na proposta: 269,1182 ha. Não somar as duas áreas. Francisco Felix da Costa (Espólio) informado na carta; titular registral e representante/contato pendentes de confirmação. Matrícula 26 é hipótese de correlação, não vínculo confirmado.",
+      "atualizadoEm": "2026-09-23",
+      "codigo": "OS 01.04",
+      "sequencial": 30,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Diagnóstico de intervenções no CAR atual",
+          "versaoVigente": null,
+          "rotuloVersao": "Sem versão indicada",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1RlovDuLhEbAm81n1AP2_K5xsTMeVCETo/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1RlovDuLhEbAm81n1AP2_K5xsTMeVCETo",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_diagnostico-car-atual_SV_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "intervencoes-gerais",
+          "titulo": "Intervenções e reserva legal na análise CAR",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1TtbAaWj57m0Kp0_xTlCoQ3la90MIOVAO/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TtbAaWj57m0Kp0_xTlCoQ3la90MIOVAO",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_intervencoes-gerais_V01_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "proposta-car",
+          "titulo": "Proposta de CAR",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-22",
+          "pdfViewUrl": "https://drive.google.com/file/d/1TEduQa_poKMFFjNfiv-4veGjnzeqz5Vf/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1TEduQa_poKMFFjNfiv-4veGjnzeqz5Vf",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_proposta-car_V01_2026-09-22.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        },
+        {
+          "tipo": "proposta-perimetro",
+          "titulo": "Proposta de perímetro",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-09-23",
+          "pdfViewUrl": "https://drive.google.com/file/d/1GKE_iBZ_68w5IBk6pxGJE0E02-LQXRzu/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1GKE_iBZ_68w5IBk6pxGJE0E02-LQXRzu",
+          "pdfLocalUrl": "documents/produtos/set23/OS-01.04_proposta-perimetro_V01_2026-09-23.pdf",
+          "status": "vigente",
+          "historico": [],
+          "observacao": ""
+        }
+      ],
+      "pendencias": [
+        {
+          "id": "SET23-SUL-01",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Limite aproximado derivado do PDF Proposta CAR V1 de 22/09/2026, não do SHP original. Área geométrica UTM: 269.1500 ha; área informada na carta: 269.1182 ha. Não constitui levantamento cadastral. Pacote contém somente o limite; obter SHP temático original.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "SET23-SUL-02",
+          "tipo": "Titularidade",
+          "responsavel": "Revisão documental",
+          "status": "Pendente",
+          "descricao": "Confirmar relação com matrícula 26. Obter certidão e titular registral; não vincular por simples menção na carta.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "SET23-SUL-03",
+          "tipo": "Contato",
+          "responsavel": "Gestão do contrato",
+          "status": "Pendente",
+          "descricao": "Confirmar representante do espólio e contato. Não reutilizar telefone de outra OS sem confirmação.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "SET23-SUL-04",
+          "tipo": "CAR",
+          "responsavel": "Revisão documental",
+          "status": "Pendente",
+          "descricao": "Obter recibo CAR/TO 2174837, código federal e situação atual. Carta é referência documental, não consulta oficial atual.",
+          "prioridade": "Alta"
+        }
+      ],
+      "documentos": [],
+      "vetores": {
+        "codigo": "OS 01.04",
+        "imovel": "Fazenda Matheus Lopes Sul",
+        "versao": "Derivado de PDF V1",
+        "revisao": "2026-09-22",
+        "camadaFonte": "set23_sul_pdf",
+        "shpNome": "OS-01.04_Limite-derivado-PDF_V01_2026-09-22.zip",
+        "kmlNome": "OS-01.04_Limite-derivado-PDF_V01_2026-09-22.kml",
+        "formatoPacote": "SHP do limite derivado de PDF",
+        "tituloPacote": "Limite aproximado derivado do PDF (não é SHP temático completo)",
+        "ressalvas": "Limite aproximado derivado do PDF Proposta CAR V1 de 22/09/2026, não do SHP original. Área geométrica UTM: 269.1500 ha; área informada na carta: 269.1182 ha. Não constitui levantamento cadastral. Pacote contém somente o limite; obter SHP temático original.",
+        "areaGeometricaHa": 269.15001793252344,
+        "areaDeclaradaHa": 269.1182,
+        "shpDownloadUrl": "https://drive.google.com/uc?export=download&id=1kyGOfZGalpeLITzdMJVGqeyUIsX-mdZw",
+        "kmlDownloadUrl": "https://drive.google.com/uc?export=download&id=1TgffHiwnS5c5o-FUt5XAmXMg8vsioZvq"
+      }
     }
   },
   "fonte": "Base Consolidada Webmap Aura.xlsx"

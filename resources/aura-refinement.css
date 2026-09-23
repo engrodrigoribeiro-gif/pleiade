@@ -783,6 +783,8 @@ body,
 .ol-popupfeature:has(.aura-map-product-popup) td.ol-value {
   display: block;
   width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 }
 
 .ol-popupfeature:has(.aura-map-product-popup) td.ol-label {
@@ -887,8 +889,31 @@ body,
 }
 
 @media (max-width: 620px) {
+  /* Keep product cards on-screen after locating a property or rotating a phone. */
+  .ol-popup:has(.aura-map-product-popup) {
+    position: fixed !important;
+    inset: 12px 8px auto !important;
+    transform: none !important;
+    width: calc(100vw - 16px) !important;
+    max-width: none !important;
+    z-index: 1200;
+  }
+  .ol-popup:has(.aura-map-product-popup) > div {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+  }
+  .ol-popup:has(.aura-map-product-popup) .anchor,
+  .ol-popupfeature:has(.aura-map-product-popup) > h1 {
+    display: none;
+  }
+  .ol-popup:has(.aura-map-product-popup) .ol-popup-content {
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
   .aura-map-product-popup {
-    width: min(22rem, calc(100vw - 2rem));
+    width: 100%;
     max-height: calc(100dvh - 5rem);
   }
 

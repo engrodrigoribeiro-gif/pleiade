@@ -138,7 +138,7 @@
     });
     var match = String(os.codigo || "").match(/(\d+)\.(\d+)/);
     var code = match ? "OS." + match[1] + "-" + match[2] : String(os.codigo || "");
-    return (index >= 0 ? (index + 1) + " - " : "") + code;
+    return (os.sequencial || (index >= 0 ? index + 1 : "")) + " - " + code;
   }
 
   function externalLink(label, url, className) {
@@ -164,6 +164,14 @@
   function locateOs(os) {
     var extent = ol.extent.createEmpty();
     var hasExtent = false;
+    // A visible leaf is still hidden when an ancestor group is disabled.
+    function reveal(layer) {
+      var found = layer.get && layer.get("auraOsId") === os.id;
+      if (layer.getLayers) layer.getLayers().forEach(function(child){if(reveal(child))found=true;});
+      if (found) layer.setVisible(true);
+      return found;
+    }
+    map.getLayers().forEach(reveal);
     layersForOs(os.id).forEach(function (layer) {
       var source = typeof layer.getSource === "function" && layer.getSource();
       if (!source || typeof source.getExtent !== "function") return;
@@ -175,8 +183,11 @@
       layer.setVisible(true);
     });
     if (hasExtent) {
+      var detail = document.querySelector(".aura-os-panel");
+      if(detail){detail.classList.remove("is-open");detail.setAttribute("aria-hidden","true");}
+      if(typeof sidebar!=="undefined" && sidebar.close)sidebar.close();
       map.getView().fit(extent, {
-        padding: [72, 440, 72, 72],
+        padding: window.innerWidth < 900 ? [48,24,48,90] : [72,430,72,245],
         maxZoom: 16,
         duration: 500,
       });
@@ -226,7 +237,7 @@
     panel.appendChild(actions);
 
     var vetores = titularidadeData.vetores || vectorData;
-    panel.appendChild(element("h3", "aura-os-section-title", vetores.tituloPacote ? "Dados vetoriais recebidos" : "Dados vetoriais vigentes"));
+    panel.appendChild(element("h3", "aura-os-section-title", vetores.tituloPacote ? "Dados vetoriais disponíveis" : "Dados vetoriais vigentes"));
     if (vetores && (vetores.shpDownloadUrl || vetores.kmlDownloadUrl)) {
       var vectorCard = element("article", "aura-product-card aura-vector-card");
       var vectorHeading = element("div", "aura-product-heading");
@@ -235,7 +246,7 @@
       vectorCard.appendChild(vectorHeading);
       vectorCard.appendChild(element("p", "aura-os-data-note", "Revisão: " + (vetores.revisao || "não informada")));
       var vectorLinks = element("div", "aura-product-links aura-vector-links");
-      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink(vetores.formatoPacote === "GeoJSON + KML" ? "Baixar pacote vetorial (.zip)" : vetores.tituloPacote ? "Baixar SHP recebido (.zip)" : "Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
+      if (vetores.shpDownloadUrl) vectorLinks.appendChild(externalLink(vetores.formatoPacote === "GeoJSON + KML" ? "Baixar pacote vetorial (.zip)" : vetores.tituloPacote ? "Baixar SHP disponível (.zip)" : "Baixar SHP completo (.zip)", vetores.shpDownloadUrl));
       if (vetores.kmlDownloadUrl) vectorLinks.appendChild(externalLink("Download KML", vetores.kmlDownloadUrl));
       vectorCard.appendChild(vectorLinks);
       if (vetores.ressalvas) vectorCard.appendChild(element("p", "aura-os-pending-note", vetores.ressalvas));
@@ -289,9 +300,10 @@
       var card = element("article", "aura-product-card");
       var heading = element("div", "aura-product-heading");
       heading.appendChild(element("strong", "", product.titulo));
-      heading.appendChild(element("span", "aura-version", "V" + product.versaoVigente));
+      heading.appendChild(element("span", "aura-version", product.rotuloVersao || "V" + product.versaoVigente));
       card.appendChild(heading);
       card.appendChild(element("time", "", product.data));
+      if (product.observacao) card.appendChild(element("p", "aura-os-pending-note", product.observacao));
       var links = element("div", "aura-product-links");
       links.appendChild(externalLink("Visualizar PDF", product.pdfViewUrl));
       links.appendChild(externalLink("Download", product.pdfDownloadUrl));
@@ -380,7 +392,7 @@
       var rows = products.map(function (product) {
         var download = product.pdfDownloadUrl ? '<a href="' + escapePopupHtml(product.pdfDownloadUrl) + '" target="_blank" rel="noopener noreferrer" download>Download</a>' : "";
         return '<section class="aura-map-product-item"><div class="aura-map-product-identity">' +
-          '<strong>' + escapePopupHtml(product.titulo) + '</strong><span>V' + escapePopupHtml(product.versaoVigente) +
+          '<strong>' + escapePopupHtml(product.titulo) + '</strong><span>' + escapePopupHtml(product.rotuloVersao || "V" + product.versaoVigente) +
           ' &middot; ' + escapePopupHtml(formatDate(product.data)) + '</span></div><div class="aura-map-product-links">' +
           '<a href="' + escapePopupHtml(product.pdfViewUrl) + '" target="_blank" rel="noopener noreferrer">Visualizar PDF</a>' + download +
           '</div></section>';
@@ -445,7 +457,7 @@
 
   function productVersionLabel(product, suffix) {
     if (!product) return "—";
-    var label = "V" + product.versaoVigente;
+    var label = product.rotuloVersao || "V" + product.versaoVigente;
     if (suffix) label += " " + suffix;
     if (product.historico && product.historico.length) label += " · " + product.historico.length + " ant.";
     return label;

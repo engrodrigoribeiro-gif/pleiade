@@ -58,7 +58,7 @@
     var match = String(os.codigo || "").match(/(\d+)\.(\d+)/);
     var code = match ? "OS." + match[1] + "-" + match[2] : String(os.codigo || "");
     var propertyName = String(os.imovel || "").replace(/\s*\|\s*/g, " - ");
-    var parts = [(index + 1) + " - " + code, propertyName];
+    var parts = [(os.sequencial || index + 1) + " - " + code, propertyName];
     if (os.responsavel) parts.push(os.responsavel);
     return parts.join(" - ");
   }
@@ -139,6 +139,7 @@
       limit.set("popuplayertitle", limitLabel + " - limite");
       limit.set("auraOsId", os.id);
       limit.set("auraLimitColor", LIMIT_COLOR);
+      limit.set("interactive", true);
       var limitVector = window.AURA_VETORES && window.AURA_VETORES.ordens && window.AURA_VETORES.ordens[os.codigo];
       if (limitVector && limitVector.kmlDownloadUrl) {
         limit.set("auraKmlDownloadUrl", limitVector.kmlDownloadUrl);
@@ -166,7 +167,7 @@
     if (osVector && osVector.shpDownloadUrl) {
       subgroup.set("auraShpDownloadUrl", osVector.shpDownloadUrl);
       subgroup.set("auraShpFileName", osVector.shpNome);
-      subgroup.set("auraShpLabel", osVector.tituloPacote ? "Baixar SHP recebido — conferência V3 pendente" : "Baixar pacote SHP vigente desta OS");
+      subgroup.set("auraShpLabel", osVector.tituloPacote ? "Baixar " + osVector.tituloPacote : "Baixar pacote SHP vigente desta OS");
     }
     groups[os.grupo].push(subgroup);
   });
