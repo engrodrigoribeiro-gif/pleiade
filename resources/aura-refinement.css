@@ -841,6 +841,17 @@ body,
   min-width: 0;
 }
 
+/* Parts of a delivery occupy the full row, never the title's narrow column. */
+.aura-map-product-item > .aura-map-product-item {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 0.6rem 0 0.6rem 0.65rem;
+  border-left: 3px solid var(--aura-line);
+  border-bottom: 0;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
 .aura-map-product-identity strong {
   font-size: 0.88rem;
   font-weight: 650;

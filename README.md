@@ -77,6 +77,14 @@ registrada no repositório, no README ou em arquivos `.env` versionados.
 - A carta de intervenções V2 da Floresta mantém a divergência original entre a nota (7110,5840 ha) e a legenda (110,5840 ha), com aviso para revisão.
 - Usar o conteúdo desta pasta na raiz do repositório, não o ZIP nem a planilha. Validar primeiro em Vercel Preview antes de promover a produção.
 
+## Atualização de 28/10/2026
+
+- 31 imóveis/OS e 98 produtos principais; anexos identificados separadamente.
+- OS 01.02: intervenções V2. OS 02.01: proposta CAR e sondagens V4, com quatro partes da entrega.
+- OS 02.14: Fazenda Santo Antônio, sequencial 31, quatro produtos V1 e dois detalhes da mesma versão; SHP recebido com oito classes e KML do limite.
+- Histórico anterior preservado. SHP V2 da OS 01.02 e V4 da OS 02.01 ainda pendentes; não confundir com os vetores anteriores disponíveis.
+- Conferência visual, responsiva e dos WMS pendente no Preview. Consulte `LEIA-ME-PUBLICACAO-2026-10-28.txt` antes de promover para produção.
+
 ## Limitação de acesso
 
 Basic Auth controla quem entra no site. Depois de autenticado, qualquer

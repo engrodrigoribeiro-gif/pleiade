@@ -1,0 +1,36 @@
+WEBMAP AURA — VERSÃO CANDIDATA DE 28/10/2026
+
+Publicar primeiro em Preview da Vercel. A publicação não foi executada pelo assistente.
+
+ATUALIZAÇÕES
+- OS 01.02, Matheus Lopes Oeste: intervenções V2; demais produtos preservados.
+- OS 02.01, Nova Prata: proposta CAR e sondagens V4. Quatro partes identificadas: proposta geral, alternativa de reserva realocada, sondagens gerais e detalhe. Não há escolha de aprovação entre alternativas.
+- OS 02.14, Fazenda Santo Antônio: novo imóvel, sequencial estável 31. Quatro produtos V1 e dois detalhes da mesma V1. SHP recebido com 8 classes e KML somente do limite.
+- Total: 31 imóveis e 98 produtos principais. Anexos não aumentam o número de produtos.
+- Versões anteriores e numeração dos imóveis 1 a 30 preservadas.
+
+VALIDAÇÕES REALIZADAS
+- Catálogo e planilha reconciliados; arquivos novos no Drive conferidos por SHA-256 após download.
+- Referências locais, sintaxe JavaScript, JSON e autenticação testados.
+- Geração de links dos pop-ups testada por teste unitário, sem navegador.
+
+CONFERÊNCIA OBRIGATÓRIA NO PREVIEW
+O navegador de teste bloqueou a abertura local por política de segurança. Não foi realizada conferência visual ou responsiva nesta versão.
+1. Abrir as fichas e pop-ups das OS 01.02, 02.01 e 02.14.
+2. Conferir os quatro PDFs novos da Nova Prata e seis da Santo Antônio, incluindo os anexos.
+3. Abrir Visualizar (Drive incorporado), Download e a cópia local alternativa.
+4. Ativar limite e temas da Santo Antônio; testar SHP e KML.
+5. Conferir em 1920x1080, 1366x768, 1024x768 e 390x844.
+6. Conferir os WMS/WMTS: não foram revalidados nesta entrega.
+
+RESSALVAS DOS DADOS
+- Matheus Lopes Oeste: vetor da intervenção V2 não recebido; SHP anterior V1 preservado.
+- Nova Prata: vetores V4 não recebidos; SHP anterior V3 preservado.
+- Santo Antônio: SHP não inclui camadas próprias de RL, servidão, nascentes ou recortes de intervenção. Não chamar o pacote de completo em relação a todos os PDFs.
+- Matrícula 3227 é hipótese da carta; proprietário, titular, contato e CAR próprios continuam pendentes. Não usar códigos de imóveis vizinhos.
+
+COMO PUBLICAR
+Usar o conteúdo desta pasta como raiz do repositório: index.html, package.json, middleware.js e vercel.json devem ficar na raiz.
+Não enviar o ZIP como um único arquivo para o GitHub. Extrair antes ou usar diretamente a pasta final.
+Manter BASIC_AUTH_USER e BASIC_AUTH_PASSWORD existentes no ambiente Preview e Production da Vercel. Não inserir valores reais nos arquivos.
+Promover para Production somente após conferir o Preview. A autenticação local foi testada com valores fictícios; nenhuma senha real foi alterada.

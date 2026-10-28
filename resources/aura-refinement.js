@@ -308,6 +308,14 @@
       links.appendChild(externalLink("Visualizar PDF", product.pdfViewUrl));
       links.appendChild(externalLink("Download", product.pdfDownloadUrl));
       card.appendChild(links);
+      (product.anexos || []).forEach(function (part) {
+        var attachment = element("div", "aura-product-card");
+        attachment.appendChild(element("strong", "", part.titulo + " — " + part.rotuloVersao));
+        var actions = element("div", "aura-product-links");
+        actions.appendChild(externalLink("Visualizar PDF", part.pdfViewUrl));
+        actions.appendChild(externalLink("Download", part.pdfDownloadUrl));
+        attachment.appendChild(actions);card.appendChild(attachment);
+      });
       if (product.historico && product.historico.length) {
         var history = element("details", "aura-product-history");
         history.appendChild(element("summary", "", "Histórico substituído (" + product.historico.length + ")"));
@@ -395,13 +403,13 @@
           '<strong>' + escapePopupHtml(product.titulo) + '</strong><span>' + escapePopupHtml(product.rotuloVersao || "V" + product.versaoVigente) +
           ' &middot; ' + escapePopupHtml(formatDate(product.data)) + '</span></div><div class="aura-map-product-links">' +
           '<a href="' + escapePopupHtml(product.pdfViewUrl) + '" target="_blank" rel="noopener noreferrer">Visualizar PDF</a>' + download +
-          '</div></section>';
+          '</div>' + (product.anexos || []).map(function(part){return '<div class="aura-map-product-item"><strong>'+escapePopupHtml(part.titulo)+' — '+escapePopupHtml(part.rotuloVersao)+'</strong><div class="aura-map-product-links"><a href="'+escapePopupHtml(part.pdfViewUrl)+'" target="_blank" rel="noopener noreferrer">Visualizar PDF</a><a href="'+escapePopupHtml(part.pdfDownloadUrl)+'" target="_blank" rel="noopener noreferrer" download>Download</a></div></div>';}).join('') + '</section>';
       }).join("");
       if (!rows) rows = '<p class="aura-os-pending-note">Nenhuma carta aprovada est&aacute; vinculada a esta OS.</p>';
       return '<article class="aura-map-product-popup"><header class="aura-map-product-header">' +
         '<span class="aura-map-product-code">' + escapePopupHtml(osSequenceReference(os)) + '</span><h2>' +
         escapePopupHtml(os.imovel + (os.responsavel ? " — " + os.responsavel : "")) +
-        '</h2></header><p class="aura-map-product-intro">Cartas aprovadas — versões vigentes</p>' +
+        '</h2></header><p class="aura-map-product-intro">Produtos atuais e partes da entrega — versões vigentes</p>' +
         '<div class="aura-map-product-list">' + rows + '</div></article>';
     }
 

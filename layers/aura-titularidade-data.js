@@ -1,5 +1,5 @@
 window.AURA_TITULARIDADE = {
-  "atualizadoEm": "2026-09-23",
+  "atualizadoEm": "2026-10-28",
   "documentosDrive": "https://drive.google.com/drive/folders/1yJS7iFOCGfAmf_Ud4CVdrrM_rsDZwZ9z",
   "ordens": {
     "OS 01.01": {
@@ -204,9 +204,9 @@ window.AURA_TITULARIDADE = {
       "fonteTitularidade": "Planilha-fonte, linha 10",
       "fonteCar": "",
       "quantidadeProdutosVigentes": 3,
-      "produtosVersoesVigentes": "Intervenções gerais V1; Proposta de CAR V1; Proposta de perímetro V2",
-      "ressalvas": "",
-      "atualizadoEm": "2026-08-03",
+      "produtosVersoesVigentes": "Intervenções gerais na análise CAR: V2; Proposta CAR: V1; Proposta de perímetro: V2",
+      "ressalvas": "Pasta, versões e documentos vigentes conferidos no Google Drive em 24/07/2026. A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada. Intervenções V2 recebidas em 28/10/2026. SHP anterior V1 preservado; vetor da intervenção V2 não recebido. Demais produtos mantêm suas versões.",
+      "atualizadoEm": "2026-10-28",
       "statusContato": "Contato informado",
       "statusDocumental": "Documento recebido",
       "vetores": {
@@ -238,12 +238,24 @@ window.AURA_TITULARIDADE = {
         {
           "tipo": "intervencoes-gerais",
           "titulo": "Intervenções gerais na análise CAR",
-          "versaoVigente": 1,
-          "data": "2026-05-07",
-          "pdfViewUrl": "https://drive.google.com/file/d/1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP",
+          "versaoVigente": 2,
+          "rotuloVersao": "V2",
+          "data": "2026-10-21",
+          "pdfViewUrl": "https://drive.google.com/file/d/1_nIwtS5D4lRSWZQl5Hc7qpUqFN7R_BVw/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1_nIwtS5D4lRSWZQl5Hc7qpUqFN7R_BVw",
+          "pdfLocalUrl": "documents/produtos/out28/OS-01.02_intervencoes-gerais_V02_2026-10-21.pdf",
           "status": "vigente",
-          "historico": []
+          "historico": [
+            {
+              "versao": 1,
+              "data": "2026-05-07",
+              "status": "substituido",
+              "pdfViewUrl": "https://drive.google.com/file/d/1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1wWDzgiltY6U2WnxyLVk1sTXBTo3FEXfP",
+              "anexos": []
+            }
+          ],
+          "anexos": []
         },
         {
           "tipo": "proposta-car",
@@ -273,7 +285,16 @@ window.AURA_TITULARIDADE = {
           ]
         }
       ],
-      "pendencias": [],
+      "pendencias": [
+        {
+          "id": "OUT28-01",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Intervenções V2 recebidas em 28/10/2026. SHP anterior V1 preservado; vetor da intervenção V2 não recebido. Demais produtos mantêm suas versões.",
+          "prioridade": "Alta"
+        }
+      ],
       "medicao": {
         "boletim": "BM 001/2026",
         "contrato": "CPS 00003283",
@@ -436,9 +457,9 @@ window.AURA_TITULARIDADE = {
       "fonteTitularidade": "Planilha-fonte, linha 5",
       "fonteCar": "Camada Imóveis Estrada - Nova Prata",
       "quantidadeProdutosVigentes": 5,
-      "produtosVersoesVigentes": "Diagnóstico do CAR atual V2; Intervenções gerais V3; Intervenções de sondagens V3; Proposta de CAR V3; Proposta de perímetro V1",
-      "ressalvas": "Matrícula 1413 é de origem e contém desmembramentos; validar recorte atual.",
-      "atualizadoEm": "2026-08-03",
+      "produtosVersoesVigentes": "Diagnóstico de intervenções no CAR atual: V2; Intervenções gerais na análise CAR: V3; Sondagens na proposta CAR — visão geral: V4 + 1 anexo; Proposta CAR — cenário geral: V4 + 1 anexo; Proposta de perímetro: V1",
+      "ressalvas": "Pasta, versões e documentos vigentes conferidos no Google Drive em 24/07/2026. A camada canônica ainda será materializada; a correspondência com as camadas legadas já foi registrada. Proposta CAR e sondagens V4 recebidas em 28/10/2026, com quatro partes identificadas. SHP anterior V3 preservado; vetores V4 não recebidos. Reserva realocada mantida como alternativa, não aprovação preferencial.",
+      "atualizadoEm": "2026-10-28",
       "statusContato": "Contato informado",
       "statusDocumental": "Documento recebido",
       "vetores": {
@@ -509,37 +530,83 @@ window.AURA_TITULARIDADE = {
         },
         {
           "tipo": "intervencoes-sondagens",
-          "titulo": "Intervenções e sondagens na análise CAR",
-          "versaoVigente": 3,
-          "data": "2026-05-10",
-          "pdfViewUrl": "https://drive.google.com/file/d/1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs",
+          "titulo": "Sondagens na proposta CAR — visão geral",
+          "versaoVigente": 4,
+          "rotuloVersao": "V4",
+          "data": "2026-10-21",
+          "pdfViewUrl": "https://drive.google.com/file/d/1eQcIQYaYHLyMJcuE853brIGfpyqUbGlt/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1eQcIQYaYHLyMJcuE853brIGfpyqUbGlt",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.01_intervencoes-sondagens_V04_2026-10-21.pdf",
           "status": "vigente",
           "historico": [
+            {
+              "versao": 3,
+              "data": "2026-05-10",
+              "status": "substituido",
+              "pdfViewUrl": "https://drive.google.com/file/d/1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1yyzZR8ht8ujuAnYVyoJoVt7Alskp9FZs",
+              "anexos": []
+            },
             {
               "versao": 2,
               "data": "2026-05-07",
               "status": "substituido",
               "pdfViewUrl": "https://drive.google.com/file/d/1GURMaFmNIakbmzt3F_UV_teonrqGA8wZ/view"
             }
-          ]
+          ],
+          "anexos": [
+            {
+              "titulo": "Sondagens — detalhe das interferências (1,1211 ha)",
+              "versaoVigente": 4,
+              "rotuloVersao": "V4",
+              "data": "2026-10-21",
+              "pdfViewUrl": "https://drive.google.com/file/d/1vRgaI2-G4dFqD49tmiWS3ZhJbIs3FrVt/view?usp=drivesdk",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1vRgaI2-G4dFqD49tmiWS3ZhJbIs3FrVt",
+              "pdfLocalUrl": "documents/produtos/out28/OS-02.01_intervencoes-sondagens_detalhe-sondagens_V04_2026-10-21.pdf",
+              "papel": "detalhe-sondagens"
+            }
+          ],
+          "observacao": "Entrega V4 com partes identificadas. Reserva realocada é alternativa de estudo, sem indicação de aprovação preferencial."
         },
         {
           "tipo": "proposta-car",
-          "titulo": "Proposta CAR",
-          "versaoVigente": 3,
-          "data": "2026-05-10",
-          "pdfViewUrl": "https://drive.google.com/file/d/157Yne2c_vOumBP73177UlQFy2azVP0tr/view",
-          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=157Yne2c_vOumBP73177UlQFy2azVP0tr",
+          "titulo": "Proposta CAR — cenário geral",
+          "versaoVigente": 4,
+          "rotuloVersao": "V4",
+          "data": "2026-10-21",
+          "pdfViewUrl": "https://drive.google.com/file/d/1QlaeSC8KlT0pHC2vfG26cvdm9nwdtvx2/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1QlaeSC8KlT0pHC2vfG26cvdm9nwdtvx2",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.01_proposta-car_V04_2026-10-21.pdf",
           "status": "vigente",
           "historico": [
+            {
+              "versao": 3,
+              "data": "2026-05-10",
+              "status": "substituido",
+              "pdfViewUrl": "https://drive.google.com/file/d/157Yne2c_vOumBP73177UlQFy2azVP0tr/view",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=157Yne2c_vOumBP73177UlQFy2azVP0tr",
+              "anexos": []
+            },
             {
               "versao": 1,
               "data": "2026-04-24",
               "status": "substituido",
               "pdfViewUrl": "https://drive.google.com/file/d/1MOsXSCbTb3GEyJSRZq8chErJ_wylQoAW/view"
             }
-          ]
+          ],
+          "anexos": [
+            {
+              "titulo": "Alternativa de proposta CAR — reserva realocada",
+              "versaoVigente": 4,
+              "rotuloVersao": "V4",
+              "data": "2026-10-21",
+              "pdfViewUrl": "https://drive.google.com/file/d/1jPpqze9Z_pygVXPCWjMwAb-GAj7uBZMg/view?usp=drivesdk",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1jPpqze9Z_pygVXPCWjMwAb-GAj7uBZMg",
+              "pdfLocalUrl": "documents/produtos/out28/OS-02.01_proposta-car_reserva-realocada_V04_2026-10-21.pdf",
+              "papel": "reserva-realocada"
+            }
+          ],
+          "observacao": "Entrega V4 com partes identificadas. Reserva realocada é alternativa de estudo, sem indicação de aprovação preferencial."
         },
         {
           "tipo": "proposta-perimetro",
@@ -559,6 +626,14 @@ window.AURA_TITULARIDADE = {
           "responsavel": "Revisão interna",
           "status": "Em validação",
           "descricao": "CIT da matrícula de origem 1413 contém histórico e desmembramentos; confirmar titular e recorte atuais.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OUT28-02",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "Proposta CAR e sondagens V4 recebidas em 28/10/2026, com quatro partes identificadas. SHP anterior V3 preservado; vetores V4 não recebidos. Reserva realocada mantida como alternativa, não aprovação preferencial.",
           "prioridade": "Alta"
         }
       ],
@@ -2958,6 +3033,145 @@ window.AURA_TITULARIDADE = {
         "areaDeclaradaHa": 269.1182,
         "shpDownloadUrl": "https://drive.google.com/uc?export=download&id=1kyGOfZGalpeLITzdMJVGqeyUIsX-mdZw",
         "kmlDownloadUrl": "https://drive.google.com/uc?export=download&id=1TgffHiwnS5c5o-FUt5XAmXMg8vsioZvq"
+      }
+    },
+    "OS 02.14": {
+      "documentos": [],
+      "imovel": "Fazenda Santo Antônio",
+      "proprietarioInformado": "",
+      "titularConfirmado": "",
+      "statusTitularidade": "Proprietário e titular pendentes",
+      "matriculas": "",
+      "carTo": "",
+      "carFederal": "",
+      "telefone": "",
+      "fonteTitularidade": "",
+      "fonteCar": "",
+      "quantidadeProdutosVigentes": 4,
+      "produtosVersoesVigentes": "Diagnóstico de intervenções no CAR atual — geral (72,8498 ha): V1 + 1 anexo; Intervenções na análise CAR — geral (72,8498 ha): V1 + 1 anexo; Proposta CAR: V1; Proposta de perímetro: V1",
+      "ressalvas": "SHP original recebido com 8 classes e geometria válida. Limite UTM: 161,6092 ha, compatível com a carta. Não contém camadas próprias de reserva legal, servidão administrativa, nascentes ou recortes de intervenção exibidos nos PDFs. Áreas temáticas vetoriais diferem ligeiramente das cartas; valores mantidos com suas fontes, sem ajuste de geometria. Matrícula 3227: hipótese mencionada na carta, não vínculo registral confirmado. Proprietário, contato, recibo CAR e certidão pendentes. Cartas gerais: intervenção de 72,8498 ha. Anexos de detalhe: recorte de 0,4193 ha, mesma V1; não somar como áreas independentes.",
+      "atualizadoEm": "2026-10-28",
+      "codigo": "OS 02.14",
+      "sequencial": 31,
+      "produtos": [
+        {
+          "tipo": "diagnostico-car-atual",
+          "titulo": "Diagnóstico de intervenções no CAR atual — geral (72,8498 ha)",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-10-19",
+          "pdfViewUrl": "https://drive.google.com/file/d/1Gpp5tIRqQpHbEYos_9dYw_mRq2q7F6pV/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1Gpp5tIRqQpHbEYos_9dYw_mRq2q7F6pV",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.14_diagnostico-car-atual_V01_2026-10-19.pdf",
+          "status": "vigente",
+          "historico": [],
+          "anexos": [
+            {
+              "titulo": "Diagnóstico no CAR atual — detalhe da intervenção (0,4193 ha)",
+              "versaoVigente": 1,
+              "rotuloVersao": "V1",
+              "data": "2026-10-19",
+              "pdfViewUrl": "https://drive.google.com/file/d/1gQbU8JkW5X8CnFsIZpLiUkY0yxU49NCQ/view?usp=drivesdk",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1gQbU8JkW5X8CnFsIZpLiUkY0yxU49NCQ",
+              "pdfLocalUrl": "documents/produtos/out28/OS-02.14_diagnostico-car-atual_detalhe-intervencao_V01_2026-10-19.pdf",
+              "papel": "detalhe-intervencao"
+            }
+          ]
+        },
+        {
+          "tipo": "intervencoes-gerais",
+          "titulo": "Intervenções na análise CAR — geral (72,8498 ha)",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-10-19",
+          "pdfViewUrl": "https://drive.google.com/file/d/1S4BOJY6OD5buDB1Tjecd9VQQQApnoUe1/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1S4BOJY6OD5buDB1Tjecd9VQQQApnoUe1",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.14_intervencoes-gerais_V01_2026-10-19.pdf",
+          "status": "vigente",
+          "historico": [],
+          "anexos": [
+            {
+              "titulo": "Intervenções na análise CAR — detalhe (0,4193 ha)",
+              "versaoVigente": 1,
+              "rotuloVersao": "V1",
+              "data": "2026-10-19",
+              "pdfViewUrl": "https://drive.google.com/file/d/158uXL-th9EeIMQLY4d9vQB7_pfM_tzTX/view?usp=drivesdk",
+              "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=158uXL-th9EeIMQLY4d9vQB7_pfM_tzTX",
+              "pdfLocalUrl": "documents/produtos/out28/OS-02.14_intervencoes-gerais_detalhe-intervencao_V01_2026-10-19.pdf",
+              "papel": "detalhe-intervencao"
+            }
+          ]
+        },
+        {
+          "tipo": "proposta-car",
+          "titulo": "Proposta CAR",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-10-19",
+          "pdfViewUrl": "https://drive.google.com/file/d/1fbq-HhyXXpQmQogc45XIw2XRT_9YBYGc/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=1fbq-HhyXXpQmQogc45XIw2XRT_9YBYGc",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.14_proposta-car_V01_2026-10-19.pdf",
+          "status": "vigente",
+          "historico": [],
+          "anexos": []
+        },
+        {
+          "tipo": "proposta-perimetro",
+          "titulo": "Proposta de perímetro",
+          "versaoVigente": 1,
+          "rotuloVersao": "V1",
+          "data": "2026-10-19",
+          "pdfViewUrl": "https://drive.google.com/file/d/14_ZHVOiPkl6NCfTlq-Cxcf_AUZmIbZJh/view?usp=drivesdk",
+          "pdfDownloadUrl": "https://drive.google.com/uc?export=download&id=14_ZHVOiPkl6NCfTlq-Cxcf_AUZmIbZJh",
+          "pdfLocalUrl": "documents/produtos/out28/OS-02.14_proposta-perimetro_V01_2026-10-19.pdf",
+          "status": "vigente",
+          "historico": [],
+          "anexos": []
+        }
+      ],
+      "pendencias": [
+        {
+          "id": "OUT28-03",
+          "tipo": "Vetores",
+          "responsavel": "Revisão técnica",
+          "status": "Pendente",
+          "descricao": "SHP original recebido com 8 classes e geometria válida. Limite UTM: 161,6092 ha, compatível com a carta. Não contém camadas próprias de reserva legal, servidão administrativa, nascentes ou recortes de intervenção exibidos nos PDFs. Áreas temáticas vetoriais diferem ligeiramente das cartas; valores mantidos com suas fontes, sem ajuste de geometria.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OUT28-04",
+          "tipo": "Titularidade e contato",
+          "responsavel": "Gestão documental",
+          "status": "Pendente",
+          "descricao": "Obter certidão, titular, proprietário e contato. Matrícula 3227 é hipótese, não confirmação.",
+          "prioridade": "Alta"
+        },
+        {
+          "id": "OUT28-05",
+          "tipo": "CAR",
+          "responsavel": "Gestão documental",
+          "status": "Pendente",
+          "descricao": "Obter recibo e identificadores CAR próprios; códigos de imóveis vizinhos não devem ser atribuídos a esta OS.",
+          "prioridade": "Alta"
+        }
+      ],
+      "vetores": {
+        "codigo": "OS 02.14",
+        "versao": "V1",
+        "data": "2026-10-19",
+        "tituloPacote": "SHP recebido — 8 classes",
+        "formatoPacote": "SHP ZIP (8 classes recebidas)",
+        "status": "Recebido com ressalvas",
+        "camadaFonte": "V1_Fz_Santo_Antonio_19102026",
+        "ressalvas": "SHP original recebido com 8 classes e geometria válida. Limite UTM: 161,6092 ha, compatível com a carta. Não contém camadas próprias de reserva legal, servidão administrativa, nascentes ou recortes de intervenção exibidos nos PDFs. Áreas temáticas vetoriais diferem ligeiramente das cartas; valores mantidos com suas fontes, sem ajuste de geometria.",
+        "shpNome": "OS-02.14_Dados-vetoriais-recebidos_V01_2026-10-19.zip",
+        "shpDownloadUrl": "https://drive.google.com/uc?export=download&id=1g31BQiE603oAI9gPD0hFb41_FrQsB_Og",
+        "shpViewUrl": "https://drive.google.com/file/d/1g31BQiE603oAI9gPD0hFb41_FrQsB_Og/view?usp=drivesdk",
+        "shpLocalUrl": "downloads/out28/OS-02.14_Dados-vetoriais-recebidos_V01_2026-10-19.zip",
+        "kmlNome": "OS-02.14_Limite_V01_2026-10-19.kml",
+        "kmlDownloadUrl": "https://drive.google.com/uc?export=download&id=1uFZnQ803BZDW_gKcV4TfSw7f7O3094C_",
+        "kmlViewUrl": "https://drive.google.com/file/d/1uFZnQ803BZDW_gKcV4TfSw7f7O3094C_/view?usp=drivesdk",
+        "kmlLocalUrl": "downloads/out28/OS-02.14_Limite_V01_2026-10-19.kml"
       }
     }
   },
